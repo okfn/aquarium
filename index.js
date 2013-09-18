@@ -41,6 +41,7 @@ app.get('/login', user.showLogin);
 app.get('/setup', user.showSetup);
 app.post('/setup', user.createAdmin);
 app.post('/login', user.doLogin);
+app.get('/logout', user.doLogout);
 
 db.init(function() {
     var users = db.coll('users');

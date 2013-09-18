@@ -7,11 +7,11 @@ block content
         form(role='form', action='/setup', method='POST')
           .form-group
               label Email address
-              input.form-control(name='username', type='email', placeholder='Enter email', autofocus=true)
+              input.form-control(name='username', type='email', placeholder='Enter email', autofocus=true, autocomplete='off')
             .form-group
               label Password
               input.form-control(name='password', type='password', placeholder='Password')
             .form-group
               label Confirm Password
               input.form-control(name='confirm', type='password', placeholder='Confirm password')
-            button.btn.btn-primary(type='submit') Create Admin User
+            button.btn.btn-danger(type='submit') Create Admin User

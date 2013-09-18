@@ -91,6 +91,10 @@ module.exports = {
             });
         })(req, res, next);
     },
+    doLogout: function(req, res, next) {
+        req.logout();
+        res.redirect('/');
+    },
     validate: function(user) {
         var errors = [];
 
