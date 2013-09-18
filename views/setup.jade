@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-md-12
+        form.bs-example(role='form')
+          .form-group
+              label(for='exampleInputEmail1') Email address
+              input#exampleInputEmail1.form-control(type='email', placeholder='Enter email')
+            .form-group
+              label(for='exampleInputPassword1') Password
+              input#exampleInputPassword1.form-control(type='password', placeholder='Password')
+            button.btn.btn-primary(type='submit') Create Admin User
