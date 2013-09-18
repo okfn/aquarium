@@ -16,7 +16,10 @@ html
         nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-right(role='navigation')
           ul.nav.navbar-nav
             li
-              a(href='/login') Login
+              - if (user) 
+                a(href='/logout') Logout
+              - else
+                a(href='/login') Login
     block content
     script(src="/js/jquery-2.0.3.min.js")
     script(src="/js/bootstrap.js")
