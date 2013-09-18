@@ -8,9 +8,7 @@ exports['invalid if nothing'] = function(test) {
 
 exports['valid if all supplied'] = function(test) {
     test.equals(config.valid({
-        DB_NAME: 'x',
-        DB_HOST: 'x',
-        DB_PORT: 'x'
+        DB_PATH: 'x'
     }), true);
 
     test.done();
