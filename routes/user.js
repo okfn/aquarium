@@ -4,9 +4,9 @@ var db = require('../lib/db');
  * Show the login page. Redirects to /setup if no users at all.
  */
 exports.login = function(req, res) {
-    var accounts = db.coll("accounts");
+    var users = db.coll('users');
 
-    accounts.count(function(err, count) {
+    users.count(function(err, count) {
         if (count === 0) {
             res.redirect('/setup');
         } else {
@@ -18,9 +18,9 @@ exports.login = function(req, res) {
 };
 
 exports.setup = function(req, res) {
-    var accounts = db.coll("accounts");
+    var users = db.coll('users');
 
-    accounts.count(function(err, count) {
+    users.count(function(err, count) {
         if (count === 0) {
             res.render('setup', {
                 title: 'Admin User Setup'
