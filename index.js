@@ -3,6 +3,7 @@
 */
 
 var express = require('express'),
+    bcrypt = require('bcrypt'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     routes = require('./routes'),
@@ -39,12 +40,15 @@ app.get('/', routes.index);
 app.get('/login', user.showLogin);
 app.get('/setup', user.showSetup);
 app.post('/setup', user.createAdmin);
+app.post('/login', user.doLogin);
 
 db.init(function() {
     var users = db.coll('users');
 
     passport.use(new LocalStrategy(function(username, password, done) {
-        users.findOne(username, function(err, user) {
+        users.findOne({
+            _id: username
+        }, function(err, user) {
             if (err) {
                 done(err);
             } else if (user) {
@@ -61,11 +65,13 @@ db.init(function() {
         });
     }));
     passport.serializeUser(function(user, done) {
-        done(null, user.id);
+        done(null, user._id);
     });
 
     passport.deserializeUser(function(id, done) {
-        users.findOne(id, function(err, user) {
+        users.findOne({
+            _id: id
+        }, function(err, user) {
             done(err, user);
         });
     });
