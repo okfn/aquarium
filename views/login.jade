@@ -4,14 +4,12 @@ block content
   .container
     .row
       .col-md-12
-        form(role='form')
+        form(role='form', action='/login', method='POST')
           .form-group
-            label
-              | Email address
-              input.form-control(type='email', placeholder='Enter email')
-            .form-group
-              label
-                | Password
-                input.form-control(type='password', placeholder='Password')
-            button.btn.btn-primary(type='submit') Login
+            label Email address
+            input.form-control(name='username', type='email', placeholder='Enter email', autofocus=true)
+          .form-group
+            label Password
+            input.form-control(name='password', type='password', placeholder='Password')
+          button.btn.btn-primary(type='submit') Login
 
