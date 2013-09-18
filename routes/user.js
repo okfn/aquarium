@@ -1,6 +1,6 @@
 var bcrypt = require('bcrypt'),
     db = require('../lib/db'),
-    password = require('passport');
+    passport = require('passport');
 
 module.exports = {
     /**
@@ -42,7 +42,7 @@ module.exports = {
         var users = db.coll('users');
 
         users.count(function(err, count) {
-            var user = req.body.email,
+            var user = req.body.username,
                 pwd = req.body.password,
                 errors = module.exports.validate(req.body);
 
@@ -52,7 +52,7 @@ module.exports = {
                         users.insert({
                             _id: user,
                             admin: true,
-                            email: user,
+                            username: user,
                             hash: hash
                         }, function(err, users) {
                             var user;
@@ -79,10 +79,22 @@ module.exports = {
             }
         });
     },
+    doLogin: function(req, res, next) {
+        passport.authenticate('local', function(err, user, info) {
+            if (err) { return next(err) }
+            if (!user) {
+                return res.redirect('/login')
+            }
+            req.logIn(user, function(err) {
+                if (err) { return next(err); }
+                return res.redirect('/');
+            });
+        })(req, res, next);
+    },
     validate: function(user) {
         var errors = [];
 
-        if (!user.email) {
+        if (!user.username) {
             errors.push("Username required");
         }
         if (!user.password) {
