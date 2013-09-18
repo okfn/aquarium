@@ -4,11 +4,14 @@ block content
   .container
     .row
       .col-md-12
-        form.bs-example(role='form')
+        form(role='form', action='/setup', method='POST')
           .form-group
-              label(for='exampleInputEmail1') Email address
-              input.form-control(type='email', placeholder='Enter email')
+              label Email address
+              input.form-control(name='email', type='email', placeholder='Enter email', autofocus=true)
             .form-group
-              label(for='exampleInputPassword1') Password
-              input.form-control(type='password', placeholder='Password')
+              label Password
+              input.form-control(name='password', type='password', placeholder='Password')
+            .form-group
+              label Confirm Password
+              input.form-control(name='confirm', type='password', placeholder='Confirm password')
             button.btn.btn-primary(type='submit') Create Admin User
