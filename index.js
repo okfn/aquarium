@@ -8,7 +8,7 @@ var express = require('express'),
     LocalStrategy = require('passport-local').Strategy,
     routes = require('./routes'),
     user = require('./routes/user'),
-    dashboard = require('./routes/dashboard'),
+    admin = require('./routes/admin'),
     http = require('http'),
     path = require('path'),
     app = express(),
@@ -42,8 +42,8 @@ app.get('/', routes.index);
 // initialise user routes
 user.init(app);
 
-// initialise dashboard routes
-dashboard.init(app);
+// initialise admin routes
+admin.init(app);
 
 db.init(function() {
     var users = db.coll('users');
