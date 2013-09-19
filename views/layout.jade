@@ -13,7 +13,12 @@ html
             span.icon-bar
             span.icon-bar
           a.navbar-brand(href='/') Aquarium
-        nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-right(role='navigation')
+        nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-left(role='navigation')
+          ul.nav.navbar-nav
+            - if (user && user.admin)
+              li
+                a(href='/dashboard') Dashboard
+        nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-right
           ul.nav.navbar-nav
             li
               - if (user) 
