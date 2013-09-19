@@ -5909,3 +5909,9 @@ td.visible-print {
 body {
   margin: 70px 0 0;
 }
+.navbar .btn-link {
+  color: #999999;
+}
+.navbar .btn-link:hover {
+  text-decoration: none;
+}
