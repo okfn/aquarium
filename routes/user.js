@@ -3,6 +3,13 @@ var bcrypt = require('bcrypt'),
     passport = require('passport');
 
 module.exports = {
+    init: function(app) {
+        app.get('/login', module.exports.showLogin);
+        app.get('/setup', module.exports.showSetup);
+        app.post('/setup', module.exports.createAdmin);
+        app.post('/login', module.exports.doLogin);
+        app.get('/logout', module.exports.doLogout);
+    },
     /**
      * Show the login page. Redirects to /setup if no users at all.
      */

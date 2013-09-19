@@ -39,11 +39,8 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 
-app.get('/login', user.showLogin);
-app.get('/setup', user.showSetup);
-app.post('/setup', user.createAdmin);
-app.post('/login', user.doLogin);
-app.get('/logout', user.doLogout);
+// initialise user routes
+user.init(app);
 
 // initialise dashboard routes
 dashboard.init(app);
