@@ -12,9 +12,18 @@ module.exports = {
      * Shows the list of users to the admin. Redirects to / if not admin user.
      */
     index: function(req, res) {
-        res.render('dashboard', {
-            title: 'Admin Dashboard',
-            user: req.user
+        users.count(function(err, count) {
+            if (err) {
+                return janitor.error(res, err);
+            }
+
+            res.render('dashboard', {
+                countryCount: 0,
+                pageCount: 0,
+                userCount: count,
+                title: 'Admin Dashboard',
+                user: req.user
+            });
         });
     },
     showNewUser: function(req, res) {
