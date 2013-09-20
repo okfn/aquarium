@@ -1,5 +1,6 @@
 var bcrypt = require('bcrypt'),
     db = require('../lib/db'),
+    users = require('../lib/users'),
     passport = require('passport');
 
 module.exports = {
@@ -15,10 +16,8 @@ module.exports = {
      * Show the login page. Redirects to /setup if no users at all.
      */
     showLogin: function(req, res) {
-        var users = db.coll('users');
-
-        users.count(function(err, count) {
-            if (count === 0) {
+        users.isEmpty(function(err, empty) {
+            if (empty) {
                 res.redirect('/setup');
             } else {
                 res.render('login', {
@@ -32,10 +31,8 @@ module.exports = {
      * Show the setup page. Redirects to /login if there are users.
      */
     showSetup: function(req, res) {
-        var users = db.coll('users');
-
-        users.count(function(err, count) {
-            if (count === 0) {
+        users.isEmpty(function(err, empty) {
+            if (empty) {
                 res.render('setup', {
                     title: 'Admin User Setup'
                 });
@@ -48,14 +45,12 @@ module.exports = {
      * Creates the admin user. 500s if there's already any user in the database.
      */
     createAdmin: function(req, res) {
-        var users = db.coll('users');
-
-        users.count(function(err, count) {
+        users.isEmpty(function(err, empty) {
             var user = req.body.username,
                 pwd = req.body.password,
                 errors = module.exports.validate(req.body);
 
-            if (count === 0) {
+            if (empty) {
                 if (errors.length === 0) {
                     bcrypt.hash(pwd, 10, function(err, hash) {
                         users.insert({
