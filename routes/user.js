@@ -1,5 +1,4 @@
-var bcrypt = require('bcrypt'),
-    db = require('../lib/db'),
+var db = require('../lib/db'),
     users = require('../lib/users'),
     passport = require('passport');
 
@@ -52,25 +51,24 @@ module.exports = {
 
             if (empty) {
                 if (errors.length === 0) {
-                    bcrypt.hash(pwd, 10, function(err, hash) {
-                        users.insert({
-                            _id: user,
+                    users.insert({
+                        password: password,
+                        user: {
                             admin: true,
-                            username: user,
-                            hash: hash
-                        }, function(err, user) {
-                            if (err) {
-                                res.send(500, err);
-                            } else {
-                                req.logIn(user, function(err, a, b) {
-                                    if (err) {
-                                        res.send(500, err);
-                                    } else {
-                                        res.redirect('/');
-                                    }
-                                });
-                            }
-                        });
+                            username: user
+                        }
+                    }, function(err, user) {
+                        if (err) {
+                            res.send(500, err);
+                        } else {
+                            req.logIn(user, function(err, a, b) {
+                                if (err) {
+                                    res.send(500, err);
+                                } else {
+                                    res.redirect('/');
+                                }
+                            });
+                        }
                     });
                 } else {
                     res.send(403, errors.join(', '));
