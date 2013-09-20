@@ -58,14 +58,11 @@ module.exports = {
                             admin: true,
                             username: user,
                             hash: hash
-                        }, function(err, users) {
-                            var user;
+                        }, function(err, user) {
                             if (err) {
                                 res.send(500, err);
                             } else {
-                                user = users[0];
                                 req.logIn(user, function(err, a, b) {
-                                    console.log(req.user);
                                     if (err) {
                                         res.send(500, err);
                                     } else {
