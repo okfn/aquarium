@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 Admin Actions
+        .alert.alert-info
+          | There are #{userCount} users from #{countryCount} tracking #{pageCount} URLs.
+        div
+          a.btn.btn-default(href='/users/new', type='button') Add User

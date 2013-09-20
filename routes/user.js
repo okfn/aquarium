@@ -1,19 +1,26 @@
-var bcrypt = require('bcrypt'),
-    db = require('../lib/db'),
+var db = require('../lib/db'),
+    users = require('../lib/users'),
     passport = require('passport');
 
 module.exports = {
+    init: function(app) {
+        app.delete('/logout', module.exports.doLogout);
+
+        app.get('/login', module.exports.showLogin);
+        app.get('/setup', module.exports.showSetup);
+        app.post('/setup', module.exports.createAdmin);
+        app.post('/login', module.exports.doLogin);
+    },
     /**
      * Show the login page. Redirects to /setup if no users at all.
      */
     showLogin: function(req, res) {
-        var users = db.coll('users');
-
-        users.count(function(err, count) {
-            if (count === 0) {
+        users.isEmpty(function(err, empty) {
+            if (empty) {
                 res.redirect('/setup');
             } else {
                 res.render('login', {
+                    isLogin: true,
                     title: 'Login'
                 });
             }
@@ -23,10 +30,8 @@ module.exports = {
      * Show the setup page. Redirects to /login if there are users.
      */
     showSetup: function(req, res) {
-        var users = db.coll('users');
-
-        users.count(function(err, count) {
-            if (count === 0) {
+        users.isEmpty(function(err, empty) {
+            if (empty) {
                 res.render('setup', {
                     title: 'Admin User Setup'
                 });
@@ -39,37 +44,31 @@ module.exports = {
      * Creates the admin user. 500s if there's already any user in the database.
      */
     createAdmin: function(req, res) {
-        var users = db.coll('users');
-
-        users.count(function(err, count) {
+        users.isEmpty(function(err, empty) {
             var user = req.body.username,
                 pwd = req.body.password,
                 errors = module.exports.validate(req.body);
 
-            if (count === 0) {
+            if (empty) {
                 if (errors.length === 0) {
-                    bcrypt.hash(pwd, 10, function(err, hash) {
-                        users.insert({
-                            _id: user,
+                    users.insert({
+                        password: password,
+                        user: {
                             admin: true,
-                            username: user,
-                            hash: hash
-                        }, function(err, users) {
-                            var user;
-                            if (err) {
-                                res.send(500, err);
-                            } else {
-                                user = users[0];
-                                req.logIn(user, function(err, a, b) {
-                                    console.log(req.user);
-                                    if (err) {
-                                        res.send(500, err);
-                                    } else {
-                                        res.redirect('/');
-                                    }
-                                });
-                            }
-                        });
+                            username: user
+                        }
+                    }, function(err, user) {
+                        if (err) {
+                            res.send(500, err);
+                        } else {
+                            req.logIn(user, function(err, a, b) {
+                                if (err) {
+                                    res.send(500, err);
+                                } else {
+                                    res.redirect('/');
+                                }
+                            });
+                        }
                     });
                 } else {
                     res.send(403, errors.join(', '));

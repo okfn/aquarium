@@ -13,12 +13,18 @@ html
             span.icon-bar
             span.icon-bar
           a.navbar-brand(href='/') Aquarium
-        nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-right(role='navigation')
+        nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-left(role='navigation')
+          ul.nav.navbar-nav
+            - if (user && user.admin)
+              li
+                a(href='/dashboard') Dashboard
+        nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-right
           ul.nav.navbar-nav
             li
               - if (user) 
-                a(href='/logout') Logout
-              - else
+                form.navbar-form(method='DELETE', action='/logout')
+                  button.btn.btn-link(type="submit", href='/logout') Logout
+              - else if (!isLogin)
                 a(href='/login') Login
     block content
     script(src="/js/jquery-2.0.3.min.js")
