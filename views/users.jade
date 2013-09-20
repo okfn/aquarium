@@ -6,10 +6,6 @@ block content
       .panel.panel-primary
         .panel-heading 
           h2.panel-title User List
-        .panel-body
-          .row
-            .col-md-12
-              a.btn.btn-default(href='/users/new') Add User
         .list-group
         - each user in users
           .list-group-item
@@ -17,9 +13,9 @@ block content
             .list-group-item-text
               .row
                 .col-md-4
-                  a(href="mailto:#{user.username}")=user.username
+                  a(href="mailto:#{user.username}", target="_blank")=user.username
                 .col-md-4
-                  =user.country
+                  a(href="https://www.google.co.nz/maps/preview#!q=#{user.country}", target="_blank")=user.country
                 .col-md-4
                   | Tracking #{user.sites.length} sites
         .panel-footer
