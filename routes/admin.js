@@ -5,6 +5,7 @@ module.exports = {
     init: function(app) {
         app.get('/dashboard', isAdmin, module.exports.index);
         app.get('/users/new', isAdmin, module.exports.showNewUser);
+        app.get('/users', isAdmin, module.exports.listUsers);
 
         app.post('/users', isAdmin, module.exports.addNewUser);
     },
@@ -23,6 +24,19 @@ module.exports = {
                 userCount: count,
                 title: 'Admin Dashboard',
                 user: req.user
+            });
+        });
+    },
+    listUsers: function(req, res) {
+        users.list(function(err, users) {
+            if (err) {
+                return janitor.error(res, err);
+            }
+
+            res.render('users', {
+                title: 'User List',
+                user: req.user,
+                users: users
             });
         });
     },
