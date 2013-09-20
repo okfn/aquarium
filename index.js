@@ -7,7 +7,7 @@ var express = require('express'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     routes = require('./routes'),
-    user = require('./routes/user'),
+    users = require('./routes/users'),
     admin = require('./routes/admin'),
     http = require('http'),
     path = require('path'),
@@ -37,12 +37,9 @@ if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
 
+// initialise routes
 app.get('/', routes.index);
-
-// initialise user routes
-user.init(app);
-
-// initialise admin routes
+users.init(app);
 admin.init(app);
 
 db.init(function() {
