@@ -23,7 +23,7 @@ html
             li
               - if (user) 
                 form.navbar-form(method='DELETE', action='/logout')
-                  button.btn.btn-link(type="submit", href='/logout') Logout
+                  button.btn.btn-link(type="submit") Logout
               - else if (!isLogin)
                 a(href='/login') Login
     block content
