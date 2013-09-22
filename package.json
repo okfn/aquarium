@@ -15,7 +15,8 @@
     "properties": "~0.3.3",
     "underscore": "~1.5.2",
     "bcrypt": "~0.7.7",
-    "passport-local": "~0.1.6"
+    "passport-local": "~0.1.6",
+    "connect-mongo": "~0.3.3"
   },
   "devDependencies": {
     "nodeunit": "~0.8.1",
