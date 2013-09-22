@@ -12,41 +12,46 @@ var express = require('express'),
     http = require('http'),
     path = require('path'),
     app = express(),
-    db = require('./lib/db');
+    config = require('./lib/config'),
+    db = require('./lib/db'),
+    MongoStore = require('connect-mongo')(express);
 
-// all environments
-app.set('port', process.env.PORT || 3000);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(express.cookieParser('your secret here'));
-app.use(express.session({
-    secret: 'session secret'
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(app.router);
-app.use(require('less-middleware')({ src: __dirname + '/public' }));
-app.use(express.static(path.join(__dirname, 'public')));
+db.init(function(err, database) {
+    var userColl = db.coll('users');
 
-// development only
-if ('development' == app.get('env')) {
-    app.use(express.errorHandler());
-}
+    // all environments
+    app.set('port', process.env.PORT || 3000);
+    app.set('views', __dirname + '/views');
+    app.set('view engine', 'jade');
+    app.use(express.favicon());
+    app.use(express.logger('dev'));
+    app.use(express.bodyParser());
+    app.use(express.methodOverride());
+    app.use(express.cookieParser(config.COOKIE_SECRET));
+    app.use(express.session({
+        secret: config.SESSION_SECRET,
+        store: new MongoStore({
+            db: database
+        })
+    }));
+    app.use(passport.initialize());
+    app.use(passport.session());
+    app.use(app.router);
+    app.use(require('less-middleware')({ src: __dirname + '/public' }));
+    app.use(express.static(path.join(__dirname, 'public')));
 
-// initialise routes
-app.get('/', routes.index);
-users.init(app);
-admin.init(app);
+    // development only
+    if ('development' == app.get('env')) {
+        app.use(express.errorHandler());
+    }
 
-db.init(function() {
-    var users = db.coll('users');
+    // initialise routes
+    routes.init(app);
+    users.init(app);
+    admin.init(app);
 
     passport.use(new LocalStrategy(function(username, password, done) {
-        users.findOne({
+        userColl.findOne({
             _id: username
         }, function(err, user) {
             if (err) {
@@ -64,12 +69,13 @@ db.init(function() {
             }
         });
     }));
+
     passport.serializeUser(function(user, done) {
         done(null, user._id);
     });
 
     passport.deserializeUser(function(id, done) {
-        users.findOne({
+        userColl.findOne({
             _id: id
         }, function(err, user) {
             done(err, user);
