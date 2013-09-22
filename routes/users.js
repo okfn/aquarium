@@ -1,14 +1,19 @@
 var db = require('../lib/db'),
     users = require('../lib/users'),
+    sites = require('../lib/sites'),
     passport = require('passport');
 
 module.exports = {
     init: function(app) {
-        app.delete('/logout', module.exports.doLogout);
+        app.post('/logout', module.exports.doLogout);
 
         app.get('/login', module.exports.showLogin);
+        app.get('/sites', isAuthenticated, module.exports.showSites);
 
-        app.post('/login', module.exports.doLogin);
+        app.post('/login', passport.authenticate('local', {
+            failureRedirect: '/login',
+            successRedirect: '/'
+        }));
     },
     /**
      * Show the login page. Redirects to /setup if no users at all.
@@ -25,17 +30,13 @@ module.exports = {
             }
         });
     },
-    doLogin: function(req, res, next) {
-        passport.authenticate('local', function(err, user, info) {
-            if (err) { return next(err) }
-            if (!user) {
-                return res.redirect('/login')
-            }
-            req.logIn(user, function(err) {
-                if (err) { return next(err); }
-                return res.redirect('/');
+    showSites: function(req, res) {
+        sites.list({}, function(err, sites) {
+            res.render('sites', {
+                sites: sites,
+                title: 'Sites'
             });
-        })(req, res, next);
+        });
     },
     doLogout: function(req, res, next) {
         req.logout();
@@ -58,3 +59,11 @@ module.exports = {
         return errors;
     }
 };
+
+function isAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        next();
+    } else {
+        res.redirect('/');
+    }
+}
