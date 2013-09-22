@@ -24,11 +24,14 @@ html
                   a(href='/sites') Sites
         nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-right
           ul.nav.navbar-nav
-            li
-              - if (user) 
+            - if (user) 
+              li
+                button.btn.navbar-btn.btn-link=user.username
+              li
                 form.navbar-form(method='POST', action='/logout')
                   button.btn.btn-link(type="submit") Logout
-              - else if (!isLogin)
+            - else if (!isLogin)
+              li
                 a(href='/login') Login
     block content
     script(src="/js/jquery-2.0.3.min.js")
