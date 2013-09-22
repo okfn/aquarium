@@ -76,8 +76,7 @@ module.exports = {
                 countryCount: 0,
                 pageCount: 0,
                 userCount: count,
-                title: 'Admin Dashboard',
-                user: req.user
+                title: 'Admin Dashboard'
             });
         });
     },
@@ -89,15 +88,13 @@ module.exports = {
 
             res.render('users', {
                 title: 'User List',
-                user: req.user,
                 users: users
             });
         });
     },
     showNewUser: function(req, res) {
         res.render('newuser', {
-            title: 'New User',
-            user: req.user
+            title: 'New User'
         });
     },
     addNewUser: function(req, res) {
