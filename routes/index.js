@@ -4,9 +4,14 @@ var passport = require('passport');
  * GET home page.
 */
 
-exports.index = function(req, res, next){
-    res.render('index', {
-        title: 'Aquarium',
-        user: req.user
-    });
+module.exports = {
+    init: function(app) {
+        app.get('/', module.exports.index);
+    },
+    index: function(req, res) {
+        res.render('index', {
+            title: 'Aquarium',
+            user: req.user
+        });
+    }
 };

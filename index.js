@@ -38,7 +38,7 @@ if ('development' == app.get('env')) {
 }
 
 // initialise routes
-app.get('/', routes.index);
+routes.init(app);
 users.init(app);
 admin.init(app);
 
