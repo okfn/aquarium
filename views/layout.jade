@@ -15,15 +15,19 @@ html
           a.navbar-brand(href='/') Aquarium
         nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-left(role='navigation')
           ul.nav.navbar-nav
-            - if (user && user.admin)
-              li
-                a(href='/dashboard') Dashboard
+            - if (user) 
+              - if (user.admin)
+                li
+                  a(href='/dashboard') Dashboard
+              - else
+                li
+                  a(href='/sites') Sites
         nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-right
           ul.nav.navbar-nav
             li
               - if (user) 
-                form.navbar-form(method='DELETE', action='/logout')
-                  button.btn.btn-link(type="submit", href='/logout') Logout
+                form.navbar-form(method='POST', action='/logout')
+                  button.btn.btn-link(type="submit") Logout
               - else if (!isLogin)
                 a(href='/login') Login
     block content
