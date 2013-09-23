@@ -39,14 +39,12 @@ module.exports = {
     },
     createSite: function(req, res) {
         var options = {
-            url: req.body.url
+            title: req.body.title,
+            type: req.body.type,
+            url: req.body.url,
+            username: req.user.username
         };
 
-        if (req.user.admin) {
-            options.username = req.body.username;
-        } else {
-            options.username = req.user.username;
-        }
         sites.insert(options, function(err) {
             if (err) {
                 return janitor.error(res, err);

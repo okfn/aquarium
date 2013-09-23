@@ -5,15 +5,23 @@ block content
     .row
       .col-md-12
         form(role='form', action='/sites', method='POST')
-          - if (user.admin)
-            .form-group
-                label For User
-                select.form-control(name='username')
-                  - for user in users
-                    option(value=user.username) #{user.name} (#{user.username})
+          .form-group
+            label Document Type
+            select.form-control(name='type')
+              option(value="Pre-Budget Statement") Pre-Budget Statement
+              option(value="Executive's Budget Proposal") Executive's Budget Proposal
+              option(value="Enacted Budget") Enacted Budget 
+              option(value="Citizen's Budget") Citizen's Budget
+              option(value="In-Year Report") In-Year Report
+              option(value="Mid-year Review") Mid-year Review
+              option(value="Year-End Report") Year-End Report
+              option(value="Audit Report") Audit Report
+          .form-group
+            label Document Title
+            input.form-control(name='title', type='text', placeholder='Document Title', autofocus='true', autocomplete='off')
           .form-group
               label URL
-              input.form-control(name='url', type='text', placeholder='http://example.com/budget', autofocus=true, autocomplete='off')
+              input.form-control(name='url', type='text', placeholder='http://example.com/budget', autocomplete='off')
           button.btn.btn-primary(type='submit') Add
           a.btn.btn-link(href='/sites') Cancel
 
