@@ -1,6 +1,7 @@
 var db = require('../lib/db'),
     janitor = require('../lib/janitor'),
-    sites = require('../lib/sites');
+    sites = require('../lib/sites'),
+    users = require('../lib/users');
 
 module.exports = {
     init: function(app) {
@@ -24,8 +25,14 @@ module.exports = {
         });
     },
     newSite: function(req, res) {
-        res.render('newsite', {
-            title: 'Sites'
+        users.list(function(err, users) {
+            if (err) {
+                return janitor.error(res, err);
+            }
+            res.render('newsite', {
+                title: 'Sites',
+                users: users
+            });
         });
     },
     createSite: function(req, res) {

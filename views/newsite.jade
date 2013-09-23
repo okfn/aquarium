@@ -8,9 +8,9 @@ block content
           - if (user.admin)
             .form-group
                 label For User
-                select.form-control(name='user')
+                select.form-control(name='username')
                   - for user in users
-                    option(value=user._id) #{user.name} (#{user.username})
+                    option(value=user.username) #{user.name} (#{user.username})
           .form-group
               label URL
               input.form-control(name='url', type='text', placeholder='http://example.com/budget', autofocus=true, autocomplete='off')
