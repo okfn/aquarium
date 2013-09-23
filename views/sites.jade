@@ -9,11 +9,13 @@ block content
         .list-group
         - each site in sites
           .list-group-item
-            h4.list-group-item-heading= site.url
+            h4.list-group-item-heading=site.url
             .list-group-item-text
               .row
-                .col-md-12
-                  =site.last_modified
+                .col-md-8
+                  | Last modified #{moment(site.last_modified).format('LLLL')}
+                .col-md-4
+                  button.btn.btn-xs.btn-danger Delete
         .panel-footer
           .row
             .col-md-12

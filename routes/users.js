@@ -1,6 +1,5 @@
 var db = require('../lib/db'),
     users = require('../lib/users'),
-    sites = require('../lib/sites'),
     passport = require('passport');
 
 module.exports = {
@@ -8,7 +7,6 @@ module.exports = {
         app.post('/logout', module.exports.doLogout);
 
         app.get('/login', module.exports.showLogin);
-        app.get('/sites', isAuthenticated, module.exports.showSites);
 
         app.post('/login', passport.authenticate('local', {
             failureRedirect: '/login',
@@ -28,14 +26,6 @@ module.exports = {
                     title: 'Login'
                 });
             }
-        });
-    },
-    showSites: function(req, res) {
-        sites.list({}, function(err, sites) {
-            res.render('sites', {
-                sites: sites,
-                title: 'Sites'
-            });
         });
     },
     doLogout: function(req, res, next) {
@@ -59,11 +49,3 @@ module.exports = {
         return errors;
     }
 };
-
-function isAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        next();
-    } else {
-        res.redirect('/');
-    }
-}
