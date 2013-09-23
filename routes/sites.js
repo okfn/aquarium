@@ -9,6 +9,7 @@ module.exports = {
         app.get('/sites/new', isAuthenticated, module.exports.newSite);
 
         app.post('/sites', isAuthenticated, module.exports.createSite);
+        app.post('/sites/:username/:created_at/remove', isAuthenticated, module.exports.removeSite);
     },
     /**
      * Show the list of sites for the logged in user, or *all* sites if admin.
@@ -52,6 +53,19 @@ module.exports = {
 
             res.redirect('/sites');
         })
+    },
+    removeSite: function(req, res) {
+        debugger;
+        sites.remove({
+            username: req.params.username,
+            created_at: req.params.created_at
+        }, function(err) {
+            if (err) {
+                return janitor.error(res, err);
+            }
+
+            res.redirect('/sites');
+        });
     }
 };
 
