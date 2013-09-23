@@ -6,6 +6,7 @@ var db = require('../lib/db'),
 module.exports = {
     init: function(app) {
         app.get('/documents', isAuthenticated, module.exports.showDocs);
+        app.get('/documents/new', isAuthenticated, module.exports.newDoc);
     },
     showDocs: function(req, res) {
         docs.list({
@@ -15,8 +16,14 @@ module.exports = {
                 return janitor.error(res, err);
             }
             res.render('documents', {
-                docs: docs
+                docs: docs,
+                title: 'User Documents'
             });
+        });
+    },
+    newDoc: function(req, res) {
+        res.render('newdoc', {
+            title: 'New Document'
         });
     }
 };

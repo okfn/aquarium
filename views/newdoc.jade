@@ -1,0 +1,81 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-md-12
+        form(role='form', action='/documents', method='POST')
+          .form-group
+            label Budget Document
+            select.form-control(name="type")
+              option(value="Pre-Budget Statement") Pre-Budget Statement
+              option(value="Executive’s Budget Proposal") Executive’s Budget Proposal
+              option(value="Enacted Budget ") Enacted Budget 
+              option(value="Citizen's Budget") Citizen's Budget
+              option(value="In-Year Report") In-Year Report
+              option(value="Mid-year Review") Mid-year Review
+              option(value="Year-End Report") Year-End Report
+              option(value="Audit Report") Audit Report
+          .form-group
+            label Document Title
+            input.form-control(type="text", placeholder="Document Title", autofocus="true")
+          .form-group
+            label Publicly Available
+            div
+              .btn-group(data-toggle="buttons")
+                label.btn.btn-default
+                  input(type="radio", name="available", value="yes")
+                  | Yes
+                label.btn.btn-default.active
+                  input(type="radio", name="available", value="no", selected="selected")
+                  | No
+          .form-group
+            label Location 
+            div
+              .btn-group(data-toggle="buttons")
+                label.btn.btn-default
+                  input(type="radio", name="location", value="Website")
+                  | Website
+                label.btn.btn-default
+                  input(type="radio", name="location", value="Government Office")
+                  | Government Office
+                label.btn.btn-default
+                  input(type="radio", name="location", value="Public Library")
+                  | Public Library
+                label.btn.btn-default
+                  input(type="radio", name="location", value="Other")
+                  | Other
+          .form-group
+            input.form-control(type="text", name='location-detail', placeholder="Details of location")
+          .form-group
+            label Web Link
+            input.form-control(type="text", name='link', placeholder='http://example.com/document.htm')
+          .form-group
+            label Date of Publication
+            input.form-control(type="text", name='date-published', placeholder='1 Jan 2014')
+          .form-group
+            label Date Received
+            input.form-control(type="text", name='date-received', placeholder='1 Jan 2014')
+          .form-group
+            label Soft copy attached
+            div
+              .btn-group(data-toggle="buttons")
+                label.btn.btn-default
+                  input(type="radio", name="softcopy", value="yes")
+                  | Yes
+                label.btn.btn-default.active
+                  input(type="radio", name="softcopy", value="no", selected="selected")
+                  | No
+          .form-group
+            label Scanned First/Last Page Attached
+            div
+              .btn-group(data-toggle="buttons")
+                label.btn.btn-default
+                  input(type="radio", name="scanned-pages", value="yes")
+                  | Yes
+                label.btn.btn-default.active
+                  input(type="radio", name="scanned-pages", value="no", selected="selected")
+                  | No
+            
+          button.btn.btn-primary(type='submit') Add
+          a.btn.btn-link(href='/documents') Cancel
