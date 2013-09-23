@@ -56,7 +56,6 @@ module.exports = {
         })
     },
     removeSite: function(req, res) {
-        debugger;
         sites.remove({
             username: req.params.username,
             created_at: req.params.created_at

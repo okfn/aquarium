@@ -8,7 +8,6 @@ module.exports = {
         app.get('/documents', isAuthenticated, module.exports.showDocs);
     },
     showDocs: function(req, res) {
-        debugger;
         docs.list({
             username: req.user.username
         }, function(err, docs) {
