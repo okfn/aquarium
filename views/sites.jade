@@ -13,7 +13,7 @@ block content
             .list-group-item-text
               .row
                 .col-md-8
-                  =moment(site.last_modified).format('LLLL')
+                  | Last modified #{moment(site.last_modified).format('LLLL')}
                 .col-md-4
                   button.btn.btn-xs.btn-danger Delete
         .panel-footer
