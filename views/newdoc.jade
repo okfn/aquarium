@@ -6,7 +6,7 @@ block content
       .col-md-12
         form(role='form', action='/documents', method='POST')
           .form-group
-            label Budget Document
+            label Document Type
             select.form-control(name="type")
               option(value="Pre-Budget Statement") Pre-Budget Statement
               option(value="Executive’s Budget Proposal") Executive’s Budget Proposal
@@ -18,7 +18,7 @@ block content
               option(value="Audit Report") Audit Report
           .form-group
             label Document Title
-            input.form-control(type="text", placeholder="Document Title", autofocus="true")
+            input.form-control(name="title", type="text", placeholder="Document Title", autofocus="true")
           .form-group
             label Publicly Available
             div
