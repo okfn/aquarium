@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-md-12
+        form(role='form', action='/sites', method='POST')
+          - if (user.admin)
+            .form-group
+                label For User
+                select.form-control(name='user')
+                  - for user in users
+                    option(value=user._id) #{user.name} (#{user.username})
+          .form-group
+              label URL
+              input.form-control(name='url', type='text', placeholder='http://example.com/budget', autofocus=true, autocomplete='off')
+          button.btn.btn-primary(type='submit') Add
+          a.btn.btn-link(href='/sites') Cancel
+

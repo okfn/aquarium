@@ -6,9 +6,11 @@ var express = require('express'),
     bcrypt = require('bcrypt'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
+    moment = require('moment'),
     routes = require('./routes'),
     users = require('./routes/users'),
     admin = require('./routes/admin'),
+    sites = require('./routes/sites'),
     http = require('http'),
     path = require('path'),
     app = express(),
@@ -38,6 +40,7 @@ db.init(function(err, database) {
     app.use(passport.session());
     app.use(function(req, res, next) {
         res.locals.user = req.user;
+        res.locals.moment = moment;
         next();
     });
     app.use(app.router);
@@ -53,6 +56,7 @@ db.init(function(err, database) {
     routes.init(app);
     users.init(app);
     admin.init(app);
+    sites.init(app);
 
     passport.use(new LocalStrategy(function(username, password, done) {
         userColl.findOne({
