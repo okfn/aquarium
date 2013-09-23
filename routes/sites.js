@@ -1,4 +1,5 @@
 var db = require('../lib/db'),
+    isAuthenticated = require('../lib/auth'),
     janitor = require('../lib/janitor'),
     sites = require('../lib/sites'),
     users = require('../lib/users');
@@ -68,12 +69,4 @@ module.exports = {
         });
     }
 };
-
-function isAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        next();
-    } else {
-        res.redirect('/');
-    }
-}
 
