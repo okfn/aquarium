@@ -37,7 +37,7 @@ module.exports = {
             if (empty) {
                 if (errors.length === 0) {
                     users.insert({
-                        password: password,
+                        password: pwd,
                         user: {
                             admin: true,
                             username: user
