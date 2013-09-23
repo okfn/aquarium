@@ -10,6 +10,7 @@ var express = require('express'),
     routes = require('./routes'),
     users = require('./routes/users'),
     admin = require('./routes/admin'),
+    documents = require('./routes/documents'),
     sites = require('./routes/sites'),
     http = require('http'),
     path = require('path'),
@@ -56,6 +57,7 @@ db.init(function(err, database) {
     routes.init(app);
     users.init(app);
     admin.init(app);
+    documents.init(app);
     sites.init(app);
 
     passport.use(new LocalStrategy(function(username, password, done) {

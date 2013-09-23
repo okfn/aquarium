@@ -7,16 +7,16 @@ block content
         .panel-heading 
           h2.panel-title Sites
         .list-group
-        - each site in sites
-          .list-group-item
-            h4.list-group-item-heading=site.url
-            .list-group-item-text
-              .row
-                .col-md-8
-                  | Last modified #{moment(site.last_modified).format('LLLL')}
-                .col-md-4
-                  form.inline-form(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/remove')
-                    button.btn.btn-xs.btn-danger(type='submit') Delete
+          - each site in sites
+            .list-group-item
+              h4.list-group-item-heading=site.url
+              .list-group-item-text
+                .row
+                  .col-md-8
+                    | Last modified #{moment(site.last_modified).format('LLLL')}
+                  .col-md-4
+                    form.inline-form(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/remove')
+                      button.btn.btn-xs.btn-danger(type='submit') Delete
         .panel-footer
           .row
             .col-md-12
