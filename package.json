@@ -17,7 +17,8 @@
     "bcrypt": "~0.7.7",
     "passport-local": "~0.1.6",
     "connect-mongo": "~0.3.3",
-    "moment": "~2.2.1"
+    "moment": "~2.2.1",
+    "async": "~0.2.9"
   },
   "devDependencies": {
     "nodeunit": "~0.8.1",
