@@ -5907,7 +5907,7 @@ td.visible-print {
   }
 }
 body {
-  margin: 70px 0 0;
+  margin: 70px 0 30px;
 }
 .navbar .btn-link {
   color: #999999;
