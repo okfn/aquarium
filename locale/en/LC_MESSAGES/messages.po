@@ -1,16 +1,16 @@
 # English translations for PACKAGE package.
 # Copyright (C) 2013 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Rowan Crawford <EMAIL@ADDRESS>, 2013.
+# Automatically generated, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-25 09:40+1200\n"
-"PO-Revision-Date: 2013-09-25 10:02+1200\n"
-"Last-Translator: Rowan Crawford <EMAIL@ADDRESS>\n"
-"Language-Team: English\n"
+"PO-Revision-Date: 2013-09-25 09:40+1200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
