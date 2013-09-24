@@ -17,6 +17,7 @@ var express = require('express'),
     app = express(),
     config = require('./lib/config'),
     db = require('./lib/db'),
+    i18n = require('i18n-abide'),
     MongoStore = require('connect-mongo')(express);
 
 db.init(function(err, database) {
@@ -39,6 +40,11 @@ db.init(function(err, database) {
     }));
     app.use(passport.initialize());
     app.use(passport.session());
+    app.use(i18n.abide({
+        default_lang: 'en',
+        supported_languages: ['en'],
+        translation_directory: 'locale'
+    }));
     app.use(function(req, res, next) {
         res.locals.user = req.user;
         res.locals.moment = moment;

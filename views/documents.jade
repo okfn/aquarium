@@ -5,7 +5,7 @@ block content
     .row
       .panel.panel-primary
         .panel-heading 
-          h2.panel-title Sites
+          h2.panel-title=gettext('Sites')
         .list-group
           - each doc in docs
             .list-group-item
@@ -17,11 +17,10 @@ block content
                 .row
                   .col-md-4
                     a(href=doc.url, target="_blank")=doc.url
-                  .col-md-4 Received #{doc.date_received}
-                  .col-md-4
-                    | Last modified #{moment(doc.last_modified).format('HH:mm DD MMM YYYY')}
+                  .col-md-4=format('Received %s', doc.date_received)
+                  .col-md-4=format('Last modified %s', moment(doc.last_modified).format('HH:mm DD MMM YYYY'))
         .panel-footer
           .row
             .col-md-12
-              a.btn.btn-default(href='/documents/new') Add Document
+              a.btn.btn-default(href='/documents/new')=gettext("Add Document")
 

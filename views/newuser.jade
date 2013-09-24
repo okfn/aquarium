@@ -6,283 +6,283 @@ block content
       .col-md-12
         form(role='form', action='/users', method='POST')
           .form-group
-              label Email address
+              label=gettext("Email address")
               input.form-control(name='username', type='email', placeholder='email@example.com', autofocus=true, autocomplete='off')
           .form-group
-              label Name
-              input.form-control(name='name', type='text', placeholder='Name', autocomplete='off')
+              label=gettext("Name")
+              input.form-control(name='name', type='text', placeholder=gettext('Name'), autocomplete='off')
           .form-group
-              label Country
+              label=gettext("Country")
               select.form-control(name='country')
-                option(value="AF - Afghanistan") Afghanistan
-                option(value="AL - Albania") Albania
-                option(value="DZ - Algeria") Algeria
-                option(value="AS - American Samoa") American Samoa
-                option(value="AD - Andorra") Andorra
-                option(value="AO - Angola") Angola
-                option(value="AI - Anguilla") Anguilla
-                option(value="AQ - Antarctica") Antarctica
-                option(value="AG - Antigua and Barbuda") Antigua and Barbuda
-                option(value="AR - Argentina") Argentina
-                option(value="AM - Armenia") Armenia
-                option(value="AW - Aruba") Aruba
-                option(value="AU - Australia") Australia
-                option(value="AT - Austria") Austria
-                option(value="AZ - Azerbaijan") Azerbaijan
-                option(value="BS - Bahamas") Bahamas
-                option(value="BH - Bahrain") Bahrain
-                option(value="BD - Bangladesh") Bangladesh
-                option(value="BB - Barbados") Barbados
-                option(value="BY - Belarus") Belarus
-                option(value="BE - Belgium") Belgium
-                option(value="BZ - Belize") Belize
-                option(value="BJ - Benin") Benin
-                option(value="BM - Bermuda") Bermuda
-                option(value="BT - Bhutan") Bhutan
-                option(value="BO - Bolivia") Bolivia
-                option(value="BA - Bosnia and Herzegovina") Bosnia and Herzegovina
-                option(value="BW - Botswana") Botswana
-                option(value="BV - Bouvet Island") Bouvet Island
-                option(value="BR - Brazil") Brazil
-                option(value="BQ - British Antarctic Territory") British Antarctic Territory
-                option(value="IO - British Indian Ocean Territory") British Indian Ocean Territory
-                option(value="VG - British Virgin Islands") British Virgin Islands
-                option(value="BN - Brunei") Brunei
-                option(value="BG - Bulgaria") Bulgaria
-                option(value="BF - Burkina Faso") Burkina Faso
-                option(value="BI - Burundi") Burundi
-                option(value="KH - Cambodia") Cambodia
-                option(value="CM - Cameroon") Cameroon
-                option(value="CA - Canada") Canada
-                option(value="CT - Canton and Enderbury Islands") Canton and Enderbury Islands
-                option(value="CV - Cape Verde") Cape Verde
-                option(value="KY - Cayman Islands") Cayman Islands
-                option(value="CF - Central African Republic") Central African Republic
-                option(value="TD - Chad") Chad
-                option(value="CL - Chile") Chile
-                option(value="CN - China") China
-                option(value="CX - Christmas Island") Christmas Island
-                option(value="CC - Cocos [Keeling] Islands") Cocos [Keeling] Islands
-                option(value="CO - Colombia") Colombia
-                option(value="KM - Comoros") Comoros
-                option(value="CG - Congo - Brazzaville") Congo - Brazzaville
-                option(value="CD - Congo - Kinshasa") Congo - Kinshasa
-                option(value="CK - Cook Islands") Cook Islands
-                option(value="CR - Costa Rica") Costa Rica
-                option(value="HR - Croatia") Croatia
-                option(value="CU - Cuba") Cuba
-                option(value="CY - Cyprus") Cyprus
-                option(value="CZ - Czech Republic") Czech Republic
-                option(value="CI - Côte d’Ivoire") Côte d’Ivoire
-                option(value="DK - Denmark") Denmark
-                option(value="DJ - Djibouti") Djibouti
-                option(value="DM - Dominica") Dominica
-                option(value="DO - Dominican Republic") Dominican Republic
-                option(value="NQ - Dronning Maud Land") Dronning Maud Land
-                option(value="DD - East Germany") East Germany
-                option(value="EC - Ecuador") Ecuador
-                option(value="EG - Egypt") Egypt
-                option(value="SV - El Salvador") El Salvador
-                option(value="GQ - Equatorial Guinea") Equatorial Guinea
-                option(value="ER - Eritrea") Eritrea
-                option(value="EE - Estonia") Estonia
-                option(value="ET - Ethiopia") Ethiopia
-                option(value="FK - Falkland Islands") Falkland Islands
-                option(value="FO - Faroe Islands") Faroe Islands
-                option(value="FJ - Fiji") Fiji
-                option(value="FI - Finland") Finland
-                option(value="FR - France") France
-                option(value="GF - French Guiana") French Guiana
-                option(value="PF - French Polynesia") French Polynesia
-                option(value="TF - French Southern Territories") French Southern Territories
-                option(value="FQ - French Southern and Antarctic Territories") French Southern and Antarctic Territories
-                option(value="GA - Gabon") Gabon
-                option(value="GM - Gambia") Gambia
-                option(value="GE - Georgia") Georgia
-                option(value="DE - Germany") Germany
-                option(value="GH - Ghana") Ghana
-                option(value="GI - Gibraltar") Gibraltar
-                option(value="GR - Greece") Greece
-                option(value="GL - Greenland") Greenland
-                option(value="GD - Grenada") Grenada
-                option(value="GP - Guadeloupe") Guadeloupe
-                option(value="GU - Guam") Guam
-                option(value="GT - Guatemala") Guatemala
-                option(value="GG - Guernsey") Guernsey
-                option(value="GN - Guinea") Guinea
-                option(value="GW - Guinea-Bissau") Guinea-Bissau
-                option(value="GY - Guyana") Guyana
-                option(value="HT - Haiti") Haiti
-                option(value="HM - Heard Island and McDonald Islands") Heard Island and McDonald Islands
-                option(value="HN - Honduras") Honduras
-                option(value="HK - Hong Kong SAR China") Hong Kong SAR China
-                option(value="HU - Hungary") Hungary
-                option(value="IS - Iceland") Iceland
-                option(value="IN - India") India
-                option(value="ID - Indonesia") Indonesia
-                option(value="IR - Iran") Iran
-                option(value="IQ - Iraq") Iraq
-                option(value="IE - Ireland") Ireland
-                option(value="IM - Isle of Man") Isle of Man
-                option(value="IL - Israel") Israel
-                option(value="IT - Italy") Italy
-                option(value="JM - Jamaica") Jamaica
-                option(value="JP - Japan") Japan
-                option(value="JE - Jersey") Jersey
-                option(value="JT - Johnston Island") Johnston Island
-                option(value="JO - Jordan") Jordan
-                option(value="KZ - Kazakhstan") Kazakhstan
-                option(value="KE - Kenya") Kenya
-                option(value="KI - Kiribati") Kiribati
-                option(value="KW - Kuwait") Kuwait
-                option(value="KG - Kyrgyzstan") Kyrgyzstan
-                option(value="LA - Laos") Laos
-                option(value="LV - Latvia") Latvia
-                option(value="LB - Lebanon") Lebanon
-                option(value="LS - Lesotho") Lesotho
-                option(value="LR - Liberia") Liberia
-                option(value="LY - Libya") Libya
-                option(value="LI - Liechtenstein") Liechtenstein
-                option(value="LT - Lithuania") Lithuania
-                option(value="LU - Luxembourg") Luxembourg
-                option(value="MO - Macau SAR China") Macau SAR China
-                option(value="MK - Macedonia") Macedonia
-                option(value="MG - Madagascar") Madagascar
-                option(value="MW - Malawi") Malawi
-                option(value="MY - Malaysia") Malaysia
-                option(value="MV - Maldives") Maldives
-                option(value="ML - Mali") Mali
-                option(value="MT - Malta") Malta
-                option(value="MH - Marshall Islands") Marshall Islands
-                option(value="MQ - Martinique") Martinique
-                option(value="MR - Mauritania") Mauritania
-                option(value="MU - Mauritius") Mauritius
-                option(value="YT - Mayotte") Mayotte
-                option(value="FX - Metropolitan France") Metropolitan France
-                option(value="MX - Mexico") Mexico
-                option(value="FM - Micronesia") Micronesia
-                option(value="MI - Midway Islands") Midway Islands
-                option(value="MD - Moldova") Moldova
-                option(value="MC - Monaco") Monaco
-                option(value="MN - Mongolia") Mongolia
-                option(value="ME - Montenegro") Montenegro
-                option(value="MS - Montserrat") Montserrat
-                option(value="MA - Morocco") Morocco
-                option(value="MZ - Mozambique") Mozambique
-                option(value="MM - Myanmar [Burma]") Myanmar [Burma]
-                option(value="NA - Namibia") Namibia
-                option(value="NR - Nauru") Nauru
-                option(value="NP - Nepal") Nepal
-                option(value="NL - Netherlands") Netherlands
-                option(value="AN - Netherlands Antilles") Netherlands Antilles
-                option(value="NT - Neutral Zone") Neutral Zone
-                option(value="NC - New Caledonia") New Caledonia
-                option(value="NZ - New Zealand") New Zealand
-                option(value="NI - Nicaragua") Nicaragua
-                option(value="NE - Niger") Niger
-                option(value="NG - Nigeria") Nigeria
-                option(value="NU - Niue") Niue
-                option(value="NF - Norfolk Island") Norfolk Island
-                option(value="KP - North Korea") North Korea
-                option(value="VD - North Vietnam") North Vietnam
-                option(value="MP - Northern Mariana Islands") Northern Mariana Islands
-                option(value="NO - Norway") Norway
-                option(value="OM - Oman") Oman
-                option(value="PC - Pacific Islands Trust Territory") Pacific Islands Trust Territory
-                option(value="PK - Pakistan") Pakistan
-                option(value="PW - Palau") Palau
-                option(value="PS - Palestinian Territories") Palestinian Territories
-                option(value="PA - Panama") Panama
-                option(value="PZ - Panama Canal Zone") Panama Canal Zone
-                option(value="PG - Papua New Guinea") Papua New Guinea
-                option(value="PY - Paraguay") Paraguay
-                option(value="YD - People's Democratic Republic of Yemen") People's Democratic Republic of Yemen
-                option(value="PE - Peru") Peru
-                option(value="PH - Philippines") Philippines
-                option(value="PN - Pitcairn Islands") Pitcairn Islands
-                option(value="PL - Poland") Poland
-                option(value="PT - Portugal") Portugal
-                option(value="PR - Puerto Rico") Puerto Rico
-                option(value="QA - Qatar") Qatar
-                option(value="RO - Romania") Romania
-                option(value="RU - Russia") Russia
-                option(value="RW - Rwanda") Rwanda
-                option(value="RE - Réunion") Réunion
-                option(value="BL - Saint Barthélemy") Saint Barthélemy
-                option(value="SH - Saint Helena") Saint Helena
-                option(value="KN - Saint Kitts and Nevis") Saint Kitts and Nevis
-                option(value="LC - Saint Lucia") Saint Lucia
-                option(value="MF - Saint Martin") Saint Martin
-                option(value="PM - Saint Pierre and Miquelon") Saint Pierre and Miquelon
-                option(value="VC - Saint Vincent and the Grenadines") Saint Vincent and the Grenadines
-                option(value="WS - Samoa") Samoa
-                option(value="SM - San Marino") San Marino
-                option(value="SA - Saudi Arabia") Saudi Arabia
-                option(value="SN - Senegal") Senegal
-                option(value="RS - Serbia") Serbia
-                option(value="CS - Serbia and Montenegro") Serbia and Montenegro
-                option(value="SC - Seychelles") Seychelles
-                option(value="SL - Sierra Leone") Sierra Leone
-                option(value="SG - Singapore") Singapore
-                option(value="SK - Slovakia") Slovakia
-                option(value="SI - Slovenia") Slovenia
-                option(value="SB - Solomon Islands") Solomon Islands
-                option(value="SO - Somalia") Somalia
-                option(value="ZA - South Africa") South Africa
-                option(value="GS - South Georgia and the South Sandwich Islands") South Georgia and the South Sandwich Islands
-                option(value="KR - South Korea") South Korea
-                option(value="ES - Spain") Spain
-                option(value="LK - Sri Lanka") Sri Lanka
-                option(value="SD - Sudan") Sudan
-                option(value="SR - Suriname") Suriname
-                option(value="SJ - Svalbard and Jan Mayen") Svalbard and Jan Mayen
-                option(value="SZ - Swaziland") Swaziland
-                option(value="SE - Sweden") Sweden
-                option(value="CH - Switzerland") Switzerland
-                option(value="SY - Syria") Syria
-                option(value="ST - São Tomé and Príncipe") São Tomé and Príncipe
-                option(value="TW - Taiwan") Taiwan
-                option(value="TJ - Tajikistan") Tajikistan
-                option(value="TZ - Tanzania") Tanzania
-                option(value="TH - Thailand") Thailand
-                option(value="TL - Timor-Leste") Timor-Leste
-                option(value="TG - Togo") Togo
-                option(value="TK - Tokelau") Tokelau
-                option(value="TO - Tonga") Tonga
-                option(value="TT - Trinidad and Tobago") Trinidad and Tobago
-                option(value="TN - Tunisia") Tunisia
-                option(value="TR - Turkey") Turkey
-                option(value="TM - Turkmenistan") Turkmenistan
-                option(value="TC - Turks and Caicos Islands") Turks and Caicos Islands
-                option(value="TV - Tuvalu") Tuvalu
-                option(value="UM - U.S. Minor Outlying Islands") U.S. Minor Outlying Islands
-                option(value="PU - U.S. Miscellaneous Pacific Islands") U.S. Miscellaneous Pacific Islands
-                option(value="VI - U.S. Virgin Islands") U.S. Virgin Islands
-                option(value="UG - Uganda") Uganda
-                option(value="UA - Ukraine") Ukraine
-                option(value="SU - Union of Soviet Socialist Republics") Union of Soviet Socialist Republics
-                option(value="AE - United Arab Emirates") United Arab Emirates
-                option(value="GB - United Kingdom") United Kingdom
-                option(value="US - United States") United States
-                option(value="ZZ - Unknown or Invalid Region") Unknown or Invalid Region
-                option(value="UY - Uruguay") Uruguay
-                option(value="UZ - Uzbekistan") Uzbekistan
-                option(value="VU - Vanuatu") Vanuatu
-                option(value="VA - Vatican City") Vatican City
-                option(value="VE - Venezuela") Venezuela
-                option(value="VN - Vietnam") Vietnam
-                option(value="WK - Wake Island") Wake Island
-                option(value="WF - Wallis and Futuna") Wallis and Futuna
-                option(value="EH - Western Sahara") Western Sahara
-                option(value="YE - Yemen") Yemen
-                option(value="ZM - Zambia") Zambia
-                option(value="ZW - Zimbabwe") Zimbabwe
-                option(value="AX - Åland Islands") Åland Islands
+                option(value="AF - Afghanistan")=gettext("Afghanistan")
+                option(value="AL - Albania")=gettext("Albania")
+                option(value="DZ - Algeria")=gettext("Algeria")
+                option(value="AS - American Samoa")=gettext("American Samoa")
+                option(value="AD - Andorra")=gettext("Andorra")
+                option(value="AO - Angola")=gettext("Angola")
+                option(value="AI - Anguilla")=gettext("Anguilla")
+                option(value="AQ - Antarctica")=gettext("Antarctica")
+                option(value="AG - Antigua and Barbuda")=gettext("Antigua and Barbuda")
+                option(value="AR - Argentina")=gettext("Argentina")
+                option(value="AM - Armenia")=gettext("Armenia")
+                option(value="AW - Aruba")=gettext("Aruba")
+                option(value="AU - Australia")=gettext("Australia")
+                option(value="AT - Austria")=gettext("Austria")
+                option(value="AZ - Azerbaijan")=gettext("Azerbaijan")
+                option(value="BS - Bahamas")=gettext("Bahamas")
+                option(value="BH - Bahrain")=gettext("Bahrain")
+                option(value="BD - Bangladesh")=gettext("Bangladesh")
+                option(value="BB - Barbados")=gettext("Barbados")
+                option(value="BY - Belarus")=gettext("Belarus")
+                option(value="BE - Belgium")=gettext("Belgium")
+                option(value="BZ - Belize")=gettext("Belize")
+                option(value="BJ - Benin")=gettext("Benin")
+                option(value="BM - Bermuda")=gettext("Bermuda")
+                option(value="BT - Bhutan")=gettext("Bhutan")
+                option(value="BO - Bolivia")=gettext("Bolivia")
+                option(value="BA - Bosnia and Herzegovina")=gettext("Bosnia and Herzegovina")
+                option(value="BW - Botswana")=gettext("Botswana")
+                option(value="BV - Bouvet Island")=gettext("Bouvet Island")
+                option(value="BR - Brazil")=gettext("Brazil")
+                option(value="BQ - British Antarctic Territory")=gettext("British Antarctic Territory")
+                option(value="IO - British Indian Ocean Territory")=gettext("British Indian Ocean Territory")
+                option(value="VG - British Virgin Islands")=gettext("British Virgin Islands")
+                option(value="BN - Brunei")=gettext("Brunei")
+                option(value="BG - Bulgaria")=gettext("Bulgaria")
+                option(value="BF - Burkina Faso")=gettext("Burkina Faso")
+                option(value="BI - Burundi")=gettext("Burundi")
+                option(value="KH - Cambodia")=gettext("Cambodia")
+                option(value="CM - Cameroon")=gettext("Cameroon")
+                option(value="CA - Canada")=gettext("Canada")
+                option(value="CT - Canton and Enderbury Islands")=gettext("Canton and Enderbury Islands")
+                option(value="CV - Cape Verde")=gettext("Cape Verde")
+                option(value="KY - Cayman Islands")=gettext("Cayman Islands")
+                option(value="CF - Central African Republic")=gettext("Central African Republic")
+                option(value="TD - Chad")=gettext("Chad")
+                option(value="CL - Chile")=gettext("Chile")
+                option(value="CN - China")=gettext("China")
+                option(value="CX - Christmas Island")=gettext("Christmas Island")
+                option(value="CC - Cocos [Keeling] Islands")=gettext("Cocos [Keeling] Islands")
+                option(value="CO - Colombia")=gettext("Colombia")
+                option(value="KM - Comoros")=gettext("Comoros")
+                option(value="CG - Congo - Brazzaville")=gettext("Congo - Brazzaville")
+                option(value="CD - Congo - Kinshasa")=gettext("Congo - Kinshasa")
+                option(value="CK - Cook Islands")=gettext("Cook Islands")
+                option(value="CR - Costa Rica")=gettext("Costa Rica")
+                option(value="HR - Croatia")=gettext("Croatia")
+                option(value="CU - Cuba")=gettext("Cuba")
+                option(value="CY - Cyprus")=gettext("Cyprus")
+                option(value="CZ - Czech Republic")=gettext("Czech Republic")
+                option(value="CI - Côte d’Ivoire")=gettext("Côte d’Ivoire")
+                option(value="DK - Denmark")=gettext("Denmark")
+                option(value="DJ - Djibouti")=gettext("Djibouti")
+                option(value="DM - Dominica")=gettext("Dominica")
+                option(value="DO - Dominican Republic")=gettext("Dominican Republic")
+                option(value="NQ - Dronning Maud Land")=gettext("Dronning Maud Land")
+                option(value="DD - East Germany")=gettext("East Germany")
+                option(value="EC - Ecuador")=gettext("Ecuador")
+                option(value="EG - Egypt")=gettext("Egypt")
+                option(value="SV - El Salvador")=gettext("El Salvador")
+                option(value="GQ - Equatorial Guinea")=gettext("Equatorial Guinea")
+                option(value="ER - Eritrea")=gettext("Eritrea")
+                option(value="EE - Estonia")=gettext("Estonia")
+                option(value="ET - Ethiopia")=gettext("Ethiopia")
+                option(value="FK - Falkland Islands")=gettext("Falkland Islands")
+                option(value="FO - Faroe Islands")=gettext("Faroe Islands")
+                option(value="FJ - Fiji")=gettext("Fiji")
+                option(value="FI - Finland")=gettext("Finland")
+                option(value="FR - France")=gettext("France")
+                option(value="GF - French Guiana")=gettext("French Guiana")
+                option(value="PF - French Polynesia")=gettext("French Polynesia")
+                option(value="TF - French Southern Territories")=gettext("French Southern Territories")
+                option(value="FQ - French Southern and Antarctic Territories")=gettext("French Southern and Antarctic Territories")
+                option(value="GA - Gabon")=gettext("Gabon")
+                option(value="GM - Gambia")=gettext("Gambia")
+                option(value="GE - Georgia")=gettext("Georgia")
+                option(value="DE - Germany")=gettext("Germany")
+                option(value="GH - Ghana")=gettext("Ghana")
+                option(value="GI - Gibraltar")=gettext("Gibraltar")
+                option(value="GR - Greece")=gettext("Greece")
+                option(value="GL - Greenland")=gettext("Greenland")
+                option(value="GD - Grenada")=gettext("Grenada")
+                option(value="GP - Guadeloupe")=gettext("Guadeloupe")
+                option(value="GU - Guam")=gettext("Guam")
+                option(value="GT - Guatemala")=gettext("Guatemala")
+                option(value="GG - Guernsey")=gettext("Guernsey")
+                option(value="GN - Guinea")=gettext("Guinea")
+                option(value="GW - Guinea-Bissau")=gettext("Guinea-Bissau")
+                option(value="GY - Guyana")=gettext("Guyana")
+                option(value="HT - Haiti")=gettext("Haiti")
+                option(value="HM - Heard Island and McDonald Islands")=gettext("Heard Island and McDonald Islands")
+                option(value="HN - Honduras")=gettext("Honduras")
+                option(value="HK - Hong Kong SAR China")=gettext("Hong Kong SAR China")
+                option(value="HU - Hungary")=gettext("Hungary")
+                option(value="IS - Iceland")=gettext("Iceland")
+                option(value="IN - India")=gettext("India")
+                option(value="ID - Indonesia")=gettext("Indonesia")
+                option(value="IR - Iran")=gettext("Iran")
+                option(value="IQ - Iraq")=gettext("Iraq")
+                option(value="IE - Ireland")=gettext("Ireland")
+                option(value="IM - Isle of Man")=gettext("Isle of Man")
+                option(value="IL - Israel")=gettext("Israel")
+                option(value="IT - Italy")=gettext("Italy")
+                option(value="JM - Jamaica")=gettext("Jamaica")
+                option(value="JP - Japan")=gettext("Japan")
+                option(value="JE - Jersey")=gettext("Jersey")
+                option(value="JT - Johnston Island")=gettext("Johnston Island")
+                option(value="JO - Jordan")=gettext("Jordan")
+                option(value="KZ - Kazakhstan")=gettext("Kazakhstan")
+                option(value="KE - Kenya")=gettext("Kenya")
+                option(value="KI - Kiribati")=gettext("Kiribati")
+                option(value="KW - Kuwait")=gettext("Kuwait")
+                option(value="KG - Kyrgyzstan")=gettext("Kyrgyzstan")
+                option(value="LA - Laos")=gettext("Laos")
+                option(value="LV - Latvia")=gettext("Latvia")
+                option(value="LB - Lebanon")=gettext("Lebanon")
+                option(value="LS - Lesotho")=gettext("Lesotho")
+                option(value="LR - Liberia")=gettext("Liberia")
+                option(value="LY - Libya")=gettext("Libya")
+                option(value="LI - Liechtenstein")=gettext("Liechtenstein")
+                option(value="LT - Lithuania")=gettext("Lithuania")
+                option(value="LU - Luxembourg")=gettext("Luxembourg")
+                option(value="MO - Macau SAR China")=gettext("Macau SAR China")
+                option(value="MK - Macedonia")=gettext("Macedonia")
+                option(value="MG - Madagascar")=gettext("Madagascar")
+                option(value="MW - Malawi")=gettext("Malawi")
+                option(value="MY - Malaysia")=gettext("Malaysia")
+                option(value="MV - Maldives")=gettext("Maldives")
+                option(value="ML - Mali")=gettext("Mali")
+                option(value="MT - Malta")=gettext("Malta")
+                option(value="MH - Marshall Islands")=gettext("Marshall Islands")
+                option(value="MQ - Martinique")=gettext("Martinique")
+                option(value="MR - Mauritania")=gettext("Mauritania")
+                option(value="MU - Mauritius")=gettext("Mauritius")
+                option(value="YT - Mayotte")=gettext("Mayotte")
+                option(value="FX - Metropolitan France")=gettext("Metropolitan France")
+                option(value="MX - Mexico")=gettext("Mexico")
+                option(value="FM - Micronesia")=gettext("Micronesia")
+                option(value="MI - Midway Islands")=gettext("Midway Islands")
+                option(value="MD - Moldova")=gettext("Moldova")
+                option(value="MC - Monaco")=gettext("Monaco")
+                option(value="MN - Mongolia")=gettext("Mongolia")
+                option(value="ME - Montenegro")=gettext("Montenegro")
+                option(value="MS - Montserrat")=gettext("Montserrat")
+                option(value="MA - Morocco")=gettext("Morocco")
+                option(value="MZ - Mozambique")=gettext("Mozambique")
+                option(value="MM - Myanmar [Burma]")=gettext("Myanmar [Burma]")
+                option(value="NA - Namibia")=gettext("Namibia")
+                option(value="NR - Nauru")=gettext("Nauru")
+                option(value="NP - Nepal")=gettext("Nepal")
+                option(value="NL - Netherlands")=gettext("Netherlands")
+                option(value="AN - Netherlands Antilles")=gettext("Netherlands Antilles")
+                option(value="NT - Neutral Zone")=gettext("Neutral Zone")
+                option(value="NC - New Caledonia")=gettext("New Caledonia")
+                option(value="NZ - New Zealand")=gettext("New Zealand")
+                option(value="NI - Nicaragua")=gettext("Nicaragua")
+                option(value="NE - Niger")=gettext("Niger")
+                option(value="NG - Nigeria")=gettext("Nigeria")
+                option(value="NU - Niue")=gettext("Niue")
+                option(value="NF - Norfolk Island")=gettext("Norfolk Island")
+                option(value="KP - North Korea")=gettext("North Korea")
+                option(value="VD - North Vietnam")=gettext("North Vietnam")
+                option(value="MP - Northern Mariana Islands")=gettext("Northern Mariana Islands")
+                option(value="NO - Norway")=gettext("Norway")
+                option(value="OM - Oman")=gettext("Oman")
+                option(value="PC - Pacific Islands Trust Territory")=gettext("Pacific Islands Trust Territory")
+                option(value="PK - Pakistan")=gettext("Pakistan")
+                option(value="PW - Palau")=gettext("Palau")
+                option(value="PS - Palestinian Territories")=gettext("Palestinian Territories")
+                option(value="PA - Panama")=gettext("Panama")
+                option(value="PZ - Panama Canal Zone")=gettext("Panama Canal Zone")
+                option(value="PG - Papua New Guinea")=gettext("Papua New Guinea")
+                option(value="PY - Paraguay")=gettext("Paraguay")
+                option(value="YD - People's Democratic Republic of Yemen")=gettext("People's Democratic Republic of Yemen")
+                option(value="PE - Peru")=gettext("Peru")
+                option(value="PH - Philippines")=gettext("Philippines")
+                option(value="PN - Pitcairn Islands")=gettext("Pitcairn Islands")
+                option(value="PL - Poland")=gettext("Poland")
+                option(value="PT - Portugal")=gettext("Portugal")
+                option(value="PR - Puerto Rico")=gettext("Puerto Rico")
+                option(value="QA - Qatar")=gettext("Qatar")
+                option(value="RO - Romania")=gettext("Romania")
+                option(value="RU - Russia")=gettext("Russia")
+                option(value="RW - Rwanda")=gettext("Rwanda")
+                option(value="RE - Réunion")=gettext("Réunion")
+                option(value="BL - Saint Barthélemy")=gettext("Saint Barthélemy")
+                option(value="SH - Saint Helena")=gettext("Saint Helena")
+                option(value="KN - Saint Kitts and Nevis")=gettext("Saint Kitts and Nevis")
+                option(value="LC - Saint Lucia")=gettext("Saint Lucia")
+                option(value="MF - Saint Martin")=gettext("Saint Martin")
+                option(value="PM - Saint Pierre and Miquelon")=gettext("Saint Pierre and Miquelon")
+                option(value="VC - Saint Vincent and the Grenadines")=gettext("Saint Vincent and the Grenadines")
+                option(value="WS - Samoa")=gettext("Samoa")
+                option(value="SM - San Marino")=gettext("San Marino")
+                option(value="SA - Saudi Arabia")=gettext("Saudi Arabia")
+                option(value="SN - Senegal")=gettext("Senegal")
+                option(value="RS - Serbia")=gettext("Serbia")
+                option(value="CS - Serbia and Montenegro")=gettext("Serbia and Montenegro")
+                option(value="SC - Seychelles")=gettext("Seychelles")
+                option(value="SL - Sierra Leone")=gettext("Sierra Leone")
+                option(value="SG - Singapore")=gettext("Singapore")
+                option(value="SK - Slovakia")=gettext("Slovakia")
+                option(value="SI - Slovenia")=gettext("Slovenia")
+                option(value="SB - Solomon Islands")=gettext("Solomon Islands")
+                option(value="SO - Somalia")=gettext("Somalia")
+                option(value="ZA - South Africa")=gettext("South Africa")
+                option(value="GS - South Georgia and the South Sandwich Islands")=gettext("South Georgia and the South Sandwich Islands")
+                option(value="KR - South Korea")=gettext("South Korea")
+                option(value="ES - Spain")=gettext("Spain")
+                option(value="LK - Sri Lanka")=gettext("Sri Lanka")
+                option(value="SD - Sudan")=gettext("Sudan")
+                option(value="SR - Suriname")=gettext("Suriname")
+                option(value="SJ - Svalbard and Jan Mayen")=gettext("Svalbard and Jan Mayen")
+                option(value="SZ - Swaziland")=gettext("Swaziland")
+                option(value="SE - Sweden")=gettext("Sweden")
+                option(value="CH - Switzerland")=gettext("Switzerland")
+                option(value="SY - Syria")=gettext("Syria")
+                option(value="ST - São Tomé and Príncipe")=gettext("São Tomé and Príncipe")
+                option(value="TW - Taiwan")=gettext("Taiwan")
+                option(value="TJ - Tajikistan")=gettext("Tajikistan")
+                option(value="TZ - Tanzania")=gettext("Tanzania")
+                option(value="TH - Thailand")=gettext("Thailand")
+                option(value="TL - Timor-Leste")=gettext("Timor-Leste")
+                option(value="TG - Togo")=gettext("Togo")
+                option(value="TK - Tokelau")=gettext("Tokelau")
+                option(value="TO - Tonga")=gettext("Tonga")
+                option(value="TT - Trinidad and Tobago")=gettext("Trinidad and Tobago")
+                option(value="TN - Tunisia")=gettext("Tunisia")
+                option(value="TR - Turkey")=gettext("Turkey")
+                option(value="TM - Turkmenistan")=gettext("Turkmenistan")
+                option(value="TC - Turks and Caicos Islands")=gettext("Turks and Caicos Islands")
+                option(value="TV - Tuvalu")=gettext("Tuvalu")
+                option(value="UM - U.S. Minor Outlying Islands")=gettext("U.S. Minor Outlying Islands")
+                option(value="PU - U.S. Miscellaneous Pacific Islands")=gettext("U.S. Miscellaneous Pacific Islands")
+                option(value="VI - U.S. Virgin Islands")=gettext("U.S. Virgin Islands")
+                option(value="UG - Uganda")=gettext("Uganda")
+                option(value="UA - Ukraine")=gettext("Ukraine")
+                option(value="SU - Union of Soviet Socialist Republics")=gettext("Union of Soviet Socialist Republics")
+                option(value="AE - United Arab Emirates")=gettext("United Arab Emirates")
+                option(value="GB - United Kingdom")=gettext("United Kingdom")
+                option(value="US - United States")=gettext("United States")
+                option(value="ZZ - Unknown or Invalid Region")=gettext("Unknown or Invalid Region")
+                option(value="UY - Uruguay")=gettext("Uruguay")
+                option(value="UZ - Uzbekistan")=gettext("Uzbekistan")
+                option(value="VU - Vanuatu")=gettext("Vanuatu")
+                option(value="VA - Vatican City")=gettext("Vatican City")
+                option(value="VE - Venezuela")=gettext("Venezuela")
+                option(value="VN - Vietnam")=gettext("Vietnam")
+                option(value="WK - Wake Island")=gettext("Wake Island")
+                option(value="WF - Wallis and Futuna")=gettext("Wallis and Futuna")
+                option(value="EH - Western Sahara")=gettext("Western Sahara")
+                option(value="YE - Yemen")=gettext("Yemen")
+                option(value="ZM - Zambia")=gettext("Zambia")
+                option(value="ZW - Zimbabwe")=gettext("Zimbabwe")
+                option(value="AX - Åland Islands")=gettext("Åland Islands")
           .form-group
-            label Password
-            input.form-control(name='password', type='password', placeholder='Password')
+            label=gettext("Password")
+            input.form-control(name='password', type='password', placeholder=gettext('Password'))
           .form-group
-            label Confirm Password
-            input.form-control(name='confirm', type='password', placeholder='Confirm password')
-          button.btn.btn-primary(type='submit') Create User
-          a.btn.btn-link(href='/users') Cancel
+            label=gettext("Confirm Password")
+            input.form-control(name='confirm', type='password', placeholder=gettext('Confirm password'))
+          button.btn.btn-primary(type='submit')=gettext("Create User")
+          a.btn.btn-link(href='/users')=gettext("Cancel")

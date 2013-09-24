@@ -5,7 +5,7 @@ block content
     .row
       .panel.panel-primary
         .panel-heading 
-          h2.panel-title Sites
+          h2.panel-title=gettext('Sites')
         .list-group
           - each site in sites
             .list-group-item
@@ -18,12 +18,13 @@ block content
                   .col-md-7
                     a(href=site.url, target="_blank")=site.url
                   .col-md-4
-                    | Last modified #{moment(site.last_modified).format('HH:mm DD MMM YYYY')}
+                    =gettext('Last modified')
+                    | &nbsp;
+                    =moment(site.last_modified).format('HH:mm DD MMM YYYY')
                   .col-md-1
                     form.inline-form(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/remove')
-                      button.btn.btn-xs.btn-danger(type='submit') Delete
+                      button.btn.btn-xs.btn-danger(type='submit')=gettext('Delete')
         .panel-footer
           .row
             .col-md-12
-              a.btn.btn-default(href='/sites/new') Add Site
-
+              a.btn.btn-default(href='/sites/new')=gettext('Add Site')

@@ -4,4 +4,4 @@ block content
   .container
     .row
       .col-md-12
-        h1 Welcome to #{title}
+        h1=format('Welcome to %(title)s',  { title: title })
