@@ -18,7 +18,7 @@ block content
               option(value="Audit Report") Audit Report
           .form-group
             label Document Title
-            input.form-control(name="title", type="text", placeholder="Document Title", autofocus="true")
+            input.form-control(name="title", type="text", placeholder="Document Title", autofocus="true", autocomplete="off")
           .form-group
             label Publicly Available
             div
@@ -46,16 +46,16 @@ block content
                   input(type="radio", name="location", value="Other")
                   | Other
           .form-group
-            input.form-control(type="text", name='location-detail', placeholder="Details of location")
+            input.form-control(type="text", name='location_detail', placeholder="Details of location", autocomplete="off")
           .form-group
             label Web Link
-            input.form-control(type="text", name='link', placeholder='http://example.com/document.htm')
+            input.form-control(type="text", name='url', placeholder='http://example.com/document.htm', autocomplete="off")
           .form-group
             label Date of Publication
-            input.form-control(type="text", name='date-published', placeholder='1 Jan 2014')
+            input.form-control(type="text", name='date_published', placeholder='1 Jan 2014', autocomplete="off")
           .form-group
             label Date Received
-            input.form-control(type="text", name='date-received', placeholder='1 Jan 2014')
+            input.form-control(type="text", name='date_received', placeholder='1 Jan 2014', autocomplete="off")
           .form-group
             label Soft copy attached
             div
@@ -71,11 +71,15 @@ block content
             div
               .btn-group(data-toggle="buttons")
                 label.btn.btn-default
-                  input(type="radio", name="scanned-pages", value="yes")
+                  input(type="radio", name="scanned", value="yes")
                   | Yes
                 label.btn.btn-default.active
-                  input(type="radio", name="scanned-pages", value="no", selected="selected")
+                  input(type="radio", name="scanned", value="no", selected="selected")
                   | No
+          .form-group
+            label Comments
+            .form-group
+              textarea.form-control(name="comments")
             
           button.btn.btn-primary(type='submit') Add
           a.btn.btn-link(href='/documents') Cancel
