@@ -6,12 +6,12 @@ block content
       .col-md-12
         form(role='form', action='/setup', method='POST')
           .form-group
-              label Email address
-              input.form-control(name='username', type='email', placeholder='Enter email', autofocus=true, autocomplete='off')
+              label=gettext('Email address')
+              input.form-control(name='username', type='email', placeholder=gettext('Enter email'), autofocus=true, autocomplete='off')
           .form-group
-            label Password
-            input.form-control(name='password', type='password', placeholder='Password')
+            label=gettext('Password')
+            input.form-control(name='password', type='password', placeholder=gettext('Password'))
           .form-group
-            label Confirm Password
-            input.form-control(name='confirm', type='password', placeholder='Confirm password')
-          button.btn.btn-danger(type='submit') Create Admin User
+            label=gettext('Confirm Password')
+            input.form-control(name='confirm', type='password', placeholder=gettext('Confirm password'))
+          button.btn.btn-danger(type='submit')=gettext('Create Admin User')

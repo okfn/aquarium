@@ -6,80 +6,70 @@ block content
       .col-md-12
         form(role='form', action='/documents', method='POST')
           .form-group
-            label Document Type
+            label=gettext('Document Type')
             select.form-control(name="type")
-              option(value="Pre-Budget Statement") Pre-Budget Statement
-              option(value="Executive’s Budget Proposal") Executive’s Budget Proposal
-              option(value="Enacted Budget ") Enacted Budget 
-              option(value="Citizen's Budget") Citizen's Budget
-              option(value="In-Year Report") In-Year Report
-              option(value="Mid-year Review") Mid-year Review
-              option(value="Year-End Report") Year-End Report
-              option(value="Audit Report") Audit Report
+              option(value="Pre-Budget Statement")=gettext("Pre-Budget Statement")
+              option(value="Executive’s Budget Proposal")=gettext("Executive's Budget Proposal")
+              option(value="Enacted Budget")=gettext("Enacted Budget")
+              option(value="Citizen's Budget")=gettext("Citizen's Budget")
+              option(value="In-Year Report")=gettext("In-Year Report")
+              option(value="Mid-year Review")=gettext("Mid-year Review")
+              option(value="Year-End Report")=gettext("Year-End Report")
+              option(value="Audit Report")=gettext("Audit Report")
           .form-group
-            label Document Title
-            input.form-control(name="title", type="text", placeholder="Document Title", autofocus="true", autocomplete="off")
+            label=gettext("Document Title")
+            input.form-control(name="title", type="text", placeholder=gettext("Document Title"), autofocus="true", autocomplete="off")
           .form-group
-            label Publicly Available
+            label=gettext("Publicly Available")
             div
               .btn-group(data-toggle="buttons")
                 label.btn.btn-default
-                  input(type="radio", name="available", value="yes")
-                  | Yes
+                  input(type="radio", name="available", value="yes")=gettext("Yes")
                 label.btn.btn-default.active
-                  input(type="radio", name="available", value="no", selected="selected")
-                  | No
+                  input(type="radio", name="available", value="no", selected="selected")=gettext("No")
           .form-group
-            label Location 
+            label=gettext("Location ")
             div
               .btn-group(data-toggle="buttons")
                 label.btn.btn-default
-                  input(type="radio", name="location", value="Website")
-                  | Website
+                  input(type="radio", name="location", value="Website")=gettext("Website")
                 label.btn.btn-default
-                  input(type="radio", name="location", value="Government Office")
-                  | Government Office
+                  input(type="radio", name="location", value="Government Office")=gettext("Government Office")
                 label.btn.btn-default
-                  input(type="radio", name="location", value="Public Library")
-                  | Public Library
+                  input(type="radio", name="location", value="Public Library")=gettext("Public Library")
                 label.btn.btn-default
-                  input(type="radio", name="location", value="Other")
-                  | Other
+                  input(type="radio", name="location", value="Other")=gettext("Other")
           .form-group
-            input.form-control(type="text", name='location_detail', placeholder="Details of location", autocomplete="off")
+            input.form-control(type="text", name='location_detail', placeholder=gettext("Details of location"), autocomplete="off")
           .form-group
-            label Web Link
+            label=gettext("Web Link")
             input.form-control(type="text", name='url', placeholder='http://example.com/document.htm', autocomplete="off")
           .form-group
-            label Date of Publication
-            input.form-control(type="text", name='date_published', placeholder='1 Jan 2014', autocomplete="off")
+            label=gettext("Date of Publication")
+            input.form-control(type="text", name='date_published', placeholder=gettext('1 Jan 2014'), autocomplete="off")
           .form-group
-            label Date Received
-            input.form-control(type="text", name='date_received', placeholder='1 Jan 2014', autocomplete="off")
+            label=gettext("Date Received")
+            input.form-control(type="text", name='date_received', placeholder=gettext('1 Jan 2014'), autocomplete="off")
           .form-group
-            label Soft copy attached
+            label=gettext("Soft copy attached")
             div
               .btn-group(data-toggle="buttons")
                 label.btn.btn-default
-                  input(type="radio", name="softcopy", value="yes")
-                  | Yes
+                  input(type="radio", name="softcopy", value="yes")=gettext("Yes")
                 label.btn.btn-default.active
-                  input(type="radio", name="softcopy", value="no", selected="selected")
-                  | No
+                  input(type="radio", name="softcopy", value="no", selected="selected")=gettext("No")
           .form-group
-            label Scanned First/Last Page Attached
+            label=gettext("Scanned First/Last Page Attached")
             div
               .btn-group(data-toggle="buttons")
                 label.btn.btn-default
-                  input(type="radio", name="scanned", value="yes")
-                  | Yes
+                  input(type="radio", name="scanned", value="yes")=gettext("Yes")
                 label.btn.btn-default.active
-                  input(type="radio", name="scanned", value="no", selected="selected")
-                  | No
+                  input(type="radio", name="scanned", value="no", selected="selected")=gettext("No")
           .form-group
-            label Comments
+            label=gettext("Comments")
             .form-group
               textarea.form-control(name="comments")
             
-          button.btn.btn-primary(type='submit') Add
-          a.btn.btn-link(href='/documents') Cancel
+          button.btn.btn-primary(type='submit')=gettext("Add")
+          a.btn.btn-link(href='/documents')=gettext("Cancel")

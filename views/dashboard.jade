@@ -4,7 +4,6 @@ block content
   .container
     .row
       .col-md-12
-        .alert.alert-info
-          | There are #{userCount} users from #{countryCount} countries tracking #{pageCount} URLs.
+        .alert.alert-info=format('There are %d users from %d countries tracking %d URLs.', userCount, countryCount, pageCount)
         div
-          a.btn.btn-default(href='/users') Manage Users
+          a.btn.btn-default(href='/users')=gettext("Manage Users")
