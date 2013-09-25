@@ -23,9 +23,9 @@ block content
                   .label.label-default=doc.type
               .list-group-item-text
                 .row
-                  .col-md-4
+                  .col-md-3.col-md-offset-1
                     a(href=doc.url, target="_blank")=doc.url
-                  .col-md-3=format('Received %s', [doc.date_received])
+                  .col-md-4=format('Received %s', [doc.date_received])
                   .col-md-4=format('Last modified %s', [moment(doc.last_modified).format('HH:mm DD MMM YYYY')])
         - if (!user.admin)
           .panel-footer
