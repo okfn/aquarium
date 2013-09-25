@@ -5915,3 +5915,10 @@ body {
 .navbar .btn-link:hover {
   text-decoration: none;
 }
+.list-group-item-heading a:hover {
+  text-decoration: none;
+}
+.list-group-item-heading i.glyphicon {
+  padding: 0 0 0.3em;
+  vertical-align: middle;
+}
