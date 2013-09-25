@@ -2,6 +2,11 @@
 
 body {
     margin: 70px 0 30px;
+    &.missing {
+        background-image: url('/images/404.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 }
 
 .navbar .btn-link {
@@ -19,4 +24,12 @@ body {
         padding: 0 0 0.3em;
         vertical-align: middle;
     }
+}
+
+.missing h1 {
+    text-align: center;
+    font-size: 6em;
+    line-height: 2;
+    color: rgba(255,255,255,0.8);
+    text-shadow: 5px 5px 5px rgba(0,0,0,0.5);
 }
