@@ -12,6 +12,7 @@ module.exports = {
     },
     showDocs: function(req, res) {
         docs.list({
+            admin: !!req.user.admin,
             username: req.user.username
         }, function(err, docs) {
             if (err) {
