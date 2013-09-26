@@ -52,6 +52,7 @@ module.exports = {
                 return janitor.missing(res);
             }
             res.render('document', {
+                backButton: true,
                 doc: doc,
                 title: doc.title
             });
@@ -96,7 +97,7 @@ module.exports = {
                     return janitor.error(res, err);
                 }
 
-                res.redirect('/documents');
+                res.redirect('/documents/' + id);
             });
         });
     }
