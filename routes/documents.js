@@ -7,8 +7,7 @@ module.exports = {
     init: function(app) {
         app.get('/documents', isAuthenticated, module.exports.showDocs);
         app.get('/documents/new', isAuthenticated, module.exports.newDoc);
-        app.get('/documents/:id', isAuthenticated, module.exports.showDoc);
-        app.get('/documents/:id/edit', isAuthenticated, module.exports.editDoc);
+        app.get('/documents/:id', isAuthenticated, module.exports.editDoc);
 
         app.post('/documents', isAuthenticated, module.exports.createDoc);
         app.post('/documents/:id', isAuthenticated, module.exports.updateDoc);
@@ -37,21 +36,6 @@ module.exports = {
                 return janitor.missing(res);
             }
             res.render('editdoc', {
-                doc: doc,
-                title: doc.title
-            });
-        });
-    },
-    showDoc: function(req, res) {
-        docs.get({
-            id: req.params.id
-        }, function(err, doc) {
-            if (err) {
-                return janitor.error(res, err);
-            } else if (!doc) {
-                return janitor.missing(res);
-            }
-            res.render('document', {
                 doc: doc,
                 title: doc.title
             });
