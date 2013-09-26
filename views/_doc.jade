@@ -19,21 +19,34 @@
             i.glyphicon.glyphicon-lock
             | &nbsp;
             =gettext('Not Publicly Available')
-          .btn-group
-            - if (user.admin)
-              button.btn.btn-default
-                .text-success
-                  i.glyphicon.glyphicon-thumbs-up
-                  | &nbsp;
-                  =gettext("Approve")
-              button.btn.btn-default
-                .text-danger
-                  i.glyphicon.glyphicon-thumbs-down
-                  | &nbsp;
-                  =gettext("Reject")
-            - else
-              a.btn.btn-default(href='/documents/#{doc._id}/attach')=gettext("Attach Files")
-            a.btn.btn-default(href='/documents/#{doc._id}/edit')=gettext("Edit")
+        p
+          - if (doc.approved)
+            i.text-success.glyphicon.glyphicon-thumbs-up
+            | &nbsp;
+            =gettext("Approved")
+          - else if (doc.approved === false)
+            i.text-danger.glyphicon.glyphicon-thumbs-down
+            | &nbsp;
+            =gettext("Rejected")
+          - else
+            i.text-info.glyphicon.glyphicon-question-sign
+            | &nbsp;
+            =gettext("Unapproved")
+        .btn-group
+          - if (user.admin)
+            button.btn.btn-default
+              .text-success
+                i.glyphicon.glyphicon-thumbs-up
+                | &nbsp;
+                =gettext("Approve")
+            button.btn.btn-default
+              .text-danger
+                i.glyphicon.glyphicon-thumbs-down
+                | &nbsp;
+                =gettext("Reject")
+          - else
+            a.btn.btn-default(href='/documents/#{doc._id}/uploads')=gettext("Upload Files")
+          a.btn.btn-default(href='/documents/#{doc._id}/edit')=gettext("Edit")
     .col-md-7
       p.lead=gettext(doc.type)
       p
