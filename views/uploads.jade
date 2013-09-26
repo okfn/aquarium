@@ -2,9 +2,23 @@ extends layout
 
 block content
   .container
+    - if (uploads.length)
+      p.lead=format("Documents attached to %s", [doc.title])
+      .list-group
+      - each upload in uploads
+        .list-group-item
+          a.list-group-item-header(href="/uploads/#{upload.filename}", target="_blank")
+            =upload.metadata.filename
+            | &nbsp;
+            i.glyphicon.glyphicon-link
+            | &nbsp;
+            =humanize.fileSize(upload.length)
+    - else
+      p.lead=format("No documents attached to %s", [doc.title])
+
     form(role='form', action='/documents/#{doc._id}/uploads', method='POST', enctype="multipart/form-data")
-      p.lead=format("Attach files for %s", [doc.title])
+      h3=format("Attach new file")
       .form-group
         input.form-control(name="upload", type="file")
-      button.btn.btn-primary(type='submit')=gettext("Attach File")
+      button.btn.btn-primary(type='submit')=gettext("Attach")
       a.btn.btn-link(href='/documents')=gettext("Cancel")

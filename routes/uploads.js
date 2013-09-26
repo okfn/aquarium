@@ -65,18 +65,25 @@ module.exports = {
         });
     },
     showAttachments: function(req, res) {
+        var id = req.params.id;
+
         docs.get({
-            id: req.params.id
+            id: id
         }, function(err, doc) {
             if (err) {
                 return janitor.error(res, err);
             } else if (!doc) {
                 return janitor.missing(res);
             }
-            res.render('uploads', {
-                backButton: true,
-                doc: doc,
-                title: doc.title
+            uploads.list({
+                docId: id
+            }, function(err, uploads) {
+                res.render('uploads', {
+                    backButton: true,
+                    doc: doc,
+                    uploads: uploads,
+                    title: doc.title
+                });
             });
         });
     }

@@ -18,6 +18,7 @@ var express = require('express'),
     app = express(),
     config = require('./lib/config'),
     db = require('./lib/db'),
+    humanize = require('humanize-plus'),
     i18n = require('i18n-abide'),
     MongoStore = require('connect-mongo')(express);
 
@@ -49,6 +50,7 @@ db.init(function(err, database) {
     app.use(function(req, res, next) {
         res.locals.user = req.user;
         res.locals.moment = moment;
+        res.locals.humanize = humanize;
         next();
     });
     app.use(app.router);
