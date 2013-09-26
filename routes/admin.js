@@ -1,5 +1,7 @@
-var janitor = require('../lib/janitor'),
-    users = require('../lib/users');
+var async = require('async'),
+    janitor = require('../lib/janitor'),
+    users = require('../lib/users'),
+    docs = require('../lib/documents');
 
 module.exports = {
     init: function(app) {
@@ -67,15 +69,18 @@ module.exports = {
      * Shows the list of users to the admin. Redirects to / if not admin user.
      */
     index: function(req, res) {
-        users.count(function(err, count) {
+        async.map([users.count, docs.countUnapproved, docs.count], function(fn, callback) {
+            fn({}, callback);
+        }, function(err, results) {
             if (err) {
                 return janitor.error(res, err);
             }
 
             res.render('dashboard', {
-                countryCount: 0,
+                documentCount: results[2],
+                unapprovedCount: results[1],
                 pageCount: 0,
-                userCount: count,
+                userCount: results[0],
                 title: 'Admin Dashboard'
             });
         });

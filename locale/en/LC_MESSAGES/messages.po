@@ -32,7 +32,7 @@ msgstr "Password"
 
 #: views/dashboard.jade:9
 msgid "Manage Users"
-msgstr "Manage Users"
+msgstr "Manage Researchers"
 
 #: views/documents.jade:8 views/layout.jade:26 views/sites.jade:8
 msgid "Sites"
@@ -1315,5 +1315,9 @@ msgid "Tracking %s sites"
 msgstr "Tracking %s sites"
 
 #: views/dashboard.jade:7
-msgid "There are %s users from %s countries tracking %s URLs."
-msgstr "There are %s users from %s countries tracking %s URLs."
+msgid "There are %s users tracking %s pages."
+msgstr "There are %s users tracking %s pages."
+
+#: views/dashboard.jade:12
+msgid "There are %s uanpproved documents out of a total of %s."
+msgstr "There are %s uanpproved documents out of a total of %s."
