@@ -11,12 +11,14 @@ var express = require('express'),
     users = require('./routes/users'),
     admin = require('./routes/admin'),
     documents = require('./routes/documents'),
+    uploads = require('./routes/uploads'),
     sites = require('./routes/sites'),
     http = require('http'),
     path = require('path'),
     app = express(),
     config = require('./lib/config'),
     db = require('./lib/db'),
+    humanize = require('humanize-plus'),
     i18n = require('i18n-abide'),
     MongoStore = require('connect-mongo')(express);
 
@@ -48,6 +50,7 @@ db.init(function(err, database) {
     app.use(function(req, res, next) {
         res.locals.user = req.user;
         res.locals.moment = moment;
+        res.locals.humanize = humanize;
         next();
     });
     app.use(app.router);
@@ -65,6 +68,7 @@ db.init(function(err, database) {
     admin.init(app);
     documents.init(app);
     sites.init(app);
+    uploads.init(app);
 
     passport.use(new LocalStrategy(function(username, password, done) {
         userColl.findOne({

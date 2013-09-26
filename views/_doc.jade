@@ -1,0 +1,89 @@
+- if (backButton)
+  p
+    a.btn.btn-default(href='/documents')
+      i.glyphicon.glyphicon-chevron-left
+      | &nbsp;
+      =gettext('Back')
+.list-group-item
+  .row
+    .col-md-5
+      .list-group-item-text
+        p.lead=doc.title
+        - if (doc.available)
+          h4.text-success
+            i.glyphicon.glyphicon-star
+            | &nbsp;
+            =gettext('Publicly Available')
+        - else
+          h4.text-danger
+            i.glyphicon.glyphicon-lock
+            | &nbsp;
+            =gettext('Not Publicly Available')
+        p
+          - if (doc.approved)
+            i.text-success.glyphicon.glyphicon-thumbs-up
+            | &nbsp;
+            =gettext("Approved")
+          - else if (doc.approved === false)
+            i.text-danger.glyphicon.glyphicon-thumbs-down
+            | &nbsp;
+            =gettext("Rejected")
+          - else
+            i.text-info.glyphicon.glyphicon-question-sign
+            | &nbsp;
+            =gettext("Unapproved")
+        .btn-group
+          - if (user.admin)
+            button.btn.btn-default
+              .text-success
+                i.glyphicon.glyphicon-thumbs-up
+                | &nbsp;
+                =gettext("Approve")
+            button.btn.btn-default
+              .text-danger
+                i.glyphicon.glyphicon-thumbs-down
+                | &nbsp;
+                =gettext("Reject")
+          - else
+            a.btn.btn-default(href='/documents/#{doc._id}/uploads')=gettext("Upload Files")
+          a.btn.btn-default(href='/documents/#{doc._id}/edit')=gettext("Edit")
+    .col-md-7
+      p.lead=gettext(doc.type)
+      p
+        i.glyphicon.glyphicon-bullhorn
+        | &nbsp;
+        b=gettext('Published')
+        | &nbsp;
+        =doc.date_published
+        | &nbsp;
+        i.glyphicon.glyphicon-save
+        | &nbsp;
+        b=gettext('Received')
+        | &nbsp;
+        =doc.date_published
+      p
+        - if (doc.softcopy)
+          i.glyphicon.glyphicon-cloud-upload
+          | &nbsp;
+          b=gettext('Softcopy attached')
+          | &nbsp;
+        - if (doc.scanned)
+          i.glyphicon.glyphicon-book
+          | &nbsp;
+          b=gettext('Scan attached')
+          | &nbsp;
+      p
+        - if (doc.url)
+          a(href=doc.url, target="_blank")
+            =gettext(doc.location && doc.location.category)
+            | &nbsp;
+            i=doc.location && doc.location.detail
+            | &nbsp;
+            i.glyphicon.glyphicon-new-window
+        - else
+          =gettext(doc.location && doc.location.category)
+          | &nbsp;
+          i=doc.location && doc.location.detail
+        - if (doc.comments)
+          blockquote
+            p=doc.comments
