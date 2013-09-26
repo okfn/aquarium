@@ -8,6 +8,7 @@ module.exports = {
         app.get('/documents', isAuthenticated, module.exports.showDocs);
         app.get('/documents/new', isAuthenticated, module.exports.newDoc);
         app.get('/documents/:id', isAuthenticated, module.exports.showDoc);
+        app.get('/documents/:id/edit', isAuthenticated, module.exports.editDoc);
 
         app.post('/documents', isAuthenticated, module.exports.createDoc);
         app.post('/documents/:id', isAuthenticated, module.exports.updateDoc);
@@ -23,6 +24,21 @@ module.exports = {
             res.render('documents', {
                 docs: docs,
                 title: 'User Documents'
+            });
+        });
+    },
+    editDoc: function(req, res) {
+        docs.get({
+            id: req.params.id
+        }, function(err, doc) {
+            if (err) {
+                return janitor.error(res, err);
+            } else if (!doc) {
+                return janitor.missing(res);
+            }
+            res.render('editdoc', {
+                doc: doc,
+                title: doc.title
             });
         });
     },
@@ -72,8 +88,6 @@ module.exports = {
                 return janitor.error(res, "Unable to update document.");
             }
 
-        debugger;
-
             docs.update({
                 data: extractDoc(req),
                 id: id
@@ -82,7 +96,7 @@ module.exports = {
                     return janitor.error(res, err);
                 }
 
-                res.redirect('/documents/' + id);
+                res.redirect('/documents');
             });
         });
     }
@@ -93,6 +107,7 @@ function extractDoc(req) {
         type: req.body.type,
         title: req.body.title,
         available: req.body.available === 'yes',
+        comments: req.body.comments,
         location: {
             category: req.body.location,
             detail: req.body.location_detail
