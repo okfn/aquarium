@@ -11,6 +11,7 @@ var express = require('express'),
     users = require('./routes/users'),
     admin = require('./routes/admin'),
     documents = require('./routes/documents'),
+    uploads = require('./routes/uploads'),
     sites = require('./routes/sites'),
     http = require('http'),
     path = require('path'),
@@ -65,6 +66,7 @@ db.init(function(err, database) {
     admin.init(app);
     documents.init(app);
     sites.init(app);
+    uploads.init(app);
 
     passport.use(new LocalStrategy(function(username, password, done) {
         userColl.findOne({

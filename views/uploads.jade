@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .container
+    form(role='form', action='/documents/#{doc._id}/uploads', method='POST', enctype="multipart/form-data")
+      p.lead=format("Attach files for %s", [doc.title])
+      .form-group
+        input.form-control(name="upload", type="file")
+      button.btn.btn-primary(type='submit')=gettext("Attach File")
+      a.btn.btn-link(href='/documents')=gettext("Cancel")
