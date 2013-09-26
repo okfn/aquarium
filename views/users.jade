@@ -16,7 +16,7 @@ block content
                   a(href="mailto:#{user.username}", target="_blank")=user.username
                 .col-md-4
                   a(href="https://www.google.co.nz/maps/preview#!q=#{user.country}", target="_blank")=user.country
-                .col-md-4=format('Tracking %s sites', user.sites.length)
+                .col-md-4=format('Tracking %s sites', [user.sites.length])
         .panel-footer
           .row
             .col-md-12
