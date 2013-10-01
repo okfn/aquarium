@@ -13,6 +13,7 @@ var express = require('express'),
     documents = require('./routes/documents'),
     uploads = require('./routes/uploads'),
     sites = require('./routes/sites'),
+    pulse = require('./routes/pulse'),
     http = require('http'),
     path = require('path'),
     app = express(),
@@ -68,6 +69,7 @@ db.init(function(err, database) {
     admin.init(app);
     documents.init(app);
     sites.init(app);
+    pulse.init(app);
     uploads.init(app);
 
     passport.use(new LocalStrategy(function(username, password, done) {

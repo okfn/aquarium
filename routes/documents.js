@@ -1,4 +1,5 @@
-var db = require('../lib/db'),
+var _ = require('underscore'),
+    db = require('../lib/db'),
     auth = require('../lib/auth'),
     janitor = require('../lib/janitor'),
     docs = require('../lib/documents');
@@ -67,9 +68,12 @@ module.exports = {
         });
     },
     createDoc: function(req, res) {
-        var options = {
+        var doc = extractDoc(req),
+            options;
+
+        options = {
             username: req.user.username,
-            data: extractDoc(req)
+            data: _.extend(doc, extractCountry(req))
         };
 
         docs.insert(options, function(err) {
@@ -136,6 +140,15 @@ module.exports = {
         module.exports.changeApproval(req, res, false);
     }
 };
+
+function extractCountry(req) {
+    var countryTokens = (req.user.country || '').split(' - ');
+
+    return {
+        country: countryTokens[1] || '',
+        countryCode: countryTokens[0] || '',
+    }
+}
 
 function extractDoc(req) {
     return {
