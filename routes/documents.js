@@ -12,6 +12,9 @@ module.exports = {
 
         app.post('/documents', auth.authenticated, module.exports.createDoc);
         app.post('/documents/:id', auth.authenticated, module.exports.updateDoc);
+
+        app.post('/documents/:id/approve', auth.admin, module.exports.approveDoc);
+        app.post('/documents/:id/reject', auth.admin, module.exports.rejectDoc);
     },
     showDocs: function(req, res) {
         docs.list({
@@ -91,6 +94,31 @@ module.exports = {
 
             docs.update({
                 data: extractDoc(req),
+                id: id,
+                resetApproved: !req.user.admin
+            }, function(err) {
+                if (err) {
+                    return janitor.error(res, err);
+                }
+
+                res.redirect('/documents/' + id);
+            });
+        });
+    },
+    changeApproval: function(req, res, approval) {
+        var id = req.params.id;
+
+        docs.get({
+            id: id
+        }, function(err, doc) {
+            if (err || !doc) {
+                return janitor.error(res, err || 'Invalid document.');
+            }
+
+            docs.update({
+                data: {
+                    approved: approval
+                },
                 id: id
             }, function(err) {
                 if (err) {
@@ -100,6 +128,12 @@ module.exports = {
                 res.redirect('/documents/' + id);
             });
         });
+    },
+    approveDoc: function(req, res) {
+        module.exports.changeApproval(req, res, true);
+    },
+    rejectDoc: function(req, res) {
+        module.exports.changeApproval(req, res, false);
     }
 };
 

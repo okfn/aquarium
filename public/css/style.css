@@ -5932,6 +5932,10 @@ input[type="file"] {
   height: auto;
   cursor: pointer;
 }
+.btn-form {
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
 .missing h1 {
   text-align: center;
   font-size: 6em;
