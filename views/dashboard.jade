@@ -12,3 +12,7 @@ block content
         .alert.alert-info=format('There are %s unapproved documents out of a total of %s.', [unapprovedCount, documentCount])
         p
           a.btn.btn-default.btn-block(href='/documents')=gettext("Manage Documents")
+    .row
+      .col-md-12
+        p
+          a.btn.btn-primary.btn-block(href='/export')=gettext("Export To CSV")
