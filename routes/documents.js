@@ -1,17 +1,20 @@
 var db = require('../lib/db'),
-    isAuthenticated = require('../lib/auth'),
+    auth = require('../lib/auth'),
     janitor = require('../lib/janitor'),
     docs = require('../lib/documents');
 
 module.exports = {
     init: function(app) {
-        app.get('/documents', isAuthenticated, module.exports.showDocs);
-        app.get('/documents/new', isAuthenticated, module.exports.newDoc);
-        app.get('/documents/:id', isAuthenticated, module.exports.showDoc);
-        app.get('/documents/:id/edit', isAuthenticated, module.exports.editDoc);
+        app.get('/documents', auth.authenticated, module.exports.showDocs);
+        app.get('/documents/new', auth.authenticated, module.exports.newDoc);
+        app.get('/documents/:id', auth.authenticated, module.exports.showDoc);
+        app.get('/documents/:id/edit', auth.authenticated, module.exports.editDoc);
 
-        app.post('/documents', isAuthenticated, module.exports.createDoc);
-        app.post('/documents/:id', isAuthenticated, module.exports.updateDoc);
+        app.post('/documents', auth.authenticated, module.exports.createDoc);
+        app.post('/documents/:id', auth.authenticated, module.exports.updateDoc);
+
+        app.post('/documents/:id/approve', auth.admin, module.exports.approveDoc);
+        app.post('/documents/:id/reject', auth.admin, module.exports.rejectDoc);
     },
     showDocs: function(req, res) {
         docs.list({
@@ -91,6 +94,31 @@ module.exports = {
 
             docs.update({
                 data: extractDoc(req),
+                id: id,
+                resetApproved: !req.user.admin
+            }, function(err) {
+                if (err) {
+                    return janitor.error(res, err);
+                }
+
+                res.redirect('/documents/' + id);
+            });
+        });
+    },
+    changeApproval: function(req, res, approval) {
+        var id = req.params.id;
+
+        docs.get({
+            id: id
+        }, function(err, doc) {
+            if (err || !doc) {
+                return janitor.error(res, err || 'Invalid document.');
+            }
+
+            docs.update({
+                data: {
+                    approved: approval
+                },
                 id: id
             }, function(err) {
                 if (err) {
@@ -100,6 +128,12 @@ module.exports = {
                 res.redirect('/documents/' + id);
             });
         });
+    },
+    approveDoc: function(req, res) {
+        module.exports.changeApproval(req, res, true);
+    },
+    rejectDoc: function(req, res) {
+        module.exports.changeApproval(req, res, false);
     }
 };
 

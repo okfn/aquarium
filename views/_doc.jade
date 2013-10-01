@@ -32,21 +32,26 @@
             i.text-info.glyphicon.glyphicon-question-sign
             | &nbsp;
             =gettext("Unapproved")
-        .btn-group
-          - if (user.admin)
-            button.btn.btn-default
-              .text-success
-                i.glyphicon.glyphicon-thumbs-up
-                | &nbsp;
-                =gettext("Approve")
-            button.btn.btn-default
-              .text-danger
-                i.glyphicon.glyphicon-thumbs-down
-                | &nbsp;
-                =gettext("Reject")
-          - else
-            a.btn.btn-default(href='/documents/#{doc._id}/uploads')=gettext("Upload Files")
+        - if (user.admin)
+          - if (doc.approved !== true)
+            form.btn-form(action="/documents/#{doc._id}/approve", method="POST")
+              button.btn.btn-default
+                .text-success
+                  i.glyphicon.glyphicon-thumbs-up
+                  | &nbsp;
+                  =gettext("Approve")
+          - if (doc.approved !== false)
+            form.btn-form(action="/documents/#{doc._id}/reject", method="POST")
+              button.btn.btn-default
+                .text-danger
+                  i.glyphicon.glyphicon-thumbs-down
+                  | &nbsp;
+                  =gettext("Reject")
           a.btn.btn-default(href='/documents/#{doc._id}/edit')=gettext("Edit")
+        - else
+          .btn-group
+            a.btn.btn-default(href='/documents/#{doc._id}/uploads')=gettext("Upload Files")
+            a.btn.btn-default(href='/documents/#{doc._id}/edit')=gettext("Edit")
     .col-md-7
       p.lead=gettext(doc.type)
       p

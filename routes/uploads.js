@@ -1,5 +1,5 @@
 var db = require('../lib/db'),
-    isAuthenticated = require('../lib/auth'),
+    auth = require('../lib/auth'),
     janitor = require('../lib/janitor'),
     uploads = require('../lib/uploads'),
     fs = require('fs'),
@@ -8,10 +8,10 @@ var db = require('../lib/db'),
 
 module.exports = {
     init: function(app) {
-        app.get('/documents/:id/uploads', isAuthenticated, module.exports.showAttachments);
-        app.get('/uploads/:id/:filename', isAuthenticated, module.exports.showAttachment);
+        app.get('/documents/:id/uploads', auth.authenticated, module.exports.showAttachments);
+        app.get('/uploads/:id/:filename', auth.authenticated, module.exports.showAttachment);
 
-        app.post('/documents/:id/uploads', isAuthenticated, module.exports.addAttachment);
+        app.post('/documents/:id/uploads', auth.authenticated, module.exports.addAttachment);
     },
     saveAttachment: function(options) {
         var docId = options.docId,

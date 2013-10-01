@@ -1,16 +1,16 @@
 var db = require('../lib/db'),
-    isAuthenticated = require('../lib/auth'),
+    auth = require('../lib/auth'),
     janitor = require('../lib/janitor'),
     sites = require('../lib/sites'),
     users = require('../lib/users');
 
 module.exports = {
     init: function(app) {
-        app.get('/sites', isAuthenticated, module.exports.showSites);
-        app.get('/sites/new', isAuthenticated, module.exports.newSite);
+        app.get('/sites', auth.authenticated, module.exports.showSites);
+        app.get('/sites/new', auth.authenticated, module.exports.newSite);
 
-        app.post('/sites', isAuthenticated, module.exports.createSite);
-        app.post('/sites/:username/:created_at/remove', isAuthenticated, module.exports.removeSite);
+        app.post('/sites', auth.authenticated, module.exports.createSite);
+        app.post('/sites/:username/:created_at/remove', auth.authenticated, module.exports.removeSite);
     },
     /**
      * Show the list of sites for the logged in user, or *all* sites if admin.
