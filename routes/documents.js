@@ -138,7 +138,11 @@ module.exports = {
 };
 
 function extractDoc(req) {
+    var countryTokens = (req.user.country || '').split(' - ');
+
     return {
+        country: countryTokens[1] || '',
+        countryCode: countryTokens[0] || '',
         type: req.body.type,
         title: req.body.title,
         available: req.body.available === 'yes',

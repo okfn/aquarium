@@ -54,6 +54,7 @@
             a.btn.btn-default(href='/documents/#{doc._id}/edit')=gettext("Edit")
     .col-md-7
       p.lead=gettext(doc.type)
+      p=doc.country
       p
         i.glyphicon.glyphicon-bullhorn
         | &nbsp;
