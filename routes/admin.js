@@ -144,15 +144,14 @@ module.exports = {
             });
             stream = csv().to.stream(res, {
                 columns: ['type', 'title', 'country', 'url', 'location', 'location_detail', 'username', 'date_published', 'date_received', 'softcopy', 'scanned', 'approved', 'available', 'comments'],
-                header: true,
-                transform: function(row) {
-                    row.approved = row.approved ? 'true' : 'false';
-                    row.available = row.available ? 'true' : 'false';
-                    row.softcopy = row.softcopy ? 'true' : 'false';
-                    row.scanned = row.scanned ? 'true' : 'false';
+                header: true
+            }).transform(function(row) {
+                row.approved = row.approved ? 'yes' : 'no';
+                row.available = row.available ? 'yes' : 'no';
+                row.softcopy = row.softcopy ? 'yes' : 'no';
+                row.scanned = row.scanned ? 'yes' : 'no';
 
-                    return row;
-                }
+                return row;
             });
             _.each(docs, function(doc) {
                 stream.write(doc);
