@@ -21,7 +21,8 @@ var express = require('express'),
     db = require('./lib/db'),
     humanize = require('humanize-plus'),
     i18n = require('i18n-abide'),
-    MongoStore = require('connect-mongo')(express);
+    MongoStore = require('connect-mongo')(express),
+    _ = require('underscore');
 
 db.init(function(err, database) {
     var userColl = db.coll('users');
@@ -64,13 +65,9 @@ db.init(function(err, database) {
     }
 
     // initialise routes
-    routes.init(app);
-    users.init(app);
-    admin.init(app);
-    documents.init(app);
-    sites.init(app);
-    pulse.init(app);
-    uploads.init(app);
+    _.each([routes, users, admin, documents, sites, pulse, uploads], function(controller) {
+        controller.init(app);
+    });
 
     passport.use(new LocalStrategy(function(username, password, done) {
         userColl.findOne({

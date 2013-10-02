@@ -156,10 +156,8 @@ function extractDoc(req) {
         title: req.body.title,
         available: req.body.available === 'yes',
         comments: req.body.comments,
-        location: {
-            category: req.body.location,
-            detail: req.body.location_detail
-        },
+        location: req.body.location,
+        location_detail: req.body.location_detail,
         url: req.body.url,
         date_published: req.body.date_published,
         date_received: req.body.date_received,

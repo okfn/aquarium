@@ -20,7 +20,8 @@
     "moment": "~2.2.1",
     "async": "~0.2.9",
     "i18n-abide": "0.0.14",
-    "humanize-plus": "~1.4.2"
+    "humanize-plus": "~1.4.2",
+    "csv": "~0.3.6"
   },
   "devDependencies": {
     "nodeunit": "~0.8.1",
