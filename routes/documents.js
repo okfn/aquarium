@@ -166,13 +166,13 @@ function extractCountry(req) {
 
 function extractDoc(req) {
     req.assert('type', 'Type must be valid.').isIn([
-        "Pre-Budget Statement"
-        "Executive's Budget Proposal"
-        "Enacted Budget"
-        "Citizen's Budget"
-        "In-Year Report"
-        "Mid-year Review"
-        "Year-End Report"
+        "Pre-Budget Statement",
+        "Executive's Budget Proposal",
+        "Enacted Budget",
+        "Citizen's Budget",
+        "In-Year Report",
+        "Mid-year Review",
+        "Year-End Report",
         "Audit Report"
     ]);
 
