@@ -38,12 +38,34 @@ module.exports = {
         });
     },
     createSite: function(req, res) {
-        var options = {
+        var errors,
+            options;
+
+        options = {
             title: req.body.title,
             type: req.body.type,
             url: req.body.url,
             username: req.user.username
         };
+
+        req.assert('type', 'Type must be valid.').isIn([
+            "Pre-Budget Statement"
+            "Executive's Budget Proposal"
+            "Enacted Budget"
+            "Citizen's Budget"
+            "In-Year Report"
+            "Mid-year Review"
+            "Year-End Report"
+            "Audit Report"
+        ]);
+        req.assert('title', 'Title can\'t be empty').notEmpty();
+        req.assert('url', 'Must specify url').isUrl();
+
+        errors = req.validationErrors();
+
+        if (errors.length) {
+            return janitor.invalid(res, errors);
+        }
 
         sites.insert(options, function(err) {
             if (err) {

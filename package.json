@@ -21,7 +21,8 @@
     "async": "~0.2.9",
     "i18n-abide": "0.0.14",
     "humanize-plus": "~1.4.2",
-    "csv": "~0.3.6"
+    "csv": "~0.3.6",
+    "express-validator": "~0.8.0"
   },
   "devDependencies": {
     "nodeunit": "~0.8.1",

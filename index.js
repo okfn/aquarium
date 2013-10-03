@@ -22,7 +22,8 @@ var express = require('express'),
     humanize = require('humanize-plus'),
     i18n = require('i18n-abide'),
     MongoStore = require('connect-mongo')(express),
-    _ = require('underscore');
+    _ = require('underscore'),
+    validator = require('express-validator');
 
 db.init(function(err, database) {
     var userColl = db.coll('users');
@@ -34,6 +35,7 @@ db.init(function(err, database) {
     app.use(express.favicon());
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
+    app.use(validator());
     app.use(express.methodOverride());
     app.use(express.cookieParser(config.COOKIE_SECRET));
     app.use(express.session({
