@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "prepublish": "browserify public/js/app.js  | uglifyjs > public/js/aquarium.js",
     "start": "node index.js",
     "test": "node_modules/nodeunit/bin/nodeunit test"
   },
