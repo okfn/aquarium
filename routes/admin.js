@@ -5,7 +5,8 @@ var _ = require('underscore'),
     janitor = require('../lib/janitor'),
     users = require('../lib/users'),
     moment = require('moment'),
-    docs = require('../lib/documents');
+    docs = require('../lib/documents'),
+    sites = require('../lib/sites');
 
 module.exports = {
     init: function(app) {
@@ -74,7 +75,7 @@ module.exports = {
      * Shows the list of users to the admin. Redirects to / if not admin user.
      */
     index: function(req, res) {
-        async.map([users.count, docs.countUnapproved, docs.count], function(fn, callback) {
+        async.map([users.count, docs.countUnapproved, docs.count, sites.count], function(fn, callback) {
             fn({}, callback);
         }, function(err, results) {
             if (err) {
@@ -84,7 +85,7 @@ module.exports = {
             res.render('dashboard', {
                 documentCount: results[2],
                 unapprovedCount: results[1],
-                pageCount: 0,
+                pageCount: results[3],
                 userCount: results[0],
                 title: 'Admin Dashboard'
             });
