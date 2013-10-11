@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "prepublish": "browserify public/js/app.js  | uglifyjs > public/js/aquarium.js",
     "start": "npm install && node index.js",
     "test": "node_modules/nodeunit/bin/nodeunit test"
   },
@@ -24,9 +23,7 @@
     "humanize-plus": "~1.4.2",
     "csv": "~0.3.6",
     "express-validator": "~0.8.0",
-    "serialize-form": "~1.1.4",
-    "uglifyjs": "~2.3.6",
-    "browserify": "~2.34.0"
+    "serialize-form": "~1.1.4"
   },
   "devDependencies": {
     "nodeunit": "~0.8.1",
