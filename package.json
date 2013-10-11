@@ -24,7 +24,9 @@
     "humanize-plus": "~1.4.2",
     "csv": "~0.3.6",
     "express-validator": "~0.8.0",
-    "serialize-form": "~1.1.4"
+    "serialize-form": "~1.1.4",
+    "uglifyjs": "~2.3.6",
+    "browserify": "~2.34.0"
   },
   "devDependencies": {
     "nodeunit": "~0.8.1",
