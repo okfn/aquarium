@@ -74,7 +74,7 @@ module.exports = {
 
         errors = req.validationErrors();
 
-        if (errors.length) {
+        if (errors && errors.length) {
             return janitor.invalid(res, errors);
         }
 
@@ -97,7 +97,7 @@ module.exports = {
 
         errors = req.validationErrors();
 
-        if (errors.length > 1) {
+        if (errors && errors.length) {
             return janitor.invalid(res, errors);
         }
 

@@ -48,7 +48,7 @@ module.exports = {
 
                 errors = req.validationErrors();
 
-                if (errors.length === 0) {
+                if (!errors || errors.length === 0) {
                     users.insert({
                         password: pwd,
                         user: {
@@ -122,7 +122,7 @@ module.exports = {
 
         errors = req.validationErrors();
 
-        if (errors.length === 0) {
+        if (!errors || errors.length === 0) {
             users.insert({
                 password: password,
                 user: {
