@@ -53,20 +53,25 @@ $(document).on('input', 'form#setup', function() {
     }
 });
 
-$(document).on('input', 'form#newdoc, form#updatedoc', function() {
-    var $this = $(this),
-        values = serializer('form#newdoc, form#updatedoc'),
-        errors,
-        validator;
+function validateDoc(id) {
+    return function() {
+        var $this = $(this),
+            values = serializer(id),
+            errors,
+            validator;
 
-    validator = new Validator();
-    validator.check(values.title, 'Document must have a title.').notEmpty();
+        validator = new Validator();
+        validator.check(values.title, 'Document must have a title.').notEmpty();
 
-    errors = validator.getErrors();
+        errors = validator.getErrors();
 
-    if (errors.length) {
-        $this.find('[type=submit]').disable();
-    } else {
-        $this.find('[type=submit]').enable();
+        if (errors.length) {
+            $this.find('[type=submit]').disable();
+        } else {
+            $this.find('[type=submit]').enable();
+        }
     }
-});
+}
+
+$(document).on('input', 'form#newdoc', validateDoc('form#newdoc'));
+$(document).on('input', 'form#updatedoc', validateDoc('form#updatedoc'));
