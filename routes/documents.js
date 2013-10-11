@@ -177,17 +177,13 @@ function extractDoc(req) {
     ]);
 
     req.assert('title', 'Title can\'t be empty').notEmpty();
-    req.assert('available', 'Available must be set').notEmpty();
-    req.assert('location', 'Must specify location').notEmpty();
-    req.assert('softcopy', 'Must specify softcopy').notEmpty();
-    req.assert('scanned', 'Must specify scanned').notEmpty();
 
     return {
         type: req.body.type,
         title: req.body.title,
         available: req.body.available === 'yes',
         comments: req.body.comments,
-        location: req.body.location,
+        location: req.body.location || '',
         location_detail: req.body.location_detail,
         url: req.body.url,
         date_published: req.body.date_published,
