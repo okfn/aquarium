@@ -4,7 +4,7 @@ block content
   .container
     .row
       .col-md-12
-        form(role='form', action='/setup', method='POST')
+        form#setup(role='form', action='/setup', method='POST')
           .form-group
               label=gettext('Email address')
               input.form-control(name='username', type='email', placeholder=gettext('Enter email'), autofocus=true, autocomplete='off')
@@ -14,4 +14,4 @@ block content
           .form-group
             label=gettext('Confirm Password')
             input.form-control(name='confirm', type='password', placeholder=gettext('Confirm password'))
-          button.btn.btn-danger(type='submit')=gettext('Create Admin User')
+          button.btn.btn-danger(type='submit', disabled="disabled")=gettext('Create Admin User')

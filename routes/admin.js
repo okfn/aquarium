@@ -40,10 +40,15 @@ module.exports = {
         users.isEmpty(function(err, empty) {
             var user = req.body.username,
                 pwd = req.body.password,
-                errors = module.exports.validate(req.body);
+                errors;
 
             if (empty) {
-                if (errors.length === 0) {
+                req.assert('username', 'Username required.').isEmail();
+                req.assert('password', 'Password must be at least eight characters long.').len(8);
+
+                errors = req.validationErrors();
+
+                if (!errors || errors.length === 0) {
                     users.insert({
                         password: pwd,
                         user: {
@@ -64,7 +69,7 @@ module.exports = {
                         }
                     });
                 } else {
-                    res.send(403, errors.join(', '));
+                    janitor.invalid(res, errors);
                 }
             } else {
                 res.send(500, "Admin user exists. Cannot overwrite.");
@@ -110,9 +115,14 @@ module.exports = {
     },
     addNewUser: function(req, res) {
         var password = req.body.password,
-            errors = module.exports.validate(req.body);
+            errors;
 
-        if (errors.length === 0) {
+        req.assert('username', 'Username required.').isEmail();
+        req.assert('password', 'Password must be at least eight characters long.').len(8);
+
+        errors = req.validationErrors();
+
+        if (!errors || errors.length === 0) {
             users.insert({
                 password: password,
                 user: {
@@ -130,7 +140,7 @@ module.exports = {
                 }
             });
         } else {
-            res.send(403, errors.join(', '));
+            janitor.invalid(res, errors);
         }
     },
     dataExport: function(req, res) {
@@ -159,8 +169,5 @@ module.exports = {
             });
             res.end();
         });
-    },
-    validate: function(obj) {
-        return [];
     }
 };

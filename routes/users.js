@@ -31,21 +31,5 @@ module.exports = {
     doLogout: function(req, res, next) {
         req.logout();
         res.redirect('/');
-    },
-    validate: function(user) {
-        var errors = [];
-
-        if (!user.username) {
-            errors.push("Username required");
-        }
-        if (!user.password) {
-            errors.push("Password required");
-        } else if (user.password.length < 8) {
-            errors.push("Password must be at least 8 characters long");
-        } else if (user.password !== user.confirm) {
-            errors.push("Password and confirmation do not match");
-        }
-
-        return errors;
     }
 };

@@ -69,7 +69,14 @@ module.exports = {
     },
     createDoc: function(req, res) {
         var doc = extractDoc(req),
+            errors,
             options;
+
+        errors = req.validationErrors();
+
+        if (errors && errors.length) {
+            return janitor.invalid(res, errors);
+        }
 
         options = {
             username: req.user.username,
@@ -85,7 +92,14 @@ module.exports = {
         });
     },
     updateDoc: function(req, res) {
-        var id = req.params.id;
+        var id = req.params.id,
+            errors;
+
+        errors = req.validationErrors();
+
+        if (errors && errors.length) {
+            return janitor.invalid(res, errors);
+        }
 
         docs.get({
             id: id
@@ -151,6 +165,23 @@ function extractCountry(req) {
 }
 
 function extractDoc(req) {
+    req.assert('type', 'Type must be valid.').isIn([
+        "Pre-Budget Statement",
+        "Executive's Budget Proposal",
+        "Enacted Budget",
+        "Citizen's Budget",
+        "In-Year Report",
+        "Mid-year Review",
+        "Year-End Report",
+        "Audit Report"
+    ]);
+
+    req.assert('title', 'Title can\'t be empty').notEmpty();
+    req.assert('available', 'Available must be set').notEmpty();
+    req.assert('location', 'Must specify location').notEmpty();
+    req.assert('softcopy', 'Must specify softcopy').notEmpty();
+    req.assert('scanned', 'Must specify scanned').notEmpty();
+
     return {
         type: req.body.type,
         title: req.body.title,

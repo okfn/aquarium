@@ -4,7 +4,7 @@ block content
   .container
     .row
       .col-md-12
-        form(role='form', action='/documents', method='POST')
+        form#newdoc(role='form', action='/documents', method='POST')
           .form-group
             label=gettext('Document Type')
             select.form-control(name="type")
@@ -81,5 +81,5 @@ block content
             .form-group
               textarea.form-control(name="comments")
             
-          button.btn.btn-primary(type='submit')=gettext("Add")
+          button.btn.btn-primary(type='submit', disabled='disabled')=gettext("Add")
           a.btn.btn-link(href='/documents')=gettext("Cancel")
