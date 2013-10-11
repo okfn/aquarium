@@ -4,12 +4,12 @@ block content
   .container
     .row
       .col-md-12
-        form(role='form', action='/login', method='POST')
+        form#login(role='form', action='/login', method='POST')
           .form-group
             label=gettext('Email address')
             input.form-control(name='username', type='email', placeholder=gettext('Enter email'), autofocus=true, autocomplete='off')
           .form-group
             label=gettext('Password')
             input.form-control(name='password', type='password', placeholder=gettext('Password'))
-          button.btn.btn-primary(type='submit')=gettext('Login')
+          button.btn.btn-primary(type='submit', disabled='disabled')=gettext('Login')
 
