@@ -42,7 +42,7 @@ $(document).on('input', 'form#setup', function() {
     validator = new Validator();
     validator.check(values.username, 'Username must be an email.').isEmail();
     validator.check(values.password, 'Password must be 8 characters or more.').len(8);
-    validator.check(values.confirm, 'Passwords must match.').same(values.password);
+    validator.check(values.confirm, 'Passwords must match.').equals(values.password);
 
     errors = validator.getErrors();
 
