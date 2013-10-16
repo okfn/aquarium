@@ -4,12 +4,12 @@ block content
   .container
     .row
       .col-md-12
-        .alert.alert-info=format('There are %s users tracking %s pages.', [userCount, pageCount])
+        .alert.alert-info=format('There are %(users)s users tracking %(pages)s pages.', { users: userCount, pages: pageCount })
         p
           a.btn.btn-default.btn-block(href='/users')=gettext("Manage Users")
     .row
       .col-md-12
-        .alert.alert-info=format('There are %s unapproved documents out of a total of %s.', [unapprovedCount, documentCount])
+        .alert.alert-info=format('There are %(unapproveds)s unapproved documents out of a total of %(total)s.', { unapproveds: unapprovedCount, total: documentCount })
         p
           a.btn.btn-default.btn-block(href='/documents')=gettext("Manage Documents")
     .row

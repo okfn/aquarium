@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-25 09:40+1200\n"
+"POT-Creation-Date: 2013-10-16 13:27+1300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,194 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: views/404.jade:7
+msgid "Page Not Found"
+msgstr ""
+
+#: views/_doc.jade:6
+msgid "Back"
+msgstr ""
+
+#: views/_doc.jade:16 views/editdoc.jade:17 views/newdoc.jade:23
+msgid "Publicly Available"
+msgstr ""
+
+#: views/_doc.jade:21
+msgid "Not Publicly Available"
+msgstr ""
+
+#: views/_doc.jade:26
+msgid "Approved"
+msgstr ""
+
+#: views/_doc.jade:30
+msgid "Rejected"
+msgstr ""
+
+#: views/_doc.jade:34
+msgid "Unapproved"
+msgstr ""
+
+#: views/_doc.jade:42
+msgid "Approve"
+msgstr ""
+
+#: views/_doc.jade:49
+msgid "Reject"
+msgstr ""
+
+#: views/_doc.jade:50 views/_doc.jade:54
+msgid "Edit"
+msgstr ""
+
+#: views/_doc.jade:53
+msgid "Upload Files"
+msgstr ""
+
+#: views/_doc.jade:61
+msgid "Published"
+msgstr ""
+
+#: views/_doc.jade:67
+msgid "Received"
+msgstr ""
+
+#: views/_doc.jade:74
+msgid "Softcopy attached"
+msgstr ""
+
+#: views/_doc.jade:79
+msgid "Scan attached"
+msgstr ""
+
+#: views/dashboard.jade:7
+#, python-format
+msgid "There are %s users tracking %s pages."
+msgstr ""
+
+#: views/dashboard.jade:9
+msgid "Manage Users"
+msgstr ""
+
+#: views/dashboard.jade:12
+#, python-format
+msgid "There are %s unapproved documents out of a total of %s."
+msgstr ""
+
+#: views/dashboard.jade:14
+msgid "Manage Documents"
+msgstr ""
+
+#: views/dashboard.jade:18
+msgid "Export To CSV"
+msgstr ""
+
+#: views/documents.jade:8 views/layout.jade:26
+msgid "Documents"
+msgstr ""
+
+#: views/documents.jade:16
+msgid "Add Document"
+msgstr ""
+
+#: views/editdoc.jade:9 views/newdoc.jade:9 views/newsite.jade:9
+msgid "Document Type"
+msgstr ""
+
+#: views/editdoc.jade:14 views/editdoc.jade:15 views/newdoc.jade:20
+#: views/newdoc.jade:21 views/newsite.jade:20 views/newsite.jade:21
+msgid "Document Title"
+msgstr ""
+
+#: views/editdoc.jade:22 views/editdoc.jade:53 views/editdoc.jade:63
+#: views/newdoc.jade:28 views/newdoc.jade:65 views/newdoc.jade:75
+msgid "Yes"
+msgstr ""
+
+#: views/editdoc.jade:25 views/editdoc.jade:56 views/editdoc.jade:66
+#: views/newdoc.jade:31 views/newdoc.jade:68 views/newdoc.jade:78
+msgid "No"
+msgstr ""
+
+#: views/editdoc.jade:27
+msgid "Location"
+msgstr ""
+
+#: views/editdoc.jade:37 views/newdoc.jade:49
+msgid "Details of location"
+msgstr ""
+
+#: views/editdoc.jade:39 views/newdoc.jade:51
+msgid "Web Link"
+msgstr ""
+
+#: views/editdoc.jade:42 views/newdoc.jade:54
+msgid "Date of Publication"
+msgstr ""
+
+#: views/editdoc.jade:43 views/editdoc.jade:46 views/newdoc.jade:55
+#: views/newdoc.jade:58
+msgid "1 Jan 2014"
+msgstr ""
+
+#: views/editdoc.jade:45 views/newdoc.jade:57
+msgid "Date Received"
+msgstr ""
+
+#: views/editdoc.jade:48 views/newdoc.jade:60
+msgid "Soft copy attached"
+msgstr ""
+
+#: views/editdoc.jade:58 views/newdoc.jade:70
+msgid "Scanned First/Last Page Attached"
+msgstr ""
+
+#: views/editdoc.jade:68 views/newdoc.jade:80
+msgid "Comments"
+msgstr ""
+
+#: views/editdoc.jade:72
+msgid "Update"
+msgstr ""
+
+#: views/editdoc.jade:73 views/newdoc.jade:85 views/newsite.jade:26
+#: views/newuser.jade:288 views/uploads.jade:24
+msgid "Cancel"
+msgstr ""
+
+#: views/index.jade:7
+#, python-format
+msgid "Welcome to %(title)s"
+msgstr ""
+
+#: views/layout.jade:11
+msgid "Toggle navigation"
+msgstr ""
+
+#: views/layout.jade:15
+msgid "Aquarium"
+msgstr ""
+
+#: views/layout.jade:19
+msgid "Pulse"
+msgstr ""
+
+#: views/layout.jade:23
+msgid "Dashboard"
+msgstr ""
+
+#: views/layout.jade:28 views/sites.jade:8
+msgid "Sites"
+msgstr ""
+
+#: views/layout.jade:36
+msgid "Logout"
+msgstr ""
+
+#: views/layout.jade:40 views/login.jade:14
+msgid "Login"
+msgstr ""
 
 #: views/login.jade:9 views/newuser.jade:9 views/setup.jade:9
 msgid "Email address"
@@ -30,153 +218,64 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: views/dashboard.jade:9
-msgid "Manage Users"
-msgstr ""
-
-#: views/documents.jade:8 views/layout.jade:26 views/sites.jade:8
-msgid "Sites"
-msgstr ""
-
-#: views/documents.jade:25
-msgid "Add Document"
-msgstr ""
-
-#: views/layout.jade:11
-msgid "Toggle navigation"
-msgstr ""
-
-#: views/layout.jade:15
-msgid "Aquarium"
-msgstr ""
-
-#: views/layout.jade:21
-msgid "Dashboard"
-msgstr ""
-
-#: views/layout.jade:24
-msgid "Documents"
-msgstr ""
-
-#: views/layout.jade:34
-msgid "Logout"
-msgstr ""
-
-#: views/layout.jade:37 views/login.jade:14
-msgid "Login"
-msgstr ""
-
-#: views/newdoc.jade:9 views/newsite.jade:9
-msgid "Document Type"
-msgstr ""
-
-#: views/newdoc.jade:11 views/newsite.jade:11
+#: views/newdoc.jade:11 views/newsite.jade:11 views/pulse.jade:11
 msgid "Pre-Budget Statement"
 msgstr ""
 
-#: views/newdoc.jade:12 views/newsite.jade:12
+#: views/newdoc.jade:12 views/newsite.jade:12 views/pulse.jade:12
 msgid "Executive's Budget Proposal"
 msgstr ""
 
-#: views/newdoc.jade:13 views/newsite.jade:13
+#: views/newdoc.jade:13 views/pulse.jade:13
 msgid "Enacted Budget"
 msgstr ""
 
-#: views/newdoc.jade:14 views/newsite.jade:14
+#: views/newdoc.jade:14 views/newsite.jade:14 views/pulse.jade:14
 msgid "Citizen's Budget"
 msgstr ""
 
-#: views/newdoc.jade:15 views/newsite.jade:15
+#: views/newdoc.jade:15 views/newsite.jade:15 views/pulse.jade:15
 msgid "In-Year Report"
 msgstr ""
 
-#: views/newdoc.jade:16 views/newsite.jade:16
+#: views/newdoc.jade:16 views/newsite.jade:16 views/pulse.jade:16
 msgid "Mid-year Review"
 msgstr ""
 
-#: views/newdoc.jade:17 views/newsite.jade:17
+#: views/newdoc.jade:17 views/newsite.jade:17 views/pulse.jade:17
 msgid "Year-End Report"
 msgstr ""
 
-#: views/newdoc.jade:18 views/newsite.jade:18
+#: views/newdoc.jade:18 views/newsite.jade:18 views/pulse.jade:18
 msgid "Audit Report"
 msgstr ""
 
-#: views/newdoc.jade:20 views/newdoc.jade:21 views/newsite.jade:20
-#: views/newsite.jade:21
-msgid "Document Title"
+#: views/newdoc.jade:33
+msgid "Location "
 msgstr ""
 
-#: views/newdoc.jade:23
-msgid "Publicly Available"
-msgstr ""
-
-#: views/newdoc.jade:27 views/newdoc.jade:58 views/newdoc.jade:66
-msgid "Yes"
-msgstr ""
-
-#: views/newdoc.jade:29 views/newdoc.jade:60 views/newdoc.jade:68
-msgid "No"
-msgstr ""
-
-#: views/newdoc.jade:31
-msgid "Location"
-msgstr ""
-
-#: views/newdoc.jade:35
+#: views/newdoc.jade:38
 msgid "Website"
 msgstr ""
 
-#: views/newdoc.jade:37
+#: views/newdoc.jade:41
 msgid "Government Office"
 msgstr ""
 
-#: views/newdoc.jade:39
+#: views/newdoc.jade:44
 msgid "Public Library"
 msgstr ""
 
-#: views/newdoc.jade:41
+#: views/newdoc.jade:47
 msgid "Other"
 msgstr ""
 
-#: views/newdoc.jade:43
-msgid "Details of location"
-msgstr ""
-
-#: views/newdoc.jade:45
-msgid "Web Link"
-msgstr ""
-
-#: views/newdoc.jade:48
-msgid "Date of Publication"
-msgstr ""
-
-#: views/newdoc.jade:49 views/newdoc.jade:52
-msgid "1 Jan 2014"
-msgstr ""
-
-#: views/newdoc.jade:51
-msgid "Date Received"
-msgstr ""
-
-#: views/newdoc.jade:54
-msgid "Soft copy attached"
-msgstr ""
-
-#: views/newdoc.jade:62
-msgid "Scanned First/Last Page Attached"
-msgstr ""
-
-#: views/newdoc.jade:70
-msgid "Comments"
-msgstr ""
-
-#: views/newdoc.jade:74 views/newsite.jade:25
+#: views/newdoc.jade:84 views/newsite.jade:25
 msgid "Add"
 msgstr ""
 
-#: views/newdoc.jade:75 views/newsite.jade:26 views/newuser.jade:288
-msgid "Cancel"
+#: views/newsite.jade:13
+msgid "Enacted Budget "
 msgstr ""
 
 #: views/newsite.jade:23
@@ -187,7 +286,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: views/newuser.jade:15
+#: views/newuser.jade:15 views/pulse.jade:10
 msgid "Country"
 msgstr ""
 
@@ -1267,6 +1366,10 @@ msgstr ""
 msgid "Last modified"
 msgstr ""
 
+#: views/sites.jade:23
+msgid "HH:mm DD MMM YYYY"
+msgstr ""
+
 #: views/sites.jade:26
 msgid "Delete"
 msgstr ""
@@ -1275,38 +1378,26 @@ msgstr ""
 msgid "Add Site"
 msgstr ""
 
+#: views/uploads.jade:6
+#, python-format
+msgid "Documents attached to %s"
+msgstr ""
+
+#: views/uploads.jade:17
+#, python-format
+msgid "No documents attached to %s"
+msgstr ""
+
+#: views/uploads.jade:20
+msgid "Attach new file"
+msgstr ""
+
+#: views/uploads.jade:23
+msgid "Attach"
+msgstr ""
+
 #: views/users.jade:8
 msgid "User List"
-msgstr ""
-
-#: views/users.jade:23
-msgid "Add User"
-msgstr ""
-
-#: views/documents.jade:20
-#, python-format
-msgid "Received %s"
-msgstr ""
-
-#: views/documents.jade:21 views/sites.jade:23
-msgid "HH:mm DD MMM YYYY"
-msgstr ""
-
-#: views/documents.jade:21
-#, python-format
-msgid "Last modified %s"
-msgstr ""
-
-#: views/index.jade:7
-msgid "Welcome to %(title)s"
-msgstr ""
-
-#: views/newdoc.jade:31
-msgid "Location "
-msgstr ""
-
-#: views/newsite.jade:13
-msgid "Enacted Budget "
 msgstr ""
 
 #: views/users.jade:19
@@ -1314,6 +1405,17 @@ msgstr ""
 msgid "Tracking %s sites"
 msgstr ""
 
+#: views/users.jade:23
+msgid "Add User"
+msgstr ""
+
 #: views/dashboard.jade:7
-msgid "There are %s users from %s countries tracking %s URLs."
+#, python-format
+msgid "There are %(users)s users tracking %(pages)s pages."
+msgstr ""
+
+#: views/dashboard.jade:12
+#, python-format
+msgid ""
+"There are %(unapproveds)s unapproved documents out of a total of %(total)s."
 msgstr ""
