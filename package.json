@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "npm install && browserify public/js/app.js | uglifyjs > public/js/aquarium.js  && node index.js",
+    "browserify": "browserify public/js/app.js | uglifyjs > public/js/aquarium.js",
+    "start": "npm install && node index.js",
     "test": "node_modules/nodeunit/bin/nodeunit test"
   },
   "dependencies": {
