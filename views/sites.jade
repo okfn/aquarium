@@ -3,28 +3,41 @@ extends layout
 block content
   .container
     .row
-      .panel.panel-primary
-        .panel-heading 
-          h2.panel-title=gettext('Sites')
-        .list-group
-          - each site in sites
-            .list-group-item
-              h4.list-group-item-heading
-                | #{site.title}
+      .col-md-12
+        form(role="search", action="/sites")
+          .form-group
+            .input-group
+              input.form-control(name="q", type="text", autofocus=true, autocomplete='off', placeholder=gettext("Search"), value=search)
+              span.input-group-btn
+                button.btn.btn-default(type="submit")
+                  i.glyphicon.glyphicon-search
+    .row
+      .col-md-12
+        .panel.panel-primary
+          .panel-heading 
+            h2.panel-title=gettext('Sites')
+          .list-group
+            - each site in sites
+              .list-group-item
+                h4.list-group-item-heading
+                  | #{site.title}
+                  | &nbsp;
+                  .label.label-default=site.type
+                .list-group-item-text
+                  .row
+                    .col-md-7
+                      a(href=site.url, target="_blank")=site.url
+                    .col-md-4
+                      =gettext('Last modified')
+                      | &nbsp;
+                      =moment(site.last_modified).format('HH:mm DD MMM YYYY')
+                    .col-md-1
+                      form.inline-form(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/remove')
+                        button.btn.btn-xs.btn-danger(type='submit')=gettext('Delete')
+          .panel-footer
+            .row
+              .col-md-12
+                a.btn.btn-default(href='/sites/new')=gettext('Add Site')
                 | &nbsp;
-                .label.label-default=site.type
-              .list-group-item-text
-                .row
-                  .col-md-7
-                    a(href=site.url, target="_blank")=site.url
-                  .col-md-4
-                    =gettext('Last modified')
-                    | &nbsp;
-                    =moment(site.last_modified).format('HH:mm DD MMM YYYY')
-                  .col-md-1
-                    form.inline-form(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/remove')
-                      button.btn.btn-xs.btn-danger(type='submit')=gettext('Delete')
-        .panel-footer
-          .row
-            .col-md-12
-              a.btn.btn-default(href='/sites/new')=gettext('Add Site')
+                - if (search)
+                  =format("Showing %(count)s of %(total)s sites", { count: sites.length, total: total })

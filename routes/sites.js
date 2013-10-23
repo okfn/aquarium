@@ -2,7 +2,8 @@ var db = require('../lib/db'),
     auth = require('../lib/auth'),
     janitor = require('../lib/janitor'),
     sites = require('../lib/sites'),
-    users = require('../lib/users');
+    users = require('../lib/users'),
+    _s = require('underscore.string');
 
 module.exports = {
     init: function(app) {
@@ -16,13 +17,18 @@ module.exports = {
      * Show the list of sites for the logged in user, or *all* sites if admin.
      */
     showSites: function(req, res) {
+        var search = _s.trim(req.query.q);
+
         sites.list({
             isAdmin: req.user.admin,
-            username: req.user.username
-        }, function(err, sites) {
+            username: req.user.username,
+            search: search
+        }, function(err, result) {
             res.render('sites', {
-                sites: sites,
-                title: 'Sites'
+                search: search,
+                sites: result.items,
+                title: 'Sites',
+                total: result.total
             });
         });
     },

@@ -24,7 +24,8 @@
     "humanize-plus": "~1.4.2",
     "csv": "~0.3.6",
     "express-validator": "~0.8.0",
-    "serialize-form": "~1.1.4"
+    "serialize-form": "~1.1.4",
+    "underscore.string": "~2.3.3"
   },
   "devDependencies": {
     "nodeunit": "~0.8.1",
