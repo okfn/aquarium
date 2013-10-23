@@ -15,17 +15,21 @@ html
           a.navbar-brand(href='/')=gettext('Aquarium')
         nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-left(role='navigation')
           ul.nav.navbar-nav
-            li
-              a(href='/pulse')=gettext('Pulse')
             - if (user) 
               - if (user.admin)
                 li
                   a(href='/dashboard')=gettext('Dashboard')
+                li
+                  a(href='/documents')=gettext('Review Submissions')
+                li
+                  a(href='/researchers')=gettext('Manage Researchers')
               - else
                 li
-                  a(href='/documents')=gettext('Documents')
+                  a(href='/documents')=gettext('Add/Amend Documents')
                 li
-                  a(href='/sites')=gettext('Sites')
+                  a(href='/sites')=gettext('Manage Sites')
+            li
+              a(href='/pulse')=gettext('Research Overview')
         nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-right
           ul.nav.navbar-nav
             - if (user) 

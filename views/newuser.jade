@@ -4,7 +4,7 @@ block content
   .container
     .row
       .col-md-12
-        form(role='form', action='/users', method='POST')
+        form(role='form', action='/researchers', method='POST')
           .form-group
               label=gettext("Email address")
               input.form-control(name='username', type='email', placeholder='email@example.com', autofocus=true, autocomplete='off')
@@ -285,4 +285,4 @@ block content
             label=gettext("Confirm Password")
             input.form-control(name='confirm', type='password', placeholder=gettext('Confirm password'))
           button.btn.btn-primary(type='submit')=gettext("Create User")
-          a.btn.btn-link(href='/users')=gettext("Cancel")
+          a.btn.btn-link(href='/researchers')=gettext("Cancel")

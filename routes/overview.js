@@ -10,7 +10,7 @@ module.exports = {
         docs.pulse(function(err, countries) {
             res.render('pulse', {
                 countries: countries,
-                title: 'Pulse'
+                title: 'Overview'
             });
         });
     }

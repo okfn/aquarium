@@ -12,12 +12,12 @@ module.exports = {
     init: function(app) {
         app.get('/dashboard', auth.admin, module.exports.index);
         app.get('/setup', module.exports.showSetup);
-        app.get('/users', auth.admin, module.exports.listUsers);
-        app.get('/users/new', auth.admin, module.exports.showNewUser);
+        app.get('/researchers', auth.admin, module.exports.listUsers);
+        app.get('/researchers/new', auth.admin, module.exports.showNewUser);
         app.get('/export', auth.admin, module.exports.dataExport);
 
         app.post('/setup', module.exports.createAdmin);
-        app.post('/users', auth.admin, module.exports.addNewUser);
+        app.post('/researchers', auth.admin, module.exports.addNewUser);
     },
     /**
      * Show the setup page. Redirects to /login if there are users.

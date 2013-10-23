@@ -7,13 +7,6 @@ var express = require('express'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     moment = require('moment'),
-    routes = require('./routes'),
-    users = require('./routes/users'),
-    admin = require('./routes/admin'),
-    documents = require('./routes/documents'),
-    uploads = require('./routes/uploads'),
-    sites = require('./routes/sites'),
-    pulse = require('./routes/pulse'),
     http = require('http'),
     path = require('path'),
     app = express(),
@@ -67,7 +60,8 @@ db.init(function(err, database) {
     }
 
     // initialise routes
-    _.each([routes, users, admin, documents, sites, pulse, uploads], function(controller) {
+    _.each(['index', 'users', 'admin', 'documents', 'sites', 'overview', 'uploads'], function(route) {
+        var controller = require('./routes/' + route);
         controller.init(app);
     });
 

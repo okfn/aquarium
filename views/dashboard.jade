@@ -6,12 +6,12 @@ block content
       .col-md-12
         .alert.alert-info=format('There are %(users)s users tracking %(pages)s pages.', { users: userCount, pages: pageCount })
         p
-          a.btn.btn-default.btn-block(href='/users')=gettext("Manage Users")
+          a.btn.btn-default.btn-block(href='/researchers')=gettext("Manage Researchers")
     .row
       .col-md-12
         .alert.alert-info=format('There are %(unapproveds)s unapproved documents out of a total of %(total)s.', { unapproveds: unapprovedCount, total: documentCount })
         p
-          a.btn.btn-default.btn-block(href='/documents')=gettext("Manage Documents")
+          a.btn.btn-default.btn-block(href='/documents')=gettext("Review Submissions")
     .row
       .col-md-12
         p
