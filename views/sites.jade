@@ -48,11 +48,12 @@ block content
                       a(href=site.url, target="_blank")=site.url
                     p #{gettext('Last modified')} #{moment(site.last_modified).format('HH:mm DD MMM YYYY')}
                   .col-md-4
-                    ul.list-group
+                    h4=gettext("Expected Publications")
+                    .list-group
                       - for date in (site.publication_dates || [])
                         - if (moment(date) >= moment())
-                          li.list-group-item=moment(date).format('HH:mm DD MMM YYYY')
-                      li.list-group-item
+                          .list-group-item=moment(date).format('HH:mm DD MMM YYYY')
+                      .list-group-item
                         form.form-inline.picker(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/add-date')
                           input(type="hidden", name="index")
                           .input-group
