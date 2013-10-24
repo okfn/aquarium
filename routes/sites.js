@@ -51,7 +51,7 @@ module.exports = {
         options = {
             title: req.body.title,
             type: req.body.type,
-            url: req.body.url,
+            url: req.body.url || null,
             username: req.user.username
         };
 
@@ -66,7 +66,6 @@ module.exports = {
             "Audit Report"
         ]);
         req.assert('title', 'Title can\'t be empty').notEmpty();
-        req.assert('url', 'Must specify url').isUrl();
 
         errors = req.validationErrors();
 
@@ -107,4 +106,3 @@ module.exports = {
         });
     }
 };
-
