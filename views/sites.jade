@@ -54,6 +54,12 @@ block content
                       - for date in (site.publication_dates || [])
                         - if (moment(date) >= moment())
                           .list-group-item
+                            form.form-inline.btn-form(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/delete-date')
+                              input(type="hidden", name="index", value=i)
+                              input(type="hidden", name="publication_date", value=date)
+                              button.btn.btn-default.btn-xs(type="submit")
+                                i.glyphicon.glyphicon-trash
+                            | &nbsp;
                             =moment(date).format('DD MMM YYYY')
                       .list-group-item
                         form.form-inline.picker(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/add-date')
