@@ -11,6 +11,7 @@ module.exports = {
         app.get('/sites/new', auth.authenticated, module.exports.newSite);
 
         app.post('/sites', auth.authenticated, module.exports.createSite);
+        app.post('/sites/:username/:created_at/add-date', auth.authenticated, module.exports.addDate);
         app.post('/sites/:username/:created_at/disable', auth.authenticated, module.exports.disable);
         app.post('/sites/:username/:created_at/enable', auth.authenticated, module.exports.enable);
     },
@@ -49,6 +50,7 @@ module.exports = {
             options;
 
         options = {
+            publication_dates: [],
             title: req.body.title,
             type: req.body.type,
             url: req.body.url || null,
@@ -104,5 +106,7 @@ module.exports = {
 
             res.redirect('/sites');
         });
+    },
+    addDate: function(req, res) {
     }
 };

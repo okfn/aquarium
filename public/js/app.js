@@ -1,6 +1,7 @@
 var $ = require('./jquery-2.0.3.min'),
     serializer = require('serialize-form').serializeFormObject,
-    Validator = require('./validator-min').Validator;
+    Validator = require('./validator-min').Validator,
+    datepicker = require('./bootstrap-datepicker');
 
 require('./jquery-fns');
 require('./bootstrap');
@@ -94,4 +95,12 @@ $(document).on('input', 'form#newsite', function() {
         $this.find('[type=submit]').enable();
         $this.find('.errors').addClass('hidden');
     }
+});
+
+$(document).ready(function() {
+    $('[name=publication_date]').datepicker().on('changeDate', function() {
+        $(this).next().find('[type=submit]').enable();
+    }).on('clearDate', function() {
+        $(this).next().find('[type=submit]').disable();
+    }).datepicker('setStartDate', new Date());
 });

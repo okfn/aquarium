@@ -17,10 +17,10 @@ block content
           .panel-heading 
             h2.panel-title=gettext('Sites')
           .list-group
-            - each site in sites
-              .list-group-item
+            - each site, i in sites
+              .list-group-item(id="site-#{i}")
                 .row
-                  .col-md-5
+                  .col-md-4
                     - if (site.active)
                       h4=site.title
                     - else
@@ -42,11 +42,24 @@ block content
                             i.glyphicon.glyphicon-play
                           button.btn.btn-default(disabled=true, title=gettext("Disabled"))
                             i.glyphicon.glyphicon-pause
-                  .col-md-7
+                  .col-md-4
                     h4=site.type
                     p 
                       a(href=site.url, target="_blank")=site.url
                     p #{gettext('Last modified')} #{moment(site.last_modified).format('HH:mm DD MMM YYYY')}
+                  .col-md-4
+                    ul.list-group
+                      - for date in (site.publication_dates || [])
+                        - if (moment(date) >= moment())
+                          li.list-group-item=moment(date).format('HH:mm DD MMM YYYY')
+                      li.list-group-item
+                        form.form-inline.picker(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/add-date')
+                          input(type="hidden", name="index")
+                          .input-group
+                            input.form-control(name="publication_date", data-provide='datepicker-inline', data-date-autoclose='true')
+                            span.input-group-btn
+                              button.btn.btn-default(disabled=true, type="submit")
+                                i.glyphicon.glyphicon-plus
           .panel-footer
             .row
               .col-md-12
