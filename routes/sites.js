@@ -51,7 +51,7 @@ module.exports = {
         options = {
             title: req.body.title,
             type: req.body.type,
-            url: req.body.url,
+            url: req.body.url || null,
             username: req.user.username
         };
 
