@@ -52,10 +52,11 @@ block content
                     .list-group
                       - for date in (site.publication_dates || [])
                         - if (moment(date) >= moment())
-                          .list-group-item=moment(date).format('HH:mm DD MMM YYYY')
+                          .list-group-item
+                            =moment(date).format('DD MMM YYYY')
                       .list-group-item
                         form.form-inline.picker(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/add-date')
-                          input(type="hidden", name="index")
+                          input(type="hidden", name="index", value=i)
                           .input-group
                             input.form-control(name="publication_date", data-provide='datepicker-inline', data-date-autoclose='true')
                             span.input-group-btn

@@ -3,6 +3,7 @@ var db = require('../lib/db'),
     janitor = require('../lib/janitor'),
     sites = require('../lib/sites'),
     users = require('../lib/users'),
+    moment = require('moment'),
     _s = require('underscore.string');
 
 module.exports = {
@@ -108,5 +109,16 @@ module.exports = {
         });
     },
     addDate: function(req, res) {
+        sites.addDate({
+            created_at: req.params.created_at,
+            publication_date: moment(req.body.publication_date).toISOString(),
+            username: req.params.username
+        }, function(err) {
+            if (err) {
+                return janitor.error(res, err);
+            }
+
+            res.redirect('/sites#' + req.body.index);
+        });
     }
 };
