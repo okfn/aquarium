@@ -75,3 +75,23 @@ function validateDoc(id) {
 
 $(document).on('input', 'form#newdoc', validateDoc('form#newdoc'));
 $(document).on('input', 'form#updatedoc', validateDoc('form#updatedoc'));
+
+$(document).on('input', 'form#newsite', function() {
+    var $this = $(this),
+        values = serializer('form#newsite'),
+        errors,
+        validator;
+
+    validator = new Validator();
+    validator.check(values.title, 'Must have title').notEmpty();
+
+    errors = validator.getErrors();
+
+    if (errors.length) {
+        $this.find('[type=submit]').disable();
+        $this.find('.errors').html(errors.join(',')).removeClass('hidden');
+    } else {
+        $this.find('[type=submit]').enable();
+        $this.find('.errors').addClass('hidden');
+    }
+});

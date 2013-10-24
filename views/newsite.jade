@@ -4,7 +4,7 @@ block content
   .container
     .row
       .col-md-12
-        form(role='form', action='/sites', method='POST')
+        form#newsite(role='form', action='/sites', method='POST')
           .form-group
             label=gettext("Document Type")
             select.form-control(name='type')
@@ -22,6 +22,6 @@ block content
           .form-group
               label=gettext("URL")
               input.form-control(name='url', type='text', placeholder='http://example.com/budget', autocomplete='off')
-          button.btn.btn-primary(type='submit')=gettext("Add")
+          button.btn.btn-primary(type='submit', disabled=true)=gettext("Add")
           a.btn.btn-link(href='/sites')=gettext("Cancel")
-
+          .errors.alert.alert-danger.hidden

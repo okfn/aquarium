@@ -66,7 +66,6 @@ module.exports = {
             "Audit Report"
         ]);
         req.assert('title', 'Title can\'t be empty').notEmpty();
-        req.assert('url', 'Must specify url').isUrl();
 
         errors = req.validationErrors();
 
@@ -107,4 +106,3 @@ module.exports = {
         });
     }
 };
-
