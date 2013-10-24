@@ -11,7 +11,8 @@ module.exports = {
         app.get('/sites/new', auth.authenticated, module.exports.newSite);
 
         app.post('/sites', auth.authenticated, module.exports.createSite);
-        app.post('/sites/:username/:created_at/remove', auth.authenticated, module.exports.removeSite);
+        app.post('/sites/:username/:created_at/disable', auth.authenticated, module.exports.disable);
+        app.post('/sites/:username/:created_at/enable', auth.authenticated, module.exports.enable);
     },
     /**
      * Show the list of sites for the logged in user, or *all* sites if admin.
@@ -81,8 +82,20 @@ module.exports = {
             res.redirect('/sites');
         })
     },
-    removeSite: function(req, res) {
-        sites.remove({
+    enable: function(req, res) {
+        sites.enable({
+            username: req.params.username,
+            created_at: req.params.created_at
+        }, function(err) {
+            if (err) {
+                return janitor.error(res, err);
+            }
+
+            res.redirect('/sites');
+        });
+    },
+    disable: function(req, res) {
+        sites.disable({
             username: req.params.username,
             created_at: req.params.created_at
         }, function(err) {
