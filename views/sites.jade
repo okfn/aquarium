@@ -37,6 +37,7 @@ block content
                             i.glyphicon.glyphicon-pause
                     - else 
                       form.form-inline(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/enable')
+                        input(type="hidden", name="index", value=i)
                         .btn-group
                           button.btn.btn-default(type='submit', title=gettext("Enable"))
                             i.glyphicon.glyphicon-play

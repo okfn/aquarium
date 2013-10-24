@@ -13,6 +13,7 @@ module.exports = {
 
         app.post('/sites', auth.authenticated, module.exports.createSite);
         app.post('/sites/:username/:created_at/add-date', auth.authenticated, module.exports.addDate);
+        app.post('/sites/:username/:created_at/delete-date', auth.authenticated, module.exports.deleteDate);
         app.post('/sites/:username/:created_at/disable', auth.authenticated, module.exports.disable);
         app.post('/sites/:username/:created_at/enable', auth.authenticated, module.exports.enable);
     },
@@ -93,7 +94,7 @@ module.exports = {
                 return janitor.error(res, err);
             }
 
-            res.redirect('/sites');
+            res.redirect('/sites#site-' + req.body.index);
         });
     },
     disable: function(req, res) {
@@ -105,11 +106,24 @@ module.exports = {
                 return janitor.error(res, err);
             }
 
-            res.redirect('/sites');
+            res.redirect('/sites#site-' + req.body.index);
         });
     },
     addDate: function(req, res) {
         sites.addDate({
+            created_at: req.params.created_at,
+            publication_date: moment(req.body.publication_date).toISOString(),
+            username: req.params.username
+        }, function(err) {
+            if (err) {
+                return janitor.error(res, err);
+            }
+
+            res.redirect('/sites#site-' + req.body.index);
+        });
+    },
+    deleteDate: function(req, res) {
+        sites.deleteDate({
             created_at: req.params.created_at,
             publication_date: moment(req.body.publication_date).toISOString(),
             username: req.params.username
