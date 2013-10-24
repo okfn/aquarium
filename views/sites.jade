@@ -19,21 +19,34 @@ block content
           .list-group
             - each site in sites
               .list-group-item
-                h4.list-group-item-heading
-                  | #{site.title}
-                  | &nbsp;
-                  .label.label-default=site.type
-                .list-group-item-text
-                  .row
-                    .col-md-7
+                .row
+                  .col-md-5
+                    - if (site.active)
+                      h4=site.title
+                    - else
+                      h4.text-muted
+                        =site.title
+                        | &nbsp;
+                        .label.label-default=gettext("Disabled")
+                    - if (site.active)
+                      form(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/disable')
+                        .btn-group
+                          button.btn.btn-default(disabled=true, title=gettext("Enabled"))
+                            i.glyphicon.glyphicon-play
+                          button.btn.btn-default(type='submit', title=gettext("Disable"))
+                            i.glyphicon.glyphicon-pause
+                    - else 
+                      form.form-inline(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/enable')
+                        .btn-group
+                          button.btn.btn-default(type='submit', title=gettext("Enable"))
+                            i.glyphicon.glyphicon-play
+                          button.btn.btn-default(disabled=true, title=gettext("Disabled"))
+                            i.glyphicon.glyphicon-pause
+                  .col-md-7
+                    h4=site.type
+                    p 
                       a(href=site.url, target="_blank")=site.url
-                    .col-md-4
-                      =gettext('Last modified')
-                      | &nbsp;
-                      =moment(site.last_modified).format('HH:mm DD MMM YYYY')
-                    .col-md-1
-                      form.inline-form(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/remove')
-                        button.btn.btn-xs.btn-danger(type='submit')=gettext('Delete')
+                    p #{gettext('Last modified')} #{moment(site.last_modified).format('HH:mm DD MMM YYYY')}
           .panel-footer
             .row
               .col-md-12
