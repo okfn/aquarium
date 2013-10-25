@@ -29,20 +29,23 @@ block content
                         | &nbsp;
                         .label.label-default=gettext("Disabled")
                     - if (site.active)
-                      form(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/disable')
+                      form.btn-form(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/disable')
                         .btn-group
                           button.btn.btn-default(disabled=true, title=gettext("Enabled"))
                             i.glyphicon.glyphicon-play
                           button.btn.btn-default(type='submit', title=gettext("Disable"))
                             i.glyphicon.glyphicon-pause
                     - else 
-                      form.form-inline(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/enable')
+                      form.btn-form(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/enable')
                         input(type="hidden", name="index", value=i)
                         .btn-group
                           button.btn.btn-default(type='submit', title=gettext("Enable"))
                             i.glyphicon.glyphicon-play
                           button.btn.btn-default(disabled=true, title=gettext("Disabled"))
                             i.glyphicon.glyphicon-pause
+                    form.btn-form(method='POST', action='/sites/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/remove')
+                      button.btn.btn-danger(type='submit', title=gettext("Delete"))
+                        i.glyphicon.glyphicon-trash
                   .col-md-4
                     h4=site.type
                     p 
