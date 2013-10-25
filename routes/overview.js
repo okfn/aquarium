@@ -4,11 +4,11 @@ var db = require('../lib/db'),
 
 module.exports = {
     init: function(app) {
-        app.get('/pulse', module.exports.pulse);
+        app.get('/overview', module.exports.overview);
     },
-    pulse: function(req, res) {
-        docs.pulse(function(err, countries) {
-            res.render('pulse', {
+    overview: function(req, res) {
+        docs.overview(function(err, countries) {
+            res.render('overview', {
                 countries: countries,
                 title: 'Overview'
             });
