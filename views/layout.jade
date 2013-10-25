@@ -3,6 +3,7 @@ html
   head
     title=gettext(title)
     link(rel='stylesheet', href='/css/style.css')
+    script(src="https://apis.google.com/js/plusone.js")
   body(class=cls || '')
     header.navbar.navbar-inverse.navbar-fixed-top(role='banner')
       .container
@@ -20,16 +21,16 @@ html
                 li
                   a(href='/dashboard')=gettext('Dashboard')
                 li
-                  a(href='/documents')=gettext('Review Submissions')
+                  a(href='/documents')=gettext('Submissions')
                 li
-                  a(href='/researchers')=gettext('Manage Researchers')
+                  a(href='/researchers')=gettext('Researchers')
               - else
                 li
                   a(href='/documents')=gettext('Add/Amend Documents')
                 li
                   a(href='/sites')=gettext('Manage Sites')
             li
-              a(href='/pulse')=gettext('Research Overview')
+              a(href='/pulse')=gettext('Overview')
         nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-right
           ul.nav.navbar-nav
             - if (user) 

@@ -78,6 +78,16 @@
           | &nbsp;
           b=gettext('Scan attached')
           | &nbsp;
+      - if (doc.uploads && doc.uploads.length > 0)
+        ul.list-inline
+          li
+            label=gettext("Uploaded files")
+          - for upload in doc.uploads 
+            li
+              a(href='/uploads/' + upload.filename, target="_blank")=upload.name
+              - if (user.admin && doc.approved)
+                | &nbsp;
+                div.g-savetodrive(data-src="/uploads/" + upload.filename, data-filename=upload.name, data-sitename=gettext("Aquarium"))
       p
         - if (doc.url)
           a(href=doc.url, target="_blank")
