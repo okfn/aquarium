@@ -85,10 +85,9 @@
           - for upload in doc.uploads 
             li
               a(href='/uploads/' + upload.filename, target="_blank")=upload.name
-          - if (user.admin && doc.approved)
-            li
-              form.form-inline(method="POST", action="/documents/" + doc._id + "/sync")
-                button.btn.btn-default.btn-xs(type="submit")=gettext("Sync to Google Docs")
+              - if (user.admin && doc.approved)
+                | &nbsp;
+                div.g-savetodrive(data-src="/uploads/" + upload.filename, data-filename=upload.name, data-sitename=gettext("Aquarium"))
       p
         - if (doc.url)
           a(href=doc.url, target="_blank")

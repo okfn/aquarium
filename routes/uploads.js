@@ -80,7 +80,10 @@ module.exports = {
             res.writeHead(200, {
                 'Content-disposition': 'attachment;filename=' + upload.metadata.filename,
                 'Content-Length': content.length,
-                'Content-Type': upload.content_type
+                'Content-Type': upload.content_type,
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Range',
+                'Access-Control-Expose-Headers': 'Cache-Control, Content-Encoding, Content-Range'
             });
 
             res.end(content);
