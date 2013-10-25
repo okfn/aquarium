@@ -14,3 +14,11 @@ block content
             .row
               .col-md-12
                 a.btn.btn-default(href='/documents/new')=gettext("Add Document")
+    .alert.alert-info
+      - if (user.admin)
+        p=gettext("This page is where you approve documents submitted by researchers.")
+        p=gettext("Attachments can be submitted to Google Drive by using the 'save' button beside the attachment name.")
+      - else
+        p=gettext("This page is where you record documents found in the progress of your research.")
+        p=gettext("Use the 'upload' button to add attachments to a document after adding its details.")
+        p=gettext("The administrator will have to approve them before they're made visible in the overview.")

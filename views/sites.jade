@@ -79,3 +79,7 @@ block content
                 | &nbsp;
                 - if (search)
                   =format("Showing %(count)s of %(total)s sites", { count: sites.length, total: total })
+    .alert.alert-info
+      p=gettext("This page is where you manage the sites Aquarium watches for you.")
+      p=gettext("Add a site to get started. Assign expected publication dates to it to get reminders when it's due to come out.")
+      p=gettext("You can pause getting reminders for a site at any time.")

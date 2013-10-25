@@ -4,4 +4,14 @@ block content
   .container
     .row
       .col-md-12
-        h1=format('Welcome to %(title)s',  { title: title })
+        .jumbotron
+          .container
+            h1 Aquarium
+            p 
+              =gettext("This site is for researchers with the")
+              |  
+              a(href="http://internationalbudget.org/what-we-do/open-budget-survey")=gettext("Open Budget Survey")
+              |  
+              =gettext("to track budgets published around the world.")
+            p
+              a.btn.btn-primary.btn-lg=gettext("See how they're doing")
