@@ -21,14 +21,14 @@ html
                 li
                   a(href='/dashboard')=gettext('Dashboard')
                 li
-                  a(href='/documents')=gettext('Submissions')
+                  a(href='/documents')=gettext('Document Reporting')
                 li
                   a(href='/researchers')=gettext('Researchers')
               - else
                 li
-                  a(href='/documents')=gettext('Add/Amend Documents')
+                  a(href='/tracking')=gettext('Document Tracking')
                 li
-                  a(href='/sites')=gettext('Manage Sites')
+                  a(href='/documents')=gettext('Document Reporting')
             li
               a(href='/overview')=gettext('Overview')
         nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-right

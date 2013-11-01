@@ -1,5 +1,4 @@
-var db = require('../lib/db'),
-    auth = require('../lib/auth'),
+var auth = require('../lib/auth'),
     janitor = require('../lib/janitor'),
     sites = require('../lib/sites'),
     users = require('../lib/users'),
@@ -8,15 +7,15 @@ var db = require('../lib/db'),
 
 module.exports = {
     init: function(app) {
-        app.get('/sites', auth.authenticated, module.exports.showSites);
-        app.get('/sites/new', auth.authenticated, module.exports.newSite);
+        app.get('/tracking', auth.authenticated, module.exports.showSites);
+        app.get('/tracking/new', auth.authenticated, module.exports.newSite);
 
-        app.post('/sites', auth.authenticated, module.exports.createSite);
-        app.post('/sites/:username/:created_at/add-date', auth.authenticated, module.exports.addDate);
-        app.post('/sites/:username/:created_at/delete-date', auth.authenticated, module.exports.deleteDate);
-        app.post('/sites/:username/:created_at/disable', auth.authenticated, module.exports.disable);
-        app.post('/sites/:username/:created_at/enable', auth.authenticated, module.exports.enable);
-        app.post('/sites/:username/:created_at/remove', auth.authenticated, module.exports.remove);
+        app.post('/tracking', auth.authenticated, module.exports.createSite);
+        app.post('/tracking/:username/:created_at/add-date', auth.authenticated, module.exports.addDate);
+        app.post('/tracking/:username/:created_at/delete-date', auth.authenticated, module.exports.deleteDate);
+        app.post('/tracking/:username/:created_at/disable', auth.authenticated, module.exports.disable);
+        app.post('/tracking/:username/:created_at/enable', auth.authenticated, module.exports.enable);
+        app.post('/tracking/:username/:created_at/remove', auth.authenticated, module.exports.remove);
     },
     /**
      * Show the list of sites for the logged in user, or *all* sites if admin.
@@ -32,7 +31,7 @@ module.exports = {
             res.render('sites', {
                 search: search,
                 sites: result.items,
-                title: 'Sites',
+                title: 'Tracking',
                 total: result.total
             });
         });
@@ -43,7 +42,7 @@ module.exports = {
                 return janitor.error(res, err);
             }
             res.render('newsite', {
-                title: 'Sites',
+                title: 'Track New Document',
                 users: users
             });
         });
@@ -83,7 +82,7 @@ module.exports = {
                 return janitor.error(res, err);
             }
 
-            res.redirect('/sites');
+            res.redirect('/tracking');
         })
     },
     enable: function(req, res) {
@@ -95,7 +94,7 @@ module.exports = {
                 return janitor.error(res, err);
             }
 
-            res.redirect('/sites#site-' + req.body.index);
+            res.redirect('/tracking#site-' + req.body.index);
         });
     },
     disable: function(req, res) {
@@ -107,7 +106,7 @@ module.exports = {
                 return janitor.error(res, err);
             }
 
-            res.redirect('/sites#site-' + req.body.index);
+            res.redirect('/tracking#site-' + req.body.index);
         });
     },
     remove: function(req, res) {
@@ -119,7 +118,7 @@ module.exports = {
                 return janitor.error(res, err);
             }
 
-            res.redirect('/sites');
+            res.redirect('/tracking');
         });
     },
     addDate: function(req, res) {
@@ -132,7 +131,7 @@ module.exports = {
                 return janitor.error(res, err);
             }
 
-            res.redirect('/sites#site-' + req.body.index);
+            res.redirect('/tracking#site-' + req.body.index);
         });
     },
     deleteDate: function(req, res) {
@@ -145,7 +144,7 @@ module.exports = {
                 return janitor.error(res, err);
             }
 
-            res.redirect('/sites#' + req.body.index);
+            res.redirect('/tracking#' + req.body.index);
         });
     }
 };
