@@ -6,6 +6,11 @@ block content
       .panel.panel-primary
         .panel-heading 
           h2.panel-title=gettext('Documents')
+        - if (!user.admin)
+          .panel-footer
+            .row
+              .col-md-12
+                a.btn.btn-default(href='/documents/new')=gettext("Add Document")
         .list-group
           - each doc in docs
             include _doc
