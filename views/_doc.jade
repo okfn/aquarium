@@ -4,10 +4,14 @@
       i.glyphicon.glyphicon-chevron-left
       | &nbsp;
       =gettext('Back')
-.list-group-item
+.list-group-item.doc
   .row
-    .col-md-5
+    .col-md-7
       .list-group-item-text
+        h3
+          .label.label-default=doc.country 
+          | &nbsp;
+          =gettext(doc.type)
         p.lead=doc.title
         - if (doc.available)
           h4.text-success
@@ -52,21 +56,21 @@
           .btn-group
             a.btn.btn-default(href='/documents/#{doc._id}/uploads')=gettext("Upload Files")
             a.btn.btn-default(href='/documents/#{doc._id}/edit')=gettext("Edit")
-    .col-md-7
-      p.lead=gettext(doc.type)
-      p=doc.country
+    .col-md-5
       p
-        i.glyphicon.glyphicon-bullhorn
-        | &nbsp;
-        b=gettext('Published')
-        | &nbsp;
-        =doc.date_published
-        | &nbsp;
-        i.glyphicon.glyphicon-save
-        | &nbsp;
-        b=gettext('Received')
-        | &nbsp;
-        =doc.date_published
+        - if (doc.date_published)
+          i.glyphicon.glyphicon-bullhorn
+          | &nbsp;
+          b=gettext('Published')
+          | &nbsp;
+          =doc.date_published
+          | &nbsp;
+        - if (doc.date_received)
+          i.glyphicon.glyphicon-save
+          | &nbsp;
+          b=gettext('Received')
+          | &nbsp;
+          =doc.date_received
       p
         - if (doc.softcopy)
           i.glyphicon.glyphicon-cloud-upload
