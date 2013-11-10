@@ -35,12 +35,16 @@ block content
                             i.glyphicon.glyphicon-play
                           button.btn.btn-default(type='submit', title=gettext("Disable"))
                             i.glyphicon.glyphicon-pause
+                            | &nbsp;
+                            =gettext('Disable')
                     - else 
                       form.btn-form(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/enable')
                         input(type="hidden", name="index", value=i)
                         .btn-group
                           button.btn.btn-default(type='submit', title=gettext("Enable"))
                             i.glyphicon.glyphicon-play
+                            | &nbsp;
+                            =gettext('Enable')
                           button.btn.btn-default(disabled=true, title=gettext("Disabled"))
                             i.glyphicon.glyphicon-pause
                     form.btn-form(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/remove')
