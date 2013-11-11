@@ -1,8 +1,9 @@
+/* globals require */
 var $ = require('./jquery-2.0.3.min'),
     serializer = require('serialize-form').serializeFormObject,
-    Validator = require('./validator-min').Validator,
-    datepicker = require('./bootstrap-datepicker');
+    Validator = require('./validator-min').Validator;
 
+require('./bootstrap-datepicker');
 require('./jquery-fns');
 require('./bootstrap');
 
@@ -14,6 +15,33 @@ Validator.prototype.error = function (msg) {
 Validator.prototype.getErrors = function () {
     return this._errors;
 };
+
+
+$(document).on('click', 'form#newuser [name=admin]', function() {
+    $('form#newuser [name=country]').enable(!this.checked);
+});
+
+$(document).on('input', 'form#newuser', function() {
+    var $this = $(this),
+        values = serializer('form#newuser'),
+        errors,
+        validator;
+
+    validator = new Validator();
+    validator.check(values.username, 'Username must be an email.').isEmail();
+    validator.check(values.password, 'Password must be 8 characters or more.').len(8);
+    validator.check(values.confirm, 'Passwords must match.').equals(values.password);
+
+    errors = validator.getErrors();
+
+    if (errors.length) {
+        $this.find('[type=submit]').disable();
+        $this.find('.errors').html(errors.join('<br/>')).removeClass('hidden');
+    } else {
+        $this.find('[type=submit]').enable();
+        $this.find('.errors').addClass('hidden');
+    }
+});
 
 $(document).on('input', 'form#login', function() {
     var $this = $(this),

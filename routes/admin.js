@@ -59,7 +59,7 @@ module.exports = {
                         if (err) {
                             res.send(500, err);
                         } else {
-                            req.logIn(user, function(err, a, b) {
+                            req.logIn(user, function(err) {
                                 if (err) {
                                     res.send(500, err);
                                 } else {
@@ -126,13 +126,13 @@ module.exports = {
             users.insert({
                 password: password,
                 user: {
-                    admin: false,
+                    admin: req.body.admin,
                     country: req.body.country,
                     name: req.body.name,
                     sites: [],
                     username: req.body.username
                 }
-            }, function(err, user) {
+            }, function(err) {
                 if (err) {
                     janitor.error(res, err);
                 } else {
