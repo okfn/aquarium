@@ -20,6 +20,7 @@ module.exports = {
     showDocs: function(req, res) {
         docs.list({
             admin: !!req.user.admin,
+            country: req.query.country,
             username: req.user.username
         }, function(err, docs) {
             if (err) {
