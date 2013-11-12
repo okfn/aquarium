@@ -95,14 +95,16 @@
       p
         - if (doc.url)
           a(href=doc.url, target="_blank")
-            =gettext(doc.location)
-            | &nbsp;
+            - if (doc.location)
+              =gettext(doc.location)
+              | &nbsp;
             i=doc.location_detail
             | &nbsp;
             i.glyphicon.glyphicon-new-window
         - else
-          =gettext(doc.location)
-          | &nbsp;
+          - if (doc.location)
+            =gettext(doc.location)
+            | &nbsp;
           i=doc.location_detail
         - if (doc.comments)
           blockquote
