@@ -27,6 +27,7 @@ module.exports = {
                 return janitor.error(res, err);
             }
             res.render('documents', {
+                country: req.query.country,
                 docs: docs,
                 title: 'User Documents'
             });
