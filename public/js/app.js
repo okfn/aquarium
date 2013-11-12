@@ -43,6 +43,18 @@ $(document).on('input', 'form#newuser', function() {
     }
 });
 
+$(document).on('change', 'form#country select', function() {
+    var country,
+        value = $(this).val();
+
+    if (value === '*') {
+        window.location = '/documents';
+    } else {
+        country = value.split(' - ')[1];
+        window.location = '/documents?country=' + country;
+    }
+});
+
 $(document).on('input', 'form#login', function() {
     var $this = $(this),
         values = serializer('form#login'),
