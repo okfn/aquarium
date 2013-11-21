@@ -3,16 +3,17 @@ extends layout
 block content
   .container
     .alert.alert-info
-      p=gettext("This page is where you save the background information you need to track the eight key budget documents. It corresponds to the “When and Where” chart described in Appendix 1 of")
+      p=gettext("This page is where you save the background information you need to track the eight key budget documents. It corresponds to the “When and Where” chart described in Appendix 1 of") + ' '
         strong=gettext("the Open Budget Survey Tracker Guide.")
       p=gettext("How to do it?")
         ol
-          li=gettext("Click on")
-            a(href='/tracking/new')=gettext("Add New Document")
+          li=gettext("Click on") + ' '
+            a(href='/tracking/new')
+              strong=gettext("Add New Document")
           li=gettext("Select document type (it will be one of the 8 key budget documents)")
           li=gettext("Provide the title the document has been given in your country")
           li=gettext("If applicable, provide the URL where the document is likely to be posted")
-          li=gettext("Click on")
+          li=gettext("Click on") + ' '
             strong=gettext("Add")
           li=gettext("Back on the main page, assign expected publication date to it to get reminders when it's due to be released.")
           li=gettext("Repeat steps 1-6 for each document you want to track")
