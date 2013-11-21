@@ -2,6 +2,20 @@ extends layout
 
 block content
   .container
+    .alert.alert-info
+      p=gettext("This page is where you save the background information you need to track the eight key budget documents. It corresponds to the “When and Where” chart described in Appendix 1 of")
+        strong=gettext("the Open Budget Survey Tracker Guide.")
+      p=gettext("How to do it?")
+        ol
+          li=gettext("Click on")
+            a(href='/tracking/new')=gettext("Add New Document")
+          li=gettext("Select document type (it will be one of the 8 key budget documents)")
+          li=gettext("Provide the title the document has been given in your country")
+          li=gettext("If applicable, provide the URL where the document is likely to be posted")
+          li=gettext("Click on")
+            strong=gettext("Add")
+          li=gettext("Back on the main page, assign expected publication date to it to get reminders when it's due to be released.")
+          li=gettext("Repeat steps 1-6 for each document you want to track")
     .row
       .col-md-12
         form(role="search", action="/tracking")
@@ -15,16 +29,17 @@ block content
       .col-md-12
         .panel.panel-primary
           .panel-heading 
-            h2.panel-title=gettext('Sites')
+            h2.panel-title=gettext('Budget Documents')
           .list-group
             - each site, i in sites
               .list-group-item(id="site-#{i}")
                 .row
-                  .col-md-4
+                  .col-md-3
+                    h4=gettext("Title")
                     - if (site.active)
-                      h4=site.title
+                      h5=site.title
                     - else
-                      h4.text-muted
+                      h5.text-muted
                         =site.title
                         | &nbsp;
                         .label.label-default=gettext("Disabled")
@@ -50,13 +65,16 @@ block content
                     form.btn-form(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/remove')
                       button.btn.btn-danger(type='submit', title=gettext("Delete"))
                         i.glyphicon.glyphicon-trash
-                  .col-md-4
-                    h4=site.type
+                  .col-md-3
+                    h4=gettext("Type")
+                    h5=site.type
+                  .col-md-3
+                    h4=gettext("URL")
                     p 
                       a(href=site.url, target="_blank")=site.url
                     p #{gettext('Last modified')} #{moment(site.last_modified).format('HH:mm DD MMM YYYY')}
-                  .col-md-4
-                    h4=gettext("Expected Publications")
+                  .col-md-3
+                    h4=gettext("Expected Date of Publication")
                     .list-group
                       - for date in (site.publication_dates || [])
                         - if (moment(date) >= moment())
@@ -79,11 +97,7 @@ block content
           .panel-footer
             .row
               .col-md-12
-                a.btn.btn-default(href='/tracking/new')=gettext('Track New Document')
+                a.btn.btn-default(href='/tracking/new')=gettext('Add New Document')
                 | &nbsp;
                 - if (search)
                   =format("Showing %(count)s of %(total)s documents", { count: sites.length, total: total })
-    .alert.alert-info
-      p=gettext("This page is where you manage the documents Aquarium tracks for you.")
-      p=gettext("Add a document to get started. Assign expected publication dates to it to get reminders when it's due to come out.")
-      p=gettext("You can pause getting reminders for a document at any time.")
