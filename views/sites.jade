@@ -44,7 +44,8 @@ block content
                         | &nbsp;
                         .label.label-default=gettext("Disabled")
                     - if (site.active)
-                      form.btn-form(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/disable')
+                      form.btn-form(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at.toISOString())}/disable')
+                        input(type="hidden", name="index", value=i)
                         .btn-group
                           button.btn.btn-default(disabled=true, title=gettext("Enabled"))
                             i.glyphicon.glyphicon-play
@@ -53,7 +54,7 @@ block content
                             | &nbsp;
                             =gettext('Disable')
                     - else 
-                      form.btn-form(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/enable')
+                      form.btn-form(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at.toISOString())}/enable')
                         input(type="hidden", name="index", value=i)
                         .btn-group
                           button.btn.btn-default(type='submit', title=gettext("Enable"))
@@ -62,7 +63,7 @@ block content
                             =gettext('Enable')
                           button.btn.btn-default(disabled=true, title=gettext("Disabled"))
                             i.glyphicon.glyphicon-pause
-                    form.btn-form(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/remove')
+                    form.btn-form(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at.toISOString())}/remove')
                       button.btn.btn-danger(type='submit', title=gettext("Delete"))
                         i.glyphicon.glyphicon-trash
                   .col-md-3
@@ -79,7 +80,7 @@ block content
                       - for date in (site.publication_dates || [])
                         - if (moment(date) >= moment())
                           .list-group-item
-                            form.form-inline.btn-form(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/delete-date')
+                            form.form-inline.btn-form(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at.toISOString())}/delete-date')
                               input(type="hidden", name="index", value=i)
                               input(type="hidden", name="publication_date", value=date)
                               button.btn.btn-default.btn-xs(type="submit")
@@ -87,7 +88,7 @@ block content
                             | &nbsp;
                             =moment(date).format('DD MMM YYYY')
                       .list-group-item
-                        form.form-inline.picker(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at)}/add-date')
+                        form.form-inline.picker(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at.toISOString())}/add-date')
                           input(type="hidden", name="index", value=i)
                           .input-group
                             input.form-control(name="publication_date", data-provide='datepicker-inline', data-date-autoclose='true')

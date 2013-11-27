@@ -17,9 +17,7 @@ module.exports = {
         app.post('/tracking/:username/:created_at/enable', auth.authenticated, module.exports.enable);
         app.post('/tracking/:username/:created_at/remove', auth.authenticated, module.exports.remove);
     },
-    /**
-     * Show the list of sites for the logged in user, or *all* sites if admin.
-     */
+    // Show the list of sites for the logged in user, or *all* sites if admin.
     showSites: function(req, res) {
         var search = _s.trim(req.query.q);
 
@@ -36,6 +34,7 @@ module.exports = {
             });
         });
     },
+    // Show the page with form to add a new site.
     newSite: function(req, res) {
         users.list(function(err, users) {
             if (err) {
@@ -47,6 +46,7 @@ module.exports = {
             });
         });
     },
+    // Create a site
     createSite: function(req, res) {
         var errors,
             options;
@@ -85,6 +85,7 @@ module.exports = {
             res.redirect('/tracking');
         })
     },
+    // enable a site; depends on created_at matching
     enable: function(req, res) {
         sites.enable({
             username: req.params.username,
@@ -97,6 +98,7 @@ module.exports = {
             res.redirect('/tracking#site-' + req.body.index);
         });
     },
+    // disable a site; depends on created_at matching
     disable: function(req, res) {
         sites.disable({
             username: req.params.username,
@@ -109,6 +111,7 @@ module.exports = {
             res.redirect('/tracking#site-' + req.body.index);
         });
     },
+    // remove a site; depends on created_at matching
     remove: function(req, res) {
         sites.remove({
             username: req.params.username,
@@ -121,10 +124,11 @@ module.exports = {
             res.redirect('/tracking');
         });
     },
+    // add a date to a site; depends on created_at matching
     addDate: function(req, res) {
         sites.addDate({
             created_at: req.params.created_at,
-            publication_date: moment(req.body.publication_date),
+            publication_date: moment(req.body.publication_date).toDate(),
             username: req.params.username
         }, function(err) {
             if (err) {
@@ -134,17 +138,18 @@ module.exports = {
             res.redirect('/tracking#site-' + req.body.index);
         });
     },
+    // delete a date from a site; depends on created_at matching
     deleteDate: function(req, res) {
         sites.deleteDate({
             created_at: req.params.created_at,
-            publication_date: moment(req.body.publication_date),
+            publication_date: moment(req.body.publication_date).toDate(),
             username: req.params.username
         }, function(err) {
             if (err) {
                 return janitor.error(res, err);
             }
 
-            res.redirect('/tracking#' + req.body.index);
+            res.redirect('/tracking#site-' + req.body.index);
         });
     }
 };
