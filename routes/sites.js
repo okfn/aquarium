@@ -124,7 +124,7 @@ module.exports = {
     addDate: function(req, res) {
         sites.addDate({
             created_at: req.params.created_at,
-            publication_date: moment(req.body.publication_date),
+            publication_date: moment(req.body.publication_date).toDate(),
             username: req.params.username
         }, function(err) {
             if (err) {
@@ -137,7 +137,7 @@ module.exports = {
     deleteDate: function(req, res) {
         sites.deleteDate({
             created_at: req.params.created_at,
-            publication_date: moment(req.body.publication_date),
+            publication_date: moment(req.body.publication_date).toDate(),
             username: req.params.username
         }, function(err) {
             if (err) {
