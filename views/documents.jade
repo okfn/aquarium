@@ -7,14 +7,14 @@ block content
         p=gettext("This page is where you approve documents submitted by researchers.")
         p=gettext("Attachments can be submitted to Google Drive by using the 'save' button beside the attachment name.")
       - else
-        p=gettext("This page is where you submit all the documents that you are tracking. It corresponds to Appendix 2 in") + ' '
+        p=gettext("This page is where you will submit all updated information you find on each of the documents that you are tracking. It corresponds to Appendix 2 in") + ' '
           strong=gettext("the Open Budget Survey Tracker Guide")
-          = ' (' + gettext("i.e.")
+          = ' (' + gettext("i.e.,") +
           em=gettext("Cover sheet for submitting document(s)") + ')'
-        p=gettext("Please click on")
+        p=gettext("Please click on") + ' '
           a(href="/documents/new")
             strong=gettext("Add document")
-          =', '+ gettext("complete the online form and – where applicable – upload the relevant document(s).") 
+          =', '+ gettext("complete the online form, and – where applicable – upload the relevant document(s).") 
     - if (user.admin)
       .row.roomy
         form#country(role='form', action='/documents')
