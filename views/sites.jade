@@ -46,6 +46,7 @@ block content
                         .label.label-default=gettext("Disabled")
                     - if (site.active)
                       form.btn-form(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at.toISOString())}/disable')
+                        input(type="hidden", name="index", value=i)
                         .btn-group
                           button.btn.btn-default(disabled=true, title=gettext("Enabled"))
                             i.glyphicon.glyphicon-play
