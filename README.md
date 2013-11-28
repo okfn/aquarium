@@ -1,6 +1,6 @@
 ## aquarium
 
-Aquarium is web application with works with [Beagle](https://github.com/tryggvib/beagle) to feed it sites to watch.
+Aquarium is web application with works with [Beagle](https://github.com/okfn/beagle) to feed it sites to watch.
 
 It also track reports from researchers on budget documents for the [International Budget Survey](http://internationalbudget.org/)'s [Open Budget Survey](http://internationalbudget.org/what-we-do/open-budget-survey/).
 
