@@ -27,10 +27,24 @@ block content
                   input(type="radio", name="available", value="yes")
                   =gettext("Yes")
                 label.btn.btn-default.active
-                  input(type="radio", name="available", value="no", selected="selected")
+                  input(type="radio", name="available", value="no", checked=true)
                   =gettext("No")
           .form-group
-            label=gettext("Location ")
+            label=gettext("Include In Stats For Year")
+            - var year = new Date().getFullYear()
+            div
+              .btn-group(data-toggle="buttons")
+                label.btn.btn-default
+                  input(type="radio", name="year", value=(year - 1))
+                  =year - 1
+                label.btn.btn-default.active
+                  input(type="radio", name="year", value=year, checked=true)
+                  =year
+                label.btn.btn-default
+                  input(type="radio", name="year", value=(year + 1))
+                  =year + 1
+          .form-group
+            label=gettext("Location")
             div
               .btn-group(data-toggle="buttons")
                 label.btn.btn-default
