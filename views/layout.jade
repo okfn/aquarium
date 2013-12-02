@@ -41,7 +41,6 @@ html
                   button.btn.btn-link(type="submit", title=gettext('Logout'))
                     i.glyphicon.glyphicon-log-out
             - else if (!isLogin)
-              li
-                a(href='/login')=gettext('Login')
+              a.navbar-btn.btn.btn-primary(href='/login')=gettext('Login')
     block content
     script(src="/js/aquarium.js")
