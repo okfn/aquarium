@@ -79,7 +79,7 @@ block content
                   input(type="radio", name="softcopy", value="yes")
                   =gettext("Yes")
                 label.btn.btn-default.active
-                  input(type="radio", name="softcopy", value="no", selected="selected")
+                  input(type="radio", name="softcopy", value="no", checked=true)
                   =gettext("No")
           .form-group
             label=gettext("Scanned First/Last Page Attached")
@@ -89,7 +89,7 @@ block content
                   input(type="radio", name="scanned", value="yes")
                   =gettext("Yes")
                 label.btn.btn-default.active
-                  input(type="radio", name="scanned", value="no", selected="selected")
+                  input(type="radio", name="scanned", value="no", checked=true)
                   =gettext("No")
           .form-group
             label=gettext("Comments")
