@@ -20,7 +20,7 @@ block content
                 label.btn.btn-default(class=(doc.available ? 'active' : ''))
                   input(type="radio", name="available", value="yes", checked=doc.available)
                   =gettext("Yes")
-                label.btn.btn-default(class=(!doc.available ? 'active' : ''))
+                label.btn.btn-default(class=(doc.available ? '' : 'active'))
                   input(type="radio", name="available", value="no", checked=!doc.available)
                   =gettext("No")
           .form-group

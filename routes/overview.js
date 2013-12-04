@@ -1,15 +1,18 @@
-var db = require('../lib/db'),
-    janitor = require('../lib/janitor'),
-    docs = require('../lib/documents');
+var janitor = require('../lib/janitor'),
+    overview = require('../lib/overview');
 
 module.exports = {
     init: function(app) {
         app.get('/overview', module.exports.overview);
     },
     overview: function(req, res) {
-        docs.overview(function(err, countries) {
+        overview.getGrid(function(err, grid) {
+            if (err) {
+                return janitor.error(res, err);
+            }
+
             res.render('overview', {
-                countries: countries,
+                grid: grid,
                 title: 'Overview'
             });
         });
