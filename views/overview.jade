@@ -22,16 +22,12 @@ block content
                 td(colspan=3)=gettext(row.country)
                 - each cell in row.cells
                   - var state = cell && cell.state
-                  - var not_expected = cell && !cell.expected_publication
                   td(class=state)
                     - if (state === 'available')
                       i.glyphicon.glyphicon-ok-sign.text-success
                       .year=cell.year
                     - else if (state === 'late')
                       i.glyphicon.glyphicon-time.text-warning
-                      .year=cell.year
-                    - else if (state === 'waiting')
-                      i.glyphicon.glyphicon-time.text-muted
                       .year=cell.year
                     - else
                       i.glyphicon.glyphicon-remove-circle.text-danger
