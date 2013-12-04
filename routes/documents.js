@@ -1,5 +1,4 @@
 var _ = require('underscore'),
-    db = require('../lib/db'),
     auth = require('../lib/auth'),
     janitor = require('../lib/janitor'),
     docs = require('../lib/documents');
@@ -184,6 +183,7 @@ function extractDoc(req) {
         type: req.body.type,
         title: req.body.title,
         available: req.body.available === 'yes',
+        year: parseInt(req.body.year, 10) || undefined,
         comments: req.body.comments,
         location: req.body.location || '',
         location_detail: req.body.location_detail,

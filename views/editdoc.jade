@@ -24,6 +24,20 @@ block content
                   input(type="radio", name="available", value="no", checked=!doc.available)
                   =gettext("No")
           .form-group
+            label=gettext("Include In Stats For Year")
+            - var year = parseInt(doc.year) || new Date().getFullYear()
+            div
+              .btn-group(data-toggle="buttons")
+                label.btn.btn-default(class = doc.year === year - 1 ? 'active' : '')
+                  input(type="radio", name="year", value=(year - 1), checked=(doc.year === year - 1))
+                  =year - 1
+                label.btn.btn-default(class = doc.year === year ? 'active' : '')
+                  input(type="radio", name="year", value=year, checked=(doc.year === year))
+                  =year
+                label.btn.btn-default(class = doc.year === year + 1 ? 'active' : '')
+                  input(type="radio", name="year", value=(year + 1), checked=(doc.year === year + 1))
+                  =year + 1
+          .form-group
             label=gettext("Location")
             div
               .btn-group(data-toggle="buttons")
