@@ -10,6 +10,10 @@
       .list-group-item-text
         h3
           .label.label-default=doc.country 
+          - if (doc.year)
+            | &nbsp;
+            .label.label-info
+              =doc.year
           | &nbsp;
           =gettext(doc.type)
         p.lead=doc.title
