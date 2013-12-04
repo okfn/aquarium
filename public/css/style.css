@@ -6715,3 +6715,23 @@ input[type="file"] {
 .roomy {
   padding: 10px 0 20px;
 }
+@media (min-width: 768px) {
+  #overview {
+    table-layout: fixed;
+  }
+}
+#overview td:first-of-type {
+  vertical-align: middle;
+}
+#overview th,
+#overview td {
+  text-align: center;
+}
+#overview th:first-of-type,
+#overview td:first-of-type {
+  text-align: right;
+}
+#overview .year {
+  color: #999999;
+  font-size: 12px;
+}

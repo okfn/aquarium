@@ -61,3 +61,26 @@ input[type="file"] {
 .roomy {
     padding: 10px 0 20px;
 }
+
+
+@media (min-width: 768px) {
+    #overview {
+        table-layout: fixed;
+    }
+}
+#overview {
+    td:first-of-type {
+        vertical-align: middle;
+    }
+    th, td {
+        text-align: center;
+        &:first-of-type {
+            text-align: right;
+        }
+    }
+    .year {
+        .text-muted;
+        font-size: 12px;
+    }
+}
+

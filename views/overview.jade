@@ -4,27 +4,35 @@ block content
   .container
     .row
       .table-responsive
-        table.table
+        table#overview.table.table-bordered
           thead
             tr
-              th=gettext('Country')
-              th=gettext("Pre-Budget Statement")
-              th=gettext("Executive's Budget Proposal")
-              th=gettext("Enacted Budget")
-              th=gettext("Citizens Budget")
-              th=gettext("In-Year Reports")
-              th=gettext("Mid-year Review")
-              th=gettext("Year-End Report")
-              th=gettext("Audit Report")
+              th(colspan=3)=gettext('Country')
+              th(title=gettext("Pre-Budget Statement"))=gettext("Pre-Budget Statement")
+              th(title=gettext("Executive's Budget Proposal"))=gettext("Executive's Budget Proposal")
+              th(title=gettext("Enacted Budget"))=gettext("Enacted Budget")
+              th(title=gettext("Citizens Budget"))=gettext("Citizens Budget")
+              th(title=gettext("In-Year Reports"))=gettext("In-Year Reports")
+              th(title=gettext("Mid-year Review"))=gettext("Mid-year Review")
+              th(title=gettext("Year-End Report"))=gettext("Year-End Report")
+              th(title=gettext("Audit Report"))=gettext("Audit Report")
           tbody
-            - each country in countries
+            - each row in grid
               tr.lead
-                td=gettext(country.country)
-                - each flag in country.flags
-                  td
-                    - if (flag)
+                td(colspan=3)=gettext(row.country)
+                - each cell in row.cells
+                  - var state = cell && cell.state
+                  - var not_expected = cell && !cell.expected_publication
+                  td(class=state)
+                    - if (state === 'available')
                       i.glyphicon.glyphicon-ok-sign.text-success
-                    - else if (flag === false)
-                      i.glyphicon.glyphicon-remove-sign.text-danger
+                      .year=cell.year
+                    - else if (state === 'late')
+                      i.glyphicon.glyphicon-time.text-warning
+                      .year=cell.year
+                    - else if (state === 'waiting')
+                      i.glyphicon.glyphicon-time.text-muted
+                      .year=cell.year
                     - else
-                      i.glyphicon.glyphicon-question-sign.text-muted
+                      i.glyphicon.glyphicon-remove-circle.text-danger
+                      .year=cell && cell.year
