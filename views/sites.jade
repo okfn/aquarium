@@ -32,45 +32,7 @@ block content
             h2.panel-title=gettext('Budget Documents')
           .list-group
             - each site, i in sites
-              .list-group-item(id="site-#{i}")
-                .row
-                  .col-md-3
-                    h4=gettext("Title")
-                    h5=site.title
-                    form.btn-form(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at.toISOString())}/remove')
-                      button.btn-xs.btn.btn-danger(type='submit')
-                        i.glyphicon.glyphicon-trash
-                        | &nbsp;
-                        =gettext("Delete")
-                  .col-md-3
-                    h4=gettext("Document")
-                    h5=site.type
-                  .col-md-3
-                    h4=gettext("URL")
-                    p 
-                      a(href=site.url, target="_blank")=site.url
-                    p #{gettext('Last modified')} #{moment(site.last_modified).format('HH:mm DD MMM YYYY')}
-                  .col-md-3
-                    h4=gettext("Expected Date of Publication")
-                    .list-group
-                      - for date in (site.publication_dates || [])
-                        - if (moment(date) >= moment())
-                          .list-group-item
-                            form.form-inline.btn-form(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at.toISOString())}/delete-date')
-                              input(type="hidden", name="index", value=i)
-                              input(type="hidden", name="publication_date", value=date)
-                              button.btn.btn-default.btn-xs(type="submit")
-                                i.glyphicon.glyphicon-trash
-                            | &nbsp;
-                            =moment(date).format('DD MMM YYYY')
-                      .list-group-item
-                        form.form-inline.picker(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at.toISOString())}/add-date')
-                          input(type="hidden", name="index", value=i)
-                          .input-group
-                            input.form-control(name="publication_date", data-provide='datepicker-inline', data-date-autoclose='true')
-                            span.input-group-btn
-                              button.btn.btn-default(disabled=true, type="submit")
-                                i.glyphicon.glyphicon-plus
+              include _site
           .panel-footer
             .row
               .col-md-12
