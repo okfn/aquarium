@@ -55,7 +55,7 @@ db.init(function(err, database) {
     app.use(express.static(path.join(__dirname, 'public')));
 
     // development only
-    if ('development' == app.get('env')) {
+    if ('development' === app.get('env')) {
         app.use(express.errorHandler());
     }
 
@@ -67,7 +67,7 @@ db.init(function(err, database) {
 
     passport.use(new LocalStrategy(function(username, password, done) {
         userColl.findOne({
-            _id: username
+            username: username
         }, function(err, user) {
             if (err) {
                 done(err);
@@ -91,7 +91,7 @@ db.init(function(err, database) {
 
     passport.deserializeUser(function(id, done) {
         userColl.findOne({
-            _id: id
+            _id: db.ObjectID(id)
         }, function(err, user) {
             done(err, user);
         });
