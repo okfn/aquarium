@@ -16,8 +16,8 @@ html
           a.navbar-brand(href='/')=gettext('Open Budget Tracker')
         nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-left(role='navigation')
           ul.nav.navbar-nav
-            - if (user) 
-              - if (user.admin)
+            - if (currentUser) 
+              - if (currentUser.admin)
                 li
                   a(href='/dashboard')=gettext('Dashboard')
                 li
@@ -33,9 +33,9 @@ html
               a(href='/overview')=gettext('Overview')
         nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-right
           ul.nav.navbar-nav
-            - if (user) 
+            - if (currentUser) 
               li
-                button.btn.navbar-btn.btn-link.disabled=user.username
+                button.btn.navbar-btn.btn-link.disabled=currentUser.username
               li
                 form.navbar-form(method='POST', action='/logout')
                   button.btn.btn-link(type="submit", title=gettext('Logout'))

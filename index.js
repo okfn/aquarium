@@ -45,7 +45,7 @@ db.init(function(err, database) {
         translation_directory: 'locale'
     }));
     app.use(function(req, res, next) {
-        res.locals.user = req.user;
+        res.locals.currentUser = req.user;
         res.locals.moment = moment;
         res.locals.humanize = humanize;
         next();
