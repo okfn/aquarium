@@ -1,5 +1,5 @@
-var db = require('../lib/db'),
-    users = require('../lib/users'),
+var users = require('../lib/users'),
+    janitor = require('../lib/janitor'),
     passport = require('passport');
 
 module.exports = {
@@ -7,6 +7,7 @@ module.exports = {
         app.post('/logout', module.exports.doLogout);
 
         app.get('/login', module.exports.showLogin);
+        app.get('/users/:id', module.exports.editUser);
 
         app.post('/login', passport.authenticate('local', {
             failureRedirect: '/login',
@@ -28,8 +29,19 @@ module.exports = {
             }
         });
     },
-    doLogout: function(req, res, next) {
+    doLogout: function(req, res) {
         req.logout();
         res.redirect('/');
+    },
+    editUser: function(req, res) {
+        users.getUserById(req.params.id, function(err, user) {
+            if (err) {
+                return janitor.error(res, err);
+            }
+            res.render('user', {
+                user: user,
+                title: user.username
+            });
+        });
     }
 };

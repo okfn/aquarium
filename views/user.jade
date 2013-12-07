@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-md-12
+        form(role='form', action='/users/#{user._id}', method='POST')
+          .form-group
+            label=gettext('Email')
+            input.form-control(name="username", type="email", value=user.username)
+          .form-group
+            label=gettext('Name')
+            input.form-control(name="name", type="text", value=user.name)
+          - if (currentUser.admin)
+            .form-group
+              label=gettext("Send email")
+              div
+                .btn-group(data-toggle="buttons")
+                  label.btn.btn-default(class=(user.muted ? '' : 'active'))
+                    input(type="radio", name="muted", value="yes", checked=user.muted)
+                    =gettext("Yes")
+                  label.btn.btn-default(class=(user.muted ? 'active' : ''))
+                    input(type="radio", name="muted", value="no", checked=!user.muted)
+                    =gettext("No")
+          - else
+            .form-group
+              label=gettext('Current password')
+              input.form-control(name="current", type="password", placeholder=gettext("Current password"))
+          - if (!user.admin || user._id === currentUser._id)
+            .form-group
+              label=gettext('Password')
+              input.form-control(name="password", type="password", placeholder=gettext("New password"))
+            .form-group
+              label=gettext('Confirm password')
+              input.form-control(name="confirm", type="password", placeholder=gettext("Retype new password"))
+          button.btn.btn-primary(type='submit')=gettext("Update")
+          a.btn.btn-link(href='/researchers')=gettext("Cancel")
