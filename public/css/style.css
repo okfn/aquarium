@@ -6731,7 +6731,14 @@ input[type="file"] {
 #overview td:first-of-type {
   text-align: right;
 }
+#overview th i,
+#overview td i {
+  top: 3px;
+}
 #overview .year {
   color: #999999;
   font-size: 12px;
+}
+#overview .score {
+  font-weight: bold;
 }

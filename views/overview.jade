@@ -8,6 +8,7 @@ block content
           thead
             tr
               th(colspan=3)=gettext('Country')
+              th=gettext('OBI Score')
               th(title=gettext("Pre-Budget Statement"))=gettext("Pre-Budget Statement")
               th(title=gettext("Executive's Budget Proposal"))=gettext("Executive's Budget Proposal")
               th(title=gettext("Enacted Budget"))=gettext("Enacted Budget")
@@ -20,6 +21,9 @@ block content
             - each row in grid
               tr.lead
                 td(colspan=3)=gettext(row.country)
+                td
+                  .score=row.obi_score
+                  .year=row.obi_year
                 - each cell in row.cells
                   - var state = cell && cell.state
                   td(class=state)
