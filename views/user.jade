@@ -7,10 +7,10 @@ block content
         form(role='form', action='/users/#{user._id}', method='POST')
           .form-group
             label=gettext('Email')
-            input.form-control(name="username", type="email", value=user.username)
+            input.form-control(name="username", type="email", value=user.username, placeholder="User email")
           .form-group
             label=gettext('Name')
-            input.form-control(name="name", type="text", value=user.name)
+            input.form-control(name="name", type="text", value=user.name, placeholder="User name")
           - if (currentUser.admin)
             .form-group
               label=gettext("Send email")
@@ -26,7 +26,7 @@ block content
             .form-group
               label=gettext('Current password')
               input.form-control(name="current", type="password", placeholder=gettext("Current password"))
-          - if (!user.admin || user._id === currentUser._id)
+          - if (!user.admin || user._id.toString() === currentUser._id.toString())
             .form-group
               label=gettext('Password')
               input.form-control(name="password", type="password", placeholder=gettext("New password"))
