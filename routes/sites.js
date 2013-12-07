@@ -11,11 +11,11 @@ module.exports = {
         app.get('/tracking/new', auth.authenticated, module.exports.newSite);
 
         app.post('/tracking', auth.authenticated, module.exports.createSite);
-        app.post('/tracking/:username/:created_at/add-date', auth.authenticated, module.exports.addDate);
-        app.post('/tracking/:username/:created_at/delete-date', auth.authenticated, module.exports.deleteDate);
-        app.post('/tracking/:username/:created_at/disable', auth.authenticated, module.exports.disable);
-        app.post('/tracking/:username/:created_at/enable', auth.authenticated, module.exports.enable);
-        app.post('/tracking/:username/:created_at/remove', auth.authenticated, module.exports.remove);
+        app.post('/tracking/:user_id/:created_at/add-date', auth.authenticated, module.exports.addDate);
+        app.post('/tracking/:user_id/:created_at/delete-date', auth.authenticated, module.exports.deleteDate);
+        app.post('/tracking/:user_id/:created_at/disable', auth.authenticated, module.exports.disable);
+        app.post('/tracking/:user_id/:created_at/enable', auth.authenticated, module.exports.enable);
+        app.post('/tracking/:user_id/:created_at/remove', auth.authenticated, module.exports.remove);
     },
     // Show the list of sites for the logged in user, or *all* sites if admin.
     showSites: function(req, res) {
@@ -23,7 +23,7 @@ module.exports = {
 
         sites.list({
             isAdmin: req.user.admin,
-            username: req.user.username,
+            user_id: req.user._id,
             search: search
         }, function(err, result) {
             res.render('sites', {
@@ -56,7 +56,7 @@ module.exports = {
             title: req.body.title,
             type: req.body.type,
             url: req.body.url || null,
-            username: req.user.username
+            user_id: req.user._id
         };
 
         req.assert('type', 'Type must be valid.').isIn([
@@ -88,7 +88,7 @@ module.exports = {
     // enable a site; depends on created_at matching
     enable: function(req, res) {
         sites.enable({
-            username: req.params.username,
+            user_id: req.params.user_id,
             created_at: req.params.created_at
         }, function(err) {
             if (err) {
@@ -101,7 +101,7 @@ module.exports = {
     // disable a site; depends on created_at matching
     disable: function(req, res) {
         sites.disable({
-            username: req.params.username,
+            user_id: req.params.user_id,
             created_at: req.params.created_at
         }, function(err) {
             if (err) {
@@ -114,7 +114,7 @@ module.exports = {
     // remove a site; depends on created_at matching
     remove: function(req, res) {
         sites.remove({
-            username: req.params.username,
+            user_id: req.params.user_id,
             created_at: req.params.created_at
         }, function(err) {
             if (err) {
@@ -129,7 +129,7 @@ module.exports = {
         sites.addDate({
             created_at: req.params.created_at,
             publication_date: moment(req.body.publication_date).toDate(),
-            username: req.params.username
+            user_id: req.params.user_id
         }, function(err) {
             if (err) {
                 return janitor.error(res, err);
@@ -143,7 +143,7 @@ module.exports = {
         sites.deleteDate({
             created_at: req.params.created_at,
             publication_date: moment(req.body.publication_date).toDate(),
-            username: req.params.username
+            user_id: req.params.user_id
         }, function(err) {
             if (err) {
                 return janitor.error(res, err);

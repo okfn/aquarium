@@ -94,9 +94,8 @@ module.exports = {
     },
     updateDoc: function(req, res) {
         var id = req.params.id,
-            errors;
-
-        errors = req.validationErrors();
+            data = extractDoc(req),
+            errors = req.validationErrors();
 
         if (errors && errors.length) {
             return janitor.invalid(res, errors);
@@ -112,7 +111,7 @@ module.exports = {
             }
 
             docs.update({
-                data: extractDoc(req),
+                data: data,
                 id: id,
                 resetApproved: !req.user.admin
             }, function(err) {

@@ -3,7 +3,7 @@
     .col-md-3
       h4=gettext("Title")
       h5=site.title
-      form.btn-form(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at.toISOString())}/remove')
+      form.btn-form(method='POST', action='/tracking/#{currentUser._id}/#{encodeURIComponent(site.created_at.toISOString())}/remove')
         button.btn-xs.btn.btn-danger(type='submit')
           i.glyphicon.glyphicon-trash
           | &nbsp;
@@ -25,7 +25,7 @@
           - if (moment(date) >= moment().startOf('day') && canAdd)
             - canAdd = false;
             .list-group-item
-              form.form-inline.btn-form(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at.toISOString())}/delete-date')
+              form.form-inline.btn-form(method='POST', action='/tracking/#{currentUser._id}/#{encodeURIComponent(site.created_at.toISOString())}/delete-date')
                 input(type="hidden", name="index", value=i)
                 input(type="hidden", name="publication_date", value=date)
                 button.btn.btn-default.btn-xs(type="submit")
@@ -38,7 +38,7 @@
             .list-group-item
               .text-muted=moment(lastDate).format('DD MMM YYYY')
           .list-group-item
-            form.form-inline.picker(method='POST', action='/tracking/#{encodeURIComponent(user._id)}/#{encodeURIComponent(site.created_at.toISOString())}/add-date')
+            form.form-inline.picker(method='POST', action='/tracking/#{currentUser._id}/#{encodeURIComponent(site.created_at.toISOString())}/add-date')
               input(type="hidden", name="index", value=i)
               .input-group
                 input.form-control(name="publication_date", data-provide='datepicker-inline', data-date-autoclose='true')

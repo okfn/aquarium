@@ -40,7 +40,7 @@
             i.text-info.glyphicon.glyphicon-question-sign
             | &nbsp;
             =gettext("Unapproved")
-        - if (user.admin)
+        - if (currentUser.admin)
           - if (doc.approved !== true)
             form.btn-form(action="/documents/#{doc._id}/approve", method="POST")
               button.btn.btn-default
@@ -93,7 +93,7 @@
           - for upload in doc.uploads 
             li
               a(href='/uploads/' + upload.filename, target="_blank")=upload.name
-              - if (user.admin && doc.approved)
+              - if (currentUser.admin && doc.approved)
                 | &nbsp;
                 div.g-savetodrive(data-src="/uploads/" + upload.filename, data-filename=upload.name, data-sitename=gettext("Open Budget Tracker"))
       p
