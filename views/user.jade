@@ -17,10 +17,10 @@ block content
               div
                 .btn-group(data-toggle="buttons")
                   label.btn.btn-default(class=(user.mute ? '' : 'active'))
-                    input(type="radio", name="mute", value="yes", checked=user.mute)
+                    input(type="radio", name="mute", value="yes", checked=!user.mute)
                     =gettext("Yes")
                   label.btn.btn-default(class=(user.mute ? 'active' : ''))
-                    input(type="radio", name="mute", value="no", checked=!user.mute)
+                    input(type="radio", name="mute", value="no", checked=user.mute)
                     =gettext("No")
           - else
             .form-group

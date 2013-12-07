@@ -98,7 +98,7 @@ module.exports = {
         return {
             username: req.body.username,
             name: req.body.name,
-            mute: req.body.mute === 'yes'
+            mute: req.body.mute !== 'yes'
         };
     }
 };
