@@ -16,11 +16,11 @@ block content
               label=gettext("Send email")
               div
                 .btn-group(data-toggle="buttons")
-                  label.btn.btn-default(class=(user.muted ? '' : 'active'))
-                    input(type="radio", name="muted", value="yes", checked=user.muted)
+                  label.btn.btn-default(class=(user.mute ? '' : 'active'))
+                    input(type="radio", name="mute", value="yes", checked=user.mute)
                     =gettext("Yes")
-                  label.btn.btn-default(class=(user.muted ? 'active' : ''))
-                    input(type="radio", name="muted", value="no", checked=!user.muted)
+                  label.btn.btn-default(class=(user.mute ? 'active' : ''))
+                    input(type="radio", name="mute", value="no", checked=!user.mute)
                     =gettext("No")
           - else
             .form-group
