@@ -35,7 +35,7 @@ html
           ul.nav.navbar-nav
             - if (currentUser) 
               li
-                button.btn.navbar-btn.btn-link.disabled=currentUser.username
+                a.btn.btn-link(href='/users/#{currentUser._id}')=currentUser.username
               li
                 form.navbar-form(method='POST', action='/logout')
                   button.btn.btn-link(type="submit", title=gettext('Logout'))
