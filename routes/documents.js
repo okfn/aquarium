@@ -40,6 +40,8 @@ module.exports = {
                 return janitor.error(res, err);
             } else if (!doc) {
                 return janitor.missing(res);
+            } else if (!req.user.admin && doc.username !== req.user.username) {
+                return res.redirect('/');
             }
             res.render('editdoc', {
                 doc: doc,
@@ -55,6 +57,8 @@ module.exports = {
                 return janitor.error(res, err);
             } else if (!doc) {
                 return janitor.missing(res);
+            } else if (!req.user.admin && doc.username !== req.user.username) {
+                return res.redirect('/');
             }
             res.render('document', {
                 backButton: true,
