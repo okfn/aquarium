@@ -137,6 +137,26 @@ $(document).on('input', 'form#newsite', function() {
     }
 });
 
+$(document).on('input', 'form#newreport', function() {
+    var $this = $(this),
+        values = serializer('form#newreport'),
+        errors,
+        validator;
+
+    validator = new Validator();
+    validator.check(values.content, 'Must have content').notEmpty();
+
+    errors = validator.getErrors();
+
+    if (errors.length) {
+        $this.find('[type=submit]').disable();
+        $this.find('.errors').html(errors.join(',')).removeClass('hidden');
+    } else {
+        $this.find('[type=submit]').enable();
+        $this.find('.errors').addClass('hidden');
+    }
+});
+
 $(document).ready(function() {
     $('[name=publication_date]').datepicker().on('changeDate', function() {
         $(this).next().find('[type=submit]').enable();

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-md-12
+        form#newreport(role='form', action='/reports', method='POST')
+          .form-group
+            label=gettext('Monthly Report')
+            textarea.form-control(rows=15, name="content")
+          button.btn.btn-primary(type='submit', disabled='disabled')=gettext("Report")
+          a.btn.btn-link(href='/reports')=gettext("Cancel")

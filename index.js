@@ -60,7 +60,7 @@ db.init(function(err, database) {
     }
 
     // initialise routes
-    _.each(['index', 'users', 'admin', 'documents', 'sites', 'overview', 'uploads'], function(route) {
+    _.each(['index', 'users', 'admin', 'documents', 'sites', 'overview', 'uploads', 'reports'], function(route) {
         var controller = require('./routes/' + route);
         controller.init(app);
     });
