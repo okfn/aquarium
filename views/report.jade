@@ -9,7 +9,13 @@ block content
         =gettext('Back')
     .row
       .col-md-12
-        p.lead=report.month
+        p.lead
+          =report.month
+          - if (currentUser.admin)
+            | &nbsp;
+            =gettext('reported by')
+            | &nbsp;
+            =report.username
         .content!=report.content
         p
           | &mdash;

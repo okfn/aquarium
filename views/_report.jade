@@ -2,5 +2,11 @@
   .row
     .col-md-12
       p.lead
-        a(href='/reports/#{report._id}')=report.month
+        a(href='/reports/#{report._id}')
+          =report.month
+          - if (currentUser.admin)
+            | &nbsp;
+            =gettext('reported by')
+            | &nbsp;
+            =report.username
       p=report.lede
