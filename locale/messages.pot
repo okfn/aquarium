@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-28 11:02+0000\n"
+"POT-Creation-Date: 2013-12-09 11:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,14 +26,16 @@ msgid "Document Type"
 msgstr ""
 
 #: views/newdoc.jade:11 views/overview.jade:11 views/newsite.jade:11
+#: views/overview.jade:12
 msgid "Pre-Budget Statement"
 msgstr ""
 
 #: views/newdoc.jade:12 views/overview.jade:12 views/newsite.jade:12
+#: views/overview.jade:13
 msgid "Executive's Budget Proposal"
 msgstr ""
 
-#: views/newdoc.jade:13 views/overview.jade:13
+#: views/newdoc.jade:13 views/overview.jade:13 views/overview.jade:14
 msgid "Enacted Budget"
 msgstr ""
 
@@ -46,14 +48,17 @@ msgid "In-Year Report"
 msgstr ""
 
 #: views/newdoc.jade:16 views/overview.jade:16 views/newsite.jade:16
+#: views/overview.jade:17
 msgid "Mid-year Review"
 msgstr ""
 
 #: views/newdoc.jade:17 views/overview.jade:17 views/newsite.jade:17
+#: views/overview.jade:18
 msgid "Year-End Report"
 msgstr ""
 
 #: views/newdoc.jade:18 views/overview.jade:18 views/newsite.jade:18
+#: views/overview.jade:19
 msgid "Audit Report"
 msgstr ""
 
@@ -63,16 +68,21 @@ msgid "Document Title"
 msgstr ""
 
 #: views/newdoc.jade:23 views/editdoc.jade:17 views/_doc.jade:20
+#: views/_doc.jade:24
 msgid "Publicly Available"
 msgstr ""
 
 #: views/newdoc.jade:28 views/newdoc.jade:66 views/newdoc.jade:76
 #: views/editdoc.jade:22 views/editdoc.jade:53 views/editdoc.jade:63
+#: views/newdoc.jade:80 views/newdoc.jade:90 views/editdoc.jade:67
+#: views/editdoc.jade:77 views/user.jade:21
 msgid "Yes"
 msgstr ""
 
 #: views/newdoc.jade:31 views/newdoc.jade:69 views/newdoc.jade:79
 #: views/editdoc.jade:25 views/editdoc.jade:56 views/editdoc.jade:66
+#: views/newdoc.jade:83 views/newdoc.jade:93 views/editdoc.jade:70
+#: views/editdoc.jade:80 views/user.jade:24
 msgid "No"
 msgstr ""
 
@@ -80,133 +90,142 @@ msgstr ""
 msgid "Location "
 msgstr ""
 
-#: views/newdoc.jade:38
+#: views/newdoc.jade:38 views/newdoc.jade:52
 msgid "Website"
 msgstr ""
 
-#: views/newdoc.jade:41
+#: views/newdoc.jade:41 views/newdoc.jade:55
 msgid "Government Office"
 msgstr ""
 
-#: views/newdoc.jade:44
+#: views/newdoc.jade:44 views/newdoc.jade:58
 msgid "Public Library"
 msgstr ""
 
-#: views/newdoc.jade:47
+#: views/newdoc.jade:47 views/newdoc.jade:61
 msgid "Other"
 msgstr ""
 
-#: views/newdoc.jade:49 views/editdoc.jade:37
+#: views/newdoc.jade:49 views/editdoc.jade:37 views/newdoc.jade:63
+#: views/editdoc.jade:51
 msgid "Details of location"
 msgstr ""
 
-#: views/newdoc.jade:51 views/editdoc.jade:39
+#: views/newdoc.jade:51 views/editdoc.jade:39 views/newdoc.jade:65
+#: views/editdoc.jade:53
 msgid "Web Link"
 msgstr ""
 
-#: views/newdoc.jade:54 views/editdoc.jade:42
+#: views/newdoc.jade:54 views/editdoc.jade:42 views/newdoc.jade:68
+#: views/editdoc.jade:56
 msgid "Date of Publication"
 msgstr ""
 
 #: views/newdoc.jade:55 views/newdoc.jade:58 views/editdoc.jade:43
-#: views/editdoc.jade:46
+#: views/editdoc.jade:46 views/newdoc.jade:69 views/newdoc.jade:72
+#: views/editdoc.jade:57 views/editdoc.jade:60
 msgid "1 Jan 2014"
 msgstr ""
 
-#: views/newdoc.jade:57
+#: views/newdoc.jade:57 views/newdoc.jade:71
 msgid "Date Received or Viewed"
 msgstr ""
 
-#: views/newdoc.jade:60
+#: views/newdoc.jade:60 views/newdoc.jade:74
 msgid "Upload attachments after adding the document"
 msgstr ""
 
-#: views/newdoc.jade:61 views/editdoc.jade:48
+#: views/newdoc.jade:61 views/editdoc.jade:48 views/newdoc.jade:75
+#: views/editdoc.jade:62
 msgid "Soft copy attached"
 msgstr ""
 
-#: views/newdoc.jade:71 views/editdoc.jade:58
+#: views/newdoc.jade:71 views/editdoc.jade:58 views/newdoc.jade:85
+#: views/editdoc.jade:72
 msgid "Scanned First/Last Page Attached"
 msgstr ""
 
-#: views/newdoc.jade:81 views/editdoc.jade:68
+#: views/newdoc.jade:81 views/editdoc.jade:68 views/newdoc.jade:95
+#: views/editdoc.jade:82
 msgid "Comments"
 msgstr ""
 
 #: views/newdoc.jade:85 views/sites.jade:16 views/newsite.jade:25
+#: views/newdoc.jade:99
 msgid "Add"
 msgstr ""
 
 #: views/newdoc.jade:86 views/editdoc.jade:73 views/uploads.jade:24
-#: views/newuser.jade:292 views/newsite.jade:26
+#: views/newuser.jade:292 views/newsite.jade:26 views/newdoc.jade:100
+#: views/editdoc.jade:87 views/newreport.jade:12 views/user.jade:37
 msgid "Cancel"
 msgstr ""
 
-#: views/editdoc.jade:27
+#: views/editdoc.jade:27 views/newdoc.jade:47 views/editdoc.jade:41
 msgid "Location"
 msgstr ""
 
-#: views/editdoc.jade:45
+#: views/editdoc.jade:45 views/editdoc.jade:59
 msgid "Date Received"
 msgstr ""
 
-#: views/editdoc.jade:72
+#: views/editdoc.jade:72 views/editdoc.jade:86 views/user.jade:36
 msgid "Update"
 msgstr ""
 
-#: views/_doc.jade:6
+#: views/_doc.jade:6 views/report.jade:9
 msgid "Back"
 msgstr ""
 
-#: views/_doc.jade:25
+#: views/_doc.jade:25 views/_doc.jade:29
 msgid "Not Publicly Available"
 msgstr ""
 
-#: views/_doc.jade:30
+#: views/_doc.jade:30 views/_doc.jade:34
 msgid "Approved"
 msgstr ""
 
-#: views/_doc.jade:34
+#: views/_doc.jade:34 views/_doc.jade:38
 msgid "Rejected"
 msgstr ""
 
-#: views/_doc.jade:38
+#: views/_doc.jade:38 views/_doc.jade:42
 msgid "Unapproved"
 msgstr ""
 
-#: views/_doc.jade:46
+#: views/_doc.jade:46 views/_doc.jade:50
 msgid "Approve"
 msgstr ""
 
-#: views/_doc.jade:53
+#: views/_doc.jade:53 views/_doc.jade:57
 msgid "Reject"
 msgstr ""
 
-#: views/_doc.jade:54 views/_doc.jade:58
+#: views/_doc.jade:54 views/_doc.jade:58 views/_doc.jade:62
 msgid "Edit"
 msgstr ""
 
-#: views/_doc.jade:57
+#: views/_doc.jade:57 views/_doc.jade:61
 msgid "Upload Files"
 msgstr ""
 
-#: views/_doc.jade:64
+#: views/_doc.jade:64 views/_doc.jade:68
 msgid "Published"
 msgstr ""
 
-#: views/_doc.jade:71
+#: views/_doc.jade:71 views/_doc.jade:75
 msgid "Received"
 msgstr ""
 
-#: views/_doc.jade:78
+#: views/_doc.jade:78 views/_doc.jade:82
 msgid "Softcopy attached"
 msgstr ""
 
-#: views/_doc.jade:83
+#: views/_doc.jade:83 views/_doc.jade:87
 msgid "Scan attached"
 msgstr ""
 
-#: views/_doc.jade:88
+#: views/_doc.jade:88 views/_doc.jade:92
 msgid "Uploaded files"
 msgstr ""
 
@@ -218,11 +237,11 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: views/overview.jade:14
+#: views/overview.jade:14 views/overview.jade:15
 msgid "Citizens Budget"
 msgstr ""
 
-#: views/overview.jade:15
+#: views/overview.jade:15 views/overview.jade:16
 msgid "In-Year Reports"
 msgstr ""
 
@@ -336,7 +355,7 @@ msgstr ""
 msgid "Click on"
 msgstr ""
 
-#: views/sites.jade:11 views/sites.jade:101
+#: views/sites.jade:11 views/sites.jade:101 views/sites.jade:39
 msgid "Add New Document"
 msgstr ""
 
@@ -374,7 +393,7 @@ msgstr ""
 msgid "Budget Documents"
 msgstr ""
 
-#: views/sites.jade:38
+#: views/sites.jade:38 views/_site.jade:4
 msgid "Title"
 msgstr ""
 
@@ -394,27 +413,27 @@ msgstr ""
 msgid "Enable"
 msgstr ""
 
-#: views/sites.jade:67
+#: views/sites.jade:67 views/_site.jade:10
 msgid "Delete"
 msgstr ""
 
-#: views/sites.jade:70
+#: views/sites.jade:70 views/_site.jade:12
 msgid "Document"
 msgstr ""
 
-#: views/sites.jade:73 views/newsite.jade:23
+#: views/sites.jade:73 views/newsite.jade:23 views/_site.jade:15
 msgid "URL"
 msgstr ""
 
-#: views/sites.jade:78
+#: views/sites.jade:78 views/_site.jade:20
 msgid "Expected Date of Publication"
 msgstr ""
 
-#: views/sites.jade:89
+#: views/sites.jade:89 views/_site.jade:34 views/_site.jade:39
 msgid "DD MMM YYYY"
 msgstr ""
 
-#: views/sites.jade:104
+#: views/sites.jade:104 views/sites.jade:42
 #, python-format
 msgid "Showing %(count)s of %(total)s documents"
 msgstr ""
@@ -423,7 +442,7 @@ msgstr ""
 msgid "Email address"
 msgstr ""
 
-#: views/newuser.jade:12 views/newuser.jade:13
+#: views/newuser.jade:12 views/newuser.jade:13 views/user.jade:12
 msgid "Name"
 msgstr ""
 
@@ -1489,6 +1508,7 @@ msgstr ""
 
 #: views/newuser.jade:286 views/newuser.jade:287 views/login.jade:12
 #: views/login.jade:13 views/setup.jade:12 views/setup.jade:13
+#: views/user.jade:31
 msgid "Password"
 msgstr ""
 
@@ -1496,7 +1516,7 @@ msgstr ""
 msgid "Confirm Password"
 msgstr ""
 
-#: views/newuser.jade:290 views/setup.jade:16
+#: views/newuser.jade:290 views/setup.jade:16 views/user.jade:34
 msgid "Confirm password"
 msgstr ""
 
@@ -1508,7 +1528,8 @@ msgstr ""
 msgid "Enter email"
 msgstr ""
 
-#: views/login.jade:14 views/layout.jade:45
+#: views/login.jade:14 views/layout.jade:45 views/layout.jade:44
+#: views/layout.jade:46
 msgid "Login"
 msgstr ""
 
@@ -1516,20 +1537,20 @@ msgstr ""
 msgid "User List"
 msgstr ""
 
-#: views/users.jade:19
+#: views/users.jade:19 views/users.jade:20
 #, python-format
 msgid "Tracking %s documents"
 msgstr ""
 
-#: views/users.jade:23
+#: views/users.jade:23 views/users.jade:24
 msgid "Add User"
 msgstr ""
 
-#: views/users.jade:25
+#: views/users.jade:25 views/users.jade:26
 msgid "This page is where you add researchers able to use the site."
 msgstr ""
 
-#: views/users.jade:26
+#: views/users.jade:26 views/users.jade:27
 msgid "You will need to tell them their password."
 msgstr ""
 
@@ -1565,11 +1586,11 @@ msgstr ""
 msgid "Submit Document"
 msgstr ""
 
-#: views/layout.jade:33
+#: views/layout.jade:33 views/layout.jade:35
 msgid "Overview"
 msgstr ""
 
-#: views/layout.jade:41
+#: views/layout.jade:41 views/layout.jade:43
 msgid "Logout"
 msgstr ""
 
@@ -1594,4 +1615,60 @@ msgstr ""
 
 #: views/dashboard.jade:18
 msgid "Export To CSV"
+msgstr ""
+
+#: views/newdoc.jade:33 views/editdoc.jade:27
+msgid "Include In Stats For Year"
+msgstr ""
+
+#: views/_doc.jade:98 views/layout.jade:16
+msgid "Open Budget Tracker"
+msgstr ""
+
+#: views/newreport.jade:9
+msgid "Monthly Report"
+msgstr ""
+
+#: views/newreport.jade:11
+msgid "Report"
+msgstr ""
+
+#: views/overview.jade:11
+msgid "OBI Score"
+msgstr ""
+
+#: views/index.jade:9
+msgid "IBP's Open Budget Tracker"
+msgstr ""
+
+#: views/layout.jade:33
+msgid "Monthly Reports"
+msgstr ""
+
+#: views/user.jade:9
+msgid "Email"
+msgstr ""
+
+#: views/user.jade:16
+msgid "Send email"
+msgstr ""
+
+#: views/user.jade:27 views/user.jade:28
+msgid "Current password"
+msgstr ""
+
+#: views/user.jade:32
+msgid "New password"
+msgstr ""
+
+#: views/user.jade:35
+msgid "Retype new password"
+msgstr ""
+
+#: views/reports.jade:8
+msgid "Reports"
+msgstr ""
+
+#: views/reports.jade:13
+msgid "Add Report"
 msgstr ""
