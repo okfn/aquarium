@@ -2,7 +2,6 @@ var auth = require('../lib/auth'),
     janitor = require('../lib/janitor'),
     sites = require('../lib/sites'),
     users = require('../lib/users'),
-    moment = require('moment'),
     _s = require('underscore.string');
 
 module.exports = {
@@ -11,11 +10,13 @@ module.exports = {
         app.get('/tracking/new', auth.authenticated, module.exports.newSite);
 
         app.post('/tracking', auth.authenticated, module.exports.createSite);
-        app.post('/tracking/:user_id/:created_at/add-date', auth.authenticated, module.exports.addDate);
-        app.post('/tracking/:user_id/:created_at/delete-date', auth.authenticated, module.exports.deleteDate);
-        app.post('/tracking/:user_id/:created_at/disable', auth.authenticated, module.exports.disable);
-        app.post('/tracking/:user_id/:created_at/enable', auth.authenticated, module.exports.enable);
-        app.post('/tracking/:user_id/:created_at/remove', auth.authenticated, module.exports.remove);
+
+        app.post('/tracking/:site_id/add-date', auth.authenticated, module.exports.addDate);
+        app.post('/tracking/:date_id/delete-date', auth.authenticated, module.exports.deleteDate);
+
+        app.post('/tracking/:site_id/disable', auth.authenticated, module.exports.disable);
+        app.post('/tracking/:site_id/enable', auth.authenticated, module.exports.enable);
+        app.post('/tracking/:site_id/remove', auth.authenticated, module.exports.remove);
     },
     // Show the list of sites for the logged in user, or *all* sites if admin.
     showSites: function(req, res) {
@@ -88,8 +89,7 @@ module.exports = {
     // enable a site; depends on created_at matching
     enable: function(req, res) {
         sites.enable({
-            user_id: req.params.user_id,
-            created_at: req.params.created_at
+            site_id: req.params.site_id
         }, function(err) {
             if (err) {
                 return janitor.error(res, err);
@@ -101,8 +101,7 @@ module.exports = {
     // disable a site; depends on created_at matching
     disable: function(req, res) {
         sites.disable({
-            user_id: req.params.user_id,
-            created_at: req.params.created_at
+            site_id: req.params.site_id
         }, function(err) {
             if (err) {
                 return janitor.error(res, err);
@@ -114,8 +113,7 @@ module.exports = {
     // remove a site; depends on created_at matching
     remove: function(req, res) {
         sites.remove({
-            user_id: req.params.user_id,
-            created_at: req.params.created_at
+            site_id: req.params.site_id
         }, function(err) {
             if (err) {
                 return janitor.error(res, err);
@@ -127,9 +125,8 @@ module.exports = {
     // add a date to a site; depends on created_at matching
     addDate: function(req, res) {
         sites.addDate({
-            created_at: req.params.created_at,
-            publication_date: moment(req.body.publication_date).toDate(),
-            user_id: req.params.user_id
+            publication_date: req.body.publication_date,
+            site_id: req.params.site_id
         }, function(err) {
             if (err) {
                 return janitor.error(res, err);
@@ -141,9 +138,7 @@ module.exports = {
     // delete a date from a site; depends on created_at matching
     deleteDate: function(req, res) {
         sites.deleteDate({
-            created_at: req.params.created_at,
-            publication_date: moment(req.body.publication_date).toDate(),
-            user_id: req.params.user_id
+            date_id: req.params.date_id
         }, function(err) {
             if (err) {
                 return janitor.error(res, err);
