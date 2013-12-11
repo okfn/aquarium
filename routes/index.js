@@ -10,7 +10,7 @@ module.exports = {
     },
     index: function(req, res) {
         res.render('index', {
-            title: 'Aquarium',
+            title: 'IBP's Open Budget Tracker',
             user: req.user
         });
     }

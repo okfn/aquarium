@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-09 11:44+0000\n"
+"POT-Creation-Date: 2013-12-11 10:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1671,4 +1671,8 @@ msgstr ""
 
 #: views/reports.jade:13
 msgid "Add Report"
+msgstr ""
+
+#: views/report.jade:16 views/_report.jade:9
+msgid "reported by"
 msgstr ""
