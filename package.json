@@ -22,11 +22,12 @@
     "async": "~0.2.9",
     "i18n-abide": "0.0.14",
     "humanize-plus": "~1.4.2",
-    "csv": "~0.3.6",
     "express-validator": "~0.8.0",
     "serialize-form": "~1.1.4",
     "underscore.string": "~2.3.3",
-    "markdown": "~0.5.0"
+    "markdown": "~0.5.0",
+    "json2csv": "~2.2.1",
+    "node-zip": "~1.0.1"
   },
   "devDependencies": {
     "nodeunit": "~0.8.1",

@@ -1,7 +1,6 @@
-var _ = require('underscore'),
-    async = require('async'),
+var async = require('async'),
     auth = require('../lib/auth'),
-    csv = require('csv'),
+    exporter = require('../lib/exporter'),
     janitor = require('../lib/janitor'),
     users = require('../lib/users'),
     moment = require('moment'),
@@ -144,30 +143,16 @@ module.exports = {
         }
     },
     dataExport: function(req, res) {
-        docs.list({
-            admin: true
-        }, function(err, docs) {
-            var stream;
+        exporter.generateZip(function(err, data) {
+            if (err) {
+                return janitor.error(res, err);
+            }
 
             res.writeHead(200, {
-                'Content-disposition': 'attachment;filename=export-' + moment().format('YYYY-MM-DD') + '.csv',
-                'Content-Type': 'text/csv'
+                'Content-disposition': 'attachment;filename=export-' + moment().format('YYYY-MM-DD-HH-MM') + '.zip',
+                'Content-Type': 'application/zip'
             });
-            stream = csv().to.stream(res, {
-                columns: ['type', 'title', 'country', 'url', 'location', 'location_detail', 'username', 'date_published', 'date_received', 'softcopy', 'scanned', 'approved', 'available', 'comments'],
-                header: true
-            }).transform(function(row) {
-                row.approved = row.approved ? 'yes' : 'no';
-                row.available = row.available ? 'yes' : 'no';
-                row.softcopy = row.softcopy ? 'yes' : 'no';
-                row.scanned = row.scanned ? 'yes' : 'no';
-
-                return row;
-            });
-            _.each(docs, function(doc) {
-                stream.write(doc);
-            });
-            res.end();
+            res.end(new Buffer(data, 'base64'))
         });
     }
 };
