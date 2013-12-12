@@ -16,6 +16,11 @@ block content
               input(name='admin', type='checkbox')
               =gettext("Admin user")
           .form-group
+            label=gettext("Locale")
+            select.form-control(name='locale')
+              - for locale in locales
+                option(value=locale)=gettext(locale)
+          .form-group
             label=gettext("Country")
             select.form-control(name='country')
               option(value="AF - Afghanistan")=gettext("Afghanistan")

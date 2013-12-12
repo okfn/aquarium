@@ -11,6 +11,11 @@ block content
           .form-group
             label=gettext('Name')
             input.form-control(name="name", type="text", value=user.name, placeholder="User name")
+          .form-group
+            label=gettext('Locale')
+            select.form-control(name="locale")
+              - for locale in locales
+                option(value=locale, selected=(locale === user.locale))=gettext(locale)
           - if (currentUser.admin)
             .form-group
               label=gettext("Send email")

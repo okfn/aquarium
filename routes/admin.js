@@ -109,6 +109,7 @@ module.exports = {
     },
     showNewUser: function(req, res) {
         res.render('newuser', {
+            locales: global.locales,
             title: 'New User'
         });
     },
@@ -125,8 +126,9 @@ module.exports = {
             users.insert({
                 password: password,
                 user: {
-                    admin: req.body.admin,
+                    admin: req.body.admin === 'on',
                     country: req.body.country,
+                    locale: req.body.locale,
                     name: req.body.name,
                     sites: [],
                     username: req.body.username

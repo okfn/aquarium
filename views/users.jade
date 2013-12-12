@@ -17,6 +17,8 @@ block content
                   =user.username
                 .col-md-4
                   a(href="https://www.google.co.nz/maps/preview#!q=#{user.country}", target="_blank")=user.country
+                  | &nbsp;
+                  =format("%s locale", [user.locale || 'en'])
                 .col-md-4=format('Tracking %s documents', [user.sites.length])
         .panel-footer
           .row

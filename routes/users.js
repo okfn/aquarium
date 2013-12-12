@@ -44,6 +44,7 @@ module.exports = {
                 return janitor.error(res, "Unable to view user.");
             }
             res.render('user', {
+                locales: global.locales,
                 user: user,
                 title: user.username
             });
@@ -96,6 +97,7 @@ module.exports = {
         }
 
         return {
+            locale: req.body.locale,
             username: req.body.username,
             name: req.body.name,
             mute: req.body.mute !== 'yes'

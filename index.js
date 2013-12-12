@@ -12,6 +12,7 @@ var express = require('express'),
     app = express(),
     config = require('./lib/config'),
     db = require('./lib/db'),
+    fs = require('fs'),
     humanize = require('humanize-plus'),
     i18n = require('i18n-abide'),
     MongoStore = require('connect-mongo')(express),
@@ -39,9 +40,13 @@ db.init(function(err, database) {
     }));
     app.use(passport.initialize());
     app.use(passport.session());
+
+    // make sure only `messages.pot` and locales dirs in locale directory!
+    global.locales = _.without(fs.readdirSync(__dirname + '/locale'), 'messages.pot');
+
     app.use(i18n.abide({
         default_lang: 'en',
-        supported_languages: ['en'],
+        supported_languages: global.locales,
         translation_directory: 'locale'
     }));
     app.use(function(req, res, next) {
