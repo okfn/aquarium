@@ -1,5 +1,3 @@
-var passport = require('passport');
-
 /*
  * GET home page.
 */
@@ -10,7 +8,7 @@ module.exports = {
     },
     index: function(req, res) {
         res.render('index', {
-            title: 'IBP's Open Budget Tracker',
+            title: "IBP's Open Budget Tracker",
             user: req.user
         });
     }
