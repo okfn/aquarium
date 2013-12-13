@@ -47,7 +47,9 @@ module.exports = {
         return {
             _id: report._id,
             content: markdown.toHTML(report.content),
-            month: moment(report.created_at).format('MMM YYYY'),
+            month: moment(report.created_at)
+                     .subtract('month', 1)
+                     .format('MMM YYYY'),
             lede: _s.prune(report.content, 140),
             username: report.username,
             country: report.country,
