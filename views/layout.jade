@@ -37,7 +37,9 @@ html
           ul.nav.navbar-nav
             - if (currentUser) 
               li
-                a.btn.btn-link(href='/users/#{currentUser._id}')=currentUser.username
+                a.btn.btn-link(href='/users/#{currentUser._id}')
+                  - var username = currentUser.username
+                  =(username.length > 22)?username.substr(0,21)+'…':username
               li
                 form.navbar-form(method='POST', action='/logout')
                   button.btn.btn-link(type="submit", title=gettext('Logout'))
