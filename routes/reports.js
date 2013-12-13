@@ -50,6 +50,7 @@ module.exports = {
             month: moment(report.created_at).format('MMM YYYY'),
             lede: _s.prune(report.content, 140),
             username: report.username,
+            country: report.country,
             user_id: report.user_id
         }
     },
@@ -97,7 +98,8 @@ module.exports = {
         reports.insert({
             content: req.body.content,
             user_id: req.user._id,
-            username: req.user.username
+            username: req.user.username,
+            country: req.user.country
         }, function(err) {
             if (err) {
                 return janitor.invalid(res, err);

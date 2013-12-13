@@ -10,12 +10,15 @@ block content
     .row
       .col-md-12
         p.lead
-          =report.month
+          strong
+            =report.month
           - if (currentUser.admin)
             | &nbsp;
-            =gettext('reported by')
+            =gettext('reported for')
             | &nbsp;
-            =report.username
+            strong
+              =report.country
+            =' (' + report.username + ')'
         .content!=report.content
         p
           | &mdash;
