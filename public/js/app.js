@@ -1,11 +1,11 @@
 /* globals require */
-var $ = require('./jquery-2.0.3.min'),
+var $ = require('jquery-browserify'),
     serializer = require('serialize-form').serializeFormObject,
     Validator = require('./validator-min').Validator;
 
 require('./bootstrap-datepicker');
 require('./jquery-fns');
-require('./bootstrap');
+require('bootstrap-browserify');
 
 Validator.prototype.error = function (msg) {
     this._errors.push(msg);

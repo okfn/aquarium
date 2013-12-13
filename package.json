@@ -31,6 +31,8 @@
   },
   "devDependencies": {
     "nodeunit": "~0.8.1",
-    "sinon": "~1.7.3"
+    "sinon": "~1.7.3",
+    "bootstrap-browserify": "~2.1.1",
+    "jquery-browserify": "~1.8.1"
   }
 }
