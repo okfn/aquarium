@@ -6674,6 +6674,9 @@ body.missing {
   background-size: cover;
   background-repeat: no-repeat;
 }
+.t30 {
+  margin-top: 30px;
+}
 .navbar .btn-link {
   color: #999999;
 }
@@ -6716,7 +6719,7 @@ input[type="file"] {
   padding: 10px 0 20px;
 }
 .username {
-  max-width: 140px;
+  max-width: 160px;
   overflow: hidden;
   text-overflow: ellipsis;
 }

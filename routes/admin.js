@@ -137,7 +137,7 @@ module.exports = {
                 if (err) {
                     janitor.error(res, err);
                 } else {
-                    res.redirect('/dashboard');
+                    res.redirect('/researchers');
                 }
             });
         } else {

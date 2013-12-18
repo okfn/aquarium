@@ -40,3 +40,14 @@ block content
               input.form-control(name="confirm", type="password", placeholder=gettext("Retype new password"))
           button.btn.btn-primary(type='submit')=gettext("Update")
           a.btn.btn-link(href='/researchers')=gettext("Cancel")
+    - if (currentUser.admin)
+      .row.t30
+        .col-md-12
+          form.well.confirm(method='DELETE', action='/users/#{user._id}')
+            .hidden.confirm-text=format("Really delete %s?", [user.username])
+            input(type="hidden", name="user_id", value=user._id)
+            button.btn.btn-danger(type="submit")
+              i.glyphicon.glyphicon-trash
+              | &nbsp;
+              =gettext("Delete User")
+
