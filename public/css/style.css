@@ -6715,6 +6715,11 @@ input[type="file"] {
 .roomy {
   padding: 10px 0 20px;
 }
+.username {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 @media (min-width: 768px) {
   #overview {
     table-layout: fixed;
