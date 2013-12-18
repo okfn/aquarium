@@ -123,3 +123,8 @@ $(document).ready(function() {
         $(this).next().find('[type=submit]').disable();
     }).datepicker('setStartDate', new Date());
 });
+
+// handle clicks on the + button of sites
+$(document).on('click', '.add-date', function(e) {
+    $(e.target).prev('input').datepicker('show');
+});
