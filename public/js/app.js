@@ -128,3 +128,23 @@ $(document).ready(function() {
 $(document).on('click', '.add-date', function(e) {
     $(e.target).prev('input').datepicker('show');
 });
+
+$(document).on('submit', 'form.confirm', function(e) {
+    var $target = $(e.currentTarget),
+        message = $target.find('.confirm-text').text(),
+        result;
+
+    e.preventDefault();
+
+    result = confirm(message);
+
+    if (result) {
+        $.ajax({
+            url: $target.attr('action'),
+            type: $target.attr('method'),
+            complete: function() {
+                window.location = '/researchers';
+            }
+        });
+    }
+});

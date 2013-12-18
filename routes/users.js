@@ -16,6 +16,7 @@ module.exports = {
             successRedirect: '/'
         }));
         app.post('/users/:id', auth.authenticated, module.exports.updateUser);
+        app.delete('/users/:id', auth.admin, module.exports.removeUser);
     },
     /**
      * Show the login page. Redirects to /setup if no users at all.
@@ -40,6 +41,9 @@ module.exports = {
         users.getUserById(req.params.id, function(err, user) {
             if (err) {
                 return janitor.error(res, err);
+            } else if (!user) {
+                return res.redirect('/researchers');
+
             } else if (!req.user.admin && req.user.username !== user.username) {
                 return janitor.error(res, "Unable to view user.");
             }
@@ -102,5 +106,20 @@ module.exports = {
             name: req.body.name,
             mute: req.body.mute !== 'yes'
         };
+    },
+    /**
+     * Delete the user.
+     */
+    removeUser: function(req, res) {
+        users.remove({
+            user_id: req.params.id,
+            currentUser: req.user
+        }, function(err) {
+            if (err) {
+                return janitor.error(res, err);
+            }
+
+            res.send('OK');
+        });
     }
 };
