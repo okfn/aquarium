@@ -21,10 +21,21 @@ $(document).on('click', 'form#newuser [name=admin]', function() {
     $('form#newuser [name=country]').enable(!this.checked);
 });
 
+function checkErrors(el, validator) {
+    var $el = $(el),
+        errors = validator.getErrors();
+
+    if (errors.length) {
+        $el.find('[type=submit]').disable();
+        $el.find('.errors').html(errors.join('<br/>')).removeClass('hidden');
+    } else {
+        $el.find('[type=submit]').enable();
+        $el.find('.errors').addClass('hidden');
+    }
+}
+
 $(document).on('input', 'form#newuser', function() {
-    var $this = $(this),
-        values = serializer('form#newuser'),
-        errors,
+    var values = serializer('form#newuser'),
         validator;
 
     validator = new Validator();
@@ -32,15 +43,7 @@ $(document).on('input', 'form#newuser', function() {
     validator.check(values.password, 'Password must be 8 characters or more.').len(8);
     validator.check(values.confirm, 'Passwords must match.').equals(values.password);
 
-    errors = validator.getErrors();
-
-    if (errors.length) {
-        $this.find('[type=submit]').disable();
-        $this.find('.errors').html(errors.join('<br/>')).removeClass('hidden');
-    } else {
-        $this.find('[type=submit]').enable();
-        $this.find('.errors').addClass('hidden');
-    }
+    checkErrors(this, validator);
 });
 
 $(document).on('change', 'form#country select', function() {
@@ -56,28 +59,18 @@ $(document).on('change', 'form#country select', function() {
 });
 
 $(document).on('input', 'form#login', function() {
-    var $this = $(this),
-        values = serializer('form#login'),
-        errors,
+    var values = serializer('form#login'),
         validator;
 
     validator = new Validator();
     validator.check(values.username, 'Username must be an email.').isEmail();
     validator.check(values.password, 'Password must be 8 characters or more.').len(8);
 
-    errors = validator.getErrors();
-
-    if (errors.length) {
-        $this.find('[type=submit]').disable();
-    } else {
-        $this.find('[type=submit]').enable();
-    }
+    checkErrors(this, validator);
 });
 
 $(document).on('input', 'form#setup', function() {
-    var $this = $(this),
-        values = serializer('form#setup'),
-        errors,
+    var values = serializer('form#setup'),
         validator;
 
     validator = new Validator();
@@ -85,32 +78,18 @@ $(document).on('input', 'form#setup', function() {
     validator.check(values.password, 'Password must be 8 characters or more.').len(8);
     validator.check(values.confirm, 'Passwords must match.').equals(values.password);
 
-    errors = validator.getErrors();
-
-    if (errors.length) {
-        $this.find('[type=submit]').disable();
-    } else {
-        $this.find('[type=submit]').enable();
-    }
+    checkErrors(this, validator);
 });
 
 function validateDoc(id) {
     return function() {
-        var $this = $(this),
-            values = serializer(id),
-            errors,
+        var values = serializer(id),
             validator;
 
         validator = new Validator();
         validator.check(values.title, 'Document must have a title.').notEmpty();
 
-        errors = validator.getErrors();
-
-        if (errors.length) {
-            $this.find('[type=submit]').disable();
-        } else {
-            $this.find('[type=submit]').enable();
-        }
+        checkErrors(this, validator);
     }
 }
 
@@ -118,43 +97,23 @@ $(document).on('input', 'form#newdoc', validateDoc('form#newdoc'));
 $(document).on('input', 'form#updatedoc', validateDoc('form#updatedoc'));
 
 $(document).on('input', 'form#newsite', function() {
-    var $this = $(this),
-        values = serializer('form#newsite'),
-        errors,
+    var values = serializer('form#newsite'),
         validator;
 
     validator = new Validator();
     validator.check(values.title, 'Must have title').notEmpty();
 
-    errors = validator.getErrors();
-
-    if (errors.length) {
-        $this.find('[type=submit]').disable();
-        $this.find('.errors').html(errors.join(',')).removeClass('hidden');
-    } else {
-        $this.find('[type=submit]').enable();
-        $this.find('.errors').addClass('hidden');
-    }
+    checkErrors(this, validator);
 });
 
 $(document).on('input', 'form#newreport', function() {
-    var $this = $(this),
-        values = serializer('form#newreport'),
-        errors,
+    var values = serializer('form#newreport'),
         validator;
 
     validator = new Validator();
     validator.check(values.content, 'Must have content').notEmpty();
 
-    errors = validator.getErrors();
-
-    if (errors.length) {
-        $this.find('[type=submit]').disable();
-        $this.find('.errors').html(errors.join(',')).removeClass('hidden');
-    } else {
-        $this.find('[type=submit]').enable();
-        $this.find('.errors').addClass('hidden');
-    }
+    checkErrors(this, validator);
 });
 
 $(document).ready(function() {
