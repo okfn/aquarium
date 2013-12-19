@@ -1,7 +1,7 @@
 .list-group-item(id="site-#{i}")
   .row
     .col-md-3
-      h4=gettext("Title")
+      h4=gettext("Document Title")
       h5=site.title
       form.btn-form(method='POST', action='/tracking/#{site._id}/remove')
         button.btn-xs.btn.btn-danger(type='submit')
@@ -9,7 +9,7 @@
           | &nbsp;
           =gettext("Delete")
     .col-md-3
-      h4=gettext("Document")
+      h4=gettext("Document Type")
       h5=site.type
     .col-md-3
       h4=gettext("URL")
