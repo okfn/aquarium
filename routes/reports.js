@@ -12,6 +12,7 @@ module.exports = {
      */
     init: function(app) {
         app.get('/reports', auth.authenticated, module.exports.showReports);
+        app.get('/reports/page/:page', auth.authenticated, module.exports.showReports);
         app.get('/reports/new', auth.authenticated, module.exports.newReport);
         app.get('/reports/:id', auth.authenticated, module.exports.showReport);
 
@@ -21,7 +22,17 @@ module.exports = {
      * Show list of reports for current user or, if admin, all reports
      */
     showReports: function(req, res) {
-        var query = {};
+        var page = parseInt(req.params.page, 10),
+            query;
+
+        if (page <= 0 || _.isNaN(page)) {
+            page = 1;
+        }
+
+        query = {
+            page: page,
+            pageSize: 25
+        };
 
         if (req.user.admin) {
             query.admin = true;
@@ -38,6 +49,7 @@ module.exports = {
             });
 
             res.render('reports', {
+                page: page,
                 reports: reports,
                 title: 'Monthly Reports'
             });
@@ -65,6 +77,8 @@ module.exports = {
         }, function(err, report) {
             if (err) {
                 return janitor.error(res, err);
+            } else if (!report) {
+                return res.redirect('/reports');
             } else if (!req.user.admin && report.user_id.toString() !== req.user._id.toString()) {
                 return res.redirect('/');
             }
