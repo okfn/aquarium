@@ -13,3 +13,6 @@
               =report.country
             =' (' + report.username + ')'
       p=report.lede
+      p
+        a(href='/reports/#{report._id}')
+          =gettext("View report in full")

@@ -7,6 +7,7 @@ block content
         form#newreport(role='form', action='/reports', method='POST')
           .form-group
             label=gettext('Monthly Report')
+            p.help-block=gettext("Please describe your process for obtaining documents this month. What was your method of approach? Please elaborate on any success and/or challenges.")
             textarea.form-control(rows=15, name="content")
           button.btn.btn-primary(type='submit', disabled='disabled')=gettext("Report")
           a.btn.btn-link(href='/reports')=gettext("Cancel")
