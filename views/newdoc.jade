@@ -22,43 +22,37 @@ block content
           .form-group
             label=gettext("Publicly Available")
             div
-              .btn-group(data-toggle="buttons")
-                label.btn.btn-default
-                  input(type="radio", name="available", value="yes")
+              .btn-group(data-toggle="buttons-radio", data-toggle-target="available")
+                button(type="button", value="yes").btn.btn-default
                   =gettext("Yes")
-                label.btn.btn-default.active
-                  input(type="radio", name="available", value="no", checked=true)
+                button(type="button", value="no").btn.btn-default.active
                   =gettext("No")
+              input(type="hidden", value="no", name="available")
           .form-group
             label=gettext("Include the Fiscal Year the Document Refers to")
             - var year = new Date().getFullYear()
             div
-              .btn-group(data-toggle="buttons")
-                label.btn.btn-default
-                  input(type="radio", name="year", value=(year - 1))
+              .btn-group(data-toggle="buttons-radio", data-toggle-target="year")
+                button(type="button", value=(year - 1)).btn.btn-default
                   =year - 1
-                label.btn.btn-default.active
-                  input(type="radio", name="year", value=year, checked=true)
+                button(type="button", value=year).btn.btn-default.active
                   =year
-                label.btn.btn-default
-                  input(type="radio", name="year", value=(year + 1))
+                button(type="button", value=(year + 1)).btn.btn-default
                   =year + 1
+                input(type="hidden", value=year, name="year")
           .form-group
             label=gettext("Location")
             div
-              .btn-group(data-toggle="buttons")
-                label.btn.btn-default
-                  input(type="radio", name="location", value="Website")
+              .btn-group(data-toggle="buttons-radio", data-toggle-target="location")
+                button(type="button", value="Website").btn.btn-default
                   =gettext("Website")
-                label.btn.btn-default
-                  input(type="radio", name="location", value="Government Office")
+                button(type="button", value="Government Office").btn.btn-default
                   =gettext("Government Office")
-                label.btn.btn-default
-                  input(type="radio", name="location", value="Public Library")
+                button(type="button", value="Public Library").btn.btn-default
                   =gettext("Public Library")
-                label.btn.btn-default
-                  input(type="radio", name="location", value="Other")
+                button(type="button", value="Other").btn.btn-default
                   =gettext("Other")
+                input(type="hidden", value="", name="location")
           .form-group
             input.form-control(type="text", name='location_detail', placeholder=gettext("Details of location"), autocomplete="off")
           .form-group
@@ -74,23 +68,21 @@ block content
             p.help-block=gettext('Upload attachments after adding the document')
             label=gettext("Soft copy attached")
             div
-              .btn-group(data-toggle="buttons")
-                label.btn.btn-default
-                  input(type="radio", name="softcopy", value="yes")
+              .btn-group(data-toggle="buttons-radio", data-toggle-target="softcopy")
+                button(type="button", value="yes").btn.btn-default
                   =gettext("Yes")
-                label.btn.btn-default.active
-                  input(type="radio", name="softcopy", value="no", checked=true)
+                button(type="button", value="no").btn.btn-default.active
                   =gettext("No")
+                input(type="hidden", value="no", name="softcopy")
           .form-group
             label=gettext("Scanned First/Last Page Attached")
             div
-              .btn-group(data-toggle="buttons")
-                label.btn.btn-default
-                  input(type="radio", name="scanned", value="yes")
+              .btn-group(data-toggle="buttons-radio", data-toggle-target="scanned")
+                button(type="button", value="yes").btn.btn-default
                   =gettext("Yes")
-                label.btn.btn-default.active
-                  input(type="radio", name="scanned", value="no", checked=true)
+                button(type="button", value="no").btn.btn-default.active
                   =gettext("No")
+                input(type="hidden", value="no", name="scanned")
           .form-group
             label=gettext("Comments")
             .form-group
