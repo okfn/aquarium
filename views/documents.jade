@@ -34,6 +34,31 @@ block content
         .list-group
           - each doc in docs
             include _doc
+        .panel-footer
+          .row
+            .col-md-12
+              if (docs.length > 0)
+                - if (country) 
+                  a.btn.btn-default(href='/documents/page/' + (page + 1) + '?country=' + country)
+                    i.glyphicon.glyphicon-chevron-left
+                    | &nbsp;
+                    =gettext('Older')
+                - else
+                  a.btn.btn-default(href='/documents/page/' + (page + 1))
+                    i.glyphicon.glyphicon-chevron-left
+                    | &nbsp;
+                    =gettext('Older')
+              - if (page > 1)
+                - if (country)
+                  a.btn.btn-default(href='/documents/page/' + (page - 1) + '?country=' + country)
+                    =gettext('Newer')
+                    | &nbsp;
+                    i.glyphicon.glyphicon-chevron-right
+                - else
+                  a.btn.btn-default(href='/documents/page/' + (page - 1))
+                    =gettext('Newer')
+                    | &nbsp;
+                    i.glyphicon.glyphicon-chevron-right
         - if (!currentUser.admin)
           .panel-footer
             .row
