@@ -14,3 +14,16 @@ block content
         .list-group
           - each report in reports
             include _report
+        .panel-footer
+          .row
+            .col-md-12
+              if (reports.length > 0)
+                a.btn.btn-default(href='/reports/page/' + (page + 1))
+                  i.glyphicon.glyphicon-chevron-left
+                  | &nbsp;
+                  =gettext('Older')
+              - if (page > 1)
+                a.btn.btn-default(href='/reports/page/' + (page - 1))
+                  =gettext('Newer')
+                  | &nbsp;
+                  i.glyphicon.glyphicon-chevron-right

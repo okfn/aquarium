@@ -6,6 +6,7 @@ var _ = require('underscore'),
 module.exports = {
     init: function(app) {
         app.get('/documents', auth.authenticated, module.exports.showDocs);
+        app.get('/documents/page/:page', auth.authenticated, module.exports.showDocs);
         app.get('/documents/new', auth.authenticated, module.exports.newDoc);
         app.get('/documents/:id', auth.authenticated, module.exports.showDoc);
         app.get('/documents/:id/edit', auth.authenticated, module.exports.editDoc);
@@ -17,10 +18,17 @@ module.exports = {
         app.post('/documents/:id/reject', auth.admin, module.exports.rejectDoc);
     },
     showDocs: function(req, res) {
+        var page = parseInt(req.params.page, 10);
+
+        if (page <= 0 || _.isNaN(page)) {
+            page = 1;
+        }
         docs.list({
             admin: !!req.user.admin,
             country: req.query.country,
-            username: req.user.username
+            username: req.user.username,
+            page: page,
+            pageSize: 25
         }, function(err, docs) {
             if (err) {
                 return janitor.error(res, err);
@@ -28,6 +36,7 @@ module.exports = {
             res.render('documents', {
                 country: req.query.country,
                 docs: docs,
+                page: page,
                 title: 'User Documents'
             });
         });
