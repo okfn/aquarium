@@ -30,7 +30,7 @@ block content
                   input(type="radio", name="available", value="no", checked=true)
                   =gettext("No")
           .form-group
-            label=gettext("Include In Stats For Year")
+            label=gettext("Include the Fiscal Year the Document Refers to")
             - var year = new Date().getFullYear()
             div
               .btn-group(data-toggle="buttons")
