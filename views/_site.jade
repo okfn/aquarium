@@ -17,7 +17,7 @@
         a(href=site.url, target="_blank")=site.url
       p #{gettext('Last modified')} #{moment(site.last_modified).format('HH:mm DD MMM YYYY')}
     .col-md-3
-      h4=gettext("Expected Date of Publication")
+      h4=gettext("Date to Start Search")
       .list-group
         - var canAdd = true;
         - var dates = (site.publication_dates || [])
