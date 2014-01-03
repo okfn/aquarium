@@ -16,7 +16,7 @@ block content
               input(name='admin', type='checkbox')
               =gettext("Admin user")
           .form-group
-            label=gettext("Locale")
+            label=gettext("Language (code)")
             select.form-control(name='locale')
               - for locale in locales
                 option(value=locale)=gettext(locale)

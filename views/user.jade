@@ -12,7 +12,7 @@ block content
             label=gettext('Name')
             input.form-control(name="name", type="text", value=user.name, placeholder="User name")
           .form-group
-            label=gettext('Locale')
+            label=gettext('Language (code)')
             select.form-control(name="locale")
               - for locale in locales
                 option(value=locale, selected=(locale === user.locale))=gettext(locale)
