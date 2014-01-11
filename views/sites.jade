@@ -8,7 +8,7 @@ block content
         ol
           li=gettext("Click on") + ' '
             a(href='/tracking/new')
-              strong=gettext("Add New Document") + '.'
+              strong=gettext("Add Document") + '.'
           li=gettext("Select document type (it will be one of the eight key budget documents).")
           li=gettext("Provide the title given to the relevant document in your country.")
           li=gettext("If applicable, provide the URL where the document is likely to be posted. This should not be the link to the specific PDF/word/excel document. It should be the link to the webpage where the document is likely to be posted (e.g., a «Publications» page)")
@@ -36,7 +36,7 @@ block content
           .panel-footer
             .row
               .col-md-12
-                a.btn.btn-default(href='/tracking/new')=gettext('Add New Document')
+                a.btn.btn-default(href='/tracking/new')=gettext('Add Document')
                 | &nbsp;
                 - if (search)
                   =format("Showing %(count)s of %(total)s documents", { count: sites.length, total: total })
