@@ -30,6 +30,10 @@ block content
         .panel.panel-primary
           .panel-heading 
             h2.panel-title=gettext('Budget Documents')
+          .panel-footer
+            .row
+              .col-md-12
+            a.btn.btn-default(href='/tracking/new')=gettext('Add Document')
           .list-group
             - each site, i in sites
               include _site
