@@ -11,8 +11,10 @@ module.exports = {
 
         app.post('/tracking', auth.authenticated, module.exports.createSite);
 
-        app.post('/tracking/:site_id/add-date', auth.authenticated, module.exports.addDate);
-        app.post('/tracking/:date_id/delete-date', auth.authenticated, module.exports.deleteDate);
+        app.post('/tracking/:site_id/add-start', auth.authenticated, module.exports.addStart);
+        app.post('/tracking/:site_id/add-end', auth.authenticated, module.exports.addEnd);
+        app.post('/tracking/:site_id/delete-start', auth.authenticated, module.exports.deleteStart);
+        app.post('/tracking/:site_id/delete-end', auth.authenticated, module.exports.deleteEnd);
 
         app.post('/tracking/:site_id/disable', auth.authenticated, module.exports.disable);
         app.post('/tracking/:site_id/enable', auth.authenticated, module.exports.enable);
@@ -53,7 +55,7 @@ module.exports = {
             options;
 
         options = {
-            publication_dates: [],
+            search_dates: null,
             title: req.body.title,
             type: req.body.type,
             url: req.body.url || null,
@@ -123,9 +125,21 @@ module.exports = {
         });
     },
     // add a date to a site; depends on created_at matching
-    addDate: function(req, res) {
-        sites.addDate({
-            publication_date: req.body.publication_date,
+    addStart: function(req, res) {
+        sites.addStart({
+            date: req.body.date,
+            site_id: req.params.site_id
+        }, function(err) {
+            if (err) {
+                return janitor.error(res, err);
+            }
+
+            res.redirect('/tracking#site-' + req.body.index);
+        });
+    },
+    addEnd: function(req, res) {
+        sites.addEnd({
+            date: req.body.date,
             site_id: req.params.site_id
         }, function(err) {
             if (err) {
@@ -136,9 +150,20 @@ module.exports = {
         });
     },
     // delete a date from a site; depends on created_at matching
-    deleteDate: function(req, res) {
-        sites.deleteDate({
-            date_id: req.params.date_id
+    deleteStart: function(req, res) {
+        sites.deleteStart({
+            site_id: req.params.site_id
+        }, function(err) {
+            if (err) {
+                return janitor.error(res, err);
+            }
+
+            res.redirect('/tracking#site-' + req.body.index);
+        });
+    },
+    deleteEnd: function(req, res) {
+        sites.deleteEnd({
+            site_id: req.params.site_id
         }, function(err) {
             if (err) {
                 return janitor.error(res, err);

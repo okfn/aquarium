@@ -117,11 +117,15 @@ $(document).on('input', 'form#newreport', function() {
 });
 
 $(document).ready(function() {
-    $('[name=publication_date]').datepicker().on('changeDate', function() {
-        $(this).next().find('[type=submit]').enable();
-    }).on('clearDate', function() {
-        $(this).next().find('[type=submit]').disable();
-    }).datepicker('setStartDate', new Date());
+    $('[name=date]').each(function(i) {
+        var field = $(this);
+        field.datepicker().on('changeDate', function() {
+            $(this).next().find('[type=submit]').enable();
+        }).on('clearDate', function() {
+            $(this).next().find('[type=submit]').disable();
+        }).datepicker('setStartDate', field.attr('data-start') ? 
+                      new Date(field.attr('data-start')) : new Date());
+    });
 });
 
 // handle clicks on the + button of sites

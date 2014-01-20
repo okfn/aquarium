@@ -17,31 +17,46 @@
         a(href=site.url, target="_blank")=site.url
       p #{gettext('Last modified')} #{moment(site.last_modified).format('HH:mm DD MMM YYYY')}
     .col-md-3
-      h4=gettext("Date to Start Search")
+      h4=gettext("Search Dates")
+      - var search = site.search_dates
       .list-group
-        - var canAdd = true;
-        - var dates = (site.publication_dates || [])
-        - for date in dates
-          - if (moment(date.date) >= moment().startOf('day') && canAdd)
-            - canAdd = false;
-            .list-group-item
-              form.form-inline.btn-form(method='POST', action='/tracking/#{date._id}/delete-date')
+        .list-group-item
+          h5=gettext("Date to Start Search")
+          - if (search && search.start)
+            - var today = moment().startOf('day')
+            - if (moment(search.start) >= today)
+              form.form-inline.btn-form(method='POST', action='/tracking/#{site._id}/delete-start')
                 input(type="hidden", name="index", value=i)
-                input(type="hidden", name="publication_date", value=date)
                 button.btn.btn-default.btn-xs(type="submit")
                   i.glyphicon.glyphicon-trash
               | &nbsp;
-              =moment(date.date).format('DD MMM YYYY')
-        - if (canAdd)
-          - var lastDate = dates[dates.length - 1]
-          - if (lastDate)
-            .list-group-item
-              .text-muted=moment(lastDate).format('DD MMM YYYY')
-          .list-group-item
-            form.form-inline.picker(method='POST', action='/tracking/#{site._id}/add-date')
-              input(type="hidden", name="index", value=i)
+              =moment(search.start).format('DD MMM YYYY')
+            - else
+              .text-muted=moment(search.start).format('DD MMM YYYY')
+            h5=gettext("Date to End Search")
+            - if (search.end)
+              - if (moment(search.end) >= today)
+                form.form-inline.btn-form(method='POST', action='/tracking/#{site._id}/delete-end')
+                  input(type="hidden", name="index", value=i)
+                  button.btn.btn-default.btn-xs(type="submit")
+                    i.glyphicon.glyphicon-trash
+                | &nbsp;
+                =moment(search.end).format('DD MMM YYYY')
+              - else
+                .text-muted=moment(search.end).format('DD MMM YYYY')
+            - else
+              form.form-inline.picker(method="POST", action='/tracking/#{site._id}/add-end')
+                .input-group
+                  input(type="hidden", name="index", value=i)
+                  input.form-control(name="date", data-provide='datepicker-inline', data-date-autoclose='true' data-start="#{moment(search.start).format('YYYY-MM-DD')}")
+                  span.input-group-btn.add-date
+                    button.btn.btn-default(disabled=true, type="submit")
+                      i.glyphicon.glyphicon-plus
+          - else
+            form.form-inline.picker(method='POST', action='/tracking/#{site._id}/add-start')
               .input-group
-                input.form-control(name="publication_date", data-provide='datepicker-inline', data-date-autoclose='true')
+                input(type="hidden", name="index", value=i)
+                input.form-control(name="date", data-provide='datepicker-inline', data-date-autoclose='true')
                 span.input-group-btn.add-date
                   button.btn.btn-default(disabled=true, type="submit")
                     i.glyphicon.glyphicon-plus
