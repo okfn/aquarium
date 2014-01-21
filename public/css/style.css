@@ -6635,6 +6635,9 @@ input[type="file"] {
   height: auto;
   cursor: pointer;
 }
+input[name="url"] {
+  margin-bottom: 4px;
+}
 .btn-form {
   display: inline-block;
   margin: 0 5px 0 0;

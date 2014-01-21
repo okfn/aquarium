@@ -58,6 +58,10 @@ block content
           .form-group
             label=gettext("Web Link")
             input.form-control(type="text", name='url', placeholder='http://example.com/document.htm', autocomplete="off")
+            a(href="#" data-name='url').add-input
+              i.glyphicon.glyphicon-plus-sign
+              | &nbsp;
+              =gettext('Add another link')
           .form-group
             label=gettext("Date of Publication")
             input.form-control(type="text", name='date_published', placeholder=gettext('1 Jan 2014'), autocomplete="off")

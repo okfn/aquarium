@@ -1,0 +1,7 @@
+p
+  a(href=url, target="_blank")
+    =url.substr(0,42)
+    - if (url.length > 42)
+      ='...'
+    | &nbsp;
+    i.glyphicon.glyphicon-new-window

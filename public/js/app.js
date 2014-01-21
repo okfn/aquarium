@@ -133,6 +133,18 @@ $(document).on('click', '.add-date', function(e) {
     $(e.target).prev('input').datepicker('show');
 });
 
+// handle clicks on the 'add input' button of document submission
+$(document).on('click', '.add-input', function(e) {
+    var target = $(e.target);
+    var input_field = $('<input type="text">')
+        .attr('autocomplete', 'off')
+        .attr('name', target.attr('data-name'))
+        .addClass('form-control')
+    target.before(input_field);
+
+    return false;
+});
+
 $(document).on('submit', 'form.confirm', function(e) {
     var $target = $(e.currentTarget),
         message = $target.find('.confirm-text').text(),
