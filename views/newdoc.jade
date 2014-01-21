@@ -39,7 +39,7 @@ block content
                   =year
                 button(type="button", value=(year + 1)).btn.btn-default
                   =year + 1
-                input(type="hidden", value=year, name="year")
+              input(type="hidden", value=year, name="year")
           .form-group
             label=gettext("Location")
             div
@@ -52,7 +52,7 @@ block content
                   =gettext("Public Library")
                 button(type="button", value="Other").btn.btn-default
                   =gettext("Other")
-                input(type="hidden", value="", name="location")
+              input(type="hidden", value="", name="location")
           .form-group
             input.form-control(type="text", name='location_detail', placeholder=gettext("Details of location"), autocomplete="off")
           .form-group
@@ -77,7 +77,7 @@ block content
                   =gettext("Yes")
                 button(type="button", value="no").btn.btn-default.active
                   =gettext("No")
-                input(type="hidden", value="no", name="softcopy")
+              input(type="hidden", value="no", name="softcopy")
           .form-group
             label=gettext("Scanned First/Last Page Attached")
             div
@@ -86,7 +86,7 @@ block content
                   =gettext("Yes")
                 button(type="button", value="no").btn.btn-default.active
                   =gettext("No")
-                input(type="hidden", value="no", name="scanned")
+              input(type="hidden", value="no", name="scanned")
           .form-group
             label=gettext("Comments")
             .form-group
