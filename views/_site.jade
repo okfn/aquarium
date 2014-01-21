@@ -52,6 +52,13 @@
                   span.input-group-btn.add-date
                     button.btn.btn-default(disabled=true, type="submit")
                       i.glyphicon.glyphicon-plus
+            p
+              form.form-inline.btn-form(method='POST', action='/tracking/#{site._id}/delete-start')
+                input(type="hidden", name="index", value=i)
+                button.btn.btn-default.btn-xs(type="submit")
+                  i.glyphicon.glyphicon-trash
+                  | &nbsp;
+                  =gettext("Clear Dates")
           - else
             form.form-inline.picker(method='POST', action='/tracking/#{site._id}/add-start')
               .input-group
