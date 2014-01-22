@@ -1,13 +1,17 @@
 .list-group-item(id="site-#{i}")
   .row
     .col-md-3
+      - var search = site.search_dates
+      - var today = moment().startOf('day')
+      - var search_not_started = (search && search.start && (moment(search.start) >= today))
       h4=gettext("Document Title")
       h5=site.title
-      form.btn-form(method='POST', action='/tracking/#{site._id}/remove')
-        button.btn-xs.btn.btn-danger(type='submit')
-          i.glyphicon.glyphicon-trash
-          | &nbsp;
-          =gettext("Delete")
+      - if (!search || search_not_started)
+        form.btn-form(method='POST', action='/tracking/#{site._id}/remove')
+          button.btn-xs.btn.btn-danger(type='submit')
+            i.glyphicon.glyphicon-trash
+            | &nbsp;
+            =gettext("Delete")
     .col-md-3
       h4=gettext("Document Type")
       h5=site.type
@@ -18,13 +22,11 @@
       p #{gettext('Last modified')} #{moment(site.last_modified).format('HH:mm DD MMM YYYY')}
     .col-md-3
       h4=gettext("Search Dates")
-      - var search = site.search_dates
       .list-group
         .list-group-item
           h5=gettext("Date to Start Search")
           - if (search && search.start)
-            - var today = moment().startOf('day')
-            - if (moment(search.start) >= today)
+            - if (search_not_started)
               form.form-inline.btn-form(method='POST', action='/tracking/#{site._id}/delete-start')
                 input(type="hidden", name="index", value=i)
                 button.btn.btn-default.btn-xs(type="submit")
@@ -52,13 +54,6 @@
                   span.input-group-btn.add-date
                     button.btn.btn-default(disabled=true, type="submit")
                       i.glyphicon.glyphicon-plus
-            p
-              form.form-inline.btn-form(method='POST', action='/tracking/#{site._id}/delete-start')
-                input(type="hidden", name="index", value=i)
-                button.btn.btn-default.btn-xs(type="submit")
-                  i.glyphicon.glyphicon-trash
-                  | &nbsp;
-                  =gettext("Clear Dates")
           - else
             form.form-inline.picker(method='POST', action='/tracking/#{site._id}/add-start')
               .input-group
