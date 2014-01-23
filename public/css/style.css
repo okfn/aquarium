@@ -6614,6 +6614,9 @@ body.missing {
   background-size: cover;
   background-repeat: no-repeat;
 }
+h5 {
+  font-weight: bold;
+}
 .t30 {
   margin-top: 30px;
 }
