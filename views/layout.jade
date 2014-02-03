@@ -37,11 +37,8 @@ html
           ul.nav.navbar-nav
             - if (currentUser) 
               li
-                a.btn.btn-link.username(href='/users/#{currentUser._id}')
-                  =currentUser.username
-              li
                 form.navbar-form(method='POST', action='/logout')
-                  button.btn.btn-link(type="submit", title=gettext('Logout'))
+                  button.btn.btn-link(type="submit", title=gettext('Logout')+' '+currentUser.username)
                     i.glyphicon.glyphicon-log-out
             - else if (!isLogin)
               a.navbar-btn.btn.btn-primary(href='/login')=gettext('Login')
