@@ -1,0 +1,1804 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Open Budget Tracker\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-22 13:06+0000\n"
+"PO-Revision-Date: 2014-04-22 14:21+0000\n"
+"Last-Translator: tryggvib <tryggvib@fsfi.is>\n"
+"Language-Team: French (http://www.transifex.com/projects/p/open-budget-tracker/language/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: views/404.jade:7
+msgid "Page Not Found"
+msgstr "Page introuvable"
+
+#: views/newdoc.jade:9 views/editdoc.jade:9 views/newsite.jade:9
+#: views/_site.jade:16
+msgid "Document Type"
+msgstr "Type de document"
+
+#: views/newdoc.jade:11 views/overview.jade:11 views/newsite.jade:11
+#: views/overview.jade:12
+msgid "Pre-Budget Statement"
+msgstr "Déclaration pré-budgétaire"
+
+#: views/newdoc.jade:12 views/overview.jade:12 views/newsite.jade:12
+#: views/overview.jade:13
+msgid "Executive's Budget Proposal"
+msgstr "Projet de budget de l'exécutif"
+
+#: views/newdoc.jade:13 views/overview.jade:13 views/overview.jade:14
+msgid "Enacted Budget"
+msgstr "Budget approuvé"
+
+#: views/newdoc.jade:14 views/newsite.jade:14
+msgid "Citizen's Budget"
+msgstr "Budget des citoyens"
+
+#: views/newdoc.jade:15 views/newsite.jade:15
+msgid "In-Year Report"
+msgstr "Rapport en cours d'année"
+
+#: views/newdoc.jade:16 views/overview.jade:16 views/newsite.jade:16
+#: views/overview.jade:17
+msgid "Mid-year Review"
+msgstr "Examen semestriel"
+
+#: views/newdoc.jade:17 views/overview.jade:17 views/newsite.jade:17
+#: views/overview.jade:18
+msgid "Year-End Report"
+msgstr "Rapport de fin d'année"
+
+#: views/newdoc.jade:18 views/overview.jade:18 views/newsite.jade:18
+#: views/overview.jade:19
+msgid "Audit Report"
+msgstr "Rapport d'audit"
+
+#: views/newdoc.jade:20 views/newdoc.jade:21 views/editdoc.jade:14
+#: views/editdoc.jade:15 views/newsite.jade:20 views/newsite.jade:21
+#: views/_site.jade:7
+msgid "Document Title"
+msgstr "Titre du document"
+
+#: views/newdoc.jade:23 views/editdoc.jade:17 views/_doc.jade:20
+#: views/_doc.jade:24
+msgid "Publicly Available"
+msgstr "Mis à la disposition du public"
+
+#: views/newdoc.jade:28 views/newdoc.jade:66 views/newdoc.jade:76
+#: views/editdoc.jade:22 views/editdoc.jade:53 views/editdoc.jade:63
+#: views/newdoc.jade:80 views/newdoc.jade:90 views/editdoc.jade:67
+#: views/editdoc.jade:77 views/user.jade:21 views/newdoc.jade:27
+#: views/newdoc.jade:77 views/newdoc.jade:86 views/editdoc.jade:21
+#: views/editdoc.jade:70 views/editdoc.jade:79 views/user.jade:26
+msgid "Yes"
+msgstr "Oui"
+
+#: views/newdoc.jade:31 views/newdoc.jade:69 views/newdoc.jade:79
+#: views/editdoc.jade:25 views/editdoc.jade:56 views/editdoc.jade:66
+#: views/newdoc.jade:83 views/newdoc.jade:93 views/editdoc.jade:70
+#: views/editdoc.jade:80 views/user.jade:24 views/newdoc.jade:29
+#: views/newdoc.jade:88 views/editdoc.jade:23 views/editdoc.jade:72
+#: views/editdoc.jade:81 views/user.jade:29
+msgid "No"
+msgstr "Non"
+
+#: views/newdoc.jade:33
+msgid "Location "
+msgstr "Lieu "
+
+#: views/newdoc.jade:38 views/newdoc.jade:52 views/newdoc.jade:48
+msgid "Website"
+msgstr "Site web"
+
+#: views/newdoc.jade:41 views/newdoc.jade:55 views/newdoc.jade:50
+msgid "Government Office"
+msgstr "Bureau gouvernemental"
+
+#: views/newdoc.jade:44 views/newdoc.jade:58 views/newdoc.jade:52
+msgid "Public Library"
+msgstr "Bibliothèque publique"
+
+#: views/newdoc.jade:47 views/newdoc.jade:61 views/newdoc.jade:54
+msgid "Other"
+msgstr "Autre"
+
+#: views/newdoc.jade:49 views/editdoc.jade:37 views/newdoc.jade:63
+#: views/editdoc.jade:51 views/newdoc.jade:57 views/editdoc.jade:47
+msgid "Details of location"
+msgstr "Précision du lieu"
+
+#: views/newdoc.jade:51 views/editdoc.jade:39 views/newdoc.jade:65
+#: views/editdoc.jade:53 views/newdoc.jade:59 views/editdoc.jade:49
+msgid "Web Link"
+msgstr "Lien du site web"
+
+#: views/newdoc.jade:54 views/editdoc.jade:42 views/newdoc.jade:68
+#: views/editdoc.jade:56 views/newdoc.jade:66 views/editdoc.jade:60
+msgid "Date of Publication"
+msgstr "Date de publication"
+
+#: views/newdoc.jade:55 views/newdoc.jade:58 views/editdoc.jade:43
+#: views/editdoc.jade:46 views/newdoc.jade:69 views/newdoc.jade:72
+#: views/editdoc.jade:57 views/editdoc.jade:60 views/newdoc.jade:67
+#: views/newdoc.jade:70 views/editdoc.jade:61 views/editdoc.jade:64
+msgid "1 Jan 2014"
+msgstr "1er janv 2014"
+
+#: views/newdoc.jade:57 views/newdoc.jade:71 views/newdoc.jade:69
+msgid "Date Received or Viewed"
+msgstr "Date de réception ou de consultation"
+
+#: views/newdoc.jade:60 views/newdoc.jade:74 views/newdoc.jade:72
+msgid "Upload attachments after adding the document"
+msgstr "Téléchargez les pièces jointes après avoir ajouté le document"
+
+#: views/newdoc.jade:61 views/editdoc.jade:48 views/newdoc.jade:75
+#: views/editdoc.jade:62 views/newdoc.jade:73 views/editdoc.jade:66
+msgid "Soft copy attached"
+msgstr "Format électronique joint"
+
+#: views/newdoc.jade:71 views/editdoc.jade:58 views/newdoc.jade:85
+#: views/editdoc.jade:72 views/newdoc.jade:82 views/editdoc.jade:75
+msgid "Scanned First/Last Page Attached"
+msgstr "Première/Dernière page scannée jointe"
+
+#: views/newdoc.jade:81 views/editdoc.jade:68 views/newdoc.jade:95
+#: views/editdoc.jade:82 views/newdoc.jade:91 views/editdoc.jade:84
+msgid "Comments"
+msgstr "Commentaires"
+
+#: views/newdoc.jade:85 views/sites.jade:16 views/newsite.jade:25
+#: views/newdoc.jade:99 views/newdoc.jade:95
+msgid "Add"
+msgstr "Ajouter"
+
+#: views/newdoc.jade:86 views/editdoc.jade:73 views/uploads.jade:24
+#: views/newuser.jade:292 views/newsite.jade:26 views/newdoc.jade:100
+#: views/editdoc.jade:87 views/newreport.jade:12 views/user.jade:37
+#: views/newdoc.jade:96 views/newreport.jade:13 views/editdoc.jade:89
+#: views/newuser.jade:297 views/user.jade:42
+msgid "Cancel"
+msgstr "Annuler"
+
+#: views/editdoc.jade:27 views/newdoc.jade:47 views/editdoc.jade:41
+#: views/newdoc.jade:44 views/editdoc.jade:38
+msgid "Location"
+msgstr "Lieu"
+
+#: views/editdoc.jade:45 views/editdoc.jade:59 views/editdoc.jade:63
+msgid "Date Received"
+msgstr "Date de réception"
+
+#: views/editdoc.jade:72 views/editdoc.jade:86 views/user.jade:36
+#: views/editdoc.jade:88 views/user.jade:41
+msgid "Update"
+msgstr "Mettre à jour"
+
+#: views/_doc.jade:6 views/report.jade:9
+msgid "Back"
+msgstr "Retour"
+
+#: views/_doc.jade:25 views/_doc.jade:29
+msgid "Not Publicly Available"
+msgstr "Non mis à la disposition du public"
+
+#: views/_doc.jade:30 views/_doc.jade:34
+msgid "Approved"
+msgstr "Approuvé"
+
+#: views/_doc.jade:34 views/_doc.jade:38
+msgid "Rejected"
+msgstr "Rejeté"
+
+#: views/_doc.jade:38 views/_doc.jade:42
+msgid "Unapproved"
+msgstr "Non approuvé"
+
+#: views/_doc.jade:46 views/_doc.jade:50
+msgid "Approve"
+msgstr "Approuver"
+
+#: views/_doc.jade:53 views/_doc.jade:57
+msgid "Reject"
+msgstr "Rejeter"
+
+#: views/_doc.jade:54 views/_doc.jade:58 views/_doc.jade:62
+msgid "Edit"
+msgstr "Réviser"
+
+#: views/_doc.jade:57 views/_doc.jade:61
+msgid "Upload Files"
+msgstr "Télécharger les fichiers"
+
+#: views/_doc.jade:64 views/_doc.jade:68
+msgid "Published"
+msgstr "Publié"
+
+#: views/_doc.jade:71 views/_doc.jade:75
+msgid "Received"
+msgstr "Reçu"
+
+#: views/_doc.jade:78 views/_doc.jade:82
+msgid "Softcopy attached"
+msgstr "Format électronique joint"
+
+#: views/_doc.jade:83 views/_doc.jade:87
+msgid "Scan attached"
+msgstr "Version scannée jointe"
+
+#: views/_doc.jade:88 views/_doc.jade:92
+msgid "Uploaded files"
+msgstr "Fichiers téléchargés"
+
+#: views/_doc.jade:94 views/layout.jade:16
+msgid "Aquarium"
+msgstr "Aquarium"
+
+#: views/overview.jade:10 views/newuser.jade:19 views/newuser.jade:24
+msgid "Country"
+msgstr "Pays"
+
+#: views/overview.jade:14 views/overview.jade:15
+msgid "Citizens Budget"
+msgstr "Budget des citoyens"
+
+#: views/overview.jade:15 views/overview.jade:16
+msgid "In-Year Reports"
+msgstr "Rapports en cours d'année"
+
+#: views/index.jade:9
+msgid "IPB's Open Budget Tracker"
+msgstr "Suivi budgétaire de l'Enquête sur le budget ouvert d'IBP"
+
+#: views/index.jade:11
+msgid "This website is for"
+msgstr "Ce site web vise à permettre aux"
+
+#: views/index.jade:13
+msgid "IBP's Open Budget Survey"
+msgstr "chercheurs de l'Enquête sur le budget ouvert d'IBP"
+
+#: views/index.jade:15
+msgid ""
+"researchers to track the public availability of the eight key budget "
+"documents in their own country, and to have an overview of the public "
+"availability of the documents around the world."
+msgstr "d'évaluer l'accessibilité du public aux huit documents budgétaires clés dans leur propre pays, et d'avoir un aperçu de l'accessibilité publique des documents dans le monde entier."
+
+#: views/index.jade:17
+msgid "See how countries are doing"
+msgstr "Voir le statut des pays"
+
+#: views/uploads.jade:6
+#, python-format
+msgid "Documents attached to %s"
+msgstr "Documents joints à %s"
+
+#: views/uploads.jade:17
+#, python-format
+msgid "No documents attached to %s"
+msgstr "Pas de documents joints à %s"
+
+#: views/uploads.jade:20
+msgid "Attach new file"
+msgstr "Joindre un nouveau fichier"
+
+#: views/uploads.jade:23
+msgid "Attach"
+msgstr "Joindre"
+
+#: views/documents.jade:7
+msgid "This page is where you approve documents submitted by researchers."
+msgstr "Cette page est celle où vous approuvez les documents envoyés par les chercheurs."
+
+#: views/documents.jade:8
+msgid ""
+"Attachments can be submitted to Google Drive by using the 'save' button "
+"beside the attachment name."
+msgstr "Les pièces jointes peuvent être soumises à Google Drive en utilisant le bouton « enregistrer » à côté du nom de la pièce jointe."
+
+#: views/documents.jade:10
+msgid ""
+"This page is where you will submit all updated information you find on each "
+"of the documents that you are tracking. It corresponds to Appendix 2 in"
+msgstr "Cette page est celle où vous enverrez toutes les informations mises à jour que vous trouverez sur chacun des documents que vous suivez. Cela correspond à l'annexe 2 dans"
+
+#: views/documents.jade:11
+msgid "the Open Budget Survey Tracker Guide"
+msgstr "l'Outil de suivi budgétaire de l'Enquête sur le budget ouvert"
+
+#: views/documents.jade:12
+msgid "i.e.,"
+msgstr "c'est-à-dire,"
+
+#: views/documents.jade:13
+msgid "Cover sheet for submitting document(s)"
+msgstr "page de couverture pour envoyer le(s) document(s)"
+
+#: views/documents.jade:14 views/documents.jade:15
+msgid "Please click on"
+msgstr "Veuillez cliquer sur"
+
+#: views/documents.jade:16 views/documents.jade:17
+msgid "Add document"
+msgstr "Ajouter le document"
+
+#: views/documents.jade:17 views/documents.jade:18
+msgid ""
+"complete the online form, and – where applicable – upload the relevant "
+"document(s)."
+msgstr "remplir le formulaire en ligne, et - le cas échéant - télécharger le(s) document(s) pertinent(s)."
+
+#: views/documents.jade:22 views/documents.jade:23
+msgid "All"
+msgstr "Tous"
+
+#: views/documents.jade:28 views/documents.jade:29
+msgid "Documents"
+msgstr "Documents"
+
+#: views/documents.jade:33 views/documents.jade:41 views/documents.jade:34
+#: views/documents.jade:67 views/sites.jade:11 views/sites.jade:36
+#: views/sites.jade:43
+msgid "Add Document"
+msgstr "Ajouter le document"
+
+#: views/sites.jade:6
+msgid ""
+"The Reference Calendar is where you will enter and save the background "
+"information (i.e., document release dates, URLs, document titles) that you "
+"will need to track the publication of the eight key budget documents."
+msgstr "Le Calendrier de référence est l'endroit où vous saisissez et enregistrez les informations de référence (c'est-à-dire les dates de publication des documents, les URL, les titres de documents) dont vous aurez besoin pour suivre la publication des huit documents budgétaires clés. "
+
+#: views/sites.jade:7
+msgid "How to do it?"
+msgstr "Comment faire ?"
+
+#: views/sites.jade:9 views/sites.jade:15
+msgid "Click on"
+msgstr "Cliquer sur"
+
+#: views/sites.jade:11 views/sites.jade:101 views/sites.jade:39
+msgid "Add New Document"
+msgstr "Ajouter le nouveau document"
+
+#: views/sites.jade:12
+msgid ""
+"Select document type (it will be one of the eight key budget documents)."
+msgstr "Sélectionner le type de document (ce sera l'un des huit documents budgétaires clés)."
+
+#: views/sites.jade:13
+msgid "Provide the title given to the relevant document in your country."
+msgstr "Indiquer le titre donné au document pertinent dans votre pays."
+
+#: views/sites.jade:14
+msgid ""
+"If applicable, provide the URL where the document is likely to be posted."
+msgstr "Le cas échéant, fournir l'adresse URL où le document pourrait être publié."
+
+#: views/sites.jade:17
+msgid ""
+"Back on this page, assign expected publication date to it to get reminders "
+"when it's due to be released."
+msgstr "De retour sur cette page, y attribuer la date de publication prévue afin de recevoir des rappels de la date de publication."
+
+#: views/sites.jade:18
+msgid ""
+"Repeat steps 1-6 for each of the eight key budget documents that you will "
+"track."
+msgstr "Répétez les étapes 1 à 6 pour chacun des huit documents budgétaires clés que vous suivrez."
+
+#: views/sites.jade:24
+msgid "Search"
+msgstr "Rechercher"
+
+#: views/sites.jade:32
+msgid "Budget Documents"
+msgstr "Documents budgétaires"
+
+#: views/sites.jade:38 views/_site.jade:4
+msgid "Title"
+msgstr "Titre"
+
+#: views/sites.jade:45 views/sites.jade:64
+msgid "Disabled"
+msgstr "Désactivé"
+
+#: views/sites.jade:50
+msgid "Enabled"
+msgstr "Activé"
+
+#: views/sites.jade:52 views/sites.jade:55
+msgid "Disable"
+msgstr "Désactiver"
+
+#: views/sites.jade:60 views/sites.jade:63
+msgid "Enable"
+msgstr "Activer"
+
+#: views/sites.jade:67 views/_site.jade:10 views/_site.jade:14
+msgid "Delete"
+msgstr "Supprimer"
+
+#: views/sites.jade:70 views/_site.jade:12
+msgid "Document"
+msgstr "Document"
+
+#: views/sites.jade:73 views/newsite.jade:23 views/_site.jade:15
+#: views/_site.jade:19
+msgid "URL"
+msgstr "URL"
+
+#: views/sites.jade:78 views/_site.jade:20
+msgid "Expected Date of Publication"
+msgstr "Date de publication prévue"
+
+#: views/sites.jade:89 views/_site.jade:34 views/_site.jade:39
+#: views/_site.jade:35 views/_site.jade:37 views/_site.jade:46
+#: views/_site.jade:48
+msgid "DD MMM YYYY"
+msgstr "JJ MMM AAAA"
+
+#: views/sites.jade:104 views/sites.jade:42 views/sites.jade:46
+#, python-format
+msgid "Showing %(count)s of %(total)s documents"
+msgstr "Affiche %(count)s des %(total)s des documents"
+
+#: views/newuser.jade:9 views/login.jade:9 views/setup.jade:9
+msgid "Email address"
+msgstr "Adresse électronique"
+
+#: views/newuser.jade:12 views/newuser.jade:13 views/user.jade:12
+msgid "Name"
+msgstr "Nom"
+
+#: views/newuser.jade:17
+msgid "Admin user"
+msgstr "Utilisateur admin"
+
+#: views/newuser.jade:21 views/newuser.jade:26
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+#: views/newuser.jade:22 views/newuser.jade:27
+msgid "Albania"
+msgstr "Albanie"
+
+#: views/newuser.jade:23 views/newuser.jade:28
+msgid "Algeria"
+msgstr "Algérie"
+
+#: views/newuser.jade:24 views/newuser.jade:29
+msgid "American Samoa"
+msgstr "Samoa américaines"
+
+#: views/newuser.jade:25 views/newuser.jade:30
+msgid "Andorra"
+msgstr "Andorre"
+
+#: views/newuser.jade:26 views/newuser.jade:31
+msgid "Angola"
+msgstr "Angola"
+
+#: views/newuser.jade:27 views/newuser.jade:32
+msgid "Anguilla"
+msgstr "Anguilla"
+
+#: views/newuser.jade:28 views/newuser.jade:33
+msgid "Antarctica"
+msgstr "Antartique"
+
+#: views/newuser.jade:29 views/newuser.jade:34
+msgid "Antigua and Barbuda"
+msgstr "Antigua-et-Barbuda"
+
+#: views/newuser.jade:30 views/newuser.jade:35
+msgid "Argentina"
+msgstr "Argentine"
+
+#: views/newuser.jade:31 views/newuser.jade:36
+msgid "Armenia"
+msgstr "Arménie"
+
+#: views/newuser.jade:32 views/newuser.jade:37
+msgid "Aruba"
+msgstr "Aruba"
+
+#: views/newuser.jade:33 views/newuser.jade:38
+msgid "Australia"
+msgstr "Australie"
+
+#: views/newuser.jade:34 views/newuser.jade:39
+msgid "Austria"
+msgstr "Autriche"
+
+#: views/newuser.jade:35 views/newuser.jade:40
+msgid "Azerbaijan"
+msgstr "Azerbaïdjan"
+
+#: views/newuser.jade:36 views/newuser.jade:41
+msgid "Bahamas"
+msgstr "Bahamas"
+
+#: views/newuser.jade:37 views/newuser.jade:42
+msgid "Bahrain"
+msgstr "Bahreïn"
+
+#: views/newuser.jade:38 views/newuser.jade:43
+msgid "Bangladesh"
+msgstr "Bangladesh"
+
+#: views/newuser.jade:39 views/newuser.jade:44
+msgid "Barbados"
+msgstr "Barbade"
+
+#: views/newuser.jade:40 views/newuser.jade:45
+msgid "Belarus"
+msgstr "Biélorussie"
+
+#: views/newuser.jade:41 views/newuser.jade:46
+msgid "Belgium"
+msgstr "Belgique"
+
+#: views/newuser.jade:42 views/newuser.jade:47
+msgid "Belize"
+msgstr "Belize"
+
+#: views/newuser.jade:43 views/newuser.jade:48
+msgid "Benin"
+msgstr "Bénin"
+
+#: views/newuser.jade:44 views/newuser.jade:49
+msgid "Bermuda"
+msgstr "Bermudes"
+
+#: views/newuser.jade:45 views/newuser.jade:50
+msgid "Bhutan"
+msgstr "Bhoutan"
+
+#: views/newuser.jade:46 views/newuser.jade:51
+msgid "Bolivia"
+msgstr "Bolivie"
+
+#: views/newuser.jade:47 views/newuser.jade:52
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnie-Herzégovine"
+
+#: views/newuser.jade:48 views/newuser.jade:53
+msgid "Botswana"
+msgstr "Botswana"
+
+#: views/newuser.jade:49 views/newuser.jade:54
+msgid "Bouvet Island"
+msgstr "Île Bouvet"
+
+#: views/newuser.jade:50 views/newuser.jade:55
+msgid "Brazil"
+msgstr "Brésil"
+
+#: views/newuser.jade:51 views/newuser.jade:56
+msgid "British Antarctic Territory"
+msgstr "Territoire de l'Antarctique britannique"
+
+#: views/newuser.jade:52 views/newuser.jade:57
+msgid "British Indian Ocean Territory"
+msgstr "Territoire britannique de l'océan Indien"
+
+#: views/newuser.jade:53 views/newuser.jade:58
+msgid "British Virgin Islands"
+msgstr "Îles Vierges britanniques"
+
+#: views/newuser.jade:54 views/newuser.jade:59
+msgid "Brunei"
+msgstr "Brunei"
+
+#: views/newuser.jade:55 views/newuser.jade:60
+msgid "Bulgaria"
+msgstr "Bulgarie"
+
+#: views/newuser.jade:56 views/newuser.jade:61
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+#: views/newuser.jade:57 views/newuser.jade:62
+msgid "Burundi"
+msgstr "Burundi"
+
+#: views/newuser.jade:58 views/newuser.jade:63
+msgid "Cambodia"
+msgstr "Cambodge"
+
+#: views/newuser.jade:59 views/newuser.jade:64
+msgid "Cameroon"
+msgstr "Cameroun"
+
+#: views/newuser.jade:60 views/newuser.jade:65
+msgid "Canada"
+msgstr "Canada"
+
+#: views/newuser.jade:61 views/newuser.jade:66
+msgid "Canton and Enderbury Islands"
+msgstr "Îles Canton et Enderbury"
+
+#: views/newuser.jade:62 views/newuser.jade:67
+msgid "Cape Verde"
+msgstr "Cap-Vert"
+
+#: views/newuser.jade:63 views/newuser.jade:68
+msgid "Cayman Islands"
+msgstr "Île Caïmans"
+
+#: views/newuser.jade:64 views/newuser.jade:69
+msgid "Central African Republic"
+msgstr "République centrafricaine"
+
+#: views/newuser.jade:65 views/newuser.jade:70
+msgid "Chad"
+msgstr "Tchad"
+
+#: views/newuser.jade:66 views/newuser.jade:71
+msgid "Chile"
+msgstr "Chili"
+
+#: views/newuser.jade:67 views/newuser.jade:72
+msgid "China"
+msgstr "Chine"
+
+#: views/newuser.jade:68 views/newuser.jade:73
+msgid "Christmas Island"
+msgstr "Île Christmas"
+
+#: views/newuser.jade:69 views/newuser.jade:74
+msgid "Cocos [Keeling] Islands"
+msgstr "Îles Cocos [Keeling]"
+
+#: views/newuser.jade:70 views/newuser.jade:75
+msgid "Colombia"
+msgstr "Colombie"
+
+#: views/newuser.jade:71 views/newuser.jade:76
+msgid "Comoros"
+msgstr "Comores"
+
+#: views/newuser.jade:72 views/newuser.jade:77
+msgid "Congo - Brazzaville"
+msgstr "Congo-Brazzaville"
+
+#: views/newuser.jade:73 views/newuser.jade:78
+msgid "Congo - Kinshasa"
+msgstr "Congo-Kinshasa"
+
+#: views/newuser.jade:74 views/newuser.jade:79
+msgid "Cook Islands"
+msgstr "Îles Cook"
+
+#: views/newuser.jade:75 views/newuser.jade:80
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: views/newuser.jade:76 views/newuser.jade:81
+msgid "Croatia"
+msgstr "Croatie"
+
+#: views/newuser.jade:77 views/newuser.jade:82
+msgid "Cuba"
+msgstr "Cuba"
+
+#: views/newuser.jade:78 views/newuser.jade:83
+msgid "Cyprus"
+msgstr "Chypre"
+
+#: views/newuser.jade:79 views/newuser.jade:84
+msgid "Czech Republic"
+msgstr "République tchèque"
+
+#: views/newuser.jade:80 views/newuser.jade:85
+msgid "Côte d’Ivoire"
+msgstr "Côte d’Ivoire"
+
+#: views/newuser.jade:81 views/newuser.jade:86
+msgid "Denmark"
+msgstr "Danemark"
+
+#: views/newuser.jade:82 views/newuser.jade:87
+msgid "Djibouti"
+msgstr "Djibouti"
+
+#: views/newuser.jade:83 views/newuser.jade:88
+msgid "Dominica"
+msgstr "Dominique"
+
+#: views/newuser.jade:84 views/newuser.jade:89
+msgid "Dominican Republic"
+msgstr "République dominicaine"
+
+#: views/newuser.jade:85 views/newuser.jade:90
+msgid "Dronning Maud Land"
+msgstr "Terre de la Reine Maud"
+
+#: views/newuser.jade:86 views/newuser.jade:91
+msgid "East Germany"
+msgstr "Allemagne de l'Est"
+
+#: views/newuser.jade:87 views/newuser.jade:92
+msgid "Ecuador"
+msgstr "Équateur"
+
+#: views/newuser.jade:88 views/newuser.jade:93
+msgid "Egypt"
+msgstr "Égypte"
+
+#: views/newuser.jade:89 views/newuser.jade:94
+msgid "El Salvador"
+msgstr "Le Salvador"
+
+#: views/newuser.jade:90 views/newuser.jade:95
+msgid "Equatorial Guinea"
+msgstr "Guinée équatoriale"
+
+#: views/newuser.jade:91 views/newuser.jade:96
+msgid "Eritrea"
+msgstr "Érythrée"
+
+#: views/newuser.jade:92 views/newuser.jade:97
+msgid "Estonia"
+msgstr "Estonie"
+
+#: views/newuser.jade:93 views/newuser.jade:98
+msgid "Ethiopia"
+msgstr "Éthiopie"
+
+#: views/newuser.jade:94 views/newuser.jade:99
+msgid "Falkland Islands"
+msgstr "Îles Falkland"
+
+#: views/newuser.jade:95 views/newuser.jade:100
+msgid "Faroe Islands"
+msgstr "Îles Féroé"
+
+#: views/newuser.jade:96 views/newuser.jade:101
+msgid "Fiji"
+msgstr "Fidji"
+
+#: views/newuser.jade:97 views/newuser.jade:102
+msgid "Finland"
+msgstr "Finlande"
+
+#: views/newuser.jade:98 views/newuser.jade:103
+msgid "France"
+msgstr "France"
+
+#: views/newuser.jade:99 views/newuser.jade:104
+msgid "French Guiana"
+msgstr "Guyane française"
+
+#: views/newuser.jade:100 views/newuser.jade:105
+msgid "French Polynesia"
+msgstr "Polynésie française"
+
+#: views/newuser.jade:101 views/newuser.jade:106
+msgid "French Southern Territories"
+msgstr "Terres australes françaises"
+
+#: views/newuser.jade:102 views/newuser.jade:107
+msgid "French Southern and Antarctic Territories"
+msgstr "Terres australes et antarctiques françaises"
+
+#: views/newuser.jade:103 views/newuser.jade:108
+msgid "Gabon"
+msgstr "Gabon"
+
+#: views/newuser.jade:104 views/newuser.jade:109
+msgid "Gambia"
+msgstr "Gambie"
+
+#: views/newuser.jade:105 views/newuser.jade:110
+msgid "Georgia"
+msgstr "Géorgie"
+
+#: views/newuser.jade:106 views/newuser.jade:111
+msgid "Germany"
+msgstr "Allemagne"
+
+#: views/newuser.jade:107 views/newuser.jade:112
+msgid "Ghana"
+msgstr "Ghana"
+
+#: views/newuser.jade:108 views/newuser.jade:113
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+#: views/newuser.jade:109 views/newuser.jade:114
+msgid "Greece"
+msgstr "Grèce"
+
+#: views/newuser.jade:110 views/newuser.jade:115
+msgid "Greenland"
+msgstr "Groenland"
+
+#: views/newuser.jade:111 views/newuser.jade:116
+msgid "Grenada"
+msgstr "Grenade"
+
+#: views/newuser.jade:112 views/newuser.jade:117
+msgid "Guadeloupe"
+msgstr "Guadeloupe"
+
+#: views/newuser.jade:113 views/newuser.jade:118
+msgid "Guam"
+msgstr "Guam"
+
+#: views/newuser.jade:114 views/newuser.jade:119
+msgid "Guatemala"
+msgstr "Guatemala"
+
+#: views/newuser.jade:115 views/newuser.jade:120
+msgid "Guernsey"
+msgstr "Guernesey"
+
+#: views/newuser.jade:116 views/newuser.jade:121
+msgid "Guinea"
+msgstr "Guinée"
+
+#: views/newuser.jade:117 views/newuser.jade:122
+msgid "Guinea-Bissau"
+msgstr "Guinée-Bissau"
+
+#: views/newuser.jade:118 views/newuser.jade:123
+msgid "Guyana"
+msgstr "Guyane"
+
+#: views/newuser.jade:119 views/newuser.jade:124
+msgid "Haiti"
+msgstr "Haïti"
+
+#: views/newuser.jade:120 views/newuser.jade:125
+msgid "Heard Island and McDonald Islands"
+msgstr "Île Heard et Îles McDonald"
+
+#: views/newuser.jade:121 views/newuser.jade:126
+msgid "Honduras"
+msgstr "Honduras"
+
+#: views/newuser.jade:122 views/newuser.jade:127
+msgid "Hong Kong SAR China"
+msgstr "RAS de Hong Kong en Chine"
+
+#: views/newuser.jade:123 views/newuser.jade:128
+msgid "Hungary"
+msgstr "Hongrie"
+
+#: views/newuser.jade:124 views/newuser.jade:129
+msgid "Iceland"
+msgstr "Islande"
+
+#: views/newuser.jade:125 views/newuser.jade:130
+msgid "India"
+msgstr "Indie"
+
+#: views/newuser.jade:126 views/newuser.jade:131
+msgid "Indonesia"
+msgstr "Indonésie"
+
+#: views/newuser.jade:127 views/newuser.jade:132
+msgid "Iran"
+msgstr "Iran"
+
+#: views/newuser.jade:128 views/newuser.jade:133
+msgid "Iraq"
+msgstr "Irak"
+
+#: views/newuser.jade:129 views/newuser.jade:134
+msgid "Ireland"
+msgstr "Irlande"
+
+#: views/newuser.jade:130 views/newuser.jade:135
+msgid "Isle of Man"
+msgstr "'Île de Man"
+
+#: views/newuser.jade:131 views/newuser.jade:136
+msgid "Israel"
+msgstr "Israël"
+
+#: views/newuser.jade:132 views/newuser.jade:137
+msgid "Italy"
+msgstr "Italie"
+
+#: views/newuser.jade:133 views/newuser.jade:138
+msgid "Jamaica"
+msgstr "Jamaïque"
+
+#: views/newuser.jade:134 views/newuser.jade:139
+msgid "Japan"
+msgstr "Japon"
+
+#: views/newuser.jade:135 views/newuser.jade:140
+msgid "Jersey"
+msgstr "Jersey"
+
+#: views/newuser.jade:136 views/newuser.jade:141
+msgid "Johnston Island"
+msgstr "Île Johnston"
+
+#: views/newuser.jade:137 views/newuser.jade:142
+msgid "Jordan"
+msgstr "Jordanie"
+
+#: views/newuser.jade:138 views/newuser.jade:143
+msgid "Kazakhstan"
+msgstr "Kazakhstan"
+
+#: views/newuser.jade:139 views/newuser.jade:144
+msgid "Kenya"
+msgstr "Kenya"
+
+#: views/newuser.jade:140 views/newuser.jade:145
+msgid "Kiribati"
+msgstr "Kiribati"
+
+#: views/newuser.jade:141 views/newuser.jade:146
+msgid "Kuwait"
+msgstr "Koweït"
+
+#: views/newuser.jade:142 views/newuser.jade:147
+msgid "Kyrgyzstan"
+msgstr "Kirghizstan"
+
+#: views/newuser.jade:143 views/newuser.jade:148
+msgid "Laos"
+msgstr "Laos"
+
+#: views/newuser.jade:144 views/newuser.jade:149
+msgid "Latvia"
+msgstr "Lettonie"
+
+#: views/newuser.jade:145 views/newuser.jade:150
+msgid "Lebanon"
+msgstr "Liban"
+
+#: views/newuser.jade:146 views/newuser.jade:151
+msgid "Lesotho"
+msgstr "Lesotho"
+
+#: views/newuser.jade:147 views/newuser.jade:152
+msgid "Liberia"
+msgstr "Libéria"
+
+#: views/newuser.jade:148 views/newuser.jade:153
+msgid "Libya"
+msgstr "Libye"
+
+#: views/newuser.jade:149 views/newuser.jade:154
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+#: views/newuser.jade:150 views/newuser.jade:155
+msgid "Lithuania"
+msgstr "Lituanie"
+
+#: views/newuser.jade:151 views/newuser.jade:156
+msgid "Luxembourg"
+msgstr "Luxembourg"
+
+#: views/newuser.jade:152 views/newuser.jade:157
+msgid "Macau SAR China"
+msgstr "RAS de Macao en Chine"
+
+#: views/newuser.jade:153 views/newuser.jade:158
+msgid "Macedonia"
+msgstr "Macédoine"
+
+#: views/newuser.jade:154 views/newuser.jade:159
+msgid "Madagascar"
+msgstr "Madagascar"
+
+#: views/newuser.jade:155 views/newuser.jade:160
+msgid "Malawi"
+msgstr "Malawi"
+
+#: views/newuser.jade:156 views/newuser.jade:161
+msgid "Malaysia"
+msgstr "Malaisie"
+
+#: views/newuser.jade:157 views/newuser.jade:162
+msgid "Maldives"
+msgstr "Maldives"
+
+#: views/newuser.jade:158 views/newuser.jade:163
+msgid "Mali"
+msgstr "Mali"
+
+#: views/newuser.jade:159 views/newuser.jade:164
+msgid "Malta"
+msgstr "Malte"
+
+#: views/newuser.jade:160 views/newuser.jade:165
+msgid "Marshall Islands"
+msgstr "Îles Marshall"
+
+#: views/newuser.jade:161 views/newuser.jade:166
+msgid "Martinique"
+msgstr "Martinique"
+
+#: views/newuser.jade:162 views/newuser.jade:167
+msgid "Mauritania"
+msgstr "Mauritanie"
+
+#: views/newuser.jade:163 views/newuser.jade:168
+msgid "Mauritius"
+msgstr "Maurice"
+
+#: views/newuser.jade:164 views/newuser.jade:169
+msgid "Mayotte"
+msgstr "Mayotte"
+
+#: views/newuser.jade:165 views/newuser.jade:170
+msgid "Metropolitan France"
+msgstr "France métropolitaine"
+
+#: views/newuser.jade:166 views/newuser.jade:171
+msgid "Mexico"
+msgstr "Mexique"
+
+#: views/newuser.jade:167 views/newuser.jade:172
+msgid "Micronesia"
+msgstr "Micronésie"
+
+#: views/newuser.jade:168 views/newuser.jade:173
+msgid "Midway Islands"
+msgstr "Îles Midway"
+
+#: views/newuser.jade:169 views/newuser.jade:174
+msgid "Moldova"
+msgstr "Moldavie"
+
+#: views/newuser.jade:170 views/newuser.jade:175
+msgid "Monaco"
+msgstr "Monaco"
+
+#: views/newuser.jade:171 views/newuser.jade:176
+msgid "Mongolia"
+msgstr "Mongolie"
+
+#: views/newuser.jade:172 views/newuser.jade:177
+msgid "Montenegro"
+msgstr "Monténégro"
+
+#: views/newuser.jade:173 views/newuser.jade:178
+msgid "Montserrat"
+msgstr "Montserrat"
+
+#: views/newuser.jade:174 views/newuser.jade:179
+msgid "Morocco"
+msgstr "Maroc"
+
+#: views/newuser.jade:175 views/newuser.jade:180
+msgid "Mozambique"
+msgstr "Mozambique"
+
+#: views/newuser.jade:176 views/newuser.jade:181
+msgid "Myanmar [Burma]"
+msgstr "Myanmar [Birmanie]"
+
+#: views/newuser.jade:177 views/newuser.jade:182
+msgid "Namibia"
+msgstr "Namibie"
+
+#: views/newuser.jade:178 views/newuser.jade:183
+msgid "Nauru"
+msgstr "Nauru"
+
+#: views/newuser.jade:179 views/newuser.jade:184
+msgid "Nepal"
+msgstr "Népal"
+
+#: views/newuser.jade:180 views/newuser.jade:185
+msgid "Netherlands"
+msgstr "Pays-Bas"
+
+#: views/newuser.jade:181 views/newuser.jade:186
+msgid "Netherlands Antilles"
+msgstr "Antilles néerlandaises"
+
+#: views/newuser.jade:182 views/newuser.jade:187
+msgid "Neutral Zone"
+msgstr "Zone neutre"
+
+#: views/newuser.jade:183 views/newuser.jade:188
+msgid "New Caledonia"
+msgstr "Nouvelle-Calédonie"
+
+#: views/newuser.jade:184 views/newuser.jade:189
+msgid "New Zealand"
+msgstr "Nouvelle-Zélande"
+
+#: views/newuser.jade:185 views/newuser.jade:190
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+#: views/newuser.jade:186 views/newuser.jade:191
+msgid "Niger"
+msgstr "Niger"
+
+#: views/newuser.jade:187 views/newuser.jade:192
+msgid "Nigeria"
+msgstr "Nigéria"
+
+#: views/newuser.jade:188 views/newuser.jade:193
+msgid "Niue"
+msgstr "Nioué"
+
+#: views/newuser.jade:189 views/newuser.jade:194
+msgid "Norfolk Island"
+msgstr "Île Norfolk"
+
+#: views/newuser.jade:190 views/newuser.jade:195
+msgid "North Korea"
+msgstr "Corée du Nord"
+
+#: views/newuser.jade:191 views/newuser.jade:196
+msgid "North Vietnam"
+msgstr "Vietnam du Nord"
+
+#: views/newuser.jade:192 views/newuser.jade:197
+msgid "Northern Mariana Islands"
+msgstr "Îles Mariannes du Nord"
+
+#: views/newuser.jade:193 views/newuser.jade:198
+msgid "Norway"
+msgstr "Norvège"
+
+#: views/newuser.jade:194 views/newuser.jade:199
+msgid "Oman"
+msgstr "Oman"
+
+#: views/newuser.jade:195 views/newuser.jade:200
+msgid "Pacific Islands Trust Territory"
+msgstr "Territoire des îles du Pacifique Trust"
+
+#: views/newuser.jade:196 views/newuser.jade:201
+msgid "Pakistan"
+msgstr "Pakistan"
+
+#: views/newuser.jade:197 views/newuser.jade:202
+msgid "Palau"
+msgstr "Palau"
+
+#: views/newuser.jade:198 views/newuser.jade:203
+msgid "Palestinian Territories"
+msgstr "Territoires palestiniens"
+
+#: views/newuser.jade:199 views/newuser.jade:204
+msgid "Panama"
+msgstr "Panama"
+
+#: views/newuser.jade:200 views/newuser.jade:205
+msgid "Panama Canal Zone"
+msgstr "Zone du canal du Panama"
+
+#: views/newuser.jade:201 views/newuser.jade:206
+msgid "Papua New Guinea"
+msgstr "Papouasie-Nouvelle-Guinée"
+
+#: views/newuser.jade:202 views/newuser.jade:207
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: views/newuser.jade:203 views/newuser.jade:208
+msgid "People's Democratic Republic of Yemen"
+msgstr "République démocratique populaire du Yémen"
+
+#: views/newuser.jade:204 views/newuser.jade:209
+msgid "Peru"
+msgstr "Pérou"
+
+#: views/newuser.jade:205 views/newuser.jade:210
+msgid "Philippines"
+msgstr "Philippines"
+
+#: views/newuser.jade:206 views/newuser.jade:211
+msgid "Pitcairn Islands"
+msgstr "Îles Pitcairn"
+
+#: views/newuser.jade:207 views/newuser.jade:212
+msgid "Poland"
+msgstr "Pologne"
+
+#: views/newuser.jade:208 views/newuser.jade:213
+msgid "Portugal"
+msgstr "Portugal"
+
+#: views/newuser.jade:209 views/newuser.jade:214
+msgid "Puerto Rico"
+msgstr "Porto Rico"
+
+#: views/newuser.jade:210 views/newuser.jade:215
+msgid "Qatar"
+msgstr "Qatar"
+
+#: views/newuser.jade:211 views/newuser.jade:216
+msgid "Romania"
+msgstr "Roumanie"
+
+#: views/newuser.jade:212 views/newuser.jade:217
+msgid "Russia"
+msgstr "Russie"
+
+#: views/newuser.jade:213 views/newuser.jade:218
+msgid "Rwanda"
+msgstr "Rwanda"
+
+#: views/newuser.jade:214 views/newuser.jade:219
+msgid "Réunion"
+msgstr "Réunion"
+
+#: views/newuser.jade:215 views/newuser.jade:220
+msgid "Saint Barthélemy"
+msgstr "Saint Barthélemy"
+
+#: views/newuser.jade:216 views/newuser.jade:221
+msgid "Saint Helena"
+msgstr "Sainte-Hélène"
+
+#: views/newuser.jade:217 views/newuser.jade:222
+msgid "Saint Kitts and Nevis"
+msgstr "Saint-Kitts-et-Nevis"
+
+#: views/newuser.jade:218 views/newuser.jade:223
+msgid "Saint Lucia"
+msgstr "Sainte-Lucie"
+
+#: views/newuser.jade:219 views/newuser.jade:224
+msgid "Saint Martin"
+msgstr "Saint Martin"
+
+#: views/newuser.jade:220 views/newuser.jade:225
+msgid "Saint Pierre and Miquelon"
+msgstr "Saint-Pierre-et-Miquelon"
+
+#: views/newuser.jade:221 views/newuser.jade:226
+msgid "Saint Vincent and the Grenadines"
+msgstr "Saint-Vincent-et-les-Grenadines"
+
+#: views/newuser.jade:222 views/newuser.jade:227
+msgid "Samoa"
+msgstr "Samoa"
+
+#: views/newuser.jade:223 views/newuser.jade:228
+msgid "San Marino"
+msgstr "Saint-Marin"
+
+#: views/newuser.jade:224 views/newuser.jade:229
+msgid "Saudi Arabia"
+msgstr "Arabie Saoudite"
+
+#: views/newuser.jade:225 views/newuser.jade:230
+msgid "Senegal"
+msgstr "Sénégal"
+
+#: views/newuser.jade:226 views/newuser.jade:231
+msgid "Serbia"
+msgstr "Serbie"
+
+#: views/newuser.jade:227 views/newuser.jade:232
+msgid "Serbia and Montenegro"
+msgstr "Serbie et Monténégro"
+
+#: views/newuser.jade:228 views/newuser.jade:233
+msgid "Seychelles"
+msgstr "Seychelles"
+
+#: views/newuser.jade:229 views/newuser.jade:234
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+#: views/newuser.jade:230 views/newuser.jade:235
+msgid "Singapore"
+msgstr "Singapour"
+
+#: views/newuser.jade:231 views/newuser.jade:236
+msgid "Slovakia"
+msgstr "Slovaquie"
+
+#: views/newuser.jade:232 views/newuser.jade:237
+msgid "Slovenia"
+msgstr "Slovénie"
+
+#: views/newuser.jade:233 views/newuser.jade:238
+msgid "Solomon Islands"
+msgstr "Île Salomon"
+
+#: views/newuser.jade:234 views/newuser.jade:239
+msgid "Somalia"
+msgstr "Somalie"
+
+#: views/newuser.jade:235 views/newuser.jade:240
+msgid "South Africa"
+msgstr "Afrique du Sud"
+
+#: views/newuser.jade:236 views/newuser.jade:241
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "Géorgie du Sud et les îles Sandwich du Sud"
+
+#: views/newuser.jade:237 views/newuser.jade:242
+msgid "South Korea"
+msgstr "Corée du Sud"
+
+#: views/newuser.jade:238 views/newuser.jade:243
+msgid "Spain"
+msgstr "Espagne"
+
+#: views/newuser.jade:239 views/newuser.jade:244
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: views/newuser.jade:240 views/newuser.jade:245
+msgid "Sudan"
+msgstr "Soudan"
+
+#: views/newuser.jade:241 views/newuser.jade:246
+msgid "Suriname"
+msgstr "Suriname"
+
+#: views/newuser.jade:242 views/newuser.jade:247
+msgid "Svalbard and Jan Mayen"
+msgstr "Svalbard et Jan Mayen"
+
+#: views/newuser.jade:243 views/newuser.jade:248
+msgid "Swaziland"
+msgstr "Swaziland"
+
+#: views/newuser.jade:244 views/newuser.jade:249
+msgid "Sweden"
+msgstr "Suède"
+
+#: views/newuser.jade:245 views/newuser.jade:250
+msgid "Switzerland"
+msgstr "Suisse"
+
+#: views/newuser.jade:246 views/newuser.jade:251
+msgid "Syria"
+msgstr "Syrie"
+
+#: views/newuser.jade:247 views/newuser.jade:252
+msgid "São Tomé and Príncipe"
+msgstr "São Tomé-et-Príncipe"
+
+#: views/newuser.jade:248 views/newuser.jade:253
+msgid "Taiwan"
+msgstr "Taïwan"
+
+#: views/newuser.jade:249 views/newuser.jade:254
+msgid "Tajikistan"
+msgstr "Tadjikistan"
+
+#: views/newuser.jade:250 views/newuser.jade:255
+msgid "Tanzania"
+msgstr "Tanzanie"
+
+#: views/newuser.jade:251 views/newuser.jade:256
+msgid "Thailand"
+msgstr "Thaïlande"
+
+#: views/newuser.jade:252 views/newuser.jade:257
+msgid "Timor-Leste"
+msgstr "Timor-Leste"
+
+#: views/newuser.jade:253 views/newuser.jade:258
+msgid "Togo"
+msgstr "Togo"
+
+#: views/newuser.jade:254 views/newuser.jade:259
+msgid "Tokelau"
+msgstr "Tokélaou"
+
+#: views/newuser.jade:255 views/newuser.jade:260
+msgid "Tonga"
+msgstr "Tonga"
+
+#: views/newuser.jade:256 views/newuser.jade:261
+msgid "Trinidad and Tobago"
+msgstr "Trinité-et-Tobago"
+
+#: views/newuser.jade:257 views/newuser.jade:262
+msgid "Tunisia"
+msgstr "Tunisie"
+
+#: views/newuser.jade:258 views/newuser.jade:263
+msgid "Turkey"
+msgstr "Turquie"
+
+#: views/newuser.jade:259 views/newuser.jade:264
+msgid "Turkmenistan"
+msgstr "Turkménistan"
+
+#: views/newuser.jade:260 views/newuser.jade:265
+msgid "Turks and Caicos Islands"
+msgstr "Îles Turques et Caïques"
+
+#: views/newuser.jade:261 views/newuser.jade:266
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+#: views/newuser.jade:262 views/newuser.jade:267
+msgid "U.S. Minor Outlying Islands"
+msgstr "Îles mineures  éloignées des États-Unis"
+
+#: views/newuser.jade:263 views/newuser.jade:268
+msgid "U.S. Miscellaneous Pacific Islands"
+msgstr "Diverses îles américaines  du Pacifique"
+
+#: views/newuser.jade:264 views/newuser.jade:269
+msgid "U.S. Virgin Islands"
+msgstr "Îles Vierges américaines"
+
+#: views/newuser.jade:265 views/newuser.jade:270
+msgid "Uganda"
+msgstr "Ouganda"
+
+#: views/newuser.jade:266 views/newuser.jade:271
+msgid "Ukraine"
+msgstr "Ukraine"
+
+#: views/newuser.jade:267 views/newuser.jade:272
+msgid "Union of Soviet Socialist Republics"
+msgstr "Union des Républiques socialistes soviétiques"
+
+#: views/newuser.jade:268 views/newuser.jade:273
+msgid "United Arab Emirates"
+msgstr "Émirats Arabes Unis"
+
+#: views/newuser.jade:269 views/newuser.jade:274
+msgid "United Kingdom"
+msgstr "Royaume-Uni"
+
+#: views/newuser.jade:270 views/newuser.jade:275
+msgid "United States"
+msgstr "États-Unis"
+
+#: views/newuser.jade:271 views/newuser.jade:276
+msgid "Unknown or Invalid Region"
+msgstr "Région inconnue ou invalide"
+
+#: views/newuser.jade:272 views/newuser.jade:277
+msgid "Uruguay"
+msgstr "Uruguay"
+
+#: views/newuser.jade:273 views/newuser.jade:278
+msgid "Uzbekistan"
+msgstr "Ouzbékistan"
+
+#: views/newuser.jade:274 views/newuser.jade:279
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+#: views/newuser.jade:275 views/newuser.jade:280
+msgid "Vatican City"
+msgstr "Cité du Vatican"
+
+#: views/newuser.jade:276 views/newuser.jade:281
+msgid "Venezuela"
+msgstr "Venezuela"
+
+#: views/newuser.jade:277 views/newuser.jade:282
+msgid "Vietnam"
+msgstr "Vietnam"
+
+#: views/newuser.jade:278 views/newuser.jade:283
+msgid "Wake Island"
+msgstr "Île Wake"
+
+#: views/newuser.jade:279 views/newuser.jade:284
+msgid "Wallis and Futuna"
+msgstr "Wallis et Futuna"
+
+#: views/newuser.jade:280 views/newuser.jade:285
+msgid "Western Sahara"
+msgstr "Sahara occidental"
+
+#: views/newuser.jade:281 views/newuser.jade:286
+msgid "Yemen"
+msgstr "Yémen"
+
+#: views/newuser.jade:282 views/newuser.jade:287
+msgid "Zambia"
+msgstr "Zambie"
+
+#: views/newuser.jade:283 views/newuser.jade:288
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
+
+#: views/newuser.jade:284 views/newuser.jade:289
+msgid "Åland Islands"
+msgstr "Îles Åland"
+
+#: views/newuser.jade:286 views/newuser.jade:287 views/login.jade:12
+#: views/login.jade:13 views/setup.jade:12 views/setup.jade:13
+#: views/user.jade:31 views/newuser.jade:291 views/newuser.jade:292
+#: views/user.jade:36
+msgid "Password"
+msgstr "Mot de passe"
+
+#: views/newuser.jade:289 views/setup.jade:15 views/newuser.jade:294
+msgid "Confirm Password"
+msgstr "Confirmer le mot de passe"
+
+#: views/newuser.jade:290 views/setup.jade:16 views/user.jade:34
+#: views/newuser.jade:295 views/user.jade:39
+msgid "Confirm password"
+msgstr "Confirmer le mot de passe"
+
+#: views/newuser.jade:291 views/newuser.jade:296
+msgid "Create User"
+msgstr "Créer un utilisateur"
+
+#: views/login.jade:10 views/setup.jade:10
+msgid "Enter email"
+msgstr "Saisir un courrier électronique"
+
+#: views/login.jade:14 views/layout.jade:45 views/layout.jade:44
+#: views/layout.jade:46 views/layout.jade:47
+msgid "Login"
+msgstr "Se connecter"
+
+#: views/users.jade:8
+msgid "User List"
+msgstr "Liste des utilisateurs"
+
+#: views/users.jade:19 views/users.jade:20 views/users.jade:22
+#, python-format
+msgid "Tracking %s documents"
+msgstr "Suit %s des documents"
+
+#: views/users.jade:23 views/users.jade:24 views/users.jade:26
+msgid "Add User"
+msgstr "Ajouter un utilisateur"
+
+#: views/users.jade:25 views/users.jade:26 views/users.jade:28
+msgid "This page is where you add researchers able to use the site."
+msgstr "Cette page est celle où vous ajoutez les chercheurs pouvant utiliser ce site."
+
+#: views/users.jade:26 views/users.jade:27 views/users.jade:29
+msgid "You will need to tell them their password."
+msgstr "Vous devrez leur communiquer leur mot de passe."
+
+#: views/setup.jade:17
+msgid "Create Admin User"
+msgstr "Créer un utilisateur admin"
+
+#: views/newsite.jade:13
+msgid "Enacted Budget "
+msgstr "Budget approuvé "
+
+#: views/layout.jade:12
+msgid "Toggle navigation"
+msgstr "Navigation à bascule"
+
+#: views/layout.jade:22
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#: views/layout.jade:24
+msgid "Document Submissions"
+msgstr "Envois de documents"
+
+#: views/layout.jade:26
+msgid "Researchers"
+msgstr "Chercheurs"
+
+#: views/layout.jade:29
+msgid "Reference Calendar"
+msgstr "Calebdrier de référence"
+
+#: views/layout.jade:31
+msgid "Submit Document"
+msgstr "Envoyer le document"
+
+#: views/layout.jade:33 views/layout.jade:35
+msgid "Overview"
+msgstr "Vue d'ensemble"
+
+#: views/layout.jade:41 views/layout.jade:43 views/layout.jade:44
+msgid "Logout"
+msgstr "Se déconnecter"
+
+#: views/dashboard.jade:7
+#, python-format
+msgid "There are %(users)s users tracking %(pages)s pages."
+msgstr "Il y a %(users)s utilisateurs qui suivent %(pages)s de pages."
+
+#: views/dashboard.jade:9
+msgid "Manage Researchers"
+msgstr "Gérer les chercheurs"
+
+#: views/dashboard.jade:12
+#, python-format
+msgid ""
+"There are %(unapproveds)s unapproved documents out of a total of %(total)s."
+msgstr "Il y a %(unapproveds)s de documents non approuvés sur un total de %(total)s."
+
+#: views/dashboard.jade:14
+msgid "Review Submissions"
+msgstr "Examiner les documents envoyés"
+
+#: views/dashboard.jade:18
+msgid "Export To CSV"
+msgstr "Exporter au format CSV"
+
+#: views/newdoc.jade:33 views/editdoc.jade:27 views/editdoc.jade:26
+msgid "Include In Stats For Year"
+msgstr "Inclure dans les statistiques pour l'année"
+
+#: views/_doc.jade:98 views/layout.jade:16
+msgid "Open Budget Tracker"
+msgstr "Suivi de l'Enquête sur le budget ouvert"
+
+#: views/newreport.jade:9
+msgid "Monthly Report"
+msgstr "Rapport mensuel"
+
+#: views/newreport.jade:11 views/newreport.jade:12
+msgid "Report"
+msgstr "Rapport"
+
+#: views/overview.jade:11
+msgid "OBI Score"
+msgstr "Résultat de l'IBO"
+
+#: views/index.jade:9
+msgid "IBP's Open Budget Tracker"
+msgstr "Suivi de l'Enquête sur le budget ouvert d'IBP"
+
+#: views/layout.jade:33
+msgid "Monthly Reports"
+msgstr "Rapports mensuels"
+
+#: views/user.jade:9
+msgid "Email"
+msgstr "Courrier électronique"
+
+#: views/user.jade:16 views/user.jade:21
+msgid "Send email"
+msgstr "Envoyer un courrier électronique"
+
+#: views/user.jade:27 views/user.jade:28 views/user.jade:32 views/user.jade:33
+msgid "Current password"
+msgstr "Mot de passe actuel"
+
+#: views/user.jade:32 views/user.jade:37
+msgid "New password"
+msgstr "Nouveau mot de passe"
+
+#: views/user.jade:35 views/user.jade:40
+msgid "Retype new password"
+msgstr "Confirmer le nouveau mot de passe"
+
+#: views/reports.jade:8
+msgid "Reports"
+msgstr "Rapports"
+
+#: views/reports.jade:13
+msgid "Add Report"
+msgstr "Ajouter le rapport"
+
+#: views/report.jade:16 views/_report.jade:9
+msgid "reported by"
+msgstr "déclaré par"
+
+#: views/report.jade:17 views/_report.jade:10
+msgid "reported for"
+msgstr "déclaré pour"
+
+#: views/newdoc.jade:32
+msgid "Include the Fiscal Year the Document Refers to"
+msgstr "Inclure l'exercice auquel le document fait référence"
+
+#: views/newdoc.jade:64 views/editdoc.jade:58
+msgid "Add another link"
+msgstr "Ajouterun autre lien"
+
+#: views/newreport.jade:10
+msgid ""
+"Please describe your process for obtaining documents this month. What was "
+"your method of approach? Please elaborate on any success and/or challenges."
+msgstr "Veuillez décrire votre processus d'obtention des documents de ce mois. Quelle était votre méthode d'approche ? Veuillez préciser tout succès et/ou défis."
+
+#: views/overview.jade:11
+msgid "Latest Open Budget Index Score"
+msgstr "Dernier résultat de l'Indice du budget ouvert"
+
+#: views/overview.jade:17
+msgid "Mid-Year Review"
+msgstr "Examen semestriel"
+
+#: views/index.jade:9
+msgid "IBP's Open Budget Survey Tracker"
+msgstr "Suivi de l'Enquête sur le budget ouvert d'IBP"
+
+#: views/index.jade:11
+msgid "On this website"
+msgstr "Sur ce site web"
+
+#: views/index.jade:15
+msgid ""
+"researchers can track the public availability of the eight key budget "
+"documents in their own country on an ongoing basis. By providing near real "
+"time data on the public availability of budget documents researchers, media,"
+" donors, and government officials will have access to a timely overview of "
+"basic budget transparency in countries around the world. While this data "
+"will not tell the whole story of how open and accountable the countries' "
+"budget systems are, it will help to identify where governments are taking "
+"steps to improve public access to budget information and where they are "
+"failing to do so."
+msgstr "les chercheurs peuvent suivre la accessibilité publique des huit documents budgétaires clés dans leur propre pays de façon régulière. En fournissant des données en temps quasi réel sur l'accessibilité publique des documents budgétaires, les chercheurs, les médias, les bailleurs de fonds et les représentants gouvernementaux auront accès à une vue d'ensemble en temps opportun de la transparence budgétaire de base dans les pays du monde. Bien que ces données n'expliqueront pas entièrement dans quelle mesure les systèmes budgétaires des pays sont ouverts et responsables, elles permettront d'identifier les domaines où les gouvernements prennent des mesures pour améliorer l'accès du public à l'information budgétaire et où ils manquent à le faire."
+
+#: views/documents.jade:46 views/documents.jade:51 views/reports.jade:24
+msgid "Older"
+msgstr "Plus ancien"
+
+#: views/documents.jade:55 views/documents.jade:60 views/reports.jade:27
+msgid "Newer"
+msgstr "Plus récent"
+
+#: views/_report.jade:18
+msgid "View report in full"
+msgstr "Consulter le rapport dans son intégralité"
+
+#: views/sites.jade:14
+msgid ""
+"If applicable, provide the URL where the document is likely to be posted. "
+"This should not be the link to the specific PDF/word/excel document. It "
+"should be the link to the webpage where the document is likely to be posted "
+"(e.g., a «Publications» page)"
+msgstr "Le cas échéant, fournir l'adresse URL où le document pourrait être publié. Ceci ne doit pas être le lien vers le document PDF/Word/Excel spécifique. Ce doit être le lien vers la page web où le document pourrait être publié (par ex, une page « Publications »)"
+
+#: views/sites.jade:17
+msgid ""
+"When you return to the main calendar page, assign the dates for when to "
+"search for the document you just added so that you will get reminders when "
+"it is due to be released."
+msgstr "Lorsque vous revenez à la page principale du calendrier, inidiquez les dates pour savoir quand rechercher le document que vous venez d'ajouter afin que vous receviez des rappels lorsqu' il doit être publié."
+
+#: views/newuser.jade:19 views/user.jade:15
+msgid "Language (code)"
+msgstr "Langue (code)"
+
+#: views/users.jade:21
+#, python-format
+msgid "%s locale"
+msgstr "%s locale"
+
+#: views/layout.jade:16
+msgid "OBS Tracker"
+msgstr "Suivi de l'Enquête sur l'EBO"
+
+#: views/user.jade:47
+#, python-format
+msgid "Really delete %s?"
+msgstr "Vraiment supprimer %s ?"
+
+#: views/user.jade:52
+msgid "Delete User"
+msgstr "Supprimer un utilisateur"
+
+#: views/_site.jade:24
+msgid "Search Dates"
+msgstr "Rechercher les dates"
+
+#: views/_site.jade:27
+msgid "Date to Start Search"
+msgstr "Date du début de la recherche"
+
+#: views/_site.jade:38
+msgid "Date to End Search"
+msgstr "Date de la fin de la recherche"

@@ -1,99 +1,103 @@
 ;var json_locale_data = {
    "messages": {
       "": {
-         "Project-Id-Version": " PACKAGE VERSION\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2013-09-25 09:40+1200\nPO-Revision-Date: 2013-09-25 09:40+1200\nLast-Translator: Automatically generated\nLanguage-Team: none\nLanguage: en\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+         "Project-Id-Version": " PACKAGE VERSION\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2013-10-16 13:27+1300\nPO-Revision-Date: 2013-09-25 09:40+1200\nLast-Translator: Automatically generated\nLanguage-Team: none\nLanguage: en\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
       },
-      "Email address": [
+      "Page Not Found": [
          null,
-         "Email address"
+         ""
       ],
-      "Enter email": [
+      "Back": [
          null,
-         "Enter email"
+         ""
       ],
-      "Password": [
+      "Publicly Available": [
          null,
-         "Password"
+         "Publicly Available"
+      ],
+      "Not Publicly Available": [
+         null,
+         "Publicly Available"
+      ],
+      "Approved": [
+         null,
+         ""
+      ],
+      "Rejected": [
+         null,
+         ""
+      ],
+      "Unapproved": [
+         null,
+         ""
+      ],
+      "Approve": [
+         null,
+         ""
+      ],
+      "Reject": [
+         null,
+         ""
+      ],
+      "Edit": [
+         null,
+         ""
+      ],
+      "Upload Files": [
+         null,
+         ""
+      ],
+      "Published": [
+         null,
+         ""
+      ],
+      "Received": [
+         null,
+         "Received %s"
+      ],
+      "Softcopy attached": [
+         null,
+         "Soft copy attached"
+      ],
+      "Scan attached": [
+         null,
+         "Soft copy attached"
+      ],
+      "There are %s users tracking %s pages.": [
+         null,
+         "There are %s users tracking %s pages."
       ],
       "Manage Users": [
          null,
          "Manage Researchers"
       ],
-      "Sites": [
+      "There are %s unapproved documents out of a total of %s.": [
          null,
-         "Sites"
+         "There are %s uanpproved documents out of a total of %s."
       ],
-      "Add Document": [
+      "Manage Documents": [
          null,
-         "Add Document"
+         "Documents"
       ],
-      "Toggle navigation": [
+      "Export To CSV": [
          null,
-         "Toggle navigation"
-      ],
-      "Aquarium": [
-         null,
-         "Aquarium"
-      ],
-      "Dashboard": [
-         null,
-         "Dashboard"
+         ""
       ],
       "Documents": [
          null,
          "Documents"
       ],
-      "Logout": [
+      "Add Document": [
          null,
-         "Logout"
-      ],
-      "Login": [
-         null,
-         "Login"
+         "Add Document"
       ],
       "Document Type": [
          null,
          "Document Type"
       ],
-      "Pre-Budget Statement": [
-         null,
-         "Pre-Budget Statement"
-      ],
-      "Executive's Budget Proposal": [
-         null,
-         "Executive's Budget Proposal"
-      ],
-      "Enacted Budget": [
-         null,
-         "Enacted Budget"
-      ],
-      "Citizen's Budget": [
-         null,
-         "Citizen's Budget"
-      ],
-      "In-Year Report": [
-         null,
-         "In-Year Report"
-      ],
-      "Mid-year Review": [
-         null,
-         "Mid-year Review"
-      ],
-      "Year-End Report": [
-         null,
-         "Year-End Report"
-      ],
-      "Audit Report": [
-         null,
-         "Audit Report"
-      ],
       "Document Title": [
          null,
          "Document Title"
-      ],
-      "Publicly Available": [
-         null,
-         "Publicly Available"
       ],
       "Yes": [
          null,
@@ -106,22 +110,6 @@
       "Location": [
          null,
          "Location"
-      ],
-      "Website": [
-         null,
-         "Website"
-      ],
-      "Government Office": [
-         null,
-         "Government Office"
-      ],
-      "Public Library": [
-         null,
-         "Public Library"
-      ],
-      "Other": [
-         null,
-         "Other"
       ],
       "Details of location": [
          null,
@@ -155,13 +143,117 @@
          null,
          "Comments"
       ],
-      "Add": [
+      "Update": [
          null,
-         "Add"
+         ""
       ],
       "Cancel": [
          null,
          "Cancel"
+      ],
+      "Welcome to %(title)s": [
+         null,
+         "Welcome to %(title)s"
+      ],
+      "Toggle navigation": [
+         null,
+         "Toggle navigation"
+      ],
+      "Aquarium": [
+         null,
+         "Aquarium"
+      ],
+      "Pulse": [
+         null,
+         ""
+      ],
+      "Dashboard": [
+         null,
+         "Dashboard"
+      ],
+      "Sites": [
+         null,
+         "Sites"
+      ],
+      "Logout": [
+         null,
+         "Logout"
+      ],
+      "Login": [
+         null,
+         "Login"
+      ],
+      "Email address": [
+         null,
+         "Email address"
+      ],
+      "Enter email": [
+         null,
+         "Enter email"
+      ],
+      "Password": [
+         null,
+         "Password"
+      ],
+      "Pre-Budget Statement": [
+         null,
+         "Pre-Budget Statement"
+      ],
+      "Executive's Budget Proposal": [
+         null,
+         "Executive's Budget Proposal"
+      ],
+      "Enacted Budget": [
+         null,
+         "Enacted Budget"
+      ],
+      "Citizen's Budget": [
+         null,
+         "Citizen's Budget"
+      ],
+      "In-Year Report": [
+         null,
+         "In-Year Report"
+      ],
+      "Mid-year Review": [
+         null,
+         "Mid-year Review"
+      ],
+      "Year-End Report": [
+         null,
+         "Year-End Report"
+      ],
+      "Audit Report": [
+         null,
+         "Audit Report"
+      ],
+      "Location ": [
+         null,
+         "Location "
+      ],
+      "Website": [
+         null,
+         "Website"
+      ],
+      "Government Office": [
+         null,
+         "Government Office"
+      ],
+      "Public Library": [
+         null,
+         "Public Library"
+      ],
+      "Other": [
+         null,
+         "Other"
+      ],
+      "Add": [
+         null,
+         "Add"
+      ],
+      "Enacted Budget ": [
+         null,
+         "Enacted Budget "
       ],
       "URL": [
          null,
@@ -1251,6 +1343,10 @@
          null,
          "Last modified"
       ],
+      "HH:mm DD MMM YYYY": [
+         null,
+         "HH:mm DD MMM YYYY"
+      ],
       "Delete": [
          null,
          "Delete"
@@ -1259,47 +1355,39 @@
          null,
          "Add Site"
       ],
+      "Documents attached to %s": [
+         null,
+         ""
+      ],
+      "No documents attached to %s": [
+         null,
+         ""
+      ],
+      "Attach new file": [
+         null,
+         ""
+      ],
+      "Attach": [
+         null,
+         ""
+      ],
       "User List": [
          null,
          "User List"
-      ],
-      "Add User": [
-         null,
-         "Add User"
-      ],
-      "Received %s": [
-         null,
-         "Received %s"
-      ],
-      "HH:mm DD MMM YYYY": [
-         null,
-         "HH:mm DD MMM YYYY"
-      ],
-      "Last modified %s": [
-         null,
-         "Last modified %s"
-      ],
-      "Welcome to %(title)s": [
-         null,
-         "Welcome to %(title)s"
-      ],
-      "Location ": [
-         null,
-         "Location "
-      ],
-      "Enacted Budget ": [
-         null,
-         "Enacted Budget "
       ],
       "Tracking %s sites": [
          null,
          "Tracking %s sites"
       ],
-      "There are %s users tracking %s pages.": [
+      "Add User": [
+         null,
+         "Add User"
+      ],
+      "There are %(users)s users tracking %(pages)s pages.": [
          null,
          "There are %s users tracking %s pages."
       ],
-      "There are %s uanpproved documents out of a total of %s.": [
+      "There are %(unapproveds)s unapproved documents out of a total of %(total)s.": [
          null,
          "There are %s uanpproved documents out of a total of %s."
       ]
