@@ -51,6 +51,11 @@ db.init(function(err, database) {
     }));
     app.use(function(req, res, next) {
         res.locals.currentUser = req.user;
+        if (req.user) {
+            // Set the locale for the content only if there is a user
+            // If user is not set then locale is based on the Accept header
+            req.setLocale(req.user.locale);
+        }
         res.locals.moment = moment;
         res.locals.humanize = humanize;
         next();
