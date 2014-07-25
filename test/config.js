@@ -1,17 +1,18 @@
-var config = require('../lib/config');
+var assert = require('assert'),
+    config = require('../lib/config');
 
-exports['invalid if nothing'] = function(test) {
-    test.equals(config.valid({}), false);
+describe('db', function() {
+  describe('#valid', function() {
+    it('should be invalid with empty configuration', function() {
+      assert.equal(config.valid({}), false);
+    });
 
-    test.done();
-};
-
-exports['valid if all supplied'] = function(test) {
-    test.equals(config.valid({
-        DB_PATH: 'x',
-        COOKIE_SECRET: 'x',
-        SESSION_SECRET: 'x'
-    }), true);
-
-    test.done();
-};
+    it('should be valid when all configs are supplied', function() {
+      assert.equal(config.valid({
+          DB_PATH: 'x',
+          COOKIE_SECRET: 'x',
+          SESSION_SECRET: 'x'
+      }), true);
+    });
+  });
+});

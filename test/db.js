@@ -1,23 +1,24 @@
-var config = require('../lib/config'),
+var assert = require('assert'),
+    config = require('../lib/config'),
     db = require('../lib/db'),
     sinon = require('sinon');
 
-exports['init with nothing configured errors'] = function(test) {
-    sinon.stub(config, 'valid').returns(false);
-
-    db.init(function(err) {
-        test.equals(err, "Set valid DB variables in the .env file.");
-
-        config.valid.restore();
-
-        test.done();
+describe('db', function() {
+  describe('#init', function() {
+    it('should succeed when run with the configured mongo', function() {
+      db.init(function(err) {
+          assert.equal(err, undefined);
+          db.close();
+      });
     });
-}
 
-exports['init with running configured mongo works'] = function(test) {
-    db.init(function(err) {
-        test.equals(err, undefined);
-        db.close();
-        test.done();
+    it('should fail if its invalid', function() {
+      sinon.stub(config, 'valid').returns(false);
+
+      db.init(function(err) {
+          assert.equal(err, "Set valid DB variables in the .env file.");
+          config.valid.restore();
+      });
     });
-}
+  });
+});
