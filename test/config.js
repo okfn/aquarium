@@ -1,7 +1,7 @@
 var assert = require('assert'),
     config = require('../lib/config');
 
-describe('db', function() {
+describe('config', function() {
   describe('#valid', function() {
     it('should be invalid with empty configuration', function() {
       assert.equal(config.valid({}), false);
