@@ -10,7 +10,7 @@ It also track reports from researchers on budget documents for the [Internationa
 
 This assumes you have git installed and node installed.
 
-    > git clone https://github.com/wombleton/aquarium.git
+    > git clone https://github.com/okfn/aquarium.git
     > cd aquarium
     > cp .env-example .env # edit to appropriate values
     > npm start
