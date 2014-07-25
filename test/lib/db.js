@@ -1,6 +1,6 @@
 var assert = require('assert'),
-    config = require('../lib/config'),
-    db = require('../lib/db'),
+    config = require('../../lib/config'),
+    db = require('../../lib/db'),
     sinon = require('sinon');
 
 describe('db', function() {

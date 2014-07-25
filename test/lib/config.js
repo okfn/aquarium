@@ -1,5 +1,5 @@
 var assert = require('assert'),
-    config = require('../lib/config');
+    config = require('../../lib/config');
 
 describe('config', function() {
   describe('#valid', function() {
