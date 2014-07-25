@@ -19,90 +19,109 @@ var express = require('express'),
     _ = require('underscore'),
     validator = require('express-validator');
 
-db.init(function(err, database) {
-    var userColl = db.coll('users');
-
-    // all environments
-    app.set('port', process.env.PORT || 3000);
-    app.set('views', __dirname + '/views');
-    app.set('view engine', 'jade');
-    app.use(express.favicon());
-    app.use(express.logger('dev'));
-    app.use(express.bodyParser());
-    app.use(validator());
-    app.use(express.methodOverride());
-    app.use(express.cookieParser(config.COOKIE_SECRET));
-    app.use(express.session({
-        secret: config.SESSION_SECRET,
-        store: new MongoStore({
-            db: database
-        })
-    }));
-    app.use(passport.initialize());
-    app.use(passport.session());
-
-    // make sure only `messages.pot` and locales dirs in locale directory!
-    global.locales = _.without(fs.readdirSync(__dirname + '/locale'), 'messages.pot');
-
-    app.use(i18n.abide({
-        default_lang: 'en',
-        supported_languages: global.locales,
-        translation_directory: 'locale'
-    }));
-    app.use(function(req, res, next) {
-        res.locals.currentUser = req.user;
-        res.locals.moment = moment;
-        res.locals.humanize = humanize;
-        next();
+module.exports = {
+  app: app,
+  init: function(done) {
+    db.init(function() {
+      init.apply(this, arguments);
+      if (done !== undefined) {
+        done();
+      }
     });
-    app.use(app.router);
-    app.use(require('less-middleware')({ src: __dirname + '/public' }));
-    app.use(express.static(path.join(__dirname, 'public')));
+  }
+};
 
-    // development only
-    if ('development' === app.get('env')) {
-        app.use(express.errorHandler());
-    }
+// Start server if this file is called directly
+if (!module.parent) {
+    module.exports.init(function() {
+      var app = module.exports.app;
 
-    // initialise routes
-    _.each(['index', 'users', 'admin', 'documents', 'sites', 'overview', 'uploads', 'reports'], function(route) {
-        var controller = require('./routes/' + route);
-        controller.init(app);
+      http.createServer(app).listen(app.get('port'), function() {
+          console.log('Express server listening on port ' + app.get('port'));
+      });
     });
+}
 
-    passport.use(new LocalStrategy(function(username, password, done) {
-        userColl.findOne({
-            username: username
-        }, function(err, user) {
-            if (err) {
-                done(err);
-            } else if (user) {
-                bcrypt.compare(password, user.hash, function(err, matches) {
-                    if (err || !matches) {
-                        done(err, false, { message: 'Incorrect password.' });
-                    } else {
-                        done(null, user);
-                    }
-                });
-            } else {
-                done(null, false, { message: 'Incorrect username.' });
-            }
-        });
-    }));
+function init(err, database) {
+  var userColl = db.coll('users');
 
-    passport.serializeUser(function(user, done) {
-        done(null, user._id);
-    });
+  // all environments
+  app.set('port', process.env.PORT || 3000);
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');
+  app.use(express.favicon());
+  app.use(express.logger('dev'));
+  app.use(express.bodyParser());
+  app.use(validator());
+  app.use(express.methodOverride());
+  app.use(express.cookieParser(config.COOKIE_SECRET));
+  app.use(express.session({
+      secret: config.SESSION_SECRET,
+      store: new MongoStore({
+          db: database
+      })
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
 
-    passport.deserializeUser(function(id, done) {
-        userColl.findOne({
-            _id: db.ObjectID(id)
-        }, function(err, user) {
-            done(err, user);
-        });
-    });
+  // make sure only `messages.pot` and locales dirs in locale directory!
+  global.locales = _.without(fs.readdirSync(__dirname + '/locale'), 'messages.pot');
 
-    http.createServer(app).listen(app.get('port'), function() {
-        console.log('Express server listening on port ' + app.get('port'));
-    });
-});
+  app.use(i18n.abide({
+      default_lang: 'en',
+      supported_languages: global.locales,
+      translation_directory: 'locale'
+  }));
+  app.use(function(req, res, next) {
+      res.locals.currentUser = req.user;
+      res.locals.moment = moment;
+      res.locals.humanize = humanize;
+      next();
+  });
+  app.use(app.router);
+  app.use(require('less-middleware')({ src: __dirname + '/public' }));
+  app.use(express.static(path.join(__dirname, 'public')));
+
+  // development only
+  if ('development' === app.get('env')) {
+      app.use(express.errorHandler());
+  }
+
+  // initialise routes
+  _.each(['index', 'users', 'admin', 'documents', 'sites', 'overview', 'uploads', 'reports', 'countries'], function(route) {
+      var controller = require('./routes/' + route);
+      controller.init(app);
+  });
+
+  passport.use(new LocalStrategy(function(username, password, done) {
+      userColl.findOne({
+          username: username
+      }, function(err, user) {
+          if (err) {
+              done(err);
+          } else if (user) {
+              bcrypt.compare(password, user.hash, function(err, matches) {
+                  if (err || !matches) {
+                      done(err, false, { message: 'Incorrect password.' });
+                  } else {
+                      done(null, user);
+                  }
+              });
+          } else {
+              done(null, false, { message: 'Incorrect username.' });
+          }
+      });
+  }));
+
+  passport.serializeUser(function(user, done) {
+      done(null, user._id);
+  });
+
+  passport.deserializeUser(function(id, done) {
+      userColl.findOne({
+          _id: db.ObjectID(id)
+      }, function(err, user) {
+          done(err, user);
+      });
+  });
+}
