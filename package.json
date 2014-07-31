@@ -5,12 +5,12 @@
   "scripts": {
     "browserify": "browserify public/js/app.js | uglifyjs > public/js/aquarium.js",
     "start": "npm install && node index.js",
-    "test": "node_modules/nodeunit/bin/nodeunit test"
+    "test": "node_modules/mocha/bin/mocha test --recursive"
   },
   "dependencies": {
     "express": "3.4.0",
     "jade": "*",
-    "less-middleware": "*",
+    "less-middleware": "~0.1.15",
     "passport": "~0.1.17",
     "mongodb": "~1.2.14",
     "properties": "~0.3.3",
@@ -30,9 +30,9 @@
     "node-zip": "~1.0.1"
   },
   "devDependencies": {
-    "nodeunit": "~0.8.1",
     "sinon": "~1.7.3",
     "bootstrap-browserify": "~2.1.1",
-    "jquery-browserify": "~1.8.1"
+    "jquery-browserify": "~1.8.1",
+    "mocha": "~1.21.0"
   }
 }
