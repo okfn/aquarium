@@ -33,6 +33,7 @@
     "sinon": "~1.7.3",
     "bootstrap-browserify": "~2.1.1",
     "jquery-browserify": "~1.8.1",
-    "mocha": "~1.21.0"
+    "mocha": "~1.21.0",
+    "supertest": "~0.13.0"
   }
 }
