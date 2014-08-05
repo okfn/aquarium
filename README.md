@@ -17,6 +17,21 @@ This assumes you have git installed and node installed.
 
 Then navigation to the `/login` page to configure the administrator's login. 
 
+### Docker
+
+If you don't want to install it on your local machine, there's a Dockerfile
+available. You simply need to go to Aquarium's home folder and do:
+
+    > docker build -t aquarium .
+    > docker run -p 3000:3000 -v /path/to/your/aquarium/clone:/aquarium -i -t aquarium /bin/bash
+    # Here you'll be inside Docker
+    > mongod &
+    > cd /aquarium
+    > cp .env-example .env # edit to appropriate values
+    > npm start
+
+Aquarium should be running on http://localhost:3000.
+
 ## Translations
 
 ### Extracting Translations
