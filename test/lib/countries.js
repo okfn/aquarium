@@ -8,8 +8,8 @@ describe('countries', function() {
   });
 
   describe('#list', function() {
-    beforeEach(function(done) {
-      db.dropDatabase(done);
+    beforeEach(function() {
+      countries.drop();
     });
 
     it('should return an empty list if there\'re no countries', function(done) {
@@ -44,8 +44,8 @@ describe('countries', function() {
   });
 
   describe('#insert', function() {
-    beforeEach(function(done) {
-      db.dropDatabase(done);
+    beforeEach(function() {
+      countries.drop();
     });
 
     it('should work', function(done) {
