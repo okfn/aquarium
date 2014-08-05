@@ -1,7 +1,15 @@
 language: node_js
 node_js:
-  - "0.10"
+- '0.10'
 services:
-  - mongodb
+- mongodb
 before_script:
-  - cp .env-example .env
+- cp .env-example .env
+deploy:
+  provider: heroku
+  api_key:
+    secure: LcBQw/QXao5lmTrBAD4Bo0tmm5pvRgf5QEzC1oirU01uk8misDa+KxepP6sEAjLdhpgjaRP5UNRu6mNPzBE5c5vfx9UupIgwjxuVg+UvvXY8iLD0gG937rzrEhtZbDMH6cAFX1RyaNeVM81zCVsWyuqBIZszYSz59PsE7NOkjtE=
+  app: aquarium-staging
+  on:
+    repo: okfn/aquarium
+    branch: develop
