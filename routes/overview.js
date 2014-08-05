@@ -3,25 +3,33 @@ var janitor = require('../lib/janitor'),
 
 module.exports = {
     init: function(app) {
-        app.get('/overview', module.exports.overview);
+        app.get('/overview.:format?', module.exports.overview);
     },
     overview: function(req, res) {
         overview.getGrid(function(err, grid) {
+            function respondWithHTML() {
+              res.render('overview', {
+                  grid: grid,
+                  title: 'Overview'
+              });
+            }
+            function respondWithJSON() {
+              res.send(grid);
+            }
+
             if (err) {
                 return janitor.error(res, err);
             }
 
-            res.format({
-              html: function() {
-                res.render('overview', {
-                    grid: grid,
-                    title: 'Overview'
-                });
-              },
-              json: function() {
-                res.send(grid);
-              }
-            });
+            var format = req.params.format;
+            if (format && format.toLowerCase() == 'json') {
+              respondWithJSON();
+            } else {
+              res.format({
+                html: respondWithHTML,
+                json: respondWithJSON,
+              });
+            }
         });
     }
 };

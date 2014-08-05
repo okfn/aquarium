@@ -34,5 +34,12 @@ describe('overview', function() {
         .expect('Content-Type', /json/)
         .expect(200, done);
     });
+
+    it('should return a json when the route ends with .json', function(done) {
+      request(app)
+        .get('/overview.JSon')
+        .expect('Content-Type', /json/)
+        .expect(200, done);
+    });
   });
 });
