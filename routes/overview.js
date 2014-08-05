@@ -11,9 +11,16 @@ module.exports = {
                 return janitor.error(res, err);
             }
 
-            res.render('overview', {
-                grid: grid,
-                title: 'Overview'
+            res.format({
+              html: function() {
+                res.render('overview', {
+                    grid: grid,
+                    title: 'Overview'
+                });
+              },
+              json: function() {
+                res.send(grid);
+              }
             });
         });
     }
