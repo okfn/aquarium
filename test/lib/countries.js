@@ -20,11 +20,11 @@ describe('countries', function() {
       });
     });
 
-    it('should return the country name, code, and its latest OBI score', function(done) {
+    it('should return the country name, code, and its latest OBI score as numbers', function(done) {
       var data = {
         country: 'Brazil',
         code: 'BR',
-        obi_scores: [{ score: 39, year: 2013 }, { score: 42, year: 2014 }]
+        obi_scores: [{ score: '39', year: '2013' }, { score: '42', year: '2014' }]
       };
 
       countries.insert(data, function (err) {
@@ -33,12 +33,14 @@ describe('countries', function() {
           var expected = [{
             country: data.country,
             code: data.code,
-            obi_score: data.obi_scores[1].score,
-            obi_year: data.obi_scores[1].year,
+            obi_score: Number(data.obi_scores[1].score),
+            obi_year: Number(data.obi_scores[1].year),
           }];
 
           assert.ifError(err);
           assert.deepEqual(countries, expected);
+          assert.strictEqual(countries[0].obi_score, expected[0].obi_score);
+          assert.strictEqual(countries[0].obi_year, expected[0].obi_year);
           done();
         });
       });
