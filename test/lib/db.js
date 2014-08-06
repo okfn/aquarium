@@ -7,7 +7,7 @@ describe('db', function() {
   describe('#init', function() {
     it('should succeed when run with the configured mongo', function(done) {
       db.init(function(err) {
-          assert.equal(err, undefined);
+          assert.ifError(err);
           db.close();
           done();
       });

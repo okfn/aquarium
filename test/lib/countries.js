@@ -14,7 +14,7 @@ describe('countries', function() {
 
     it('should return an empty list if there\'re no countries', function(done) {
       countries.list(function (err, countries) {
-        assert.equal(err, undefined);
+        assert.ifError(err);
         assert.deepEqual(countries, []);
         done();
       });
@@ -27,7 +27,7 @@ describe('countries', function() {
       };
 
       countries.insert(data, function (err) {
-        assert.equal(err, undefined);
+        assert.ifError(err);
         countries.list(function (err, countries) {
           var expected = [{
             country: data.country,
@@ -35,7 +35,7 @@ describe('countries', function() {
             obi_year: data.obi_scores[1].year,
           }];
 
-          assert.equal(err, undefined);
+          assert.ifError(err);
           assert.deepEqual(countries, expected);
           done();
         });
@@ -52,9 +52,9 @@ describe('countries', function() {
       var data = { country: 'Brazil' };
 
       countries.insert(data, function (err) {
-        assert.equal(err, undefined);
+        assert.ifError(err);
         countries.list(function (err, countries) {
-          assert.equal(err, undefined);
+          assert.ifError(err);
           assert.equal(countries.length, 1);
           assert.equal(countries[0].country, 'Brazil');
           done();
@@ -66,7 +66,7 @@ describe('countries', function() {
       var data = { country: 'Brazil' };
 
       countries.insert(data, function (err) {
-        assert.equal(err, undefined);
+        assert.ifError(err);
         countries.insert(data, function(err) {
           assert(/duplicate/.test(err.err));
           done();

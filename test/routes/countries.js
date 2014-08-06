@@ -32,7 +32,7 @@ describe('routes', function() {
       var data = { country: 'Brazil' };
       countries.drop();
       countries.insert(data, function(err) {
-        assert.equal(err, undefined);
+        assert.ifError(err);
         request(app)
           .get('/countries')
           .set('Accept', 'application/json')
