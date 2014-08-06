@@ -20,9 +20,10 @@ describe('countries', function() {
       });
     });
 
-    it('should return the country name and its latest OBI score', function(done) {
+    it('should return the country name, code, and its latest OBI score', function(done) {
       var data = {
         country: 'Brazil',
+        code: 'BR',
         obi_scores: [{ score: 39, year: 2013 }, { score: 42, year: 2014 }]
       };
 
@@ -31,6 +32,7 @@ describe('countries', function() {
         countries.list(function (err, countries) {
           var expected = [{
             country: data.country,
+            code: data.code,
             obi_score: data.obi_scores[1].score,
             obi_year: data.obi_scores[1].year,
           }];
