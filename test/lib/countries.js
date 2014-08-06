@@ -61,5 +61,17 @@ describe('countries', function() {
         });
       });
     });
+
+    it('should not allow duplicates', function(done) {
+      var data = { country: 'Brazil' };
+
+      countries.insert(data, function (err) {
+        assert.equal(err, undefined);
+        countries.insert(data, function(err) {
+          assert(/duplicate/.test(err.err));
+          done();
+        });
+      });
+    });
   });
 });
