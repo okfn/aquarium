@@ -7,11 +7,11 @@ describe('countries', function() {
     db.init(done);
   });
 
-  describe('#list', function() {
-    beforeEach(function() {
-      countries.drop();
-    });
+  beforeEach(function() {
+    countries.drop();
+  });
 
+  describe('#list', function() {
     it('should return an empty list if there\'re no countries', function(done) {
       countries.list(function (err, countries) {
         assert.ifError(err);
@@ -48,10 +48,6 @@ describe('countries', function() {
   });
 
   describe('#insert', function() {
-    beforeEach(function() {
-      countries.drop();
-    });
-
     it('should work', function(done) {
       var data = { country: 'Brazil' };
 
@@ -73,6 +69,21 @@ describe('countries', function() {
         assert.ifError(err);
         countries.insert(data, function(err) {
           assert(/duplicate/.test(err.err));
+          done();
+        });
+      });
+    });
+  });
+
+  describe('#get', function() {
+    it('should work', function(done) {
+      var data = { country: 'Brazil', code: 'BR' };
+
+      countries.insert(data, function (err) {
+        assert.ifError(err);
+        countries.get({ code: 'BR' }, function (err, country) {
+          assert.ifError(err);
+          assert.deepEqual(country, data);
           done();
         });
       });

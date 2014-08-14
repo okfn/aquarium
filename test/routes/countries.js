@@ -46,4 +46,27 @@ describe('routes', function() {
       });
     });
   });
+
+  describe('country', function() {
+    it('should return 404 on inexistent country code', function(done) {
+      request(app)
+        .get('/country/inexistent-country-code')
+        .expect(404, done);
+    });
+
+    it('should return the country', function(done) {
+      var data = { country: 'Brazil', code: 'BR' };
+      countries.drop();
+      countries.insert(data, function(err) {
+        assert.ifError(err);
+        request(app)
+          .get('/country/' + data.code)
+          .expect(function (res) {
+            assert.equal(res.body._id, data._id);
+            countries.drop();
+          })
+          .expect(200, done);
+      });
+    });
+  });
 });
