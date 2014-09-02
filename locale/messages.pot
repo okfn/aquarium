@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-22 13:06+0000\n"
+"POT-Creation-Date: 2014-09-02 03:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,6 +80,7 @@ msgstr ""
 #: views/editdoc.jade:77 views/user.jade:21 views/newdoc.jade:27
 #: views/newdoc.jade:77 views/newdoc.jade:86 views/editdoc.jade:21
 #: views/editdoc.jade:70 views/editdoc.jade:79 views/user.jade:26
+#: views/editdoc.jade:94 views/editdoc.jade:103
 msgid "Yes"
 msgstr ""
 
@@ -88,7 +89,8 @@ msgstr ""
 #: views/newdoc.jade:83 views/newdoc.jade:93 views/editdoc.jade:70
 #: views/editdoc.jade:80 views/user.jade:24 views/newdoc.jade:29
 #: views/newdoc.jade:88 views/editdoc.jade:23 views/editdoc.jade:72
-#: views/editdoc.jade:81 views/user.jade:29
+#: views/editdoc.jade:81 views/user.jade:29 views/editdoc.jade:96
+#: views/editdoc.jade:105
 msgid "No"
 msgstr ""
 
@@ -124,6 +126,7 @@ msgstr ""
 
 #: views/newdoc.jade:54 views/editdoc.jade:42 views/newdoc.jade:68
 #: views/editdoc.jade:56 views/newdoc.jade:66 views/editdoc.jade:60
+#: views/editdoc.jade:70
 msgid "Date of Publication"
 msgstr ""
 
@@ -144,16 +147,19 @@ msgstr ""
 
 #: views/newdoc.jade:61 views/editdoc.jade:48 views/newdoc.jade:75
 #: views/editdoc.jade:62 views/newdoc.jade:73 views/editdoc.jade:66
+#: views/editdoc.jade:90
 msgid "Soft copy attached"
 msgstr ""
 
 #: views/newdoc.jade:71 views/editdoc.jade:58 views/newdoc.jade:85
 #: views/editdoc.jade:72 views/newdoc.jade:82 views/editdoc.jade:75
+#: views/editdoc.jade:99
 msgid "Scanned First/Last Page Attached"
 msgstr ""
 
 #: views/newdoc.jade:81 views/editdoc.jade:68 views/newdoc.jade:95
 #: views/editdoc.jade:82 views/newdoc.jade:91 views/editdoc.jade:84
+#: views/editdoc.jade:108
 msgid "Comments"
 msgstr ""
 
@@ -166,7 +172,7 @@ msgstr ""
 #: views/newuser.jade:292 views/newsite.jade:26 views/newdoc.jade:100
 #: views/editdoc.jade:87 views/newreport.jade:12 views/user.jade:37
 #: views/newdoc.jade:96 views/newreport.jade:13 views/editdoc.jade:89
-#: views/newuser.jade:297 views/user.jade:42
+#: views/newuser.jade:297 views/user.jade:42 views/editdoc.jade:113
 msgid "Cancel"
 msgstr ""
 
@@ -176,11 +182,12 @@ msgid "Location"
 msgstr ""
 
 #: views/editdoc.jade:45 views/editdoc.jade:59 views/editdoc.jade:63
+#: views/editdoc.jade:80
 msgid "Date Received"
 msgstr ""
 
 #: views/editdoc.jade:72 views/editdoc.jade:86 views/user.jade:36
-#: views/editdoc.jade:88 views/user.jade:41
+#: views/editdoc.jade:88 views/user.jade:41 views/editdoc.jade:112
 msgid "Update"
 msgstr ""
 
@@ -439,7 +446,7 @@ msgstr ""
 msgid "URL"
 msgstr ""
 
-#: views/sites.jade:78 views/_site.jade:20
+#: views/sites.jade:78 views/_site.jade:20 views/editdoc.jade:60
 msgid "Expected Date of Publication"
 msgstr ""
 
@@ -1556,19 +1563,23 @@ msgid "User List"
 msgstr ""
 
 #: views/users.jade:19 views/users.jade:20 views/users.jade:22
+#: views/users.jade:31
 #, python-format
 msgid "Tracking %s documents"
 msgstr ""
 
 #: views/users.jade:23 views/users.jade:24 views/users.jade:26
+#: views/users.jade:35
 msgid "Add User"
 msgstr ""
 
 #: views/users.jade:25 views/users.jade:26 views/users.jade:28
+#: views/users.jade:37
 msgid "This page is where you add researchers able to use the site."
 msgstr ""
 
 #: views/users.jade:26 views/users.jade:27 views/users.jade:29
+#: views/users.jade:38
 msgid "You will need to tell them their password."
 msgstr ""
 
@@ -1773,7 +1784,7 @@ msgstr ""
 msgid "Language (code)"
 msgstr ""
 
-#: views/users.jade:21
+#: views/users.jade:21 views/users.jade:29
 #, python-format
 msgid "%s locale"
 msgstr ""
