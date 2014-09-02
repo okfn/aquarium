@@ -37,6 +37,8 @@
     "bootstrap-browserify": "~2.1.1",
     "jquery-browserify": "~1.8.1",
     "mocha": "~1.21.0",
-    "supertest": "~0.13.0"
+    "supertest": "~0.13.0",
+    "browserify": "~5.11.0",
+    "uglify-js": "~2.4.15"
   }
 }
