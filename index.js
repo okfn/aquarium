@@ -129,4 +129,8 @@ function init(err, database) {
           done(err, user);
       });
   });
+
+  validator.validator.extend('isValidDate', function(str) {
+    return str && moment(str, 'DD-MM-YYYY').isValid();
+  });
 }

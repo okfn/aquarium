@@ -25,7 +25,7 @@
     "async": "~0.2.9",
     "i18n-abide": "0.0.14",
     "humanize-plus": "~1.4.2",
-    "express-validator": "~0.8.0",
+    "express-validator": "~2.3.0",
     "serialize-form": "~1.1.4",
     "underscore.string": "~2.3.3",
     "markdown": "~0.5.0",

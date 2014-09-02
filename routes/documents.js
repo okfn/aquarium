@@ -107,7 +107,7 @@ module.exports = {
     },
     updateDoc: function(req, res) {
         var id = req.params.id,
-            data = extractDoc(req),
+            data = docs.validateAndBuild(req.body, req.assert),
             errors = req.validationErrors();
 
         if (errors && errors.length) {
@@ -174,35 +174,5 @@ function extractCountry(req) {
     return {
         country: countryTokens[1] || '',
         countryCode: countryTokens[0] || '',
-    }
-}
-
-function extractDoc(req) {
-    req.assert('type', 'Type must be valid.').isIn([
-        "Pre-Budget Statement",
-        "Executive's Budget Proposal",
-        "Enacted Budget",
-        "Citizen's Budget",
-        "In-Year Report",
-        "Mid-year Review",
-        "Year-End Report",
-        "Audit Report"
-    ]);
-
-    req.assert('title', 'Title can\'t be empty').notEmpty();
-
-    return {
-        type: req.body.type,
-        title: req.body.title,
-        available: req.body.available === 'yes',
-        year: parseInt(req.body.year, 10) || undefined,
-        comments: req.body.comments,
-        location: req.body.location || '',
-        location_detail: req.body.location_detail,
-        url: req.body.url,
-        date_published: req.body.date_published,
-        date_received: req.body.date_received,
-        softcopy: req.body.softcopy === 'yes',
-        scanned: req.body.scanned === 'yes'
     };
 }
