@@ -57,11 +57,35 @@ block content
               | &nbsp;
               =gettext('Add another link')
           .form-group
+            label=gettext("Expected date of Publication")
+            input.form-control(type="text",
+              name='expected_date_published',
+              data-provide='datepicker-inline',
+              data-date-autoclose='true',
+              data-date-format="dd M yyyy",
+              placeholder="01 Jan 2014",
+              autocomplete="off",
+              value=doc.expected_date_published)
+          .form-group
             label=gettext("Date of Publication")
-            input.form-control(type="text", name='date_published', placeholder=gettext('1 Jan 2014'), autocomplete="off", value=doc.date_published)
+            input.form-control(type="text",
+              name='date_published',
+              data-provide='datepicker-inline',
+              data-date-autoclose='true',
+              data-date-format="dd M yyyy",
+              placeholder="01 Jan 2014",
+              autocomplete="off",
+              value=doc.date_published)
           .form-group
             label=gettext("Date Received")
-            input.form-control(type="text", name='date_received', placeholder=gettext('1 Jan 2014'), autocomplete="off", value=doc.date_received)
+            input.form-control(type="text",
+              name='date_received',
+              data-provide='datepicker-inline',
+              data-date-autoclose='true',
+              data-date-format="dd M yyyy",
+              placeholder="01 Jan 2014",
+              autocomplete="off",
+              value=doc.date_received)
           .form-group
             label=gettext("Soft copy attached")
             div

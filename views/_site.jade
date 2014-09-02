@@ -50,7 +50,11 @@
               form.form-inline.picker(method="POST", action='/tracking/#{site._id}/add-end')
                 .input-group
                   input(type="hidden", name="index", value=i)
-                  input.form-control(name="date", data-provide='datepicker-inline', data-date-autoclose='true' data-start="#{moment(search.start).format('YYYY-MM-DD')}")
+                  input.form-control(name="date",
+                    data-provide='datepicker-inline',
+                    data-date-autoclose='true',
+                    data-date-format="dd M yyyy",
+                    data-start="#{moment(search.start).format('YYYY-MM-DD')}")
                   span.input-group-btn.add-date
                     button.btn.btn-default(disabled=true, type="submit")
                       i.glyphicon.glyphicon-plus
@@ -58,7 +62,10 @@
             form.form-inline.picker(method='POST', action='/tracking/#{site._id}/add-start')
               .input-group
                 input(type="hidden", name="index", value=i)
-                input.form-control(name="date", data-provide='datepicker-inline', data-date-autoclose='true')
+                input.form-control(name="date",
+                  data-provide='datepicker-inline',
+                  data-date-format="dd M yyyy",
+                  data-date-autoclose='true')
                 span.input-group-btn.add-date
                   button.btn.btn-default(disabled=true, type="submit")
                     i.glyphicon.glyphicon-plus
