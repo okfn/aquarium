@@ -90,11 +90,11 @@ function validateDoc(id) {
         validator.check(values.title, 'Document must have a title.').notEmpty();
 
         checkErrors(this, validator);
-    }
+    };
 }
 
 $(document).on('input', 'form#newdoc', validateDoc('form#newdoc'));
-$(document).on('input', 'form#updatedoc', validateDoc('form#updatedoc'));
+$(document).on('input', 'form#editdoc', validateDoc('form#editdoc'));
 
 $(document).on('input', 'form#newsite', function() {
     var values = serializer('form#newsite'),

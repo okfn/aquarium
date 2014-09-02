@@ -4,7 +4,7 @@ block content
   .container
     .row
       .col-md-12
-        form(role='form', action='/documents/#{doc._id}', method='POST')
+        form#editdoc(role='form', action='/documents/#{doc._id}', method='POST')
           .form-group
             label=gettext('Document Type')
             select.form-control(name="type")
