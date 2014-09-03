@@ -1,9 +1,11 @@
 var assert = require('assert'),
     async = require('async'),
     moment = require('moment'),
+    _ = require('underscore'),
     db = require('../../lib/db'),
     countries = require('../../lib/countries'),
-    users = require('../../lib/users');
+    users = require('../../lib/users'),
+    documents = require('../../lib/documents');
 
 describe('countries', function() {
   before(function(done) {
@@ -189,6 +191,89 @@ describe('countries', function() {
           assert.ifError(err);
           assert.equal(country.country, expectedCountry.country);
           assert.deepEqual(country.obi_scores, expectedCountry.obi_scores);
+          done();
+        });
+      });
+    });
+
+    it('should include the documents', function(done) {
+      var country, doc1, doc2,
+          expectedCountry, expectedDoc1, expectedDoc2;
+
+      country = {
+        country: 'Brazil',
+        country_code: 'BR',
+      };
+      doc1 = {
+        country: country.country,
+        country_code: country.country_code,
+        year: 2014,
+        title: 'The Title',
+        type: 'In-Year Report',
+        approved: true,
+        expected_date_published: moment('01-01-2014'),
+        date_published: moment('01-02-2014'),
+        date_received: moment('01-03-2014'),
+      };
+      doc2 = {
+        country: country.country,
+        country_code: country.country_code,
+        year: 2013,
+        title: 'The Title',
+        type: 'Citizen\'s Budget',
+        approved: true,
+        expected_date_published: moment('01-01-2013'),
+        date_published: moment('01-02-2013'),
+        date_received: moment('01-03-2013'),
+      };
+
+      expectedDoc1 = _.clone(doc1);
+      expectedDoc2 = _.clone(doc2);
+
+      // This fixes the assert.deepEqual. For some reason, the documents
+      // received have _f and _l == null, and these expected docs have it ==
+      // undefined.
+      expectedDoc1.expected_date_published._f = expectedDoc1.expected_date_published._l = null;
+      expectedDoc1.date_published._f = expectedDoc1.date_published._l = null;
+      expectedDoc1.date_received._f = expectedDoc1.date_received._l = null;
+      expectedDoc2.expected_date_published._f = expectedDoc2.expected_date_published._l = null;
+      expectedDoc2.date_published._f = expectedDoc2.date_published._l = null;
+      expectedDoc2.date_received._f = expectedDoc2.date_received._l = null;
+
+      expectedCountry = {
+        country: country.country,
+        documents: {
+          "2014": {
+            "In-Year Report": [
+              expectedDoc1,
+            ]
+          },
+          "2013": {
+            "Citizen's Budget": [
+              expectedDoc2,
+            ]
+          }
+        }
+      };
+
+      documents.drop();
+      async.parallel({
+        country: function(callback) {
+          countries.insert(country, callback);
+        },
+        doc1: function(callback) {
+          documents.insert({ data: doc1 }, callback);
+        },
+        doc2: function(callback) {
+          documents.insert({ data: doc2 }, callback);
+        },
+      }, function(err, results) {
+        assert.ifError(err);
+        countries.get({ country_code: country.country_code }, function (err, country) {
+          assert.ifError(err);
+          assert.equal(country.country, expectedCountry.country);
+          assert.deepEqual(country.documents, expectedCountry.documents);
+          documents.drop();
           done();
         });
       });
