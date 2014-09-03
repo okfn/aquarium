@@ -101,7 +101,7 @@ describe('countries', function() {
       });
     });
 
-    it('should include the sites', function(done) {
+    it('should include the active sites', function(done) {
       var country = { country: 'Brazil', country_code: 'BR' },
           user = {
             username: 'username',
@@ -111,8 +111,17 @@ describe('countries', function() {
               admin: false,
               sites: [{
                 active: true,
-                title: 'the title',
+                title: 'active site',
                 type: 'Audit Report',
+                search_dates: {
+                  start: moment('2014-01-01').toString(),
+                  end: moment('2014-06-01').toString(),
+                }
+              },
+              {
+                active: false,
+                title: 'inactive site',
+                type: 'In-Year Report',
                 search_dates: {
                   start: moment('2014-01-01').toString(),
                   end: moment('2014-06-01').toString(),
