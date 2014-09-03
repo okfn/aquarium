@@ -23,10 +23,10 @@ describe('countries', function() {
       });
     });
 
-    it('should return the country name, code, and its latest OBI score as numbers', function(done) {
+    it('should return the country name, countryCode, and its latest OBI score as numbers', function(done) {
       var data = {
         country: 'Brazil',
-        code: 'BR',
+        countryCode: 'BR',
         obi_scores: [{ score: '39', year: '2013' }, { score: '42', year: '2014' }]
       };
 
@@ -35,7 +35,7 @@ describe('countries', function() {
         countries.list(function (err, countries) {
           var expected = [{
             country: data.country,
-            code: data.code,
+            countryCode: data.countryCode,
             obi_score: Number(data.obi_scores[1].score),
             obi_year: Number(data.obi_scores[1].year),
           }];
@@ -80,21 +80,22 @@ describe('countries', function() {
 
   describe('#get', function() {
     it('should work', function(done) {
-      var data = { country: 'Brazil', code: 'BR' };
+      var data = { country: 'Brazil', countryCode: 'BR' };
 
       countries.insert(data, function (err) {
         assert.ifError(err);
-        countries.get({ code: 'BR' }, function (err, country) {
+        countries.get({ countryCode: 'BR' }, function (err, country) {
           assert.ifError(err);
           delete country.documents;
+          delete data._id;
           assert.deepEqual(country, data);
           done();
         });
       });
     });
 
-    it('should return null if couldn\'t find country code', function(done) {
-      countries.get({ code: 'inexistent-code' }, function (err, country) {
+    it('should return null if couldn\'t find countryCode', function(done) {
+      countries.get({ countryCode: 'inexistent-countryCode' }, function (err, country) {
         assert.ifError(err);
         assert.equal(country, null);
         done();
@@ -102,12 +103,12 @@ describe('countries', function() {
     });
 
     it('should include the sites as documents', function(done) {
-      var country = { country: 'Brazil', code: 'BR' },
+      var country = { country: 'Brazil', countryCode: 'BR' },
           user = {
             username: 'username',
             password: 'password',
             user: {
-              country: country.code + ' - ' + country.country,
+              country: country.countryCode + ' - ' + country.country,
               admin: false,
               sites: [{
                 active: true,
@@ -123,7 +124,7 @@ describe('countries', function() {
 
       var expectedCountry = {
         country: country.country,
-        code: country.code,
+        countryCode: country.countryCode,
         documents: [{
           title: user.user.sites[0].title,
           type: user.user.sites[0].type,
@@ -142,7 +143,7 @@ describe('countries', function() {
         },
       }, function(err, results) {
         assert.ifError(err);
-        countries.get({ code: country.code }, function (err, country) {
+        countries.get({ countryCode: country.countryCode }, function (err, country) {
           assert.ifError(err);
           delete country._id;
           assert.deepEqual(country, expectedCountry);
