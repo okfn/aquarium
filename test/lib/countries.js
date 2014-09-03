@@ -154,6 +154,93 @@ describe('countries', function() {
         });
       });
     });
+
+    it('should include the documents', function(done) {
+      var doc1, doc2,
+          expectedCountry, expectedDoc1, expectedDoc2;
+
+      doc1 = {
+        country: brazil.country,
+        country_code: brazil.country_code,
+        year: 2014,
+        title: 'The Title',
+        type: 'In-Year Report',
+        approved: true,
+        expected_date_published: moment('01-01-2014'),
+        date_published: moment('01-02-2014'),
+        date_received: moment('01-03-2014'),
+      };
+      doc2 = {
+        country: argentina.country,
+        country_code: argentina.country_code,
+        year: 2013,
+        title: 'The Title',
+        type: 'Citizen\'s Budget',
+        approved: true,
+      };
+
+      expectedDoc1 = _.clone(doc1);
+      expectedDoc1.state = documents.getDocumentState(expectedDoc1);
+      expectedDoc2 = _.clone(doc2);
+      expectedDoc2.state = documents.getDocumentState(expectedDoc2);
+
+      // This fixes the assert.deepEqual. For some reason, the documents
+      // received have _f and _l == null, and these expected docs have it ==
+      // undefined.
+      expectedDoc1.expected_date_published._f = expectedDoc1.expected_date_published._l = null;
+      expectedDoc1.date_published._f = expectedDoc1.date_published._l = null;
+      expectedDoc1.date_received._f = expectedDoc1.date_received._l = null;
+      delete expectedDoc1.country;
+      delete expectedDoc1.country_code;
+      delete expectedDoc1.year;
+      delete expectedDoc2.country;
+      delete expectedDoc2.country_code;
+      delete expectedDoc2.year;
+
+      expectedDocuments = {
+        Brazil: {
+          "2014": {
+            "In-Year Report": [
+              expectedDoc1,
+            ]
+          },
+        },
+        Argentina: {
+          "2013": {
+            "Citizen's Budget": [
+              expectedDoc2,
+            ]
+          }
+        }
+      };
+
+      documents.drop();
+      async.parallel({
+        brazil: function(callback) {
+          countries.insert(brazil, callback);
+        },
+        argentina: function(callback) {
+          countries.insert(argentina, callback);
+        },
+        doc1: function(callback) {
+          documents.insert({ data: doc1 }, callback);
+        },
+        doc2: function(callback) {
+          documents.insert({ data: doc2 }, callback);
+        },
+      }, function(err, results) {
+        assert.ifError(err);
+        countries.list(function (err, countries) {
+          assert.ifError(err);
+          _.each(countries, function(country) {
+            var docs = expectedDocuments[country.country];
+            assert.deepEqual(country.documents, docs);
+          });
+          documents.drop();
+          done();
+        });
+      });
+    });
   });
 
   describe('#insert', function() {
