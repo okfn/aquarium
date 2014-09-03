@@ -23,10 +23,10 @@ describe('countries', function() {
       });
     });
 
-    it('should return the country name, countryCode, and its latest OBI score as numbers', function(done) {
+    it('should return the country name, country_code, and its latest OBI score as numbers', function(done) {
       var data = {
         country: 'Brazil',
-        countryCode: 'BR',
+        country_code: 'BR',
         obi_scores: [{ score: '39', year: '2013' }, { score: '42', year: '2014' }]
       };
 
@@ -35,7 +35,7 @@ describe('countries', function() {
         countries.list(function (err, countries) {
           var expected = [{
             country: data.country,
-            countryCode: data.countryCode,
+            country_code: data.country_code,
             obi_score: Number(data.obi_scores[1].score),
             obi_year: Number(data.obi_scores[1].year),
           }];
@@ -80,21 +80,21 @@ describe('countries', function() {
 
   describe('#get', function() {
     it('should work', function(done) {
-      var data = { country: 'Brazil', countryCode: 'BR' };
+      var data = { country: 'Brazil', country_code: 'BR' };
 
       countries.insert(data, function (err) {
         assert.ifError(err);
-        countries.get({ countryCode: 'BR' }, function (err, country) {
+        countries.get({ country_code: 'BR' }, function (err, country) {
           assert.ifError(err);
           assert.equal(country.country, data.country);
-          assert.equal(country.countryCode, data.countryCode);
+          assert.equal(country.country_code, data.country_code);
           done();
         });
       });
     });
 
-    it('should return null if couldn\'t find countryCode', function(done) {
-      countries.get({ countryCode: 'inexistent-countryCode' }, function (err, country) {
+    it('should return null if couldn\'t find country_code', function(done) {
+      countries.get({ country_code: 'inexistent-country_code' }, function (err, country) {
         assert.ifError(err);
         assert.equal(country, null);
         done();
@@ -102,12 +102,12 @@ describe('countries', function() {
     });
 
     it('should include the sites', function(done) {
-      var country = { country: 'Brazil', countryCode: 'BR' },
+      var country = { country: 'Brazil', country_code: 'BR' },
           user = {
             username: 'username',
             password: 'password',
             user: {
-              country: country.countryCode + ' - ' + country.country,
+              country: country.country_code + ' - ' + country.country,
               admin: false,
               sites: [{
                 active: true,
@@ -140,7 +140,7 @@ describe('countries', function() {
         },
       }, function(err, results) {
         assert.ifError(err);
-        countries.get({ countryCode: country.countryCode }, function (err, country) {
+        countries.get({ country_code: country.country_code }, function (err, country) {
           assert.ifError(err);
           assert.equal(country.country, expectedCountry.country);
           assert.deepEqual(country.sites, expectedCountry.sites);
@@ -153,7 +153,7 @@ describe('countries', function() {
     it('should include the sorted obi_scores', function(done) {
       var country = {
         country: 'Brazil',
-        countryCode: 'BR',
+        country_code: 'BR',
         obi_scores: [
           { year: "2014", score: 42 },
           { year: "2012", score: 30 },
@@ -176,7 +176,7 @@ describe('countries', function() {
         },
       }, function(err, results) {
         assert.ifError(err);
-        countries.get({ countryCode: country.countryCode }, function (err, country) {
+        countries.get({ country_code: country.country_code }, function (err, country) {
           assert.ifError(err);
           assert.equal(country.country, expectedCountry.country);
           assert.deepEqual(country.obi_scores, expectedCountry.obi_scores);

@@ -4,7 +4,7 @@ var countries = require('../lib/countries'),
 module.exports = {
   init: function(app) {
     app.get('/countries', module.exports.showCountries);
-    app.get('/country/:countryCode.:format?', module.exports.getCountry);
+    app.get('/country/:code.:format?', module.exports.getCountry);
   },
 
   showCountries: function(req, res) {
@@ -17,8 +17,8 @@ module.exports = {
   },
 
   getCountry: function(req, res) {
-    var code = req.params.countryCode;
-    countries.get({ countryCode: code }, function(err, country) {
+    var code = req.params.code;
+    countries.get({ country_code: code }, function(err, country) {
       if (err) {
         return janitor.error(res, err);
       } else if (!country) {

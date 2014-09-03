@@ -48,23 +48,23 @@ describe('routes', function() {
   });
 
   describe('country', function() {
-    it('should return 404 on inexistent countryCode', function(done) {
+    it('should return 404 on inexistent country_code', function(done) {
       request(app)
-        .get('/country/inexistent-countryCode')
+        .get('/country/inexistent-country_code')
         .expect(404, done);
     });
 
     it('should return the country', function(done) {
-      var data = { country: 'Brazil', countryCode: 'BR' };
+      var data = { country: 'Brazil', country_code: 'BR' };
       countries.drop();
       countries.insert(data, function(err) {
         assert.ifError(err);
         request(app)
-          .get('/country/' + data.countryCode)
+          .get('/country/' + data.country_code)
           .expect(function (res) {
             var country = res.body;
             assert.equal(country.country, data.country);
-            assert.equal(country.countryCode, data.countryCode);
+            assert.equal(country.country_code, data.country_code);
             countries.drop();
           })
           .expect(200, done);
