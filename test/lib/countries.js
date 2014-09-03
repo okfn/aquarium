@@ -236,9 +236,15 @@ describe('countries', function() {
       expectedDoc1.expected_date_published._f = expectedDoc1.expected_date_published._l = null;
       expectedDoc1.date_published._f = expectedDoc1.date_published._l = null;
       expectedDoc1.date_received._f = expectedDoc1.date_received._l = null;
+      delete expectedDoc1.country;
+      delete expectedDoc1.country_code;
+      delete expectedDoc1.year;
       expectedDoc2.expected_date_published._f = expectedDoc2.expected_date_published._l = null;
       expectedDoc2.date_published._f = expectedDoc2.date_published._l = null;
       expectedDoc2.date_received._f = expectedDoc2.date_received._l = null;
+      delete expectedDoc2.country;
+      delete expectedDoc2.country_code;
+      delete expectedDoc2.year;
 
       expectedCountry = {
         country: country.country,
