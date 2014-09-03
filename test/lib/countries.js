@@ -27,7 +27,7 @@ describe('countries', function() {
       var data = {
         country: 'Brazil',
         country_code: 'BR',
-        obi_scores: [{ score: '39', year: '2013' }, { score: '42', year: '2014' }]
+        obi_scores: [{ score: '39', year: '2014' }, { score: '42', year: '2013' }]
       };
 
       countries.insert(data, function (err) {
@@ -36,8 +36,8 @@ describe('countries', function() {
           var expected = [{
             country: data.country,
             country_code: data.country_code,
-            obi_score: Number(data.obi_scores[1].score),
-            obi_year: Number(data.obi_scores[1].year),
+            obi_score: 39,
+            obi_year: 2014,
           }];
 
           assert.ifError(err);
