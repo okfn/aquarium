@@ -36,5 +36,29 @@ describe('documents', function() {
                    moment(dateReceived, dateFormat)._i);
     });
   });
+
+  describe('#getDocumentState', function(doc) {
+    it('is available if it has date_published', function() {
+      var doc = {
+        date_published: moment(),
+      };
+
+      assert.equal(documents.getDocumentState(doc), 'available');
+    });
+
+    it('is late if it isn\'t available and the expected publication date is in the past', function() {
+      var doc = {
+        expected_date_published: moment('01-01-1970'),
+      };
+
+      assert.equal(documents.getDocumentState(doc), 'late');
+    });
+
+    it('is waiting if it is neither available nor late', function() {
+      var doc = {};
+
+      assert.equal(documents.getDocumentState(doc), 'waiting');
+    });
+  });
 });
 
