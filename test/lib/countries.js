@@ -123,7 +123,6 @@ describe('countries', function() {
 
       var expectedCountry = {
         country: country.country,
-        countryCode: country.countryCode,
         sites: [{
           title: user.user.sites[0].title,
           type: user.user.sites[0].type,
@@ -143,9 +142,44 @@ describe('countries', function() {
         assert.ifError(err);
         countries.get({ countryCode: country.countryCode }, function (err, country) {
           assert.ifError(err);
-          delete country._id;
-          assert.deepEqual(country, expectedCountry);
+          assert.equal(country.country, expectedCountry.country);
+          assert.deepEqual(country.sites, expectedCountry.sites);
           users.drop();
+          done();
+        });
+      });
+    });
+
+    it('should include the sorted obi_scores', function(done) {
+      var country = {
+        country: 'Brazil',
+        countryCode: 'BR',
+        obi_scores: [
+          { year: "2014", score: 42 },
+          { year: "2012", score: 30 },
+          { year: "2013", score: 31 },
+        ]
+      };
+
+      var expectedCountry = {
+        country: country.country,
+        obi_scores: [
+          { year: "2012", score: 30 },
+          { year: "2013", score: 31 },
+          { year: "2014", score: 42 },
+        ],
+      };
+
+      async.parallel({
+        country: function(callback) {
+          countries.insert(country, callback);
+        },
+      }, function(err, results) {
+        assert.ifError(err);
+        countries.get({ countryCode: country.countryCode }, function (err, country) {
+          assert.ifError(err);
+          assert.equal(country.country, expectedCountry.country);
+          assert.deepEqual(country.obi_scores, expectedCountry.obi_scores);
           done();
         });
       });
