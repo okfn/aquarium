@@ -39,7 +39,8 @@ describe('routes', function() {
           .expect(function (res) {
             var expectedResult = [{ country: data.country }];
 
-            assert.deepEqual(res.body, expectedResult);
+            assert.equal(res.body.length, 1);
+            assert.equal(res.body[0].country, data.country);
             countries.drop();
           })
           .expect(200, done);

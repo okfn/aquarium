@@ -17,6 +17,27 @@ describe('countries', function() {
   });
 
   describe('#list', function() {
+    var brazil, argentina;
+
+    beforeEach(function() {
+      brazil = {
+        country: 'Brazil',
+        country_code: 'BR',
+        obi_scores: [
+          { year: '2014', score: 42 },
+          { year: '2012', score: 30 },
+        ]
+      };
+      argentina = {
+        country: 'Argentina',
+        country_code: 'AR',
+        obi_scores: [
+          { year: '2012', score: 30 },
+          { year: '2013', score: 31 },
+        ]
+      };
+    });
+
     it('should return an empty list if there\'re no countries', function(done) {
       countries.list(function (err, countries) {
         assert.ifError(err);
@@ -26,23 +47,6 @@ describe('countries', function() {
     });
 
     it('should include the sorted obi_scores, with year as number', function(done) {
-      var brazil = {
-        country: 'Brazil',
-        country_code: 'BR',
-        obi_scores: [
-          { year: '2014', score: 42 },
-          { year: '2012', score: 30 },
-        ]
-      };
-      var argentina = {
-        country: 'Argentina',
-        country_code: 'AR',
-        obi_scores: [
-          { year: '2012', score: 30 },
-          { year: '2013', score: 31 },
-        ]
-      };
-
       var expectedObiScores = {
         Argentina: _.clone(argentina.obi_scores),
         Brazil: _.clone(brazil.obi_scores),
@@ -63,6 +67,88 @@ describe('countries', function() {
             var obiScores = expectedObiScores[country.country];
             obiScores = _.sortBy(obiScores, 'year');
             assert.deepEqual(country.obi_scores, obiScores);
+          });
+          done();
+        });
+      });
+    });
+
+    it('should include the active sites', function(done) {
+      var user1, user2;
+      user1 = {
+        password: 'password',
+        user: {
+          username: 'user1',
+          country: brazil.country_code + ' - ' + brazil.country,
+          admin: false,
+          sites: [{
+            active: true,
+            title: 'active site',
+            type: 'Audit Report',
+            search_dates: {
+              start: moment('2014-01-01').toString(),
+              end: moment('2014-06-01').toString(),
+            }
+          },
+          {
+            active: false,
+            title: 'inactive site',
+            type: 'In-Year Report',
+            search_dates: {
+              start: moment('2014-01-01').toString(),
+              end: moment('2014-06-01').toString(),
+            }
+          }],
+        }
+      };
+      user2 = {
+        password: 'password',
+        user: {
+          username: 'user2',
+          country: argentina.country_code + ' - ' + argentina.country,
+          admin: false,
+          sites: [{
+            active: false,
+            title: 'inactive site',
+            type: 'In-Year Report',
+            search_dates: {
+              start: moment('2014-01-01').toString(),
+              end: moment('2014-06-01').toString(),
+            }
+          }],
+        }
+      };
+
+      var expectedSites = {
+        Brazil: [{
+          title: user1.user.sites[0].title,
+          type: user1.user.sites[0].type,
+          search_dates: user1.user.sites[0].search_dates,
+        }],
+        Argentina: [],
+      };
+
+      users.drop();
+      async.parallel({
+        brazil: function(callback) {
+          countries.insert(brazil, callback);
+        },
+        argentina: function(callback) {
+          countries.insert(argentina, callback);
+        },
+        user1: function(callback) {
+          users.insert(user1, callback);
+        },
+        user2: function(callback) {
+          users.insert(user2, callback);
+        },
+      }, function(err, results) {
+        assert.ifError(err);
+        countries.list(function (err, countries) {
+          assert.ifError(err);
+          _.each(countries, function(country) {
+            var sites = expectedSites[country.country];
+            assert.deepEqual(country.sites, sites);
           });
           done();
         });
