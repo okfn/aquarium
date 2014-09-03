@@ -222,13 +222,12 @@ describe('countries', function() {
         title: 'The Title',
         type: 'Citizen\'s Budget',
         approved: true,
-        expected_date_published: moment('01-01-2013'),
-        date_published: moment('01-02-2013'),
-        date_received: moment('01-03-2013'),
       };
 
       expectedDoc1 = _.clone(doc1);
+      expectedDoc1.state = documents.getDocumentState(expectedDoc1);
       expectedDoc2 = _.clone(doc2);
+      expectedDoc2.state = documents.getDocumentState(expectedDoc2);
 
       // This fixes the assert.deepEqual. For some reason, the documents
       // received have _f and _l == null, and these expected docs have it ==
@@ -239,9 +238,6 @@ describe('countries', function() {
       delete expectedDoc1.country;
       delete expectedDoc1.country_code;
       delete expectedDoc1.year;
-      expectedDoc2.expected_date_published._f = expectedDoc2.expected_date_published._l = null;
-      expectedDoc2.date_published._f = expectedDoc2.date_published._l = null;
-      expectedDoc2.date_received._f = expectedDoc2.date_received._l = null;
       delete expectedDoc2.country;
       delete expectedDoc2.country_code;
       delete expectedDoc2.year;
