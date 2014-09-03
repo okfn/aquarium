@@ -86,9 +86,8 @@ describe('countries', function() {
         assert.ifError(err);
         countries.get({ countryCode: 'BR' }, function (err, country) {
           assert.ifError(err);
-          delete country.documents;
-          delete data._id;
-          assert.deepEqual(country, data);
+          assert.equal(country.country, data.country);
+          assert.equal(country.countryCode, data.countryCode);
           done();
         });
       });
@@ -102,7 +101,7 @@ describe('countries', function() {
       });
     });
 
-    it('should include the sites as documents', function(done) {
+    it('should include the sites', function(done) {
       var country = { country: 'Brazil', countryCode: 'BR' },
           user = {
             username: 'username',
@@ -125,11 +124,10 @@ describe('countries', function() {
       var expectedCountry = {
         country: country.country,
         countryCode: country.countryCode,
-        documents: [{
+        sites: [{
           title: user.user.sites[0].title,
           type: user.user.sites[0].type,
-          expected_date: user.user.sites[0].search_dates.start,
-          state: 'late',
+          search_dates: user.user.sites[0].search_dates,
         }],
       };
 

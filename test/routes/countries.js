@@ -63,9 +63,8 @@ describe('routes', function() {
           .get('/country/' + data.countryCode)
           .expect(function (res) {
             var country = res.body;
-            delete country.documents;
-            delete data._id;
-            assert.deepEqual(country, data);
+            assert.equal(country.country, data.country);
+            assert.equal(country.countryCode, data.countryCode);
             countries.drop();
           })
           .expect(200, done);
