@@ -161,23 +161,23 @@ describe('countries', function() {
       });
     });
 
-    it('should include the sorted obi_scores', function(done) {
+    it('should include the sorted obi_scores, with year as number', function(done) {
       var country = {
         country: 'Brazil',
         country_code: 'BR',
         obi_scores: [
-          { year: "2014", score: 42 },
-          { year: "2012", score: 30 },
-          { year: "2013", score: 31 },
+          { year: '2014', score: 42 },
+          { year: '2012', score: 30 },
+          { year: '2013', score: 31 },
         ]
       };
 
       var expectedCountry = {
         country: country.country,
         obi_scores: [
-          { year: "2012", score: 30 },
-          { year: "2013", score: 31 },
-          { year: "2014", score: 42 },
+          { year: 2012, score: 30 },
+          { year: 2013, score: 31 },
+          { year: 2014, score: 42 },
         ],
       };
 
