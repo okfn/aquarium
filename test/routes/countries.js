@@ -16,13 +16,13 @@ describe('routes', function() {
   describe('countries', function() {
     it('should exist', function(done) {
       request(app)
-        .get('/countries')
+        .get('/countries.json')
         .expect(200, done);
     });
 
     it('should return a json', function(done) {
       request(app)
-        .get('/countries')
+        .get('/countries.json')
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
         .expect(200, done);
@@ -34,7 +34,7 @@ describe('routes', function() {
       countries.insert(data, function(err) {
         assert.ifError(err);
         request(app)
-          .get('/countries')
+          .get('/countries.json')
           .set('Accept', 'application/json')
           .expect(function (res) {
             var expectedResult = [{ country: data.country }];
@@ -51,7 +51,7 @@ describe('routes', function() {
   describe('country', function() {
     it('should return 404 on inexistent country_code', function(done) {
       request(app)
-        .get('/country/inexistent-country_code')
+        .get('/country/inexistent-country-code.json')
         .expect(404, done);
     });
 
@@ -61,7 +61,7 @@ describe('routes', function() {
       countries.insert(data, function(err) {
         assert.ifError(err);
         request(app)
-          .get('/country/' + data.country_code)
+          .get('/country/' + data.country_code + '.json')
           .expect(function (res) {
             var country = res.body;
             assert.equal(country.country, data.country);

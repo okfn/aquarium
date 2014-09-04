@@ -3,8 +3,8 @@ var countries = require('../lib/countries'),
 
 module.exports = {
   init: function(app) {
-    app.get('/countries', module.exports.showCountries);
-    app.get('/country/:code.:format?', module.exports.getCountry);
+    app.get('/countries.json', module.exports.showCountries);
+    app.get('/country/:code.json', module.exports.getCountry);
   },
 
   showCountries: function(req, res) {
