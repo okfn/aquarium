@@ -38,27 +38,115 @@ describe('documents', function() {
   });
 
   describe('#getDocumentState', function(doc) {
-    it('is available if it has date_published', function() {
-      var doc = {
-        date_published: moment(),
-      };
+    describe('available', function() {
+      it('is false by default', function() {
+        var doc = {};
 
-      assert.equal(documents.getDocumentState(doc), 'available');
+        assert.notEqual(documents.getDocumentState(doc), 'available');
+      });
+
+      it('is false if it haven\'t date_published', function() {
+        var doc = {
+          available: false,
+          date_published: undefined,
+        };
+
+        assert.notEqual(documents.getDocumentState(doc), 'available');
+      });
+
+      it('is false if it\'s not available and have date_published', function() {
+        var doc = {
+          available: false,
+          date_published: moment(),
+        };
+
+        assert.notEqual(documents.getDocumentState(doc), 'available');
+      });
+
+      it('is true if it\'s available and have date_published', function() {
+        var doc = {
+          available: true,
+          date_published: moment(),
+        };
+
+        assert.equal(documents.getDocumentState(doc), 'available');
+      });
     });
 
-    it('is late if it isn\'t available and the expected publication date is in the past', function() {
-      var doc = {
-        expected_date_published: moment('01-01-1970'),
-      };
+    describe('internal', function() {
+      it('is false by default', function() {
+        var doc = {};
 
-      assert.equal(documents.getDocumentState(doc), 'late');
+        assert.notEqual(documents.getDocumentState(doc), 'internal');
+      });
+
+      it('is false if it haven\'t date_published', function() {
+        var doc = {
+          date_published: undefined,
+        };
+
+        assert.notEqual(documents.getDocumentState(doc), 'internal');
+      });
+
+      it('is true if it\'s not available and have date_published', function() {
+        var doc = {
+          available: false,
+          date_published: moment(),
+        };
+
+        assert.equal(documents.getDocumentState(doc), 'internal');
+      });
+
+      it('is false if it\'s available and have date_published', function() {
+        var doc = {
+          available: true,
+          date_published: moment(),
+        };
+
+        assert.notEqual(documents.getDocumentState(doc), 'internal');
+      });
     });
 
-    it('is waiting if it is neither available nor late', function() {
-      var doc = {};
+    describe('not produced', function() {
+      it('is true by default', function() {
+        var doc = {};
 
-      assert.equal(documents.getDocumentState(doc), 'waiting');
+        assert.equal(documents.getDocumentState(doc), 'not produced');
+      });
+
+      it('is true it\'s not available and not haven\'t date_published', function() {
+        var doc = {
+          available: false,
+          date_published: undefined,
+        };
+
+        assert.equal(documents.getDocumentState(doc), 'not produced');
+      });
+
+      it('is true it was published late', function() {
+        var doc = {
+          expected_date_published: moment('01-01-2014'),
+          date_published: moment('01-06-2014'),
+        };
+
+        assert.equal(documents.getDocumentState(doc), 'not produced');
+      });
+
+      it('is false it\'s available', function() {
+        var doc = {
+          available: true,
+        };
+
+        assert.notEqual(documents.getDocumentState(doc), 'not produced');
+      });
+
+      it('is false have date_published', function() {
+        var doc = {
+          date_published: moment(),
+        };
+
+        assert.notEqual(documents.getDocumentState(doc), 'not produced');
+      });
     });
   });
 });
-
