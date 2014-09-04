@@ -17,8 +17,10 @@ module.exports = {
   },
 
   getCountry: function(req, res) {
-    var code = req.params.code;
-    countries.get({ country_code: code }, function(err, country) {
+    var options = {
+      code: req.params.code,
+    };
+    countries.get(options, function(err, country) {
       if (err) {
         return janitor.error(res, err);
       } else if (!country) {

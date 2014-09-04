@@ -56,16 +56,16 @@ describe('routes', function() {
     });
 
     it('should return the country', function(done) {
-      var data = { country: 'Brazil', country_code: 'BR' };
+      var data = { country: 'Brazil', code: 'BR' };
       countries.drop();
       countries.insert(data, function(err) {
         assert.ifError(err);
         request(app)
-          .get('/country/' + data.country_code + '.json')
+          .get('/country/' + data.code + '.json')
           .expect(function (res) {
             var country = res.body;
             assert.equal(country.country, data.country);
-            assert.equal(country.country_code, data.country_code);
+            assert.equal(country.code, data.code);
             countries.drop();
           })
           .expect(200, done);
