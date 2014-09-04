@@ -8,7 +8,7 @@ module.exports = {
   },
 
   showCountries: function(req, res) {
-    countries.list(function (err, theCountries) {
+    countries.list({}, function (err, theCountries) {
       if (err) {
         return janitor.error(res, err);
       }

@@ -39,7 +39,7 @@ describe('countries', function() {
     });
 
     it('should return an empty list if there\'re no countries', function(done) {
-      countries.list(function (err, countries) {
+      countries.list({}, function (err, countries) {
         assert.ifError(err);
         assert.deepEqual(countries, []);
         done();
@@ -61,7 +61,7 @@ describe('countries', function() {
         },
       }, function(err, results) {
         assert.ifError(err);
-        countries.list(function(err, countries) {
+        countries.list({}, function(err, countries) {
           assert.ifError(err);
           _.each(countries, function(country) {
             var obiScores = expectedObiScores[country.country];
@@ -144,7 +144,7 @@ describe('countries', function() {
         },
       }, function(err, results) {
         assert.ifError(err);
-        countries.list(function (err, countries) {
+        countries.list({}, function (err, countries) {
           assert.ifError(err);
           _.each(countries, function(country) {
             var sites = expectedSites[country.country];
@@ -230,7 +230,7 @@ describe('countries', function() {
         },
       }, function(err, results) {
         assert.ifError(err);
-        countries.list(function (err, countries) {
+        countries.list({}, function (err, countries) {
           assert.ifError(err);
           _.each(countries, function(country) {
             var docs = expectedDocuments[country.country];
@@ -249,7 +249,7 @@ describe('countries', function() {
 
       countries.insert(data, function (err) {
         assert.ifError(err);
-        countries.list(function (err, countries) {
+        countries.list({}, function (err, countries) {
           assert.ifError(err);
           assert.equal(countries.length, 1);
           assert.equal(countries[0].country, 'Brazil');
