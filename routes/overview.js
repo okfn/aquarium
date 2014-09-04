@@ -7,39 +7,29 @@ module.exports = {
     },
     overview: function(req, res) {
         var format = req.params.format;
-        if (format && format.toLowerCase() == 'json') {
-          overview.getDocuments(function(err, documents) {
+        overview.getGrid(function(err, grid) {
+            function respondWithHTML() {
+              res.render('overview', {
+                  grid: grid,
+                  title: 'Overview'
+              });
+            }
+            function respondWithJSON() {
+              res.send(grid);
+            }
+
             if (err) {
                 return janitor.error(res, err);
             }
 
-            res.send(documents);
-          });
-        } else {
-          overview.getGrid(function(err, grid) {
-              function respondWithHTML() {
-                res.render('overview', {
-                    grid: grid,
-                    title: 'Overview'
-                });
-              }
-              function respondWithJSON() {
-                res.send(grid);
-              }
-
-              if (err) {
-                  return janitor.error(res, err);
-              }
-
-              if (format && format.toLowerCase() == 'json') {
-                respondWithJSON();
-              } else {
-                res.format({
-                  html: respondWithHTML,
-                  json: respondWithJSON,
-                });
-              }
-          });
-        }
+            if (format && format.toLowerCase() == 'json') {
+              respondWithJSON();
+            } else {
+              res.format({
+                html: respondWithHTML,
+                json: respondWithJSON,
+              });
+            }
+        });
     }
 };
