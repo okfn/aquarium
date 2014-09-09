@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-09 01:04+0000\n"
+"POT-Creation-Date: 2014-09-09 10:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1448,8 +1448,8 @@ msgstr ""
 msgid "Enacted Budget"
 msgstr ""
 
-#: views/newdoc.jade:14 views/newsite.jade:14
-msgid "Citizen's Budget"
+#: views/newdoc.jade:14 views/overview.jade:15 views/newsite.jade:14
+msgid "Citizens Budget"
 msgstr ""
 
 #: views/newdoc.jade:15 views/newsite.jade:15
@@ -1645,10 +1645,6 @@ msgstr ""
 
 #: views/overview.jade:11
 msgid "Latest Open Budget Index Score"
-msgstr ""
-
-#: views/overview.jade:15
-msgid "Citizens Budget"
 msgstr ""
 
 #: views/overview.jade:16

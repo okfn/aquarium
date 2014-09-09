@@ -175,7 +175,7 @@ describe('countries', function() {
         country_code: argentina.code,
         year: 2013,
         title: 'The Title',
-        type: 'Citizen\'s Budget',
+        type: 'Citizens Budget',
         approved: true,
       };
 
@@ -207,7 +207,7 @@ describe('countries', function() {
         },
         Argentina: {
           "2013": {
-            "Citizen's Budget": [
+            "Citizens Budget": [
               expectedDoc2,
             ]
           }
@@ -411,7 +411,7 @@ describe('countries', function() {
         country_code: country.code,
         year: 2013,
         title: 'The Title',
-        type: 'Citizen\'s Budget',
+        type: 'Citizens Budget',
         approved: true,
       };
 
@@ -442,7 +442,7 @@ describe('countries', function() {
             ]
           },
           "2013": {
-            "Citizen's Budget": [
+            "Citizens Budget": [
               expectedDoc2,
             ]
           }

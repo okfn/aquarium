@@ -66,7 +66,7 @@ module.exports = {
             "Pre-Budget Statement",
             "Executive's Budget Proposal",
             "Enacted Budget",
-            "Citizen's Budget",
+            "Citizens Budget",
             "In-Year Report",
             "Mid-year Review",
             "Year-End Report",
