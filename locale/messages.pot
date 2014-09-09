@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-09 10:47+0000\n"
+"POT-Creation-Date: 2014-09-09 11:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1457,7 +1457,7 @@ msgid "In-Year Report"
 msgstr ""
 
 #: views/newdoc.jade:16 views/overview.jade:17 views/newsite.jade:16
-msgid "Mid-year Review"
+msgid "Mid-Year Review"
 msgstr ""
 
 #: views/newdoc.jade:17 views/overview.jade:18 views/newsite.jade:17
@@ -1649,10 +1649,6 @@ msgstr ""
 
 #: views/overview.jade:16
 msgid "In-Year Reports"
-msgstr ""
-
-#: views/overview.jade:17
-msgid "Mid-Year Review"
 msgstr ""
 
 #: views/users.jade:8
