@@ -73,10 +73,22 @@ block content
               =gettext('Add another link')
           .form-group
             label=gettext("Date of Publication")
-            input.form-control(type="text", name='date_published', placeholder=gettext('1 Jan 2014'), autocomplete="off")
+            input.form-control(type="text",
+              name='date_published',
+              data-provide='datepicker-inline',
+              data-date-autoclose='true',
+              data-date-format="dd M yyyy",
+              placeholder="01 Jan 2014",
+              autocomplete="off")
           .form-group
             label=gettext("Date Received or Viewed")
-            input.form-control(type="text", name='date_received', placeholder=gettext('1 Jan 2014'), autocomplete="off")
+            input.form-control(type="text",
+              name='date_received',
+              data-provide='datepicker-inline',
+              data-date-autoclose='true',
+              data-date-format="dd M yyyy",
+              placeholder="01 Jan 2014",
+              autocomplete="off")
           .form-group
             p.help-block=gettext('Upload attachments after adding the document')
             label=gettext("Soft copy attached")

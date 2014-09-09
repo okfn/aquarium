@@ -82,11 +82,9 @@ module.exports = {
         });
     },
     createDoc: function(req, res) {
-        var doc = extractDoc(req),
-            errors,
+        var doc = docs.validateAndBuild(req.body, req.assert),
+            errors = req.validationErrors(),
             options;
-
-        errors = req.validationErrors();
 
         if (errors && errors.length) {
             return janitor.invalid(res, errors);
