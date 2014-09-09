@@ -23,6 +23,15 @@ block content
                   =gettext("No")
               input(type="hidden", value=(doc.available ? 'yes' : 'no'), name="available")
           .form-group
+            label=gettext("Produced for Internal Use Only")
+            div
+              .btn-group(data-toggle="buttons-radio" data-toggle-target="internal")
+                button(type="button", value="yes", class=(doc.internal ? 'active' : '')).btn.btn-default
+                  =gettext("Yes")
+                button(type="button", value="no", class=(!doc.internal ? 'active' : '')).btn.btn-default
+                  =gettext("No")
+              input(type="hidden", value=(doc.internal ? 'yes' : 'no'), name="internal")
+          .form-group
             label=gettext("Include In Stats For Year")
             - var year = new Date().getFullYear()
             div
@@ -56,16 +65,6 @@ block content
               i.glyphicon.glyphicon-plus-sign
               | &nbsp;
               =gettext('Add another link')
-          .form-group
-            label=gettext("Expected Date of Publication")
-            input.form-control(type="text",
-              name='expected_date_published',
-              data-provide='datepicker-inline',
-              data-date-autoclose='true',
-              data-date-format="dd M yyyy",
-              placeholder="01 Jan 2014",
-              autocomplete="off",
-              value=doc.expected_date_published)
           .form-group
             label=gettext("Date of Publication")
             input.form-control(type="text",

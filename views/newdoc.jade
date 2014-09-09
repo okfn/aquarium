@@ -29,6 +29,15 @@ block content
                   =gettext("No")
               input(type="hidden", value="no", name="available")
           .form-group
+            label=gettext("Produced for Internal Use Only")
+            div
+              .btn-group(data-toggle="buttons-radio" data-toggle-target="internal")
+                button(type="button", value="yes", class=(doc.internal ? 'active' : '')).btn.btn-default
+                  =gettext("Yes")
+                button(type="button", value="no", class=(!doc.internal ? 'active' : '')).btn.btn-default
+                  =gettext("No")
+              input(type="hidden", value=(doc.internal ? 'yes' : 'no'), name="internal")
+          .form-group
             label=gettext("Include the Fiscal Year the Document Refers to")
             - var year = new Date().getFullYear()
             div
