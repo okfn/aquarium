@@ -40,15 +40,25 @@ block content
           .form-group
             label=gettext("Include the Fiscal Year the Document Refers to")
             - var year = new Date().getFullYear()
-            div
-              .btn-group(data-toggle="buttons-radio", data-toggle-target="year")
-                button(type="button", value=(year - 1)).btn.btn-default
-                  =year - 1
-                button(type="button", value=year).btn.btn-default.active
-                  =year
-                button(type="button", value=(year + 1)).btn.btn-default
-                  =year + 1
-              input(type="hidden", value=year, name="year")
+            select.form-control(name="year")
+              option(value=(year - 2))
+                =year - 2
+              option(value=((year - 2)+"/"+(year - 1)))
+                =(year - 2)+"/"+(year - 1)
+              option(value=(year - 1))
+                =year - 1
+              option(value=((year - 1)+"/"+year))
+                =(year - 1)+"/"+year
+              option(value=year)
+                =year
+              option(value=(year+"/"+(year + 1)))
+                =year+"/"+(year + 1)
+              option(value=(year + 1))
+                =year + 1
+              option(value=((year + 1)+"/"+(year + 2)))
+                =(year + 1)+"/"+(year + 2)
+              option(value=(year + 2))
+                =year + 2
           .form-group
             label=gettext("Location")
             div

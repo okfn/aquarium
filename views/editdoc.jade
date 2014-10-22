@@ -34,15 +34,25 @@ block content
           .form-group
             label=gettext("Include In Stats For Year")
             - var year = new Date().getFullYear()
-            div
-              .btn-group(data-toggle="buttons-radio" data-toggle-target="year")
-                button(type="button", value=(year-1), class=(doc.year === year - 1 ? 'active' : '')).btn.btn-default
-                  =year - 1
-                button(type="button", value=(year), class=(doc.year === year ? 'active' : '')).btn.btn-default
-                  =year
-                button(type="button", value=(year+1), class=(doc.year === year + 1 ? 'active' : '')).btn.btn-default
-                  =year + 1
-              input(type="hidden", value=doc.year, name="year")
+            select.form-control(name="year")
+              option(value=(year - 2))
+                =year - 2
+              option(value=((year - 2)+"/"+(year - 1)))
+                =(year - 2)+"/"+(year - 1)
+              option(value=(year - 1))
+                =year - 1
+              option(value=((year - 1)+"/"+year))
+                =(year - 1)+"/"+year
+              option(value=year)
+                =year
+              option(value=(year+"/"+(year + 1)))
+                =year+"/"+(year + 1)
+              option(value=(year + 1))
+                =year + 1
+              option(value=((year + 1)+"/"+(year + 2)))
+                =(year + 1)+"/"+(year + 2)
+              option(value=(year + 2))
+                =year + 2
           .form-group
             label=gettext("Location")
             div
