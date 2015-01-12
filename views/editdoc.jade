@@ -35,6 +35,10 @@ block content
             label=gettext("Include In Stats For Year")
             - var year = new Date().getFullYear()
             select.form-control(name="year")
+              option(value=(year - 3))
+                =year - 3
+              option(value=((year - 3)+"/"+(year - 2)))
+                =(year - 3)+"/"+(year - 2)
               option(value=(year - 2))
                 =year - 2
               option(value=((year - 2)+"/"+(year - 1)))
