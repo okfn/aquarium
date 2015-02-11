@@ -166,7 +166,7 @@ describe('countries', function() {
         title: 'The Title',
         type: 'In-Year Report',
         approved: true,
-        expected_date_published: moment('01-01-2014'),
+        internal: false,
         date_published: moment('01-02-2014'),
         date_received: moment('01-03-2014'),
       };
@@ -177,6 +177,7 @@ describe('countries', function() {
         title: 'The Title',
         type: 'Citizens Budget',
         approved: true,
+        internal: true
       };
 
       expectedDoc1 = _.clone(doc1);
@@ -187,7 +188,6 @@ describe('countries', function() {
       // This fixes the assert.deepEqual. For some reason, the documents
       // received have _f and _l == null, and these expected docs have it ==
       // undefined.
-      expectedDoc1.expected_date_published._f = expectedDoc1.expected_date_published._l = null;
       expectedDoc1.date_published._f = expectedDoc1.date_published._l = null;
       expectedDoc1.date_received._f = expectedDoc1.date_received._l = null;
       delete expectedDoc1.country;
@@ -402,7 +402,7 @@ describe('countries', function() {
         title: 'The Title',
         type: 'In-Year Report',
         approved: true,
-        expected_date_published: moment('01-01-2014'),
+        internal: false,
         date_published: moment('01-02-2014'),
         date_received: moment('01-03-2014'),
       };
@@ -413,6 +413,7 @@ describe('countries', function() {
         title: 'The Title',
         type: 'Citizens Budget',
         approved: true,
+        internal: true
       };
 
       expectedDoc1 = _.clone(doc1);
@@ -423,7 +424,6 @@ describe('countries', function() {
       // This fixes the assert.deepEqual. For some reason, the documents
       // received have _f and _l == null, and these expected docs have it ==
       // undefined.
-      expectedDoc1.expected_date_published._f = expectedDoc1.expected_date_published._l = null;
       expectedDoc1.date_published._f = expectedDoc1.date_published._l = null;
       expectedDoc1.date_received._f = expectedDoc1.date_received._l = null;
       delete expectedDoc1.country;
