@@ -82,10 +82,21 @@ describe('documents', function() {
         assert.notEqual(documents.getDocumentState(doc), 'internal');
       });
 
-      it('is true if it\'s not available and have date_published', function() {
+      it('is false if it\'s available and internal but with date_published', function() {
+        var doc = {
+          available: true,
+	  internal: true,
+          date_published: moment(),
+        };
+
+        assert.notEqual(documents.getDocumentState(doc), 'internal');
+      });
+
+      it('is true if it\'s not available and internal', function() {
         var doc = {
           available: false,
-          date_published: moment(),
+	  internal: true,
+          date_published: undefined,
         };
 
         assert.equal(documents.getDocumentState(doc), 'internal');
@@ -119,19 +130,20 @@ describe('documents', function() {
 
       it('is true it was published late', function() {
         var doc = {
-          expected_date_published: moment('01-01-2014'),
+          available: false,
+          internal: false,
           date_published: moment('01-06-2014'),
         };
 
-        assert.equal(documents.getDocumentState(doc), 'not produced');
+        assert.equal(documents.getDocumentState(doc), 'late');
       });
 
-      it('is false it\'s available', function() {
+      it('is true it\'s available with no published date', function() {
         var doc = {
           available: true,
         };
 
-        assert.notEqual(documents.getDocumentState(doc), 'not produced');
+        assert.equal(documents.getDocumentState(doc), 'not produced');
       });
 
       it('is false have date_published', function() {
