@@ -193,9 +193,11 @@ describe('countries', function() {
       delete expectedDoc1.country;
       delete expectedDoc1.country_code;
       delete expectedDoc1.year;
+      delete expectedDoc1.internal;
       delete expectedDoc2.country;
       delete expectedDoc2.country_code;
       delete expectedDoc2.year;
+      delete expectedDoc2.internal;
 
       expectedDocuments = {
         Brazil: {
@@ -429,9 +431,11 @@ describe('countries', function() {
       delete expectedDoc1.country;
       delete expectedDoc1.country_code;
       delete expectedDoc1.year;
+      delete expectedDoc1.internal;
       delete expectedDoc2.country;
       delete expectedDoc2.country_code;
       delete expectedDoc2.year;
+      delete expectedDoc2.internal;
 
       expectedCountry = {
         country: country.country,
