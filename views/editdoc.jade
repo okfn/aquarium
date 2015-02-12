@@ -121,6 +121,10 @@ block content
             label=gettext("Comments")
             .form-group
               textarea.form-control(name="comments")=doc.comments
-            
+            - if (currentUser.admin)
+              .checkbox
+                label
+                  input(name='comments_public', type='checkbox')
+                  =gettext("Make comments public?")            
           button.btn.btn-primary(type='submit')=gettext("Update")
           a.btn.btn-link(href='/documents/#{doc._id}')=gettext("Cancel")

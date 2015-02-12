@@ -110,4 +110,6 @@
               include _url
         - if (doc.comments)
           blockquote
+            - if (doc.comments_public)
+              i.text-info.glyphicon.glyphicon-eye-open
             p=doc.comments

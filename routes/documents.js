@@ -115,6 +115,9 @@ module.exports = {
         docs.get({
             id: id
         }, function(err, doc) {
+            if (!req.user.admin) {
+		delete data.comments_public;
+            }
             if (err || !doc) {
                 return janitor.error(res, err || 'Invalid document.');
             } else if (!req.user.admin && doc.username !== req.user.username) {
