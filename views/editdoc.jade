@@ -35,28 +35,13 @@ block content
             label=gettext("Include In Stats For Year")
             - var year = new Date().getFullYear()
             select.form-control(name="year")
-              option(value=(year - 3))
-                =year - 3
-              option(value=((year - 3)+"/"+(year - 2)))
-                =(year - 3)+"/"+(year - 2)
-              option(value=(year - 2))
-                =year - 2
-              option(value=((year - 2)+"/"+(year - 1)))
-                =(year - 2)+"/"+(year - 1)
-              option(value=(year - 1))
-                =year - 1
-              option(value=((year - 1)+"/"+year))
-                =(year - 1)+"/"+year
-              option(value=year)
-                =year
-              option(value=(year+"/"+(year + 1)))
-                =year+"/"+(year + 1)
-              option(value=(year + 1))
-                =year + 1
-              option(value=((year + 1)+"/"+(year + 2)))
-                =(year + 1)+"/"+(year + 2)
-              option(value=(year + 2))
-                =year + 2
+              - var years = [year-3, (year-3)+"/"+(year-2), year-2, (year-2)+"/"+(year-1), year-1, (year-1)+"/"+(year),year, (year)+"/"+(year+1),year+1, (year+1)+"/"+(year+2), year+2]
+              if years.indexOf(doc.year) === -1
+                option(value=doc.year, selected=true)
+                  =doc.year
+              each option_year in years
+                option(value=option_year, selected=(doc.year == option_year ? true : false))
+                  =option_year
           .form-group
             label=gettext("Location")
             div
@@ -124,7 +109,7 @@ block content
             - if (currentUser.admin)
               .checkbox
                 label
-                  input(name='comments_public', type='checkbox', checked=(doc.comments_public ? 'checked' : ''))
+                  input(name='comments_public', type='checkbox', checked=(doc.comments_public ? true : false))
                   =gettext("Make comments public?")            
           button.btn.btn-primary(type='submit')=gettext("Update")
           a.btn.btn-link(href='/documents/#{doc._id}')=gettext("Cancel")
