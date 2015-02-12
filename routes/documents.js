@@ -26,7 +26,7 @@ module.exports = {
         docs.list({
             admin: !!req.user.admin,
             country: req.query.country,
-            username: req.user.username,
+            usercountry: extractCountry(req).country,
             page: page,
             pageSize: 25
         }, function(err, docs) {
