@@ -37,7 +37,7 @@ module.exports = {
         if (req.user.admin) {
             query.admin = true;
         } else {
-            query.user_id = req.user._id;
+            query.country = req.user.country;
         }
         reports.list(query, function(err, reports) {
             if (err) {
