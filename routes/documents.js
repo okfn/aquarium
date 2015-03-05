@@ -51,7 +51,9 @@ module.exports = {
                 return janitor.missing(res);
             } else if (!req.user.admin && doc.username !== req.user.username) {
                 return res.redirect('/');
-            }
+            } else if (!req.user.admin && doc.approved === true) {
+		return res.redirect('/');
+	    }
             res.render('editdoc', {
                 doc: doc,
                 title: doc.title

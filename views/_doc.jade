@@ -57,9 +57,10 @@
                   =gettext("Reject")
           a.btn.btn-default(href='/documents/#{doc._id}/edit')=gettext("Edit")
         - else
-          .btn-group
-            a.btn.btn-default(href='/documents/#{doc._id}/uploads')=gettext("Upload Files")
-            a.btn.btn-default(href='/documents/#{doc._id}/edit')=gettext("Edit")
+          - if (doc.approved !== true)
+            .btn-group
+              a.btn.btn-default(href='/documents/#{doc._id}/uploads')=gettext("Upload Files")
+              a.btn.btn-default(href='/documents/#{doc._id}/edit')=gettext("Edit")
     .col-md-5
       p
         - if (doc.date_published)
